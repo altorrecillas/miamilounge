@@ -1,0 +1,4002 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="theme-color" content="#0a0118" />
+    <title>Carta · Miami Lounge Bar · Cócteles & Tapas · Miami Platja</title>
+    <meta name="description" content="Carta completa de Miami Lounge Bar en Miami Platja. Cócteles clásicos, mojitos XL, combinados, gin tonics, cervezas, vinos, champagne, caprichos y club gourmet. Temporada 2026." />
+    <meta property="og:title" content="Carta · Miami Lounge Bar" />
+    <meta property="og:description" content="Cócteles artesanales, cócteles XL, combinados y platitos para compartir en Miami Platja." />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="img/miami-hero.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Monoton&family=Outfit:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+    <style>
+/* ==================================================
+   STYLES.CSS (original Miami Lounge styles)
+   ================================================== */
+
+/* ==================================================
+   MIAMI LOUNGE BAR — Miami Vice / Synthwave Theme
+   ================================================== */
+
+:root {
+    --bg: #0a0118;
+    --bg-2: #14032a;
+    --bg-3: #1f0840;
+    --ink: #ffffff;
+    --ink-soft: rgba(255, 255, 255, 0.72);
+    --ink-dim: rgba(255, 255, 255, 0.45);
+
+    --pink: #ff2e93;
+    --pink-2: #ff5fb3;
+    --cyan: #00f0ff;
+    --cyan-2: #5ee7ff;
+    --purple: #8b5cf6;
+    --orange: #ff6b35;
+    --lilac: #b794f6;
+    --gold: #ffd700;
+
+    --grad-sunset: linear-gradient(135deg, #ff2e93 0%, #b794f6 50%, #ffd700 100%);
+    --grad-cool: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 50%, #ff2e93 100%);
+    --grad-miami: linear-gradient(180deg, #ff2e93 0%, #ff5fb3 30%, #ffd166 65%, #00f0ff 100%);
+
+    --glass: rgba(255, 255, 255, 0.04);
+    --glass-2: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hi: rgba(255, 46, 147, 0.4);
+
+    --radius: 18px;
+    --radius-sm: 12px;
+    --shadow-neon-pink: 0 0 40px rgba(255, 46, 147, 0.4), 0 0 80px rgba(255, 46, 147, 0.15);
+    --shadow-neon-cyan: 0 0 40px rgba(0, 240, 255, 0.4), 0 0 80px rgba(0, 240, 255, 0.15);
+
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+*::selection { background: var(--pink); color: #fff; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: none;
+    font-weight: 400;
+    min-height: 100vh;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: 0; color: inherit; cursor: none; }
+
+.container {
+    width: min(1280px, 92vw);
+    margin: 0 auto;
+}
+
+.gradient {
+    background: var(--grad-sunset);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+.italic { font-style: italic; font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+
+/* ==================================================
+   GRAIN OVERLAY (texture)
+   ================================================== */
+.grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ==================================================
+   CUSTOM CURSOR
+   ================================================== */
+.cursor, .cursor-follower {
+    position: fixed;
+    top: 0; left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+}
+.cursor {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    transition: transform 0.05s linear, opacity 0.2s, background 0.2s;
+}
+.cursor-follower {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid #fff;
+    transition: transform 0.25s var(--ease), width 0.25s, height 0.25s, opacity 0.2s, background 0.2s;
+}
+.cursor-follower.is-link { width: 60px; height: 60px; background: var(--pink); border-color: var(--pink); }
+.cursor-follower.is-view { width: 80px; height: 80px; background: var(--cyan); border-color: var(--cyan); }
+@media (hover: none) { .cursor, .cursor-follower { display: none; } body { cursor: auto; } }
+
+/* ==================================================
+   LOADER
+   ================================================== */
+.loader {
+    position: fixed; inset: 0; z-index: 10001;
+    background: var(--bg);
+    display: grid; place-items: center;
+    transition: opacity 0.8s var(--ease), visibility 0.8s;
+}
+.loader.is-hidden { opacity: 0; visibility: hidden; }
+.loader-bg {
+    position: absolute; inset: 0;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(255, 46, 147, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(0, 240, 255, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
+}
+.loader-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    width: min(90vw, 500px);
+}
+.loader-sun {
+    width: 220px; height: 110px;
+    background: var(--grad-sunset);
+    border-radius: 220px 220px 0 0;
+    margin: 0 auto 30px;
+    box-shadow: 0 0 80px rgba(183, 148, 246, 0.5);
+    position: relative;
+    overflow: hidden;
+    animation: sunRise 1.2s var(--ease) both;
+}
+.loader-sun::before, .loader-sun::after {
+    content: ''; position: absolute; left: 0; right: 0;
+    height: 2px; background: var(--bg);
+    box-shadow: 0 18px 0 var(--bg), 0 36px 0 var(--bg), 0 54px 0 var(--bg);
+}
+.loader-sun::after { display: none; }
+@keyframes sunRise {
+    from { transform: translateY(60px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.loader-palms {
+    position: absolute; inset: 0;
+    display: flex; justify-content: space-between;
+    align-items: flex-end; padding: 0 4vw 0;
+    color: var(--ink);
+    opacity: 0.8;
+}
+.palm { width: 120px; height: 200px; animation: palmSway 3s ease-in-out infinite; }
+.palm-right { animation-delay: 0.5s; }
+@keyframes palmSway {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+}
+.loader-text { position: relative; }
+.loader-welcome {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(18px, 3vw, 24px);
+    color: var(--cyan);
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeIn 0.6s 0.3s var(--ease) both;
+}
+.loader-title {
+    font-family: 'Monoton', sans-serif;
+    font-size: clamp(48px, 12vw, 110px);
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    color: #fff;
+    text-shadow: 0 0 20px var(--pink), 0 0 40px var(--pink);
+    display: flex; justify-content: center; gap: 4px;
+}
+.loader-title span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(40px) rotate(15deg);
+    animation: letterIn 0.6s var(--ease-bounce) forwards;
+}
+.loader-title span:nth-child(1) { animation-delay: 0.4s; }
+.loader-title span:nth-child(2) { animation-delay: 0.5s; }
+.loader-title span:nth-child(3) { animation-delay: 0.6s; }
+.loader-title span:nth-child(4) { animation-delay: 0.7s; }
+.loader-title span:nth-child(5) { animation-delay: 0.8s; }
+@keyframes letterIn {
+    to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+.loader-sub {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.3em;
+    color: var(--cyan);
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 0.6s 1.2s var(--ease) both;
+}
+@keyframes fadeIn { to { opacity: 1; } }
+
+.loader-bar {
+    margin: 40px auto 0;
+    width: 220px; height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+.loader-bar-fill {
+    height: 100%; width: 0;
+    background: var(--grad-sunset);
+    animation: barFill 1.8s 0.3s var(--ease) forwards;
+}
+@keyframes barFill { to { width: 100%; } }
+
+/* ==================================================
+   NAV
+   ================================================== */
+.nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 22px 4vw;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 30px;
+    transition: background 0.4s, padding 0.4s, backdrop-filter 0.4s;
+}
+.nav.is-scrolled {
+    padding: 14px 4vw;
+    background: rgba(10, 1, 24, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    flex-shrink: 0;
+}
+.nav-logo-mark {
+    width: 38px; height: 38px;
+    background: var(--grad-sunset);
+    border-radius: 10px;
+    display: grid; place-items: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 46, 147, 0.5);
+    transition: transform 0.4s var(--ease-bounce);
+}
+.nav-logo:hover .nav-logo-mark { transform: rotate(-10deg) scale(1.1); }
+.nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+.nav-logo-text strong {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.12em;
+    color: #fff;
+}
+.nav-logo-text em {
+    font-style: normal;
+    font-size: 10px;
+    color: var(--cyan);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+.nav-links {
+    display: flex; gap: 36px;
+}
+.nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    position: relative;
+    transition: color 0.3s;
+    letter-spacing: 0.02em;
+}
+.nav-links a::before {
+    content: '';
+    position: absolute; bottom: -6px; left: 50%;
+    width: 0; height: 1px;
+    background: var(--grad-sunset);
+    transition: width 0.3s var(--ease), left 0.3s var(--ease);
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a:hover::before { width: 100%; left: 0; }
+
+.nav-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 20px;
+    background: var(--grad-sunset);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.04em;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s;
+    box-shadow: 0 0 0 rgba(255, 46, 147, 0);
+}
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 46, 147, 0.5);
+}
+
+.nav-burger {
+    display: none;
+    width: 32px; height: 32px;
+    flex-direction: column; gap: 5px;
+    align-items: center; justify-content: center;
+    position: relative; z-index: 102;
+}
+.nav-burger span {
+    width: 22px; height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.4s var(--ease), opacity 0.3s;
+}
+.nav-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.is-open span:nth-child(2) { opacity: 0; }
+.nav-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+    position: fixed; inset: 0;
+    z-index: 101;
+    background: var(--bg);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 24px;
+    opacity: 0; visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), visibility 0.5s;
+}
+.mobile-menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
+.mobile-menu a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 0.08em;
+    color: #fff;
+    transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--cyan); }
+.mobile-cta {
+    margin-top: 20px;
+    padding: 14px 30px;
+    background: var(--grad-sunset);
+    border-radius: 50px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px !important;
+    font-weight: 600;
+}
+
+/* ==================================================
+   HERO
+   ================================================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 4vw 80px;
+    overflow: hidden;
+}
+.hero-bg {
+    position: absolute; inset: 0;
+    z-index: 0;
+}
+.hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+    filter: saturate(1.15) contrast(1.05);
+    animation: heroZoom 16s ease-in-out infinite alternate;
+}
+@keyframes heroZoom { from { transform: scale(1.05); } to { transform: scale(1.15); } }
+.hero-overlay {
+    position: absolute; inset: 0;
+    background:
+        linear-gradient(180deg, rgba(10, 1, 24, 0.7) 0%, rgba(10, 1, 24, 0.4) 40%, rgba(10, 1, 24, 0.95) 100%),
+        linear-gradient(90deg, rgba(255, 46, 147, 0.2) 0%, transparent 50%, rgba(0, 240, 255, 0.15) 100%);
+}
+.hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 46, 147, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+}
+
+.hero-floating {
+    position: absolute;
+    z-index: 1;
+    color: var(--pink);
+    opacity: 0.18;
+    pointer-events: none;
+}
+.hero-floating svg { width: 100%; height: 100%; }
+.hero-floating-1 {
+    width: 300px; height: 300px;
+    top: 10%; right: -50px;
+    animation: floaty 8s ease-in-out infinite;
+}
+.hero-floating-2 {
+    width: 200px; height: 200px;
+    bottom: 8%; left: -40px;
+    color: var(--cyan);
+    animation: floaty 7s ease-in-out infinite reverse;
+}
+@keyframes floaty {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-30px) rotate(4deg); }
+}
+
+.hero-content {
+    position: relative; z-index: 2;
+    width: min(1280px, 92vw);
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.hero-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 18px;
+    background: rgba(255, 46, 147, 0.1);
+    border: 1px solid var(--border-hi);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+.hero-tag .dot {
+    width: 8px; height: 8px;
+    background: var(--pink);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--pink);
+    animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 12vw, 160px);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    margin-bottom: 30px;
+    text-shadow: 0 0 30px rgba(255, 46, 147, 0.3);
+}
+.hero-line {
+    display: block;
+    overflow: hidden;
+}
+.hero-line:nth-child(2) { padding-left: clamp(40px, 8vw, 110px); }
+.hero-line:nth-child(3) { padding-left: clamp(20px, 4vw, 60px); }
+.hero-line.italic {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--cyan);
+    text-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+}
+
+.hero-sub {
+    font-size: clamp(16px, 1.5vw, 19px);
+    color: var(--ink-soft);
+    max-width: 560px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+.hero-loc {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(13px, 1.3vw, 17px);
+    font-weight: 500;
+    color: var(--cyan-2);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: -10px 0 50px;
+    padding-left: clamp(0px, 0.5vw, 4px);
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+.hero-loc .loc-dot {
+    color: var(--pink);
+    font-size: 1.1em;
+    text-shadow: 0 0 10px rgba(255, 46, 147, 0.7);
+    animation: blink 2.2s ease-in-out infinite;
+}
+
+.hero-ctas {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    margin-bottom: 70px;
+}
+
+.btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s, background 0.3s;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+.btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--grad-sunset);
+    z-index: -1;
+    transition: opacity 0.3s;
+}
+.btn-primary { color: #fff; }
+.btn-primary::before { opacity: 1; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255, 46, 147, 0.5); }
+.btn-primary svg { transition: transform 0.3s var(--ease); }
+.btn-primary:hover svg { transform: translateX(4px); }
+
+.btn-ghost {
+    background: transparent;
+    color: #fff;
+    border: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+}
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.05); border-color: var(--cyan); color: var(--cyan); }
+
+.hero-stats {
+    display: flex; gap: clamp(20px, 4vw, 60px);
+    flex-wrap: wrap;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+}
+.stat strong {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 4vw, 44px);
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+.stat strong span { color: var(--cyan); font-size: 0.6em; }
+.stat span {
+    font-size: 12px;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 30px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--ink-soft);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 10px;
+    transition: color 0.3s;
+}
+.hero-scroll:hover { color: var(--cyan); }
+.hero-scroll span {
+    width: 1px; height: 40px;
+    background: currentColor;
+    position: relative;
+    overflow: hidden;
+}
+.hero-scroll span::after {
+    content: '';
+    position: absolute;
+    top: -100%; left: 0;
+    width: 100%; height: 100%;
+    background: var(--cyan);
+    animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}
+.hero-scroll em { font-style: normal; }
+
+/* ==================================================
+   MARQUEE
+   ================================================== */
+.marquee {
+    background: linear-gradient(90deg, var(--pink), var(--lilac), var(--cyan));
+    padding: 18px 0;
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.marquee-track {
+    display: flex; gap: 40px;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+    width: max-content;
+}
+.marquee-track span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    color: #0a0118;
+    text-transform: uppercase;
+}
+.marquee-track .dot { color: rgba(10, 1, 24, 0.5); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ==================================================
+   SECTION GENERIC
+   ================================================== */
+section { position: relative; padding: clamp(80px, 10vw, 140px) 0; }
+.eyebrow {
+    display: inline-block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--cyan);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.eyebrow.light { color: var(--cyan-2); }
+
+.section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 84px);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.section-title.light { color: #fff; }
+.section-title em { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+.section-sub {
+    font-size: clamp(15px, 1.4vw, 18px);
+    color: var(--ink-soft);
+    max-width: 580px;
+    line-height: 1.6;
+}
+.section-sub.light { color: rgba(255, 255, 255, 0.85); }
+
+.section-head { margin-bottom: 70px; max-width: 760px; }
+.section-head .section-sub { margin-top: 10px; }
+
+.lead { font-size: 18px; color: var(--ink-soft); margin-bottom: 24px; }
+.lead strong { color: #fff; }
+
+p { color: var(--ink-soft); margin-bottom: 16px; }
+p strong { color: #fff; }
+
+/* ==================================================
+   ABOUT
+   ================================================== */
+.about { background: var(--bg); }
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+.about-text .section-title { margin-bottom: 30px; }
+
+.about-features {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+.af-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 18px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: transform 0.3s var(--ease), border-color 0.3s, background 0.3s;
+}
+.af-item:hover { transform: translateY(-4px); border-color: var(--border-hi); background: rgba(255, 46, 147, 0.05); }
+.af-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    background: rgba(255, 46, 147, 0.1);
+    border: 1px solid var(--border-hi);
+    border-radius: 12px;
+    display: grid; place-items: center;
+}
+.af-item strong { display: block; color: #fff; font-size: 15px; margin-bottom: 4px; }
+.af-item span { font-size: 13px; color: var(--ink-dim); }
+
+.about-media {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: 200px 200px;
+    gap: 16px;
+    position: relative;
+}
+.about-card {
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    position: relative;
+    transition: transform 0.5s var(--ease);
+}
+.about-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
+.about-card:hover img { transform: scale(1.1); }
+.about-card:nth-child(1) { grid-row: 1 / 3; }
+.about-card.small-2 {
+    position: relative;
+    transform: translateY(-20px);
+}
+.about-card-tag {
+    position: absolute;
+    bottom: 16px; left: 16px;
+    padding: 8px 14px;
+    background: rgba(10, 1, 24, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-hi);
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+/* ==================================================
+   GALLERY
+   ================================================== */
+.gallery { background: var(--bg-2); }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 16px;
+}
+.g-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    cursor: none;
+    display: block;
+}
+.g-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s var(--ease), filter 0.5s;
+    filter: saturate(1.05);
+}
+.g-item:hover img { transform: scale(1.1); filter: saturate(1.3) contrast(1.1); }
+.g-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(10, 1, 24, 0.9));
+    display: grid; place-items: center;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+.g-overlay span {
+    padding: 10px 22px;
+    background: var(--grad-sunset);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    transform: translateY(20px);
+    transition: transform 0.4s var(--ease);
+}
+.g-item:hover .g-overlay { opacity: 1; }
+.g-item:hover .g-overlay span { transform: translateY(0); }
+
+.g-big { grid-column: span 2; grid-row: span 2; }
+.g-wide { grid-column: span 2; }
+.g-tall { grid-row: span 2; }
+
+/* ==================================================
+   COCKTAILS
+   ================================================== */
+.cocktails { background: var(--bg); position: relative; overflow: hidden; }
+.cocktails::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255, 46, 147, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+.cocktails::after {
+    content: '';
+    position: absolute;
+    bottom: -200px; left: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.cocktails-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+}
+.cocktail-card {
+    padding: 28px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(20px);
+    transition: transform 0.4s var(--ease), border-color 0.4s, background 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+.cocktail-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--pink), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+.cocktail-card:hover { transform: translateY(-8px); border-color: var(--border-hi); background: rgba(255, 46, 147, 0.04); }
+.cocktail-card:hover::before { opacity: 1; }
+.cocktail-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--c1), var(--c2));
+    margin-bottom: 20px;
+    display: grid; place-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.cocktail-glow {
+    position: absolute;
+    width: 200px; height: 200px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: glowPulse 4s ease-in-out infinite;
+}
+@keyframes glowPulse {
+    0%, 100% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.3) translate(20px, -10px); }
+}
+.cocktail-emoji {
+    font-size: 70px;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    transition: transform 0.4s var(--ease-bounce);
+}
+.cocktail-card:hover .cocktail-emoji { transform: scale(1.15) rotate(-5deg); }
+.cocktail-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.04em;
+    color: #fff;
+    margin-bottom: 8px;
+}
+.cocktail-card p { font-size: 14px; color: var(--ink-soft); margin-bottom: 16px; line-height: 1.5; }
+.cocktail-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    background: rgba(255, 46, 147, 0.1);
+    border: 1px solid var(--border-hi);
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--pink-2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* ==================================================
+   EVENTS
+   ================================================== */
+.events {
+    position: relative;
+    overflow: hidden;
+    background: var(--bg);
+}
+.events-bg { position: absolute; inset: 0; z-index: 0; }
+.events-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: blur(2px) brightness(0.4) saturate(1.2);
+    transform: scale(1.05);
+}
+.events-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10, 1, 24, 0.85), rgba(10, 1, 24, 0.95));
+}
+.events-inner { position: relative; z-index: 1; }
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.event-card {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(20px);
+    transition: transform 0.4s var(--ease), border-color 0.4s, background 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px;
+    width: 50px; height: 50px;
+    background: var(--grad-sunset);
+    border-radius: 0 0 50% 0;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+.event-card:hover { transform: translateY(-6px); border-color: var(--border-hi); background: rgba(255, 46, 147, 0.06); }
+.event-card:hover::before { opacity: 1; }
+.event-num {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 50px;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--cyan);
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+}
+.event-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #fff;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+}
+.event-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; margin: 0; }
+
+/* ==================================================
+   SCHEDULE
+   ================================================== */
+.schedule { background: var(--bg-2); }
+.schedule-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: center;
+    padding: 60px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+}
+.schedule-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255, 46, 147, 0.15), transparent 70%);
+}
+.schedule-text p { color: var(--ink-soft); margin: 20px 0 20px; max-width: 420px; }
+.schedule-note {
+    font-size: 12px !important;
+    color: var(--ink-dim) !important;
+    background: rgba(183, 148, 246, 0.08);
+    border-left: 2px solid var(--lilac);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 30px !important;
+    max-width: 420px;
+    font-style: italic;
+}
+.schedule-note a {
+    color: var(--pink) !important;
+    font-weight: 600;
+    text-decoration: none;
+    font-style: normal;
+}
+.schedule-note a:hover { text-decoration: underline; }
+.season-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(255, 46, 147, 0.15), rgba(131, 56, 236, 0.15));
+    border: 1px solid var(--pink);
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: none;
+    margin: 18px 0 14px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 24px rgba(255, 46, 147, 0.25);
+    position: relative;
+    overflow: hidden;
+    animation: badge-pulse 2.4s ease-in-out infinite;
+}
+.season-badge .dot {
+    width: 10px; height: 10px;
+    background: #2dff8e;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #2dff8e;
+    animation: blink 1.2s ease-in-out infinite;
+}
+.season-badge::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.25), transparent 70%);
+    transform: translateX(-100%);
+    animation: shine 3s linear infinite;
+}
+@keyframes badge-pulse {
+    0%,100% { box-shadow: 0 0 24px rgba(255, 46, 147, 0.25); }
+    50%     { box-shadow: 0 0 36px rgba(255, 46, 147, 0.55); }
+}
+@keyframes shine {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+}
+@keyframes blink {
+    0%,100% { opacity: 1; }
+    50%     { opacity: 0.35; }
+}
+.web-soon { color: var(--cyan-2) !important; }
+.web-soon em {
+    font-style: normal;
+    font-size: 11px;
+    color: var(--lilac);
+    margin-left: 6px;
+    padding: 2px 8px;
+    background: rgba(183, 148, 246, 0.12);
+    border: 1px solid rgba(183, 148, 246, 0.3);
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+.schedule-list {
+    list-style: none;
+    display: flex; flex-direction: column;
+    gap: 4px;
+    position: relative;
+    z-index: 1;
+}
+.schedule-list li {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 16px 20px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid transparent;
+    transition: background 0.3s, border-color 0.3s;
+}
+.schedule-list li:has(strong + strong) {
+    grid-template-columns: 90px 1fr 1fr;
+}
+.schedule-list li:hover { background: rgba(255, 46, 147, 0.04); border-color: var(--border-hi); }
+.schedule-list li span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.08em;
+    color: var(--cyan);
+    text-transform: uppercase;
+}
+.schedule-list li strong {
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+    letter-spacing: 0.02em;
+}
+.schedule-list li.hot {
+    background: linear-gradient(90deg, rgba(255, 46, 147, 0.1), transparent);
+    border-color: rgba(255, 46, 147, 0.2);
+}
+.schedule-list li.hot span { color: var(--pink); }
+.schedule-list li.hot strong { color: #fff; font-weight: 600; }
+
+/* ==================================================
+   TESTIMONIALS
+   ================================================== */
+.testimonials { background: var(--bg); }
+.t-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+blockquote {
+    padding: 32px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    position: relative;
+    transition: transform 0.4s var(--ease), border-color 0.4s;
+}
+blockquote:hover { transform: translateY(-6px); border-color: var(--border-hi); }
+blockquote::before {
+    content: '"';
+    position: absolute;
+    top: 0; left: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 100px;
+    line-height: 1;
+    color: var(--pink);
+    opacity: 0.4;
+}
+blockquote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 20px 0 24px;
+    position: relative;
+    z-index: 1;
+}
+blockquote footer {
+    font-size: 13px;
+    color: var(--ink-dim);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ==================================================
+   CONTACT
+   ================================================== */
+.contact { background: var(--bg-2); }
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: stretch;
+}
+.contact-list {
+    list-style: none;
+    display: flex; flex-direction: column;
+    gap: 24px;
+    margin: 30px 0;
+}
+.contact-list li {
+    display: flex; gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+}
+.ci-icon {
+    font-size: 22px;
+    width: 48px; height: 48px;
+    background: rgba(255, 46, 147, 0.08);
+    border: 1px solid var(--border-hi);
+    border-radius: 12px;
+    display: grid; place-items: center;
+    flex-shrink: 0;
+}
+.contact-list strong { display: block; font-size: 13px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+.contact-list a, .contact-list span { font-size: 16px; color: #fff; }
+.contact-list a:hover { color: var(--cyan); }
+
+.socials {
+    display: flex; flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+.socials a {
+    padding: 10px 18px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+.socials a:hover { background: var(--grad-sunset); border-color: transparent; color: #fff; }
+
+.contact-map {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    min-height: 480px;
+}
+.contact-map iframe {
+    width: 100%; height: 100%;
+    border: 0;
+    filter: invert(0.92) hue-rotate(180deg) saturate(1.2);
+}
+.map-badge {
+    position: absolute;
+    bottom: 20px; left: 20px;
+    padding: 10px 16px;
+    background: rgba(10, 1, 24, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-hi);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    display: flex; gap: 8px; align-items: center;
+}
+
+/* ==================================================
+   FOOTER
+   ================================================== */
+.footer {
+    background: var(--bg);
+    padding: 80px 0 0;
+    border-top: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+.footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: 60px;
+    padding-bottom: 60px;
+}
+.footer-brand p { color: var(--ink-dim); max-width: 320px; margin-top: 16px; }
+.footer-logo {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 20px;
+}
+.footer-logo .nav-logo-mark { width: 50px; height: 50px; font-size: 28px; border-radius: 14px; }
+.footer-logo strong {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    color: #fff;
+}
+.footer-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+.footer-cols h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+}
+.footer-cols p { font-size: 14px; color: var(--ink-dim); margin: 6px 0; }
+.footer-cols a { color: var(--ink-soft); transition: color 0.3s; }
+.footer-cols a:hover { color: var(--cyan); }
+
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    padding: 24px 0;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 12px;
+    color: var(--ink-dim);
+}
+
+.footer-marquee {
+    background: var(--grad-sunset);
+    color: #0a0118;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 14vw, 180px);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 30px 0;
+    display: flex; gap: 30px;
+    animation: marqueeBig 30s linear infinite;
+    width: max-content;
+}
+.footer-marquee span { -webkit-text-fill-color: #0a0118; }
+@keyframes marqueeBig { to { transform: translateX(-50%); } }
+
+/* ==================================================
+   LIGHTBOX
+   ================================================== */
+.lightbox {
+    position: fixed; inset: 0;
+    z-index: 9998;
+    background: rgba(10, 1, 24, 0.95);
+    backdrop-filter: blur(20px);
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 40px;
+}
+.lightbox.is-open { display: flex; animation: lbIn 0.3s var(--ease); }
+@keyframes lbIn { from { opacity: 0; } to { opacity: 1; } }
+.lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+}
+.lb-close, .lb-prev, .lb-next {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
+    color: #fff;
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: grid; place-items: center;
+    transition: background 0.3s, transform 0.3s;
+}
+.lb-close:hover, .lb-prev:hover, .lb-next:hover { background: var(--grad-sunset); transform: scale(1.1); }
+.lb-close { top: 30px; right: 30px; }
+.lb-prev { left: 30px; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 30px; top: 50%; transform: translateY(-50%); }
+.lb-prev:hover, .lb-next:hover { transform: translateY(-50%) scale(1.1); }
+.lb-counter {
+    position: absolute;
+    bottom: 30px; left: 50%;
+    transform: translateX(-50%);
+    color: var(--ink-soft);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+}
+
+/* ==================================================
+   FLOATING CTA
+   ================================================== */
+.floating-cta {
+    position: fixed;
+    bottom: 30px; right: 30px;
+    z-index: 99;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 24px;
+    background: var(--grad-sunset);
+    border-radius: 50px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 10px 40px rgba(255, 46, 147, 0.5);
+    transition: transform 0.3s var(--ease), box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+.floating-cta.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.floating-cta:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 50px rgba(255, 46, 147, 0.7); }
+
+/* ==================================================
+   REVEAL ON SCROLL
+   ================================================== */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    transition-delay: var(--delay, 0ms);
+}
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==================================================
+   RESPONSIVE
+   ================================================== */
+@media (max-width: 1024px) {
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-burger { display: flex; }
+    .about-grid { grid-template-columns: 1fr; gap: 50px; }
+    .about-media { grid-template-rows: 180px 180px; }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .g-big { grid-column: span 2; grid-row: span 1; }
+    .g-wide { grid-column: span 1; }
+    .cocktails-grid { grid-template-columns: repeat(2, 1fr); }
+    .events-grid { grid-template-columns: repeat(2, 1fr); }
+    .schedule-wrap { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
+    .t-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-map { min-height: 380px; }
+    .footer-top { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+    body { cursor: auto; }
+    .nav { padding: 16px 5vw; }
+    .nav.is-scrolled { padding: 12px 5vw; }
+    .hero { padding: 100px 5vw 80px; }
+    .hero-title { font-size: clamp(48px, 16vw, 80px); }
+    .hero-line:nth-child(2) { padding-left: 0; }
+    .hero-line:nth-child(3) { padding-left: 0; }
+    .hero-loc { letter-spacing: 2px; gap: 8px; margin: -6px 0 36px; }
+    .hero-stats { gap: 24px; }
+    .about-features { grid-template-columns: 1fr; }
+    .about-media { grid-template-columns: 1fr; grid-template-rows: 240px 140px 140px; }
+    .about-card:nth-child(1) { grid-row: auto; }
+    .about-card.small-2 { transform: none; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+    .g-big { grid-column: span 2; }
+    .g-wide { grid-column: span 2; }
+    .g-tall { grid-row: span 2; }
+    .cocktails-grid { grid-template-columns: 1fr; }
+    .events-grid { grid-template-columns: 1fr; }
+    .schedule-list li { grid-template-columns: 1fr; gap: 6px; padding: 14px 16px; text-align: center; }
+    .schedule-list li:has(strong + strong) { grid-template-columns: 1fr; }
+    .schedule-list li strong { font-size: 14px; }
+    .schedule-wrap { padding: 28px; }
+    .footer-cols { grid-template-columns: 1fr; gap: 30px; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .floating-cta span { display: none; }
+    .floating-cta { padding: 16px; }
+    .lb-prev, .lb-next { width: 40px; height: 40px; font-size: 18px; }
+    .lb-close { top: 15px; right: 15px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    [data-reveal] { opacity: 1; transform: none; }
+}
+
+
+/* ==================================================
+   CARTA.CSS (carta page specific)
+   ================================================== */
+
+/* ==================================================
+   CARTA PAGE - Miami Lounge Bar
+   ================================================== */
+
+.carta-page { background: var(--bg); }
+
+/* ============== CARTA HERO ============== */
+.carta-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 160px 8vw 80px;
+    overflow: hidden;
+}
+.carta-hero-bg {
+    position: absolute; inset: 0;
+    z-index: 0;
+}
+.carta-hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(0.85) contrast(1.05);
+}
+.carta-hero-overlay {
+    position: absolute; inset: 0;
+    background:
+        linear-gradient(180deg, rgba(10,1,24,0.6) 0%, rgba(10,1,24,0.9) 100%),
+        linear-gradient(120deg, rgba(255,46,147,0.15), rgba(0,240,255,0.15));
+}
+.carta-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    text-align: left;
+}
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    transition: all 0.3s;
+}
+.back-link:hover {
+    background: var(--grad-sunset);
+    border-color: transparent;
+    transform: translateX(-4px);
+}
+.carta-hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 11vw, 140px);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    margin: 20px 0 30px;
+    text-shadow: 0 0 30px rgba(255, 46, 147, 0.3);
+}
+.carta-hero-sub {
+    font-size: clamp(16px, 1.5vw, 20px);
+    color: var(--ink-soft);
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.carta-hero-sub strong {
+    color: var(--pink);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15em;
+    font-weight: 600;
+}
+
+/* Hero action: download PDF */
+.carta-hero-actions {
+    margin-top: 30px;
+    display: flex; flex-wrap: wrap; gap: 14px;
+}
+.btn-pdf {
+    position: relative;
+    padding: 16px 26px;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+    gap: 6px;
+    min-width: 240px;
+}
+.btn-pdf svg { display: block; }
+.btn-pdf .btn-sub {
+    font-size: 11px;
+    font-weight: 400;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-top: 2px;
+}
+.btn-pdf:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 20px 50px rgba(0, 240, 255, 0.35); }
+.btn-pdf::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, var(--pink), var(--cyan), var(--lilac));
+    z-index: -1;
+    opacity: 0;
+    filter: blur(12px);
+    transition: opacity 0.3s;
+}
+.btn-pdf:hover::after { opacity: 0.7; }
+
+/* ============== STICKY CATEGORY NAV ============== */
+.carta-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10, 1, 24, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.carta-nav::-webkit-scrollbar { display: none; }
+.carta-nav-inner {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 8vw;
+    white-space: nowrap;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.carta-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border-radius: 50px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+    flex-shrink: 0;
+}
+.carta-nav-link:hover {
+    color: var(--ink);
+    background: rgba(255,255,255,0.05);
+    border-color: var(--border);
+}
+.carta-nav-link.is-active {
+    background: var(--grad-sunset);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 0 20px rgba(255, 46, 147, 0.4);
+}
+.cn-icon { font-size: 1.1em; }
+
+/* ============== MAIN CONTAINER ============== */
+.carta-main { background: var(--bg); }
+
+/* ============== MENU SECTION ============== */
+.menu-section {
+    padding: 100px 8vw;
+    position: relative;
+}
+.menu-section.alt {
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(255,46,147,0.03) 50%, var(--bg) 100%);
+}
+.menu-section.dark {
+    background: linear-gradient(180deg, #0a0118 0%, #1f0840 100%);
+    color: #fff;
+}
+.menu-section.capric {
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(255,107,53,0.05) 50%, var(--bg) 100%);
+}
+.menu-section.gourmet {
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(255,215,0,0.04) 50%, var(--bg) 100%);
+}
+.menu-section .container { max-width: 1280px; margin: 0 auto; }
+
+.menu-section-head {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+.menu-section-head .eyebrow { color: var(--pink); }
+.menu-section-head .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 0.95;
+    margin: 14px 0 20px;
+    color: var(--ink);
+}
+.menu-section-head .section-title em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--cyan);
+    text-transform: lowercase;
+    text-shadow: 0 0 30px rgba(0,240,255,0.3);
+}
+.menu-section-head .section-sub {
+    color: var(--ink-soft);
+    max-width: 600px;
+    margin: 16px auto 0;
+    line-height: 1.6;
+}
+.menu-section-head .section-sub.light { color: rgba(255,255,255,0.7); }
+.section-title.light { color: #fff !important; }
+
+.price-tag {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 12px 28px;
+    background: var(--grad-sunset);
+    border-radius: 50px;
+    margin: 18px 0 10px;
+    box-shadow: 0 0 30px rgba(255, 46, 147, 0.4);
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+}
+.price-tag span {
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+.price-tag small {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+}
+
+/* ============== MENU GRID ============== */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px 0;
+}
+.menu-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.menu-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.menu-grid-2 .menu-item,
+.menu-grid-3 .menu-item { padding: 16px 24px; }
+
+@media (max-width: 768px) {
+    .menu-grid-2, .menu-grid-3 { grid-template-columns: 1fr; }
+    .menu-section { padding: 60px 5vw; }
+}
+
+/* ============== MENU ITEM ============== */
+.menu-item {
+    position: relative;
+    padding: 14px 24px;
+    border-bottom: 1px dashed var(--border);
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+.menu-item:hover {
+    background: rgba(255,46,147,0.04);
+    border-color: var(--border-hi);
+    transform: translateX(4px);
+}
+.menu-item.mi-small { padding: 10px 18px; }
+.mi-head {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-family: 'Outfit', sans-serif;
+}
+.mi-head h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    flex-shrink: 0;
+    letter-spacing: 0.2px;
+}
+.mi-dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--border-hi);
+    margin: 0 4px;
+    transform: translateY(-4px);
+    min-width: 30px;
+}
+.mi-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--pink);
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 20px rgba(255,46,147,0.3);
+}
+.mi-desc {
+    font-size: 13px;
+    color: var(--ink-dim);
+    font-style: italic;
+    margin-top: 4px;
+    line-height: 1.4;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+.menu-item.mi-glow { background: rgba(255, 215, 0, 0.04); border-left: 2px solid var(--yellow); }
+.mi-tag {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 3px 10px;
+    background: rgba(0, 240, 255, 0.1);
+    color: var(--cyan);
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+}
+.mi-tag-signature {
+    background: rgba(255, 46, 147, 0.12);
+    color: var(--pink);
+    border-color: rgba(255, 46, 147, 0.3);
+}
+.mi-tag-secret {
+    background: rgba(131, 56, 236, 0.15);
+    color: #c084fc;
+    border-color: rgba(131, 56, 236, 0.4);
+}
+.mi-tag-premium {
+    background: rgba(255, 215, 0, 0.15);
+    color: var(--yellow);
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+/* ============== SUB-SECTION (Champagne/Redbull/Sin alcohol nuevos) ============== */
+.menu-subsection {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+}
+.subsection-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--ink);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+.sub-icon { font-size: 1.1em; }
+.sub-price {
+    margin-left: auto;
+    padding: 4px 16px;
+    background: var(--grad-sunset);
+    color: #fff;
+    border-radius: 50px;
+    font-size: 18px;
+}
+
+/* Nuevos sin alcohol */
+.new-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0;
+}
+.np {
+    padding: 14px 24px;
+    background: rgba(255,46,147,0.08);
+    border: 1px solid rgba(255,46,147,0.25);
+    color: var(--ink);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+.np:hover {
+    background: var(--grad-sunset);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255,46,147,0.3);
+}
+.new-highlight {
+    margin-top: 30px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(255,107,53,0.05));
+    border: 1px solid var(--yellow);
+    border-radius: 12px;
+    color: var(--ink);
+    font-size: 15px;
+}
+.new-highlight strong { color: var(--yellow); }
+
+/* ============== MOJITOS PILLS ============== */
+.mojito-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin: 30px 0;
+}
+.mojito-pill {
+    padding: 16px 28px;
+    background: rgba(45, 255, 142, 0.06);
+    border: 1px solid rgba(45, 255, 142, 0.3);
+    color: var(--ink);
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.4s var(--ease);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.mojito-pill::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--grad-sunset);
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 0;
+}
+.mojito-pill > * { position: relative; z-index: 1; }
+.mojito-pill:hover {
+    transform: translateY(-4px) scale(1.05);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(45, 255, 142, 0.3);
+}
+.mojito-pill:hover::before { opacity: 1; }
+.mojito-pill.mojito-special {
+    background: rgba(0, 240, 255, 0.1);
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+.pill-icon { margin-right: 6px; }
+
+.mojito-extras {
+    margin-top: 50px;
+    text-align: center;
+    padding: 30px;
+    background: rgba(255,255,255,0.02);
+    border: 1px dashed var(--border);
+    border-radius: 16px;
+}
+.mojito-extras h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+.extras-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+.extra-chip {
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    color: var(--ink-soft);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+.extra-chip:hover {
+    background: var(--grad-sunset);
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+.extra-chip em {
+    color: var(--yellow);
+    font-weight: 700;
+    margin-left: 4px;
+    font-style: normal;
+}
+
+/* ============== XL GRID ============== */
+.xl-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin: 40px 0;
+}
+.xl-card {
+    position: relative;
+    padding: 30px 20px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: all 0.4s;
+    overflow: hidden;
+}
+.xl-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--grad-sunset);
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 0;
+}
+.xl-card > * { position: relative; z-index: 1; }
+.xl-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: transparent;
+    box-shadow: 0 20px 60px rgba(255, 46, 147, 0.4);
+}
+.xl-card:hover::before { opacity: 0.15; }
+.xl-vol {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--pink);
+    text-shadow: 0 0 30px rgba(255,46,147,0.4);
+    margin-bottom: 6px;
+}
+.xl-ppl {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+}
+.xl-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: var(--ink);
+    letter-spacing: 1px;
+}
+.xl-featured {
+    background: linear-gradient(180deg, rgba(255,46,147,0.15), rgba(255,107,53,0.05));
+    border-color: var(--pink);
+    box-shadow: 0 0 30px rgba(255, 46, 147, 0.2);
+}
+.xl-biggest {
+    background: linear-gradient(180deg, rgba(255,215,0,0.1), rgba(255,107,53,0.05));
+    border-color: var(--yellow);
+}
+.xl-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    padding: 4px 10px;
+    background: var(--grad-sunset);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+.xl-badge-cyan {
+    background: linear-gradient(135deg, #00f0ff, #8338ec);
+}
+.xl-note {
+    margin-top: 30px;
+    padding: 16px 24px;
+    background: rgba(45, 255, 142, 0.06);
+    border: 1px solid rgba(45, 255, 142, 0.3);
+    border-radius: 12px;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+.xl-note .dot {
+    width: 8px; height: 8px;
+    background: #2dff8e;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #2dff8e;
+    flex-shrink: 0;
+}
+.xl-note strong { color: #2dff8e; }
+
+@media (max-width: 900px) {
+    .xl-grid { grid-template-columns: repeat(3, 1fr); }
+    .xl-card { padding: 20px 12px; }
+    .xl-vol { font-size: 36px; }
+}
+@media (max-width: 560px) {
+    .xl-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============== FLAVOR GRID (4 cols) ============== */
+.flavor-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+.flavor-col {
+    padding: 30px 24px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+.flavor-col::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,46,147,0.08), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+}
+.flavor-col:hover {
+    transform: translateY(-6px);
+    border-color: var(--pink);
+    box-shadow: 0 20px 50px rgba(255, 46, 147, 0.2);
+}
+.flavor-col:hover::before { opacity: 1; }
+.flavor-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-hi);
+    letter-spacing: 1px;
+}
+.flavor-icon { font-size: 1.3em; }
+.flavor-list {
+    list-style: none;
+    padding: 0; margin: 0;
+}
+.flavor-list li {
+    padding: 8px 0;
+    color: var(--ink-soft);
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    padding-left: 20px;
+    transition: all 0.3s;
+}
+.flavor-list li::before {
+    content: '🥃';
+    position: absolute;
+    left: 0;
+    opacity: 0.5;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+.flavor-list li:hover {
+    color: var(--pink);
+    padding-left: 24px;
+}
+.flavor-list li:hover::before { opacity: 1; }
+
+@media (max-width: 900px) {
+    .flavor-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+    .flavor-grid { grid-template-columns: 1fr; }
+}
+
+/* ============== DRINKS LIST (combinados / cervezas) ============== */
+.drinks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+.drinks-col-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--ink);
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--pink);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.drinks-list { list-style: none; padding: 0; margin: 0; }
+.drinks-list li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border);
+    color: var(--ink);
+    font-size: 15px;
+    transition: all 0.3s;
+}
+.drinks-list li span:first-child {
+    flex: 1;
+    color: var(--ink);
+    font-weight: 500;
+}
+.drinks-list li span:last-child {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--pink);
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 20px rgba(255,46,147,0.2);
+    white-space: nowrap;
+}
+.drinks-list li em {
+    color: var(--ink-dim);
+    font-style: italic;
+    font-size: 13px;
+    font-weight: 400;
+}
+.drinks-list li:hover {
+    background: rgba(255,46,147,0.03);
+    padding-left: 8px;
+    border-color: var(--border-hi);
+}
+.drinks-list li.hl {
+    background: rgba(255,46,147,0.06);
+    margin: 4px -12px;
+    padding: 12px 12px;
+    border-radius: 8px;
+    border-bottom: 1px solid var(--pink);
+}
+.drinks-list li.hl span:first-child { color: var(--pink); font-weight: 700; }
+.drinks-note {
+    margin-top: 40px;
+    padding: 18px 24px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    line-height: 1.7;
+    border-left: 3px solid var(--cyan);
+}
+.drinks-note strong { color: var(--ink); }
+.drinks-note .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--cyan);
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 8px var(--cyan);
+}
+
+@media (max-width: 768px) {
+    .drinks-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ============== WINES ============== */
+.wines-hero {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+.wine-card {
+    padding: 30px;
+    background: linear-gradient(180deg, rgba(255,46,147,0.06), rgba(255,107,53,0.03));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+.wine-cat {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: var(--ink);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+.wine-cat small {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ink-dim);
+    font-style: italic;
+}
+.wine-list, .wine-bottle ul {
+    list-style: none; padding: 0; margin: 0;
+}
+.wine-list li, .wine-bottle ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    color: var(--ink);
+    font-size: 15px;
+    transition: all 0.3s;
+}
+.wine-list li:hover, .wine-bottle ul li:hover {
+    padding-left: 8px;
+    background: rgba(255,46,147,0.03);
+}
+.wine-list li .wp, .wine-bottle ul li .wp {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--pink);
+    white-space: nowrap;
+    text-shadow: 0 0 20px rgba(255,46,147,0.2);
+}
+.wine-list li .wp em, .wine-bottle ul li .wp em {
+    color: var(--ink-dim);
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 6px;
+}
+.wine-bottle-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--ink);
+    margin: 40px 0 30px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.wines-bottles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.wine-bottle {
+    padding: 26px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: all 0.3s;
+}
+.wine-bottle:hover {
+    transform: translateY(-4px);
+    border-color: var(--pink);
+    box-shadow: 0 20px 50px rgba(255, 46, 147, 0.15);
+}
+.wine-bottle h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-hi);
+    letter-spacing: 1px;
+}
+.wine-champagne h4 { color: var(--yellow); }
+.wine-cava h4 { color: var(--cyan); }
+
+@media (max-width: 900px) {
+    .wines-hero { grid-template-columns: 1fr; }
+    .wines-bottles { grid-template-columns: 1fr; }
+}
+
+/* ============== CAPRICHOS ============== */
+.caprichos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.capricho-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+.capricho-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--lilac);
+    box-shadow: 0 20px 50px rgba(183, 148, 246, 0.2);
+}
+.cap-emoji {
+    font-size: 56px;
+    line-height: 1;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 20px rgba(183, 148, 246, 0.3));
+    transition: transform 0.4s;
+}
+.capricho-card:hover .cap-emoji { transform: scale(1.15) rotate(-8deg); }
+.cap-info { flex: 1; }
+.cap-info h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+.cap-en {
+    font-size: 12px;
+    color: var(--ink-dim);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.4;
+}
+.cap-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: var(--lilac);
+    text-shadow: 0 0 20px rgba(183, 148, 246, 0.3);
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .caprichos-grid { grid-template-columns: 1fr; }
+    .cap-emoji { font-size: 44px; }
+}
+
+/* ============== GOURMET ============== */
+.gourmet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+.gourmet-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 26px;
+    background: linear-gradient(135deg, rgba(255,215,0,0.04), rgba(255,46,147,0.02));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+.gourmet-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,215,0,0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 0;
+}
+.gourmet-card > * { position: relative; z-index: 1; }
+.gourmet-card:hover {
+    transform: translateY(-4px) translateX(4px);
+    border-color: var(--yellow);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.15);
+}
+.gourmet-card:hover::before { opacity: 1; }
+.gourmet-card.gourmet-featured {
+    background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(255,107,53,0.08));
+    border-color: var(--yellow);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+}
+.gourmet-card.gourmet-small { padding: 14px 22px; opacity: 0.9; }
+.g-info { flex: 1; }
+.g-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+.g-info h3 small {
+    font-weight: 400;
+    color: var(--ink-dim);
+    font-style: italic;
+    font-size: 13px;
+}
+.g-en {
+    font-size: 12px;
+    color: var(--ink-dim);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.4;
+}
+.g-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: var(--yellow);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+.gourmet-featured .g-price { color: var(--lilac); }
+
+@media (max-width: 768px) {
+    .gourmet-grid { grid-template-columns: 1fr; }
+}
+
+/* ============== CTA ============== */
+.carta-cta {
+    padding: 80px 8vw;
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(255,46,147,0.08) 50%, var(--bg) 100%);
+    text-align: center;
+}
+.cta-wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 50px 40px;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-hi);
+    border-radius: 24px;
+}
+.cta-emoji {
+    font-size: 60px;
+    margin-bottom: 20px;
+    letter-spacing: 12px;
+}
+.cta-wrap h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 56px);
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+.cta-wrap p {
+    color: var(--ink-soft);
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+.cta-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ============== DARK SECTION OVERRIDES ============== */
+.menu-section.dark .mi-head h3 { color: #fff; }
+.menu-section.dark .mi-price { color: var(--pink); }
+.menu-section.dark .mi-desc { color: rgba(255,255,255,0.6); }
+.menu-section.dark .menu-item { border-color: rgba(255,255,255,0.1); }
+.menu-section.dark .menu-item:hover { background: rgba(255,46,147,0.08); }
+.menu-section.dark .drinks-list li { color: #fff; border-color: rgba(255,255,255,0.1); }
+.menu-section.dark .drinks-list li span:first-child { color: #fff; }
+.menu-section.dark .drinks-col-title { color: #fff; border-color: var(--pink); }
+
+/* ============== SCROLL ANCHOR OFFSET ============== */
+.menu-section { scroll-margin-top: 80px; }
+
+/* ============== RESPONSIVE FIXES ============== */
+@media (max-width: 768px) {
+    .carta-hero { padding: 120px 5vw 60px; min-height: 60vh; }
+    .carta-nav-inner { padding: 12px 5vw; gap: 2px; }
+    .carta-nav-link { padding: 8px 12px; font-size: 12px; }
+    .cn-icon { display: none; }
+    .carta-cta { padding: 50px 5vw; }
+    .cta-wrap { padding: 30px 20px; }
+    .price-tag { padding: 10px 20px; }
+    .price-tag span { font-size: 26px; }
+    .subsection-title { font-size: 22px; }
+}
+
+
+/* ==================================================
+   EXTRA RESPONSIVE FIXES FOR CARTA PAGE
+   ================================================== */
+
+/* Prevent text from overflowing */
+.menu-item h3, .drinks-list li span, .wine-list li, .wine-bottle ul li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Fluid typography fallback for very small screens */
+@media (max-width: 380px) {
+    .carta-hero-title { font-size: clamp(40px, 14vw, 60px) !important; }
+    .menu-section-head .section-title { font-size: clamp(28px, 9vw, 48px) !important; }
+    .menu-item h3, .drinks-list li span:first-child, .g-info h3, .cap-info h3 {
+        font-size: 14px;
+    }
+    .mi-price, .g-price, .cap-price, .drinks-list li span:last-child {
+        font-size: 16px;
+    }
+    .carta-nav-link { padding: 6px 10px; font-size: 11px; }
+    .mojito-pill { padding: 12px 18px; font-size: 13px; }
+    .np { padding: 10px 16px; font-size: 13px; }
+    .price-tag { padding: 8px 16px; }
+    .price-tag span { font-size: 22px; }
+    .btn-pdf { min-width: 0; padding: 14px 20px; }
+    .btn-pdf .btn-sub { font-size: 10px; }
+}
+
+/* Ensure images don't break layout */
+img { max-width: 100%; height: auto; }
+
+/* Touch devices - disable custom cursor and parallax */
+@media (hover: none) {
+    .cursor, .cursor-follower { display: none !important; }
+    body, button, a { cursor: auto !important; }
+}
+
+/* Print friendly */
+@media print {
+    .cursor, .cursor-follower, .grain, .loader, .carta-nav { display: none !important; }
+    body { background: #fff; color: #000; }
+    .menu-section { padding: 30px 5vw; page-break-inside: avoid; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Smooth focus */
+*:focus-visible {
+    outline: 2px solid var(--pink);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+    </style>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌴%3C/text%3E%3C/svg%3E" />
+</head>
+<body class="carta-page">
+
+    <!-- =============== LOADER =============== -->
+    <div class="loader" id="loader">
+        <div class="loader-bg"></div>
+        <div class="loader-content">
+            <div class="loader-sun"></div>
+            <div class="loader-palms">
+                <svg viewBox="0 0 200 200" class="palm palm-left"><use href="#palm-svg"/></svg>
+                <svg viewBox="0 0 200 200" class="palm palm-right"><use href="#palm-svg"/></svg>
+            </div>
+            <div class="loader-text">
+                <span class="loader-welcome">Loading</span>
+                <h1 class="loader-title">
+                    <span>C</span><span>A</span><span>R</span><span>T</span><span>A</span>
+                </h1>
+                <p class="loader-sub">Miami Lounge Bar</p>
+            </div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        </div>
+    </div>
+
+    <!-- SVG defs -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <symbol id="palm-svg" viewBox="0 0 200 200">
+                <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M100 200 C 95 160, 92 130, 100 100 C 108 70, 110 50, 105 30" />
+                    <path d="M105 30 C 80 20, 60 25, 45 40 C 70 38, 90 35, 100 45" />
+                    <path d="M105 30 C 130 22, 150 30, 165 50 C 140 45, 120 42, 108 55" />
+                    <path d="M105 30 C 85 8, 60 5, 35 15 C 60 25, 80 35, 100 50" />
+                    <path d="M105 30 C 125 5, 155 0, 180 12 C 155 25, 130 40, 108 55" />
+                    <path d="M100 100 C 75 95, 55 100, 40 115 C 65 110, 85 105, 102 110" />
+                    <path d="M100 100 C 125 95, 145 100, 160 115 C 135 110, 115 105, 102 110" />
+                </g>
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- =============== CUSTOM CURSOR =============== -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- =============== GRAIN OVERLAY =============== -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- =============== NAV =============== -->
+    <header class="nav" id="nav">
+        <a href="index.html" class="nav-logo" data-cursor="link">
+            <span class="nav-logo-mark">M</span>
+            <span class="nav-logo-text">
+                <strong>MIAMI</strong>
+                <em>lounge bar</em>
+            </span>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html#about" data-cursor="link">Nosotros</a>
+            <a href="index.html#gallery" data-cursor="link">Galería</a>
+            <a href="carta.html" class="is-active" data-cursor="link">Carta</a>
+            <a href="index.html#events" data-cursor="link">Noches</a>
+            <a href="index.html#contact" data-cursor="link">Contacto</a>
+        </nav>
+        <a href="tel:+34691691080" class="nav-cta" data-cursor="link">
+            <span>Reservar</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <button class="nav-burger" id="navBurger" aria-label="Menú">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#about">Nosotros</a>
+        <a href="index.html#gallery">Galería</a>
+        <a href="carta.html">Carta</a>
+        <a href="index.html#events">Noches</a>
+        <a href="index.html#contact">Contacto</a>
+        <a href="tel:+34691691080" class="mobile-cta">Reservar mesa</a>
+    </div>
+
+    <!-- =============== CARTA HERO =============== -->
+    <section class="carta-hero">
+        <div class="carta-hero-bg">
+            <img src="img/ig-p02c1.jpg" alt="Miami Lounge Bar Miami Platja" class="carta-hero-img" loading="eager"/>
+            <div class="carta-hero-overlay"></div>
+        </div>
+        <div class="carta-hero-content">
+            <a href="index.html" class="back-link" data-cursor="link">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Volver a inicio
+            </a>
+            <div class="hero-tag" data-reveal>
+                <span class="dot"></span>
+                Temporada 2026 · Actualizada
+            </div>
+            <h1 class="carta-hero-title" data-reveal data-delay="100">
+                <span class="hero-line">Nuestra</span>
+                <span class="hero-line italic">Carta</span>
+                <span class="hero-line gradient">de Cócteles</span>
+            </h1>
+            <p class="carta-hero-sub" data-reveal data-delay="200">
+                Cócteles artesanales, combinados premium, vinos selectos
+                y platitos para compartir. <strong>Drink, eat, relax and repeat.</strong>
+            </p>
+            <div class="carta-hero-actions" data-reveal data-delay="300">
+                <a href="carta.pdf" download="Miami-Lounge-Carta-2026.pdf" class="btn btn-primary btn-pdf" data-cursor="link">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="12" y1="18" x2="12" y2="12"/>
+                        <polyline points="9 15 12 18 15 15"/>
+                    </svg>
+                    Descargar carta en PDF
+                    <span class="btn-sub">carta.pdf · 4,8 MB</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =============== CATEGORY NAV (sticky) =============== -->
+    <nav class="carta-nav" id="cartaNav">
+        <div class="carta-nav-inner">
+            <a href="#clasicos" class="carta-nav-link is-active" data-cat="clasicos">
+                <span class="cn-icon">🍸</span> Cócteles
+            </a>
+            <a href="#mojitos" class="carta-nav-link" data-cat="mojitos">
+                <span class="cn-icon">🌿</span> Mojitos
+            </a>
+            <a href="#xl" class="carta-nav-link" data-cat="xl">
+                <span class="cn-icon">💎</span> XL
+            </a>
+            <a href="#especialidad" class="carta-nav-link" data-cat="especialidad">
+                <span class="cn-icon">⭐</span> Especialidad
+            </a>
+            <a href="#sin-alcohol" class="carta-nav-link" data-cat="sin-alcohol">
+                <span class="cn-icon">🍹</span> Sin Alcohol
+            </a>
+            <a href="#gin-tonic" class="carta-nav-link" data-cat="gin-tonic">
+                <span class="cn-icon">🫧</span> Gin Tonic
+            </a>
+            <a href="#combinados" class="carta-nav-link" data-cat="combinados">
+                <span class="cn-icon">🥃</span> Combinados
+            </a>
+            <a href="#cervezas" class="carta-nav-link" data-cat="cervezas">
+                <span class="cn-icon">🍺</span> Cervezas
+            </a>
+            <a href="#vinos" class="carta-nav-link" data-cat="vinos">
+                <span class="cn-icon">🍷</span> Vinos
+            </a>
+            <a href="#caprichos" class="carta-nav-link" data-cat="caprichos">
+                <span class="cn-icon">😋</span> Caprichos
+            </a>
+            <a href="#gourmet" class="carta-nav-link" data-cat="gourmet">
+                <span class="cn-icon">🥩</span> Gourmet
+            </a>
+        </div>
+    </nav>
+
+    <!-- =============== CARTA CONTENT =============== -->
+    <main class="carta-main">
+
+        <!-- ===== CLÁSICOS ===== -->
+        <section class="menu-section" id="clasicos" data-cat="clasicos">
+            <div class="container">
+                <div class="menu-section-head" data-reveal>
+                    <span class="eyebrow">— La esencia</span>
+                    <h2 class="section-title">Cócteles <em>Clásicos</em></h2>
+                    <div class="price-tag"><span>7,90€</span></div>
+                    <p class="section-sub">Las recetas que nos han hecho famosos. Cada uno preparado al momento con ingredientes frescos.</p>
+                </div>
+
+                <div class="menu-grid menu-grid-2">
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Miami Lounge</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Naranja, soho, granadina</p>
+                        <span class="mi-tag mi-tag-signature">★ Signature</span>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Sunrise</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Naranja, ron, granadina</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Tequila Sunrise</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Naranja, tequila, granadina</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Piña Colada</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Piña, leche de coco, malibú</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Piña de la Isla</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Piña, plátano, cointreau, ron</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Daiquiri</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Limón, ron de caña, azúcar</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Caipirinha</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Lima, cachaça, azúcar</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Caipiroska</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Limón, lima, vodka, azúcar</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Caipiroska de Fresa</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Limón, lima, fresa, vodka, azúcar</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Sarita</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Triple sec, licor manzana, naranja, limón</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Pepemolino</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Gin, triple sec, naranja, melocotón, leche, granadina</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Blue Lagoon</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Vodka, curaçao azul, limón, soda</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Bora Bora</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Piña, passoa, limón, granadina</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Marcoco</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Leche de coco, ron, malibú, licor de coco, azúcar</p>
+                        <span class="mi-tag mi-tag-signature">★ Signature</span>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Patou</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Licor de coco, malibú, piña, granadina</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Vivirosa</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Plátano, piña, licor de coco, granadina</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Fuerza 4</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Tequila, vodka, gin, ron, zumo multifrutas</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Miami Club</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Plátano, piña, bailey's, ron de caña, licor de coco, granadina</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Piña Vanicoolada</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">8,90€</span>
+                        </div>
+                        <p class="mi-desc">Piña colada con una bola de helado de vainilla</p>
+                        <span class="mi-tag">+1€ con helado</span>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Sex on the Miami Beach</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Naranja, licor de melocotón, vodka, amaretto, granadina</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Inspiración de la Jefa</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">¡La receta secreta de la casa! Inspiration du chef</p>
+                        <span class="mi-tag mi-tag-secret">🤫 Receta secreta</span>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Margarita</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Tequila, triple sec, limón</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Bloody Mary</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Tomate, vodka, limón, salsa perrins, tabasco, sal y pimienta</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Mojito</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                        <p class="mi-desc">Azúcar, menta, lima, ron blanco y soda</p>
+                    </article>
+                </div>
+
+                <!-- Champagne variants -->
+                <div class="menu-subsection" data-reveal>
+                    <h3 class="subsection-title">
+                        <span class="sub-icon">🥂</span> Con Champagne <span class="sub-price">8,90€</span>
+                    </h3>
+                    <div class="menu-grid menu-grid-2">
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3>Mi Amor</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc">Champagne, vodka, fresa</p>
+                        </article>
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3>Goldfinger</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc">Champagne, cointreau, limón, azúcar</p>
+                        </article>
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3>Amandina</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc">Champagne, naranja, limón, granadina</p>
+                        </article>
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3>Pájaro Azul</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc">Champagne, cointreau, curaçao azul</p>
+                        </article>
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3>Dynamite</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc">Champagne, gin, get 27</p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Redbull variants -->
+                <div class="menu-subsection" data-reveal>
+                    <h3 class="subsection-title">
+                        <span class="sub-icon">⚡</span> Con RedBull <span class="sub-price">8,90€</span>
+                    </h3>
+                    <div class="menu-grid menu-grid-2">
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3>Checco's Bull</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc">Passoa, vodka, naranja, redbull, granadina</p>
+                        </article>
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3>Green Bull</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc">Vodka, curaçao azul, naranja, redbull</p>
+                        </article>
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3>Mojito Marina</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc">Con havana 3 y redbull</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MOJITOS XL ===== -->
+        <section class="menu-section alt" id="mojitos" data-cat="mojitos">
+            <div class="container">
+                <div class="menu-section-head" data-reveal>
+                    <span class="eyebrow">— Para refrescarte</span>
+                    <h2 class="section-title">Mojitos <em>XL</em></h2>
+                    <div class="price-tag"><span>8,50€</span> <small>con Champagne +1€</small></div>
+                    <p class="section-sub">Elige tu sabor favorito. Opcional con un toque de champagne (+1€).</p>
+                </div>
+
+                <div class="mojito-grid">
+                    <div class="mojito-pill" data-reveal>Mojito clásico</div>
+                    <div class="mojito-pill" data-reveal>Fresa</div>
+                    <div class="mojito-pill" data-reveal>Cereza</div>
+                    <div class="mojito-pill" data-reveal>Manzana</div>
+                    <div class="mojito-pill" data-reveal>Melocotón</div>
+                    <div class="mojito-pill" data-reveal>Sandía</div>
+                    <div class="mojito-pill" data-reveal>Melón</div>
+                    <div class="mojito-pill mojito-special" data-reveal>
+                        <span class="pill-icon">⭐</span> Azúl
+                    </div>
+                </div>
+
+                <div class="mojito-extras" data-reveal>
+                    <h3>También con:</h3>
+                    <div class="extras-row">
+                        <span class="extra-chip">🍾 Champagne <em>+1€</em></span>
+                        <span class="extra-chip">🥥 Malibú</span>
+                        <span class="extra-chip">🍓 Malibú y fresa</span>
+                        <span class="extra-chip">🍓 Champagne y fresa</span>
+                        <span class="extra-chip">🥃 Jagger</span>
+                        <span class="extra-chip">🍌 Plátano</span>
+                        <span class="extra-chip">🌰 Amaretto</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== XL GIGANTE ===== -->
+        <section class="menu-section xl-section" id="xl" data-cat="xl">
+            <div class="container">
+                <div class="menu-section-head" data-reveal>
+                    <span class="eyebrow">— Para compartir</span>
+                    <h2 class="section-title">Cocktails <em>XL</em></h2>
+                    <p class="section-sub">Elige los sabores de nuestra carta o crea los tuyos. Formato gigante para 2 a 10 personas.</p>
+                </div>
+
+                <div class="xl-grid">
+                    <div class="xl-card" data-reveal>
+                        <div class="xl-vol">1L</div>
+                        <div class="xl-ppl">👥 2 personas</div>
+                        <div class="xl-price">19,90€</div>
+                    </div>
+                    <div class="xl-card" data-reveal>
+                        <div class="xl-vol">1,5L</div>
+                        <div class="xl-ppl">👥 3 personas</div>
+                        <div class="xl-price">24,90€</div>
+                    </div>
+                    <div class="xl-card xl-featured" data-reveal>
+                        <div class="xl-badge">⭐ Popular</div>
+                        <div class="xl-vol">2L</div>
+                        <div class="xl-ppl">👥👥 4 personas</div>
+                        <div class="xl-price">29,90€</div>
+                    </div>
+                    <div class="xl-card" data-reveal>
+                        <div class="xl-vol">3L</div>
+                        <div class="xl-ppl">👥👥👥 6 personas</div>
+                        <div class="xl-price">39,90€</div>
+                    </div>
+                    <div class="xl-card xl-biggest" data-reveal>
+                        <div class="xl-badge xl-badge-cyan">🔥 Fiesta</div>
+                        <div class="xl-vol">5L</div>
+                        <div class="xl-ppl">👥👥👥👥 10 personas</div>
+                        <div class="xl-price">59,90€</div>
+                    </div>
+                </div>
+
+                <div class="xl-note" data-reveal>
+                    <span class="dot"></span>
+                    Ahora también puedes hacer tus cócteles <strong>sin alcohol</strong> en formato gigante con un descuento de <strong>5€</strong>.
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ESPECIALIDAD (4 columnas) ===== -->
+        <section class="menu-section" id="especialidad" data-cat="especialidad">
+            <div class="container">
+                <div class="menu-section-head" data-reveal>
+                    <span class="eyebrow">— Para cada gusto</span>
+                    <h2 class="section-title">Daiquiris · Margaritas · Caipirinhas · Piñas Coladas</h2>
+                    <div class="price-tag"><span>7,90€</span></div>
+                    <p class="section-sub">Elige tu fruta favorita y nosotros lo preparamos al momento.</p>
+                </div>
+
+                <div class="flavor-grid">
+                    <div class="flavor-col" data-reveal>
+                        <h3 class="flavor-title"><span class="flavor-icon">🥃</span> Daiquiris</h3>
+                        <ul class="flavor-list">
+                            <li>Limón</li>
+                            <li>Fresa</li>
+                            <li>Plátano</li>
+                            <li>Piña</li>
+                        </ul>
+                    </div>
+                    <div class="flavor-col" data-reveal>
+                        <h3 class="flavor-title"><span class="flavor-icon">🍋</span> Margaritas</h3>
+                        <ul class="flavor-list">
+                            <li>Limón</li>
+                            <li>Fresa</li>
+                            <li>Cereza</li>
+                            <li>Melocotón</li>
+                            <li>Plátano</li>
+                        </ul>
+                    </div>
+                    <div class="flavor-col" data-reveal>
+                        <h3 class="flavor-title"><span class="flavor-icon">🍹</span> Caipirinhas</h3>
+                        <ul class="flavor-list">
+                            <li>Limón</li>
+                            <li>Fresa</li>
+                            <li>Plátano</li>
+                            <li>Piña</li>
+                        </ul>
+                    </div>
+                    <div class="flavor-col" data-reveal>
+                        <h3 class="flavor-title"><span class="flavor-icon">🍍</span> Piñas Coladas</h3>
+                        <ul class="flavor-list">
+                            <li>Fresa</li>
+                            <li>Frambuesa</li>
+                            <li>Azul</li>
+                            <li>Plátano</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SIN ALCOHOL ===== -->
+        <section class="menu-section alt" id="sin-alcohol" data-cat="sin-alcohol">
+            <div class="container">
+                <div class="menu-section-head" data-reveal>
+                    <span class="eyebrow">— 0,0% alcohol · 100% sabor</span>
+                    <h2 class="section-title">Cócteles <em>Sin Alcohol</em></h2>
+                    <div class="price-tag"><span>6,50€</span></div>
+                    <p class="section-sub">Para los que quieren disfrutar sin alcohol. Misma experiencia, mismo placer.</p>
+                </div>
+
+                <div class="menu-grid menu-grid-2">
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Sunset</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">6,50€</span>
+                        </div>
+                        <p class="mi-desc">Naranja, fresa, plátano</p>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Pink Panther</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">6,50€</span>
+                        </div>
+                        <p class="mi-desc">Fresa, plátano, leche</p>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Piña Descolada</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">6,50€</span>
+                        </div>
+                        <p class="mi-desc">Piña, leche de coco</p>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>San Francisco</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">6,50€</span>
+                        </div>
+                        <p class="mi-desc">Naranja, melocotón, granadina</p>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Rosa Banana</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">6,50€</span>
+                        </div>
+                        <p class="mi-desc">Plátano, leche, granadina</p>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Cinderella</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">6,50€</span>
+                        </div>
+                        <p class="mi-desc">Naranja, piña, limón</p>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Cocolicioue</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">6,50€</span>
+                        </div>
+                        <p class="mi-desc">Leche de coco, plátano, piña</p>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Mojito 0%</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">6,50€</span>
+                        </div>
+                        <p class="mi-desc">Menta, azúcar, lima y soda</p>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Mojito de Sandía 0%</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">6,50€</span>
+                        </div>
+                        <p class="mi-desc">Menta, azúcar, lima, soda y sandía</p>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Mojito de Fresa 0%</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">6,50€</span>
+                        </div>
+                        <p class="mi-desc">Menta, azúcar, lima, soda y fresas</p>
+                    </article>
+                </div>
+
+                <!-- Nuevos -->
+                <div class="menu-subsection" data-reveal>
+                    <h3 class="subsection-title">
+                        <span class="sub-icon">✨</span> Nuevos Cócteles Sin Alcohol
+                    </h3>
+                    <div class="new-pills">
+                        <div class="np">🍌 Mojito de Plátano</div>
+                        <div class="np">💙 Mojito Azul</div>
+                        <div class="np">🫐 Mojito Frambuesa</div>
+                    </div>
+                    <p class="new-highlight">
+                        🌟 <strong>Prueba el Mojito Especial "Inspiración de la Jefa" 0%</strong> · 6,50€
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GIN TONIC ===== -->
+        <section class="menu-section" id="gin-tonic" data-cat="gin-tonic">
+            <div class="container">
+                <div class="menu-section-head" data-reveal>
+                    <span class="eyebrow">— Premium</span>
+                    <h2 class="section-title">Gin <em>Tonic</em></h2>
+                    <p class="section-sub">Cargado: +1€ · Muy Cargado: +2€</p>
+                </div>
+
+                <div class="menu-grid menu-grid-3">
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Beefeater + tónica</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,50€</span>
+                        </div>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Seagram's + tónica</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,50€</span>
+                        </div>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Gin de Fresa + tónica</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,50€</span>
+                        </div>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Bombay Shappire + tónica</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Martin Millers + tónica</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">7,90€</span>
+                        </div>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Hendrick's + tónica</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">8,90€</span>
+                        </div>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Citadelle + tónica</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">8,90€</span>
+                        </div>
+                    </article>
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
+                            <h3>Mare + tónica</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">9,90€</span>
+                        </div>
+                    </article>
+                    <article class="menu-item mi-glow" data-reveal>
+                        <div class="mi-head">
+                            <h3>G-Vine + tónica</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">10,90€</span>
+                        </div>
+                        <span class="mi-tag mi-tag-premium">👑 Premium</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== COMBINADOS ===== -->
+        <section class="menu-section dark" id="combinados" data-cat="combinados">
+            <div class="container">
+                <div class="menu-section-head" data-reveal>
+                    <span class="eyebrow">— Clásico atemporal</span>
+                    <h2 class="section-title light">Combinados & <em>Licores</em></h2>
+                    <p class="section-sub light">Cargado: +1€ · Muy Cargado: +2€</p>
+                </div>
+
+                <div class="drinks-grid">
+                    <div class="drinks-col" data-reveal>
+                        <h3 class="drinks-col-title">Combinados</h3>
+                        <ul class="drinks-list">
+                            <li><span>Gin + soda</span><span>7,50€</span></li>
+                            <li><span>Whisky + soda</span><span>7,50€</span></li>
+                            <li><span>Ron + soda</span><span>7,50€</span></li>
+                            <li><span>Vodka + soda</span><span>7,50€</span></li>
+                            <li><span>Whisky + RedBull</span><span>7,90€</span></li>
+                            <li><span>Vodka + RedBull</span><span>7,90€</span></li>
+                            <li class="hl"><span>Julio Ibiza <em>(vodka negro + RedBull)</em></span><span>7,50€</span></li>
+                            <li><span>Malibú + soda</span><span>6,90€</span></li>
+                            <li><span>Martini + soda</span><span>6,90€</span></li>
+                            <li><span>Brandy + soda</span><span>6,90€</span></li>
+                            <li><span>Havana 7 + soda</span><span>7,90€</span></li>
+                            <li><span>Jack Daniel's + soda</span><span>7,90€</span></li>
+                            <li><span>Chivas/ Cardhú + soda</span><span>10,90€</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="drinks-col" data-reveal>
+                        <h3 class="drinks-col-title">Licores</h3>
+                        <ul class="drinks-list">
+                            <li><span>Whisky</span><span>5,50€</span></li>
+                            <li><span>Jack Daniel's</span><span>6,90€</span></li>
+                            <li><span>Cardhú / Chivas</span><span>8,90€</span></li>
+                            <li><span>Bailey's</span><span>5,50€</span></li>
+                            <li><span>Brandy</span><span>5,50€</span></li>
+                            <li><span>Marie Bizard</span><span>5,50€</span></li>
+                            <li><span>Ricard</span><span>4,50€</span></li>
+                            <li><span>Martini</span><span>4,90€</span></li>
+                            <li><span>Chupito</span><span>2,50€</span></li>
+                            <li><span>Chupito tequila</span><span>2,50€</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="drinks-note" data-reveal>
+                    <span class="dot"></span>
+                    Marcas: <strong>gin Beefeater</strong> · <strong>whisky</strong> JB, Ballantine's, Johnnie Walker, White Label, Cutty Shark · <strong>ron</strong> Cacique, Barceló, Bacardí, Brugal, Havana 3 · <strong>vodka</strong> Absolut, Smirnoff, Eristoff Black
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== CERVEZAS ===== -->
+        <section class="menu-section" id="cervezas" data-cat="cervezas">
+            <div class="container">
+                <div class="menu-section-head" data-reveal>
+                    <span class="eyebrow">— Bien fría</span>
+                    <h2 class="section-title">Cervezas & <em>Refrescos</em></h2>
+                </div>
+
+                <div class="drinks-grid">
+                    <div class="drinks-col" data-reveal>
+                        <h3 class="drinks-col-title">🍺 Cervezas</h3>
+                        <ul class="drinks-list">
+                            <li><span>Champú</span><span>2,90€</span></li>
+                            <li><span>Estrella</span><span>3,20€</span></li>
+                            <li><span>Voll Damm</span><span>3,50€</span></li>
+                            <li><span>Estrella Galicia</span><span>3,20€</span></li>
+                            <li><span>Coronita</span><span>3,70€</span></li>
+                            <li><span>Heineken</span><span>3,50€</span></li>
+                            <li><span>Leffe Rubia o Tostada</span><span>4,50€</span></li>
+                            <li><span>Desperados</span><span>4,50€</span></li>
+                            <li><span>La Chouffe</span><span>4,90€</span></li>
+                            <li><span>Kwak</span><span>4,50€</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="drinks-col" data-reveal>
+                        <h3 class="drinks-col-title">🥤 Refrescos</h3>
+                        <ul class="drinks-list">
+                            <li><span>Coca Cola</span><span>2,70€</span></li>
+                            <li><span>Coca Cola Zero</span><span>2,70€</span></li>
+                            <li><span>Nestea</span><span>2,70€</span></li>
+                            <li><span>Aquarius</span><span>2,70€</span></li>
+                            <li><span>Schweppes</span><span>2,70€</span></li>
+                            <li><span>7up</span><span>2,70€</span></li>
+                            <li><span>Fanta naranja / limón</span><span>2,70€</span></li>
+                            <li><span>Agua con gas</span><span>2,70€</span></li>
+                            <li><span>Agua</span><span>2,70€</span></li>
+                            <li><span>Bitter Kas</span><span>2,70€</span></li>
+                            <li><span>Batido de chocolate casero</span><span>2,90€</span></li>
+                            <li><span>RedBull</span><span>3,70€</span></li>
+                            <li><span>Zumos de frutas</span><span>2,70€</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== VINOS ===== -->
+        <section class="menu-section alt" id="vinos" data-cat="vinos">
+            <div class="container">
+                <div class="menu-section-head" data-reveal>
+                    <span class="eyebrow">— Selección de la casa</span>
+                    <h2 class="section-title">Vinos & <em>Champagne</em></h2>
+                </div>
+
+                <div class="wines-hero" data-reveal>
+                    <div class="wine-card">
+                        <h3 class="wine-cat">Sangría & Cava</h3>
+                        <ul class="wine-list">
+                            <li><span>Sangría 1L</span><span class="wp">14,00€</span></li>
+                            <li><span>Sangría de cava 1L</span><span class="wp">16,00€</span></li>
+                            <li><span>Copa de Sangría</span><span class="wp">5,90€</span></li>
+                            <li><span>Copa de Sangría de cava</span><span class="wp">6,90€</span></li>
+                        </ul>
+                    </div>
+                    <div class="wine-card">
+                        <h3 class="wine-cat">Copa de Vino <small>(* de la casa)</small></h3>
+                        <ul class="wine-list">
+                            <li><span>Rosado *</span><span class="wp">2,90€</span></li>
+                            <li><span>Blanco *</span><span class="wp">2,90€</span></li>
+                            <li><span>Tinto *</span><span class="wp">2,50€</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="wine-bottle-title" data-reveal>🍾 Vino en Botella</h3>
+                <div class="wines-bottles">
+                    <div class="wine-bottle" data-reveal>
+                        <h4>🔴 Tinto</h4>
+                        <ul>
+                            <li><span>Viña Mayor · Ribera del Duero</span><span class="wp">14,90€ <em>(3,90€ copa)</em></span></li>
+                            <li><span>Sembro · Ribera del Duero</span><span class="wp">19,90€</span></li>
+                            <li><span>Beronia Crianza · Rioja</span><span class="wp">19,90€</span></li>
+                            <li><span>Ramón Bilbao Crianza · Rioja</span><span class="wp">22,90€</span></li>
+                        </ul>
+                    </div>
+                    <div class="wine-bottle" data-reveal>
+                        <h4>⚪ Blanco</h4>
+                        <ul>
+                            <li><span>Ramón Bilbao Verdejo · D.O. Rueda</span><span class="wp">17,90€ <em>(3,90€ copa)</em></span></li>
+                            <li><span>Marqués de Vizhoja</span><span class="wp">17,90€</span></li>
+                        </ul>
+                    </div>
+                    <div class="wine-bottle" data-reveal>
+                        <h4>🌸 Rosado</h4>
+                        <ul>
+                            <li><span>Cote de Provence</span><span class="wp">21,90€</span></li>
+                        </ul>
+                    </div>
+                    <div class="wine-bottle wine-champagne" data-reveal>
+                        <h4>🥂 Champagne</h4>
+                        <ul>
+                            <li><span>Consúltanos</span><span class="wp">—</span></li>
+                        </ul>
+                    </div>
+                    <div class="wine-bottle wine-cava" data-reveal>
+                        <h4>🍾 Cava</h4>
+                        <ul>
+                            <li><span>Cava de la casa</span><span class="wp">14,90€</span></li>
+                            <li><span>Gramona Brut Imperial</span><span class="wp">31,90€</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CAPRICHOS ===== -->
+        <section class="menu-section capric" id="caprichos" data-cat="caprichos">
+            <div class="container">
+                <div class="menu-section-head" data-reveal>
+                    <span class="eyebrow">— Para picar</span>
+                    <h2 class="section-title">Caprichos <em>😋</em></h2>
+                    <p class="section-sub">Para compartir · à partager · sharing food</p>
+                </div>
+
+                <div class="caprichos-grid">
+                    <article class="capricho-card" data-reveal>
+                        <div class="cap-emoji">🍬</div>
+                        <div class="cap-info">
+                            <h3>Cuenco de chuches especialmente deliciosas</h3>
+                            <p class="cap-en">Bol de bonbons spécialement délicieux · special sweets</p>
+                        </div>
+                        <div class="cap-price">5,90€</div>
+                    </article>
+                    <article class="capricho-card" data-reveal>
+                        <div class="cap-emoji">🍟</div>
+                        <div class="cap-info">
+                            <h3>Plato XXL de patatas fritas</h3>
+                            <p class="cap-en">Saladier XXL de chips · plate XXL of crisps</p>
+                        </div>
+                        <div class="cap-price">3,90€</div>
+                    </article>
+                    <article class="capricho-card" data-reveal>
+                        <div class="cap-emoji">🍿</div>
+                        <div class="cap-info">
+                            <h3>Plato XL de palomitas dulces o saladas</h3>
+                            <p class="cap-en">Bol XL de pop-corn sucrés ou salés · plate XL of popcorn</p>
+                        </div>
+                        <div class="cap-price">3,90€</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CLUB GOURMET ===== -->
+        <section class="menu-section gourmet" id="gourmet" data-cat="gourmet">
+            <div class="container">
+                <div class="menu-section-head" data-reveal>
+                    <span class="eyebrow">— Para compartir con clase</span>
+                    <h2 class="section-title">Club <em>Gourmet</em></h2>
+                    <p class="section-sub">Para compartir · à partager · sharing food</p>
+                </div>
+
+                <div class="gourmet-grid">
+                    <article class="gourmet-card" data-reveal>
+                        <div class="g-info">
+                            <h3>Plato de salchichón ibérico</h3>
+                            <p class="g-en">Assiette de saucisson ibérique · plate of spanish saucisson</p>
+                        </div>
+                        <div class="g-price">7,90€</div>
+                    </article>
+                    <article class="gourmet-card" data-reveal>
+                        <div class="g-info">
+                            <h3>Delicioso guacamole con nachos</h3>
+                            <p class="g-en">Assiette de délicieux guacamole avec nachos · guacamole and nachos</p>
+                        </div>
+                        <div class="g-price">8,90€</div>
+                    </article>
+                    <article class="gourmet-card" data-reveal>
+                        <div class="g-info">
+                            <h3>Duo de Humus <small>(tradicional y de olivas)</small></h3>
+                        </div>
+                        <div class="g-price">10,90€</div>
+                    </article>
+                    <article class="gourmet-card gourmet-small" data-reveal>
+                        <div class="g-info">
+                            <h3>Porción de houmous individual <small>(tradicional o de olivas)</small></h3>
+                        </div>
+                        <div class="g-price">5,90€</div>
+                    </article>
+                    <article class="gourmet-card" data-reveal>
+                        <div class="g-info">
+                            <h3>Plato de quesos ibéricos</h3>
+                            <p class="g-en">Assiette de fromages espagnols · plate of spanish cheeses</p>
+                        </div>
+                        <div class="g-price">9,90€</div>
+                    </article>
+                    <article class="gourmet-card" data-reveal>
+                        <div class="g-info">
+                            <h3>Plato de salmón delicadamente ahumado y sus delicias</h3>
+                            <p class="g-en">Assiette de saumon fumé et ses délices · plate of smoked salmon</p>
+                        </div>
+                        <div class="g-price">12,90€</div>
+                    </article>
+                    <article class="gourmet-card" data-reveal>
+                        <div class="g-info">
+                            <h3>Plato de jamón ibérico</h3>
+                            <p class="g-en">Assiette de jambon espagnol · plate of spanish ham</p>
+                        </div>
+                        <div class="g-price">14,90€</div>
+                    </article>
+                    <article class="gourmet-card" data-reveal>
+                        <div class="g-info">
+                            <h3>Plato de embutidos ibéricos</h3>
+                            <p class="g-en">Assiette de charcuterie espagnole · plate of spanish cold meats</p>
+                        </div>
+                        <div class="g-price">14,90€</div>
+                    </article>
+                    <article class="gourmet-card gourmet-featured" data-reveal>
+                        <div class="g-info">
+                            <h3>Mix de quesos y jamón o embutidos ibéricos</h3>
+                            <p class="g-en">Mix de fromages et jambon ou charcuterie espagnole · mix of cheeses and spanish ham or cold meats</p>
+                        </div>
+                        <div class="g-price">19,90€</div>
+                        <span class="mi-tag mi-tag-premium">👑 Top</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA RESERVA ===== -->
+        <section class="carta-cta">
+            <div class="container">
+                <div class="cta-wrap" data-reveal>
+                    <div class="cta-emoji">🌴🍹🎶</div>
+                    <h2>¿Listo para venir?</h2>
+                    <p>Reserva tu mesa y disfruta de la mejor noche en Miami Platja.</p>
+                    <div class="cta-buttons">
+                        <a href="tel:+34691691080" class="btn btn-primary" data-cursor="link">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            Llamar: 691 691 080
+                        </a>
+                        <a href="https://www.instagram.com/miamiloungebar" target="_blank" rel="noopener" class="btn btn-ghost" data-cursor="link">
+                            📷 @miamiloungebar
+                        </a>
+                        <a href="index.html" class="btn btn-ghost" data-cursor="link">
+                            ← Volver a inicio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =============== FOOTER =============== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="fl-mark">M</span>
+                        <strong>MIAMI LOUNGE BAR</strong>
+                    </div>
+                    <p>Lounge-bar de referencia en Miami Platja, Costa Dorada. Cócteles, música y atardeceres mediterráneos.</p>
+                </div>
+                <div class="footer-cols">
+                    <div>
+                        <h4>Contacto</h4>
+                        <p>Av. de Barcelona, 40<br/>43892 Miami Platja, Tarragona</p>
+                        <p><a href="tel:+34691691080">691 69 10 80</a></p>
+                        <p><a href="mailto:nanievies@gmail.com">nanievies@gmail.com</a></p>
+                        <p><a href="https://www.miamiloungebar.com" target="_blank" rel="noopener" class="web-soon">www.miamiloungebar.com <em>· pronto</em></a></p>
+                    </div>
+                    <div>
+                        <h4>Síguenos</h4>
+                        <p><a href="https://www.instagram.com/miamiloungebar" target="_blank" rel="noopener">Instagram</a></p>
+                        <p><a href="https://www.facebook.com/miamiloungecocteles" target="_blank" rel="noopener">Facebook</a></p>
+                        <p><a href="https://mont-roigmiami.cat/es/contactos/miami-lounge/" target="_blank" rel="noopener">Web oficial turismo</a></p>
+                    </div>
+                    <div>
+                        <h4>Información</h4>
+                        <p><a href="index.html#about">Sobre nosotros</a></p>
+                        <p><a href="index.html#gallery">Galería</a></p>
+                        <p><a href="index.html#contact">Contacto</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© <span id="year"></span> Miami Lounge Bar · Miami Platja, Tarragona.</span>
+                <span>Drink responsibly · Bebe con responsabilidad. +18</span>
+            </div>
+        </div>
+        <div class="footer-marquee">
+            <span>NUESTRA</span><span>·</span><span>CARTA</span><span>·</span><span>MIAMI</span><span>·</span><span>LOUNGE</span><span>·</span><span>BAR</span><span>·</span><span>DRINK</span><span>·</span><span>EAT</span><span>·</span><span>RELAX</span><span>·</span><span>REPEAT</span><span>·</span>
+        </div>
+    </footer>    <script>
+/* === INLINED script.js === */
+/* ==================================================
+   MIAMI LOUNGE BAR — Interactivity
+   ================================================== */
+
+(() => {
+    'use strict';
+
+    /* ---------- LOADER ---------- */
+    const loader = document.getElementById('loader');
+    window.addEventListener('load', () => {
+        setTimeout(() => loader.classList.add('is-hidden'), 1900);
+    });
+    // Safety fallback in case 'load' never fires
+    setTimeout(() => loader && loader.classList.add('is-hidden'), 4000);
+
+    /* ---------- YEAR ---------- */
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    /* ---------- CUSTOM CURSOR ---------- */
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursorFollower');
+    let mouseX = 0, mouseY = 0;
+    let followerX = 0, followerY = 0;
+
+    if (cursor && follower && window.matchMedia('(hover: hover)').matches) {
+        document.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+        });
+
+        const animateFollower = () => {
+            followerX += (mouseX - followerX) * 0.15;
+            followerY += (mouseY - followerY) * 0.15;
+            follower.style.transform = `translate(${followerX}px, ${followerY}px) translate(-50%, -50%)`;
+            requestAnimationFrame(animateFollower);
+        };
+        animateFollower();
+
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            follower.style.opacity = '0';
+        });
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            follower.style.opacity = '1';
+        });
+
+        // Cursor variants
+        document.querySelectorAll('[data-cursor]').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                const variant = el.getAttribute('data-cursor');
+                follower.classList.add(`is-${variant}`);
+            });
+            el.addEventListener('mouseleave', () => {
+                follower.classList.remove('is-link', 'is-view');
+            });
+        });
+    }
+
+    /* ---------- NAV SCROLL ---------- */
+    const nav = document.getElementById('nav');
+    const handleScroll = () => {
+        if (window.scrollY > 40) nav.classList.add('is-scrolled');
+        else nav.classList.remove('is-scrolled');
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    /* ---------- MOBILE MENU ---------- */
+    const burger = document.getElementById('navBurger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (burger && mobileMenu) {
+        const toggle = () => {
+            burger.classList.toggle('is-open');
+            mobileMenu.classList.toggle('is-open');
+            document.body.style.overflow = mobileMenu.classList.contains('is-open') ? 'hidden' : '';
+        };
+        burger.addEventListener('click', toggle);
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', toggle));
+    }
+
+    /* ---------- REVEAL ON SCROLL ---------- */
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    entry.target.style.setProperty('--delay', `${delay}ms`);
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+        revealEls.forEach(el => revealObserver.observe(el));
+    } else {
+        revealEls.forEach(el => el.classList.add('is-visible'));
+    }
+
+    /* ---------- FLOATING CTA ---------- */
+    const floatingCta = document.getElementById('floatingCta');
+    if (floatingCta) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    floatingCta.classList.remove('is-visible');
+                } else {
+                    floatingCta.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.3 });
+        const heroCta = document.querySelector('.hero-ctas');
+        if (heroCta) observer.observe(heroCta);
+    }
+
+    /* ---------- LIGHTBOX ---------- */
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+    const lbCounter = document.getElementById('lbCounter');
+    const gItems = document.querySelectorAll('.g-item');
+    const images = Array.from(gItems).map(a => a.getAttribute('href'));
+    let currentIndex = 0;
+
+    const openLightbox = (index) => {
+        currentIndex = index;
+        lbImg.src = images[currentIndex];
+        lbCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+    };
+
+    const navigate = (dir) => {
+        currentIndex = (currentIndex + dir + images.length) % images.length;
+        lbImg.style.opacity = '0';
+        setTimeout(() => {
+            lbImg.src = images[currentIndex];
+            lbCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+            lbImg.style.opacity = '1';
+        }, 150);
+    };
+
+    gItems.forEach((item, i) => {
+        item.addEventListener('click', e => {
+            e.preventDefault();
+            openLightbox(i);
+        });
+    });
+
+    if (lbClose) lbClose.addEventListener('click', closeLightbox);
+    if (lbPrev) lbPrev.addEventListener('click', () => navigate(-1));
+    if (lbNext) lbNext.addEventListener('click', () => navigate(1));
+
+    if (lightbox) {
+        lightbox.addEventListener('click', e => {
+            if (e.target === lightbox) closeLightbox();
+        });
+    }
+
+    document.addEventListener('keydown', e => {
+        if (!lightbox || !lightbox.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigate(-1);
+        if (e.key === 'ArrowRight') navigate(1);
+    });
+
+    /* ---------- SMOOTH ANCHOR OFFSET ---------- */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#' || href.length < 2) return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const offset = 80;
+                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        });
+    });
+
+    /* ---------- PARALLAX FOR HERO IMG (subtle) ---------- */
+    const heroImg = document.querySelector('.hero-img');
+    if (heroImg) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            if (scrolled < window.innerHeight) {
+                heroImg.style.transform = `scale(1.05) translateY(${scrolled * 0.15}px)`;
+            }
+        }, { passive: true });
+    }
+
+    /* ---------- HERO PALMS PARALLAX ---------- */
+    const palms = document.querySelectorAll('.hero-floating');
+    if (palms.length) {
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            palms.forEach((p, i) => {
+                const speed = (i + 1) * 0.08;
+                p.style.transform = `translateY(${y * speed}px)`;
+            });
+        }, { passive: true });
+    }
+
+    /* ---------- EASTER EGG: Konami code → sunset mode ---------- */
+    let konami = [];
+    const target = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+    document.addEventListener('keydown', e => {
+        konami.push(e.key);
+        if (konami.length > target.length) konami.shift();
+        if (konami.join(',') === target.join(',')) {
+            document.body.style.animation = 'pulse-bg 1.5s var(--ease)';
+            setTimeout(() => document.body.style.animation = '', 1500);
+        }
+    });
+
+})();
+
+</script>
+    
+    <script>
+        // Set active nav link on scroll
+        const sections = document.querySelectorAll('.menu-section');
+        const navLinks = document.querySelectorAll('.carta-nav-link');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cat = entry.target.dataset.cat;
+                    navLinks.forEach(l => l.classList.toggle('is-active', l.dataset.cat === cat));
+                }
+            });
+        }, { rootMargin: '-40% 0px -50% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
