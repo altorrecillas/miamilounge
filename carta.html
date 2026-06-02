@@ -1700,7 +1700,7 @@ blockquote footer {
 /* ============== STICKY CATEGORY NAV ============== */
 .carta-nav {
     position: sticky;
-    top: 0;
+    top: var(--nav-h, 70px);
     z-index: 50;
     background: rgba(10, 1, 24, 0.85);
     backdrop-filter: blur(20px);
@@ -1708,6 +1708,7 @@ blockquote footer {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     overflow-x: auto;
+    overscroll-behavior: contain;
     scrollbar-width: none;
 }
 .carta-nav::-webkit-scrollbar { display: none; }
@@ -1733,6 +1734,7 @@ blockquote footer {
     transition: all 0.3s;
     border: 1px solid transparent;
     flex-shrink: 0;
+    touch-action: manipulation;
 }
 .carta-nav-link:hover {
     color: var(--ink);
@@ -1882,14 +1884,13 @@ blockquote footer {
     text-shadow: 0 0 20px rgba(255,46,147,0.3);
 }
 .mi-desc {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--ink-dim);
     font-style: italic;
     margin-top: 4px;
     line-height: 1.4;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
-    font-size: 15px;
 }
 .menu-item.mi-glow { background: rgba(255, 215, 0, 0.04); border-left: 2px solid var(--yellow); }
 .mi-tag {
@@ -1962,6 +1963,8 @@ blockquote footer {
     font-weight: 600;
     font-size: 15px;
     transition: all 0.3s;
+    touch-action: manipulation;
+    cursor: pointer;
 }
 .np:hover {
     background: var(--grad-sunset);
@@ -1998,6 +2001,8 @@ blockquote footer {
     font-weight: 600;
     transition: all 0.4s var(--ease);
     cursor: pointer;
+    touch-action: manipulation;
+    will-change: transform;
     position: relative;
     overflow: hidden;
 }
@@ -2418,6 +2423,7 @@ blockquote footer {
     border: 1px solid var(--border);
     border-radius: 14px;
     transition: all 0.3s;
+    will-change: transform;
 }
 .wine-bottle:hover {
     transform: translateY(-4px);
@@ -2438,6 +2444,9 @@ blockquote footer {
 
 @media (max-width: 900px) {
     .wines-hero { grid-template-columns: 1fr; }
+    .wines-bottles { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
     .wines-bottles { grid-template-columns: 1fr; }
 }
 
@@ -2626,7 +2635,7 @@ blockquote footer {
 .menu-section.dark .drinks-col-title { color: #fff; border-color: var(--pink); }
 
 /* ============== SCROLL ANCHOR OFFSET ============== */
-.menu-section { scroll-margin-top: 80px; }
+.menu-section { scroll-margin-top: 140px; }
 
 /* ============== RESPONSIVE FIXES ============== */
 @media (max-width: 768px) {
@@ -2841,38 +2850,38 @@ img { max-width: 100%; height: auto; }
     <!-- =============== CATEGORY NAV (sticky) =============== -->
     <nav class="carta-nav" id="cartaNav">
         <div class="carta-nav-inner">
-            <a href="#clasicos" class="carta-nav-link is-active" data-cat="clasicos">
-                <span class="cn-icon">🍸</span> Cócteles
+            <a href="#clasicos" class="carta-nav-link is-active" aria-label="Ir a Cócteles Clásicos" data-cat="clasicos">
+                <span class="cn-icon" aria-hidden="true">🍸</span> Cócteles
             </a>
-            <a href="#mojitos" class="carta-nav-link" data-cat="mojitos">
-                <span class="cn-icon">🌿</span> Mojitos
+            <a href="#mojitos" class="carta-nav-link" aria-label="Ir a Mojitos"" data-cat="mojitos">
+                <span class="cn-icon" aria-hidden="true">🌿</span> Mojitos
             </a>
-            <a href="#xl" class="carta-nav-link" data-cat="xl">
-                <span class="cn-icon">💎</span> XL
+            <a href="#xl" class="carta-nav-link" aria-label="Ir a Cócteles XL"" data-cat="xl">
+                <span class="cn-icon" aria-hidden="true">💎</span> XL
             </a>
-            <a href="#especialidad" class="carta-nav-link" data-cat="especialidad">
-                <span class="cn-icon">⭐</span> Especialidad
+            <a href="#especialidad" class="carta-nav-link" aria-label="Ir a Especialidad"" data-cat="especialidad">
+                <span class="cn-icon" aria-hidden="true">⭐</span> Especialidad
             </a>
-            <a href="#sin-alcohol" class="carta-nav-link" data-cat="sin-alcohol">
-                <span class="cn-icon">🍹</span> Sin Alcohol
+            <a href="#sin-alcohol" class="carta-nav-link" aria-label="Ir a Sin Alcohol"" data-cat="sin-alcohol">
+                <span class="cn-icon" aria-hidden="true">🍹</span> Sin Alcohol
             </a>
-            <a href="#gin-tonic" class="carta-nav-link" data-cat="gin-tonic">
-                <span class="cn-icon">🫧</span> Gin Tonic
+            <a href="#gin-tonic" class="carta-nav-link" aria-label="Ir a Gin Tonic"" data-cat="gin-tonic">
+                <span class="cn-icon" aria-hidden="true">🫧</span> Gin Tonic
             </a>
-            <a href="#combinados" class="carta-nav-link" data-cat="combinados">
-                <span class="cn-icon">🥃</span> Combinados
+            <a href="#combinados" class="carta-nav-link" aria-label="Ir a Combinados"" data-cat="combinados">
+                <span class="cn-icon" aria-hidden="true">🥃</span> Combinados
             </a>
-            <a href="#cervezas" class="carta-nav-link" data-cat="cervezas">
-                <span class="cn-icon">🍺</span> Cervezas
+            <a href="#cervezas" class="carta-nav-link" aria-label="Ir a Cervezas"" data-cat="cervezas">
+                <span class="cn-icon" aria-hidden="true">🍺</span> Cervezas
             </a>
-            <a href="#vinos" class="carta-nav-link" data-cat="vinos">
-                <span class="cn-icon">🍷</span> Vinos
+            <a href="#vinos" class="carta-nav-link" aria-label="Ir a Vinos"" data-cat="vinos">
+                <span class="cn-icon" aria-hidden="true">🍷</span> Vinos
             </a>
-            <a href="#caprichos" class="carta-nav-link" data-cat="caprichos">
-                <span class="cn-icon">😋</span> Caprichos
+            <a href="#caprichos" class="carta-nav-link" aria-label="Ir a Caprichos"" data-cat="caprichos">
+                <span class="cn-icon" aria-hidden="true">😋</span> Caprichos
             </a>
-            <a href="#gourmet" class="carta-nav-link" data-cat="gourmet">
-                <span class="cn-icon">🥩</span> Gourmet
+            <a href="#gourmet" class="carta-nav-link" aria-label="Ir a Gourmet"" data-cat="gourmet">
+                <span class="cn-icon" aria-hidden="true">🥩</span> Gourmet
             </a>
         </div>
     </nav>
@@ -4140,6 +4149,25 @@ img { max-width: 100%; height: auto; }
 </script>
     
     <script>
+        // Dynamic --nav-h CSS variable for sticky carta-nav offset
+        (function() {
+            const nav = document.querySelector('.nav');
+            const cartaNav = document.querySelector('.carta-nav');
+            function updateNavH() {
+                const h = nav ? nav.offsetHeight : 70;
+                document.documentElement.style.setProperty('--nav-h', h + 'px');
+                // Also update scroll-margin-top on all .menu-section elements
+                const margin = h + (cartaNav ? cartaNav.offsetHeight : 65);
+                document.querySelectorAll('.menu-section').forEach(s => {
+                    s.style.scrollMarginTop = margin + 'px';
+                });
+            }
+            updateNavH();
+            window.addEventListener('scroll', updateNavH, { passive: true });
+            window.addEventListener('resize', updateNavH, { passive: true });
+        })();
+    </script>
+    <script>
         // Set active nav link on scroll
         const sections = document.querySelectorAll('.menu-section');
         const navLinks = document.querySelectorAll('.carta-nav-link');
@@ -4150,7 +4178,7 @@ img { max-width: 100%; height: auto; }
                     navLinks.forEach(l => l.classList.toggle('is-active', l.dataset.cat === cat));
                 }
             });
-        }, { rootMargin: '-40% 0px -50% 0px' });
+        }, { rootMargin: '-140px 0px -50% 0px' });
         sections.forEach(s => observer.observe(s));
     </script>
 </body>
