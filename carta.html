@@ -39,6 +39,7 @@
     --orange: #ff6b35;
     --lilac: #b794f6;
     --gold: #ffd700;
+    --yellow: #ffd700;
 
     --grad-sunset: linear-gradient(135deg, #ff2e93 0%, #b794f6 50%, #ffd700 100%);
     --grad-cool: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 50%, #ff2e93 100%);
@@ -473,6 +474,11 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: non
 @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.3); }
+}
+@keyframes pulse-bg {
+    0%   { filter: hue-rotate(0deg) brightness(1); }
+    50%  { filter: hue-rotate(90deg) brightness(1.15); }
+    100% { filter: hue-rotate(0deg) brightness(1); }
 }
 
 .hero-title {
@@ -1388,6 +1394,107 @@ blockquote footer {
 }
 .floating-cta.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .floating-cta:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 50px rgba(255, 46, 147, 0.7); }
+
+/* ==================================================
+   SCROLL TO TOP BUTTON
+   ================================================== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 99;
+    width: 52px;
+    height: 52px;
+    background: rgba(10, 1, 24, 0.82);
+    border: 1.5px solid rgba(255, 46, 147, 0.45);
+    border-radius: 50%;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.06);
+    opacity: 0;
+    transform: translateY(24px);
+    pointer-events: none;
+    transition: opacity 0.45s var(--ease), transform 0.45s var(--ease),
+                box-shadow 0.3s, background 0.3s, border-color 0.3s;
+}
+.scroll-to-top.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.scroll-to-top:hover {
+    background: var(--grad-sunset);
+    border-color: transparent;
+    box-shadow: 0 0 0 4px rgba(255, 46, 147, 0.18),
+                0 0 30px rgba(255, 46, 147, 0.55),
+                0 8px 24px rgba(0,0,0,0.4);
+    transform: translateY(-4px) scale(1.08);
+}
+.scroll-to-top svg {
+    transition: transform 0.35s var(--ease-bounce);
+    display: block;
+}
+.scroll-to-top:hover svg {
+    transform: translateY(-3px);
+}
+/* tooltip label on desktop */
+.scroll-to-top::after {
+    content: 'Inicio';
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: rgba(10,1,24,0.92);
+    color: var(--ink-soft);
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.25s var(--ease);
+}
+.scroll-to-top:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+/* focus ring for keyboard nav */
+.scroll-to-top:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--pink), 0 0 0 5px rgba(255,46,147,0.25);
+}
+
+/* ==================================================
+   SCROLL PROGRESS BAR
+   ================================================== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--grad-sunset);
+    z-index: 10002;
+    border-radius: 0 2px 2px 0;
+    box-shadow: 0 0 12px rgba(255, 46, 147, 0.6);
+    transition: width 0.08s linear;
+    pointer-events: none;
+}
+
+@media (max-width: 640px) {
+    .scroll-to-top { left: 16px; bottom: 80px; width: 46px; height: 46px; }
+    .scroll-to-top::after { display: none; }
+    .floating-cta { bottom: 16px; right: 16px; }
+}
 
 /* ==================================================
    REVEAL ON SCROLL
@@ -2647,6 +2754,16 @@ img { max-width: 100%; height: auto; }
     <!-- =============== GRAIN OVERLAY =============== -->
     <div class="grain" aria-hidden="true"></div>
 
+    <!-- =============== SCROLL PROGRESS BAR =============== -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+    <!-- =============== SCROLL TO TOP =============== -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Volver al inicio de la página" title="Volver arriba" data-cursor="link">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
     <!-- =============== NAV =============== -->
     <header class="nav" id="nav">
         <a href="index.html" class="nav-logo" data-cursor="link">
@@ -2940,12 +3057,12 @@ img { max-width: 100%; height: auto; }
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Piña Vanicoolada</h3>
+                            <h3>Piña Vanicolada</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc">Piña colada con una bola de helado de vainilla</p>
-                        <span class="mi-tag">+1€ con helado</span>
+                        <span class="mi-tag">🍦 Incluye bola de helado</span>
                     </article>
 
                     <article class="menu-item" data-reveal>
@@ -3276,7 +3393,7 @@ img { max-width: 100%; height: auto; }
                     </article>
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Cocolicioue</h3>
+                            <h3>Cocolicious</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">6,50€</span>
                         </div>
@@ -3358,7 +3475,7 @@ img { max-width: 100%; height: auto; }
                     </article>
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Bombay Shappire + tónica</h3>
+                            <h3>Bombay Sapphire + tónica</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
@@ -3717,7 +3834,7 @@ img { max-width: 100%; height: auto; }
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <span class="fl-mark">M</span>
+                        <span class="nav-logo-mark">M</span>
                         <strong>MIAMI LOUNGE BAR</strong>
                     </div>
                     <p>Lounge-bar de referencia en Miami Platja, Costa Dorada. Cócteles, música y atardeceres mediterráneos.</p>
@@ -3979,6 +4096,44 @@ img { max-width: 100%; height: auto; }
             setTimeout(() => document.body.style.animation = '', 1500);
         }
     });
+
+    /* ---------- SCROLL TO TOP + PROGRESS BAR ---------- */
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    const scrollProgressBar = document.getElementById('scrollProgress');
+    const SHOW_AFTER_PX = 380;   // appears once past the hero
+
+    const updateScrollUI = () => {
+        const scrolled = window.scrollY;
+        const docH   = document.documentElement.scrollHeight;
+        const winH   = window.innerHeight;
+        const total  = docH - winH;
+
+        // ── progress bar ──
+        if (scrollProgressBar) {
+            const pct = total > 0 ? Math.min(100, (scrolled / total) * 100) : 0;
+            scrollProgressBar.style.width = pct + '%';
+            scrollProgressBar.setAttribute('aria-valuenow', Math.round(pct));
+        }
+
+        // ── scroll-to-top button ──
+        if (scrollToTopBtn) {
+            if (scrolled > SHOW_AFTER_PX) {
+                scrollToTopBtn.classList.add('is-visible');
+            } else {
+                scrollToTopBtn.classList.remove('is-visible');
+            }
+        }
+    };
+
+    window.addEventListener('scroll', updateScrollUI, { passive: true });
+    updateScrollUI(); // run once on load
+
+    if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        // also support keyboard: Enter / Space already fire click on <button>
+    }
 
 })();
 
