@@ -716,6 +716,7 @@ p strong { color: #fff; }
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     transition: transform 0.3s var(--ease), border-color 0.3s, background 0.3s;
+    will-change: transform;
 }
 .af-item:hover { transform: translateY(-4px); border-color: var(--border-hi); background: rgba(255, 46, 147, 0.05); }
 .af-icon {
@@ -851,6 +852,7 @@ p strong { color: #fff; }
     border-radius: var(--radius);
     backdrop-filter: blur(20px);
     transition: transform 0.4s var(--ease), border-color 0.4s, background 0.4s;
+    will-change: transform;
     position: relative;
     overflow: hidden;
 }
@@ -949,6 +951,7 @@ p strong { color: #fff; }
     border-radius: var(--radius);
     backdrop-filter: blur(20px);
     transition: transform 0.4s var(--ease), border-color 0.4s, background 0.4s;
+    will-change: transform;
     position: relative;
     overflow: hidden;
 }
@@ -1408,6 +1411,7 @@ blockquote footer {
    RESPONSIVE
    ================================================== */
 @media (max-width: 1024px) {
+        .footer-cols { grid-template-columns: repeat(2, 1fr); }
     .nav-links { display: none; }
     .nav-cta { display: none; }
     .nav-burger { display: flex; }
@@ -1426,6 +1430,7 @@ blockquote footer {
 }
 
 @media (max-width: 640px) {
+        .t-grid { grid-template-columns: 1fr; }
     body { cursor: auto; }
     .nav { padding: 16px 5vw; }
     .nav.is-scrolled { padding: 12px 5vw; }
@@ -1467,7 +1472,32 @@ blockquote footer {
     [data-reveal] { opacity: 1; transform: none; }
 }
 
-</style>
+
+    /* ============== CURSOR + TOUCH-ACTION (accessibility & UX) ============== */
+    .btn, .btn-primary, .btn-ghost,
+    .nav-cta, .nav-logo,
+    .hero-scroll,
+    .cocktail-card, .event-card,
+    .af-item, .about-card,
+    .lb-prev, .lb-next, .lb-close,
+    .floating-cta,
+    .gallery-grid .g-item,
+    [data-cursor],
+    button, [role="button"] {
+        cursor: pointer;
+        touch-action: manipulation;
+    }
+
+    
+    /* ============== SCROLL ANCHOR OFFSET ============== */
+    section[id] { scroll-margin-top: var(--nav-h, 70px); }
+
+    
+    /* ============== PREVENT HORIZONTAL OVERFLOW ON MOBILE ============== */
+    html, body { overflow-x: hidden; }
+    * { box-sizing: border-box; }
+
+    </style>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌴%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
@@ -1801,7 +1831,7 @@ blockquote footer {
                 <article class="cocktail-card" data-reveal>
                     <div class="cocktail-img" style="--c1:#ff2e93;--c2:#b794f6">
                         <div class="cocktail-glow"></div>
-                        <span class="cocktail-emoji">🍹</span>
+                        <span class="cocktail-emoji" aria-hidden="true">🍹</span>
                     </div>
                     <h3>Mojito</h3>
                     <p>Ron blanco, hierbabuena fresca, lima y soda. El clásico cubano que nunca falla.</p>
@@ -1811,7 +1841,7 @@ blockquote footer {
                 <article class="cocktail-card" data-reveal data-delay="100">
                     <div class="cocktail-img" style="--c1:#00f0ff;--c2:#8b5cf6">
                         <div class="cocktail-glow"></div>
-                        <span class="cocktail-emoji">🍹</span>
+                        <span class="cocktail-emoji" aria-hidden="true">🍹</span>
                     </div>
                     <h3>Caipiriña</h3>
                     <p>Cachaça, lima fresca y azúcar. Pura energía brasileña en tu copa.</p>
@@ -1821,7 +1851,7 @@ blockquote footer {
                 <article class="cocktail-card" data-reveal data-delay="200">
                     <div class="cocktail-img" style="--c1:#ff2e93;--c2:#8b5cf6">
                         <div class="cocktail-glow"></div>
-                        <span class="cocktail-emoji">🍓</span>
+                        <span class="cocktail-emoji" aria-hidden="true">🍓</span>
                     </div>
                     <h3>Marcoco</h3>
                     <p>La creación de la casa que no puedes dejar de probar. Pregunta por él.</p>
@@ -1831,7 +1861,7 @@ blockquote footer {
                 <article class="cocktail-card" data-reveal data-delay="300">
                     <div class="cocktail-img" style="--c1:#b794f6;--c2:#ffd700">
                         <div class="cocktail-glow"></div>
-                        <span class="cocktail-emoji">🍷</span>
+                        <span class="cocktail-emoji" aria-hidden="true">🍷</span>
                     </div>
                     <h3>Sangría de la casa</h3>
                     <p>Receta artesanal con vino, frutas frescas y un toque secreto. El must del verano.</p>
@@ -1841,7 +1871,7 @@ blockquote footer {
                 <article class="cocktail-card" data-reveal data-delay="400">
                     <div class="cocktail-img" style="--c1:#10b981;--c2:#00f0ff">
                         <div class="cocktail-glow"></div>
-                        <span class="cocktail-emoji">🍺</span>
+                        <span class="cocktail-emoji" aria-hidden="true">🍺</span>
                     </div>
                     <h3>Cervezas & combinados</h3>
                     <p>Cervezas bien frías, gin tonics premium, combinados clásicos y de autor.</p>
@@ -1851,7 +1881,7 @@ blockquote footer {
                 <article class="cocktail-card" data-reveal data-delay="500">
                     <div class="cocktail-img" style="--c1:#8b5cf6;--c2:#00f0ff">
                         <div class="cocktail-glow"></div>
-                        <span class="cocktail-emoji">🍹</span>
+                        <span class="cocktail-emoji" aria-hidden="true">🍹</span>
                     </div>
                     <h3>Sin alcohol</h3>
                     <p>Mojito de frutas, virgin coladas y mocktails refrescantes. Para todos.</p>
@@ -1969,7 +1999,7 @@ blockquote footer {
 
                     <ul class="contact-list">
                         <li>
-                            <span class="ci-icon">📍</span>
+                            <span class="ci-icon" aria-hidden="true">📍</span>
                             <div>
                                 <strong>Dirección</strong>
                                 <a href="https://maps.google.com/?q=Avinguda+de+Barcelona,+40,+43892+Miami+Platja,+Tarragona" target="_blank" rel="noopener" data-cursor="link">
@@ -1978,21 +2008,21 @@ blockquote footer {
                             </div>
                         </li>
                         <li>
-                            <span class="ci-icon">📞</span>
+                            <span class="ci-icon" aria-hidden="true">📞</span>
                             <div>
                                 <strong>Teléfono</strong>
                                 <a href="tel:+34691691080" data-cursor="link">691 69 10 80</a>
                             </div>
                         </li>
                         <li>
-                            <span class="ci-icon">✉️</span>
+                            <span class="ci-icon" aria-hidden="true">✉️</span>
                             <div>
                                 <strong>Email</strong>
                                 <a href="mailto:nanievies@gmail.com" data-cursor="link">nanievies@gmail.com</a>
                             </div>
                         </li>
                         <li>
-                            <span class="ci-icon">🌐</span>
+                            <span class="ci-icon" aria-hidden="true">🌐</span>
                             <div>
                                 <strong>Web</strong>
                                 <a href="https://www.miamiloungebar.com" target="_blank" rel="noopener" data-cursor="link" class="web-soon">www.miamiloungebar.com
@@ -2001,21 +2031,21 @@ blockquote footer {
                             </div>
                         </li>
                         <li>
-                            <span class="ci-icon">🌴</span>
+                            <span class="ci-icon" aria-hidden="true">🌴</span>
                             <div>
                                 <strong>Zona</strong>
                                 <span>Mont-roig del Camp · Costa Dorada</span>
                             </div>
                         </li>
                         <li>
-                            <span class="ci-icon">🐶</span>
+                            <span class="ci-icon" aria-hidden="true">🐶</span>
                             <div>
                                 <strong>Pet-friendly</strong>
                                 <span>Tu mascota es bienvenida en nuestra terraza</span>
                             </div>
                         </li>
                         <li>
-                            <span class="ci-icon">♿</span>
+                            <span class="ci-icon" aria-hidden="true">♿</span>
                             <div>
                                 <strong>Accesible</strong>
                                 <span>Adaptado para personas con movilidad reducida</span>
@@ -2184,7 +2214,9 @@ blockquote footer {
         const toggle = () => {
             burger.classList.toggle('is-open');
             mobileMenu.classList.toggle('is-open');
-            document.body.style.overflow = mobileMenu.classList.contains('is-open') ? 'hidden' : '';
+            const isOpen = mobileMenu.classList.contains('is-open');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+            burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         };
         burger.addEventListener('click', toggle);
         mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', toggle));
@@ -2336,5 +2368,18 @@ blockquote footer {
 })();
 
 </script>
-    </body>
+        <script>
+        /* Dynamic --nav-h for fixed nav offset */
+        (function() {
+            const nav = document.getElementById('nav');
+            function updateNavH() {
+                const h = nav ? nav.offsetHeight : 70;
+                document.documentElement.style.setProperty('--nav-h', h + 'px');
+            }
+            updateNavH();
+            window.addEventListener('scroll', updateNavH, { passive: true });
+            window.addEventListener('resize', updateNavH, { passive: true });
+        })();
+    </script>
+</body>
 </html>
