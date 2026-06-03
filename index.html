@@ -1349,28 +1349,8 @@ blockquote footer {
     letter-spacing: 0.1em;
 }
 
-/* ==================================================
-   FLOATING CTA
-   ================================================== */
-.floating-cta {
-    position: fixed;
-    bottom: 30px; right: 30px;
-    z-index: 99;
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 24px;
-    background: var(--grad-sunset);
-    border-radius: 50px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    box-shadow: 0 10px 40px rgba(255, 46, 147, 0.5);
-    transition: transform 0.3s var(--ease), box-shadow 0.3s;
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
-}
-.floating-cta.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
-.floating-cta:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 50px rgba(255, 46, 147, 0.7); }
+
+
 
 /* ==================================================
    REVEAL ON SCROLL
@@ -1435,8 +1415,8 @@ blockquote footer {
     .schedule-wrap { padding: 28px; }
     .footer-cols { grid-template-columns: 1fr; gap: 30px; }
     .footer-bottom { flex-direction: column; text-align: center; }
-    .floating-cta span { display: none; }
-    .floating-cta { padding: 16px; }
+    
+    
     .lb-prev, .lb-next { width: 40px; height: 40px; font-size: 18px; }
     .lb-close { top: 15px; right: 15px; }
 }
@@ -1458,13 +1438,7 @@ blockquote footer {
     .cocktail-card, .event-card,
     .af-item, .about-card,
     .lb-prev, .lb-next, .lb-close,
-    .floating-cta,
-    .gallery-grid .g-item,
-    [data-cursor],
-    button, [role="button"] {
-        cursor: pointer;
-        touch-action: manipulation;
-    }
+    
 
     /* ============== SCROLL ANCHOR OFFSET ============== */
     section[id] { scroll-margin-top: var(--nav-h, 70px); }
@@ -1480,13 +1454,7 @@ blockquote footer {
     .lb-prev:focus-visible,
     .lb-next:focus-visible,
     .lb-close:focus-visible,
-    .floating-cta:focus-visible,
-    button:focus-visible,
-    a:focus-visible {
-        outline: 2px solid var(--pink);
-        outline-offset: 3px;
-        box-shadow: 0 0 0 4px rgba(255, 46, 147, 0.2);
-    }
+    
     .btn:focus:not(:focus-visible),
     button:focus:not(:focus-visible),
     a:focus:not(:focus-visible) { outline: none; }
@@ -1494,8 +1462,7 @@ blockquote footer {
     /* ============== PRINT ============== */
     @media print {
         .cursor, .cursor-follower, .grain, .loader,
-        .floating-cta, .nav-cta, .nav-burger,
-        .mobile-menu, .lightbox { display: none !important; }
+        
         body { background: #fff; color: #000; cursor: auto; }
         a { color: #000; text-decoration: none; }
         section { page-break-inside: avoid; }
@@ -2093,12 +2060,6 @@ blockquote footer {
         <img id="lbImg" alt="" loading="lazy" decoding="async"/>
         <div class="lb-counter" id="lbCounter"></div>
     </div>
-
-    <!-- =============== FLOATING CTA =============== -->
-    <a href="tel:+34691691080" class="floating-cta" id="floatingCta" data-cursor="link" aria-label="Llamar">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span>Reservar</span>
-    </a>
         <script>
 /* === INLINED script.js === */
 /* ==================================================
@@ -2203,22 +2164,6 @@ blockquote footer {
         revealEls.forEach(el => revealObserver.observe(el));
     } else {
         revealEls.forEach(el => el.classList.add('is-visible'));
-    }
-
-    /* ---------- FLOATING CTA ---------- */
-    const floatingCta = document.getElementById('floatingCta');
-    if (floatingCta) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    floatingCta.classList.remove('is-visible');
-                } else {
-                    floatingCta.classList.add('is-visible');
-                }
-            });
-        }, { threshold: 0.3 });
-        const heroCta = document.querySelector('.hero-ctas');
-        if (heroCta) observer.observe(heroCta);
     }
 
     /* ---------- LIGHTBOX ---------- */
