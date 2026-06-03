@@ -1571,7 +1571,7 @@ blockquote footer {
 
         <div class="hero-content">
             <div class="hero-tag" data-reveal>
-                <span class="dot"></span>
+                <span class="dot" id="statusDot"></span>
                 Temporada 2026 · Miami Platja · Tarragona
             </div>
             <h1 class="hero-title" data-reveal data-delay="100">
@@ -2288,6 +2288,37 @@ blockquote footer {
             updateNavH();
             window.addEventListener('scroll', updateNavH, { passive: true });
             window.addEventListener('resize', updateNavH, { passive: true });
+        })();
+    </script>
+    <script>
+        /* ── OPEN/CLOSED STATUS DOT ── */
+        (function() {
+            const dot = document.getElementById('statusDot');
+            if (!dot) return;
+
+            // Schedule: every day 19:00 – 02:30 (next day), Spain time (Europe/Madrid)
+            function isOpen() {
+                const now = new Date();
+                // Get current time in Spain
+                const spainTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Madrid' }));
+                const h = spainTime.getHours();
+                const m = spainTime.getMinutes();
+                const totalMins = h * 60 + m;
+                // Open: 19:00 (1140) to 02:30 next day (150 mins = 02:30)
+                // Since it crosses midnight: open if >= 1140 OR <= 150
+                return totalMins >= 19 * 60 || totalMins <= 2 * 60 + 30;
+            }
+
+            function updateDot() {
+                const open = isOpen();
+                dot.style.background    = open ? '#2dff8e' : '#ff4444';
+                dot.style.boxShadow     = open ? '0 0 10px #2dff8e' : '0 0 10px #ff4444';
+                dot.title               = open ? 'Abierto ahora' : 'Cerrado ahora';
+            }
+
+            updateDot();
+            // Re-check every minute
+            setInterval(updateDot, 60000);
         })();
     </script>
 </body>
