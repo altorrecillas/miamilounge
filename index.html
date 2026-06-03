@@ -10,6 +10,10 @@
     <meta property="og:title" content="Miami Lounge Bar · Cócteles & Música en Vivo" />
     <meta property="og:description" content="Lounge-bar de referencia en Miami Platja con terraza, sofás, hamacas, columpios y cócteles artesanales. 2.436 fans en Facebook." />
     <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Miami Lounge Bar · Miami Platja" />
+    <meta name="twitter:description" content="Cócteles artesanales, combinados premium y platitos para compartir. Drink, eat, relax and repeat." />
+    <meta name="twitter:image" content="img/miami-hero.jpg" />
     <meta property="og:image" content="img/miami-hero.jpg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,6 +59,7 @@
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+    * { -webkit-tap-highlight-color: transparent; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 *::selection { background: var(--pink); color: #fff; }
@@ -871,7 +876,7 @@ p strong { color: #fff; }
     width: 100%;
     aspect-ratio: 4/3;
     border-radius: var(--radius-sm);
-    background: linear-gradient(135deg, var(--c1), var(--c2));
+    background: linear-gradient(135deg, var(--c1, var(--pink)), var(--c2, var(--cyan)));
     margin-bottom: 20px;
     display: grid; place-items: center;
     position: relative;
@@ -921,40 +926,14 @@ p strong { color: #fff; }
 /* ==================================================
    EVENTS
    ================================================== */
-.events {
-    position: relative;
-    overflow: hidden;
-    background: var(--bg);
-}
-.events-bg { position: absolute; inset: 0; z-index: 0; }
+
 .events-bg img {
     width: 100%; height: 100%;
     object-fit: cover;
     filter: blur(2px) brightness(0.4) saturate(1.2);
     transform: scale(1.05);
 }
-.events-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(10, 1, 24, 0.85), rgba(10, 1, 24, 0.95));
-}
-.events-inner { position: relative; z-index: 1; }
 
-.events-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-.event-card {
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    backdrop-filter: blur(20px);
-    transition: transform 0.4s var(--ease), border-color 0.4s, background 0.4s;
-    will-change: transform;
-    position: relative;
-    overflow: hidden;
-}
 .event-card::before {
     content: '';
     position: absolute;
@@ -1421,7 +1400,7 @@ blockquote footer {
     .g-big { grid-column: span 2; grid-row: span 1; }
     .g-wide { grid-column: span 1; }
     .cocktails-grid { grid-template-columns: repeat(2, 1fr); }
-    .events-grid { grid-template-columns: repeat(2, 1fr); }
+    
     .schedule-wrap { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
     .t-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
@@ -1449,7 +1428,7 @@ blockquote footer {
     .g-wide { grid-column: span 2; }
     .g-tall { grid-row: span 2; }
     .cocktails-grid { grid-template-columns: 1fr; }
-    .events-grid { grid-template-columns: 1fr; }
+    
     .schedule-list li { grid-template-columns: 1fr; gap: 6px; padding: 14px 16px; text-align: center; }
     .schedule-list li:has(strong + strong) { grid-template-columns: 1fr; }
     .schedule-list li strong { font-size: 14px; }
@@ -1472,7 +1451,6 @@ blockquote footer {
     [data-reveal] { opacity: 1; transform: none; }
 }
 
-
     /* ============== CURSOR + TOUCH-ACTION (accessibility & UX) ============== */
     .btn, .btn-primary, .btn-ghost,
     .nav-cta, .nav-logo,
@@ -1488,14 +1466,40 @@ blockquote footer {
         touch-action: manipulation;
     }
 
-    
     /* ============== SCROLL ANCHOR OFFSET ============== */
     section[id] { scroll-margin-top: var(--nav-h, 70px); }
 
-    
     /* ============== PREVENT HORIZONTAL OVERFLOW ON MOBILE ============== */
     html, body { overflow-x: hidden; }
     * { box-sizing: border-box; }
+
+    /* ============== FOCUS-VISIBLE (keyboard navigation) ============== */
+    .btn:focus-visible,
+    .nav-cta:focus-visible,
+    .hero-scroll:focus-visible,
+    .lb-prev:focus-visible,
+    .lb-next:focus-visible,
+    .lb-close:focus-visible,
+    .floating-cta:focus-visible,
+    button:focus-visible,
+    a:focus-visible {
+        outline: 2px solid var(--pink);
+        outline-offset: 3px;
+        box-shadow: 0 0 0 4px rgba(255, 46, 147, 0.2);
+    }
+    .btn:focus:not(:focus-visible),
+    button:focus:not(:focus-visible),
+    a:focus:not(:focus-visible) { outline: none; }
+
+    /* ============== PRINT ============== */
+    @media print {
+        .cursor, .cursor-follower, .grain, .loader,
+        .floating-cta, .nav-cta, .nav-burger,
+        .mobile-menu, .lightbox { display: none !important; }
+        body { background: #fff; color: #000; cursor: auto; }
+        a { color: #000; text-decoration: none; }
+        section { page-break-inside: avoid; }
+    }
 
     </style>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌴%3C/text%3E%3C/svg%3E" />
@@ -1565,7 +1569,7 @@ blockquote footer {
             <a href="#about" data-cursor="link">Nosotros</a>
             <a href="#gallery" data-cursor="link">Galería</a>
             <a href="#cocktails" data-cursor="link">Cócteles</a>
-            <a href="#events" data-cursor="link">Noches</a>
+            <a href="carta.html" data-cursor="link">Carta</a>
             <a href="#contact" data-cursor="link">Contacto</a>
         </nav>
         <a href="tel:+34691691080" class="nav-cta" data-cursor="link">
@@ -1582,7 +1586,7 @@ blockquote footer {
         <a href="#about">Nosotros</a>
         <a href="#gallery">Galería</a>
         <a href="#cocktails">Cócteles</a>
-        <a href="#events">Noches</a>
+        <a href="carta.html">Carta</a>
         <a href="#contact">Contacto</a>
         <a href="tel:+34691691080" class="mobile-cta">Reservar mesa</a>
     </div>
@@ -1590,7 +1594,7 @@ blockquote footer {
     <!-- =============== HERO =============== -->
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <img src="img/miami-hero.jpg" alt="Miami Lounge Bar Miami Platja" class="hero-img" loading="eager"/>
+            <img src="img/miami-hero.jpg" alt="Miami Lounge Bar Miami Platja" class="hero-img" loading="eager" decoding="async"/>
             <div class="hero-overlay"></div>
             <div class="hero-grid"></div>
         </div>
@@ -1654,16 +1658,14 @@ blockquote footer {
             <span>Cócteles artesanales</span><span class="dot">◆</span>
             <span>Terraza chill-out</span><span class="dot">◆</span>
             <span>Sofás, hamacas & columpios</span><span class="dot">◆</span>
-            <span>Música en directo</span><span class="dot">◆</span>
-            <span>DJ sets</span><span class="dot">◆</span>
+
             <span>Pet-friendly</span><span class="dot">◆</span>
             <span>WiFi gratis</span><span class="dot">◆</span>
             <span>Accesible</span><span class="dot">◆</span>
             <span>Cócteles artesanales</span><span class="dot">◆</span>
             <span>Terraza chill-out</span><span class="dot">◆</span>
             <span>Sofás, hamacas & columpios</span><span class="dot">◆</span>
-            <span>Música en directo</span><span class="dot">◆</span>
-            <span>DJ sets</span><span class="dot">◆</span>
+
             <span>Pet-friendly</span><span class="dot">◆</span>
             <span>WiFi gratis</span><span class="dot">◆</span>
             <span>Accesible</span><span class="dot">◆</span>
@@ -1734,14 +1736,14 @@ blockquote footer {
 
                 <div class="about-media" data-reveal data-delay="200">
                     <div class="about-card">
-                        <img src="img/miami-7.jpg" alt="Terraza Miami Lounge" loading="lazy"/>
+                        <img src="img/miami-7.jpg" alt="Terraza Miami Lounge" loading="lazy" decoding="async"/>
                         <div class="about-card-tag">Terraza chill-out</div>
                     </div>
                     <div class="about-card small">
-                        <img src="img/miami-8.jpg" alt="Cócteles Miami Lounge" loading="lazy"/>
+                        <img src="img/miami-8.jpg" alt="Cócteles Miami Lounge" loading="lazy" decoding="async"/>
                     </div>
                     <div class="about-card small-2">
-                        <img src="img/miami-9.jpg" alt="Ambiente Miami Lounge" loading="lazy"/>
+                        <img src="img/miami-9.jpg" alt="Ambiente Miami Lounge" loading="lazy" decoding="async"/>
                     </div>
                 </div>
             </div>
@@ -1759,59 +1761,59 @@ blockquote footer {
 
             <div class="gallery-grid">
                 <a href="img/miami-1.jpg" class="g-item g-big" data-reveal data-cursor="view">
-                    <img src="img/miami-1.jpg" alt="Miami Lounge ambiente" loading="lazy"/>
+                    <img src="img/miami-1.jpg" alt="Miami Lounge ambiente" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/miami-2.jpg" class="g-item g-tall" data-reveal data-cursor="view">
-                    <img src="img/miami-2.jpg" alt="Terraza Miami Lounge" loading="lazy"/>
+                    <img src="img/miami-2.jpg" alt="Terraza Miami Lounge" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/ig-p02c1.jpg" class="g-item" data-reveal data-cursor="view">
-                    <img src="img/ig-p02c1.jpg" alt="Apertura temporada Miami Lounge" loading="lazy"/>
+                    <img src="img/ig-p02c1.jpg" alt="Apertura temporada Miami Lounge" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/ig-p03.jpg" class="g-item" data-reveal data-cursor="view">
-                    <img src="img/ig-p03.jpg" alt="Temporada verano 2026" loading="lazy"/>
+                    <img src="img/ig-p03.jpg" alt="Temporada verano 2026" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/miami-3.jpg" class="g-item" data-reveal data-cursor="view">
-                    <img src="img/miami-3.jpg" alt="Miami Lounge interior" loading="lazy"/>
+                    <img src="img/miami-3.jpg" alt="Miami Lounge interior" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/miami-4.jpg" class="g-item" data-reveal data-cursor="view">
-                    <img src="img/miami-4.jpg" alt="Cócteles Miami Lounge" loading="lazy"/>
+                    <img src="img/miami-4.jpg" alt="Cócteles Miami Lounge" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/miami-5.jpg" class="g-item" data-reveal data-cursor="view">
-                    <img src="img/miami-5.jpg" alt="Terraza Miami Lounge" loading="lazy"/>
+                    <img src="img/miami-5.jpg" alt="Terraza Miami Lounge" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/ig-p07.jpg" class="g-item g-tall" data-reveal data-cursor="view">
-                    <img src="img/ig-p07.jpg" alt="Fin de temporada Miami Lounge" loading="lazy"/>
+                    <img src="img/ig-p07.jpg" alt="Fin de temporada Miami Lounge" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/miami-10.jpg" class="g-item g-wide" data-reveal data-cursor="view">
-                    <img src="img/miami-10.jpg" alt="Miami Lounge ambiente" loading="lazy"/>
+                    <img src="img/miami-10.jpg" alt="Miami Lounge ambiente" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/miami-11.jpg" class="g-item g-tall" data-reveal data-cursor="view">
-                    <img src="img/miami-11.jpg" alt="Cócteles Miami Lounge" loading="lazy"/>
+                    <img src="img/miami-11.jpg" alt="Cócteles Miami Lounge" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/ig-p12.jpg" class="g-item" data-reveal data-cursor="view">
-                    <img src="img/ig-p12.jpg" alt="Inauguración temporada 2025" loading="lazy"/>
+                    <img src="img/ig-p12.jpg" alt="Inauguración temporada 2025" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/ig-p10.jpg" class="g-item" data-reveal data-cursor="view">
-                    <img src="img/ig-p10.jpg" alt="Noches de música en vivo" loading="lazy"/>
+                    <img src="img/ig-p10.jpg" alt="Noches de música en vivo" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/miami-12.jpg" class="g-item" data-reveal data-cursor="view">
-                    <img src="img/miami-12.jpg" alt="Ambiente Miami Lounge" loading="lazy"/>
+                    <img src="img/miami-12.jpg" alt="Ambiente Miami Lounge" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
                 <a href="img/miami-13.jpg" class="g-item" data-reveal data-cursor="view">
-                    <img src="img/miami-13.jpg" alt="Noche en Miami Lounge" loading="lazy"/>
+                    <img src="img/miami-13.jpg" alt="Noche en Miami Lounge" loading="lazy" decoding="async"/>
                     <div class="g-overlay"><span>+ Ver</span></div>
                 </a>
             </div>
@@ -1892,42 +1894,6 @@ blockquote footer {
     </section>
 
     <!-- =============== EVENTS =============== -->
-    <section class="events" id="events">
-        <div class="events-bg">
-            <img src="img/miami-3.jpg" alt="" loading="lazy" aria-hidden="true"/>
-            <div class="events-overlay"></div>
-        </div>
-        <div class="container events-inner">
-            <div class="section-head" data-reveal>
-                <span class="eyebrow light">— Cada finde</span>
-                <h2 class="section-title light">Noches para <em>recordar</em></h2>
-                <p class="section-sub light">Música en directo desde las 22:00 h, sesiones de DJ, noches temáticas y mucho más.</p>
-            </div>
-
-            <div class="events-grid">
-                <div class="event-card" data-reveal>
-                    <span class="event-num">01</span>
-                    <h3>Música en directo</h3>
-                    <p>Bandas y artistas en directo que hacen temblar la noche. Buena música hasta medianoche.</p>
-                </div>
-                <div class="event-card" data-reveal data-delay="100">
-                    <span class="event-num">02</span>
-                    <h3>DJ Sets</h3>
-                    <p>Sessions con los mejores residentes y DJs invitados. Ritmos para todos los públicos.</p>
-                </div>
-                <div class="event-card" data-reveal data-delay="200">
-                    <span class="event-num">03</span>
-                    <h3>Noches temáticas</h3>
-                    <p>Cócteles de autor, decoración especial y ambiente único cada fin de semana.</p>
-                </div>
-                <div class="event-card" data-reveal data-delay="300">
-                    <span class="event-num">04</span>
-                    <h3>Eventos privados</h3>
-                    <p>Cumpleaños, despedidas, eventos de empresa. La terraza se transforma para ti.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- =============== SCHEDULE =============== -->
     <section class="schedule" id="schedule">
@@ -2126,7 +2092,7 @@ blockquote footer {
         <button class="lb-close" id="lbClose" aria-label="Cerrar">×</button>
         <button class="lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
         <button class="lb-next" id="lbNext" aria-label="Siguiente">›</button>
-        <img id="lbImg" alt=""/>
+        <img id="lbImg" alt="" loading="lazy" decoding="async"/>
         <div class="lb-counter" id="lbCounter"></div>
     </div>
 
