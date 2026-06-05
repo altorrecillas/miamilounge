@@ -2836,9 +2836,8 @@ img { max-width: 100%; height: auto; }
         </a>
         <nav class="nav-links">
             <a href="index.html#about" data-cursor="link">Nosotros</a>
-            <a href="index.html#gallery" data-cursor="link">Galería</a>
+            <a href="galeria.html" data-cursor="link">Galería</a>
             <a href="carta.html" class="is-active" data-cursor="link">Carta</a>
-            <a href="index.html#events" data-cursor="link">Noches</a>
             <a href="index.html#contact" data-cursor="link">Contacto</a>
         </nav>
         <a href="tel:+34691691080" class="nav-cta" data-cursor="link">
@@ -2853,9 +2852,8 @@ img { max-width: 100%; height: auto; }
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html#about">Nosotros</a>
-        <a href="index.html#gallery">Galería</a>
+        <a href="galeria.html">Galería</a>
         <a href="carta.html">Carta</a>
-        <a href="index.html#events">Noches</a>
         <a href="index.html#contact">Contacto</a>
         <a href="tel:+34691691080" class="mobile-cta">Reservar mesa</a>
     </div>
@@ -2863,14 +2861,11 @@ img { max-width: 100%; height: auto; }
     <!-- =============== CARTA HERO =============== -->
     <section class="carta-hero">
         <div class="carta-hero-bg">
-            <img src="img/ig-p02c1.jpg" alt="Miami Lounge Bar Miami Platja" class="carta-hero-img" loading="eager" decoding="async"/>
+            
             <div class="carta-hero-overlay"></div>
         </div>
         <div class="carta-hero-content">
-            <a href="index.html" class="back-link" data-cursor="link">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                Volver a inicio
-            </a>
+            
             <div class="hero-tag" data-reveal>
                 <span class="dot"></span>
                 Temporada 2026 · Actualizada
@@ -3874,7 +3869,7 @@ img { max-width: 100%; height: auto; }
                     <div class="cta-buttons">
                         <a href="tel:+34691691080" class="btn btn-primary" data-cursor="link">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            Llamar: 691 691 080
+                            Llamar: +34 691 691 080
                         </a>
                         <a href="https://www.instagram.com/miamiloungebar" target="_blank" rel="noopener" class="btn btn-ghost" data-cursor="link">
                             📷 @miamiloungebar
@@ -3890,7 +3885,8 @@ img { max-width: 100%; height: auto; }
     </main>
 
     <!-- =============== FOOTER =============== -->
-    <footer class="footer">
+    
+  <footer class="footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
@@ -3904,9 +3900,9 @@ img { max-width: 100%; height: auto; }
                     <div>
                         <h4>Contacto</h4>
                         <p>Av. de Barcelona, 40<br/>43892 Miami Platja, Tarragona</p>
-                        <p><a href="tel:+34691691080">691 69 10 80</a></p>
+                        <p><a href="tel:+34691691080">+34 691 69 10 80</a></p>
                         <p><a href="mailto:nanievies@gmail.com">nanievies@gmail.com</a></p>
-                        <p><a href="https://www.miamiloungebar.com" target="_blank" rel="noopener" class="web-soon">www.miamiloungebar.com <em>· pronto</em></a></p>
+                        <p><a href="https://www.miamilounge.es" target="_blank" rel="noopener" class="web-soon">www.miamilounge.es</a></p>
                     </div>
                     <div>
                         <h4>Síguenos</h4>
@@ -3917,7 +3913,7 @@ img { max-width: 100%; height: auto; }
                     <div>
                         <h4>Información</h4>
                         <p><a href="index.html#about">Sobre nosotros</a></p>
-                        <p><a href="index.html#gallery">Galería</a></p>
+                        <p><a href="galeria.html">Galería</a></p>
                         <p><a href="index.html#contact">Contacto</a></p>
                     </div>
                 </div>
@@ -3941,11 +3937,18 @@ img { max-width: 100%; height: auto; }
 
     /* ---------- LOADER ---------- */
     const loader = document.getElementById('loader');
-    window.addEventListener('load', () => {
-        setTimeout(() => loader.classList.add('is-hidden'), 1900);
-    });
-    // Safety fallback in case 'load' never fires
-    setTimeout(() => loader && loader.classList.add('is-hidden'), 4000);
+    const _loaderKey = 'miamilounge_loader_carta';
+    const _today = new Date().toISOString().slice(0, 10);
+    const _lastShown = localStorage.getItem(_loaderKey);
+    if (_lastShown === _today) {
+        loader.classList.add('is-hidden');
+    } else {
+        localStorage.setItem(_loaderKey, _today);
+        window.addEventListener('load', () => {
+            setTimeout(() => loader.classList.add('is-hidden'), 1900);
+        });
+        setTimeout(() => loader && loader.classList.add('is-hidden'), 4000);
+    }
 
     /* ---------- YEAR ---------- */
     const yearEl = document.getElementById('year');

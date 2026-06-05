@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#0a0118">
+  <title>Galería · Miami Lounge Bar · Miami Platja, Tarragona</title>
+  <meta name="description" content="Galería de fotos de Miami Lounge Bar en Miami Platja. Terraza chill-out, cócteles artesanales y noches únicas en la Costa Dorada.">
+  <meta property="og:title" content="Galería · Miami Lounge Bar">
+  <meta property="og:description" content="Imágenes de nuestra terraza, cócteles y ambiente en Miami Platja, Costa Dorada.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="galeria/galeria1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Galería · Miami Lounge Bar">
+  <meta name="twitter:image" content="galeria/galeria1.jpg">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌴</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Monoton&family=Outfit:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* VARIABLES idénticas al index */
+    :root {
+      --bg: #0a0118; --bg-2: #14032a; --bg-3: #1f0840;
+      --ink: #ffffff; --ink-soft: rgba(255,255,255,0.72); --ink-dim: rgba(255,255,255,0.45);
+      --pink: #ff2e93; --pink-2: #ff5fb3; --cyan: #00f0ff; --cyan-2: #5ee7ff;
+      --purple: #8b5cf6; --orange: #ff6b35; --lilac: #b794f6; --gold: #ffd700;
+      --grad-sunset: linear-gradient(135deg, #ff2e93 0%, #b794f6 50%, #ffd700 100%);
+      --grad-cool: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 50%, #ff2e93 100%);
+      --grad-miami: linear-gradient(180deg, #ff2e93 0%, #ff5fb3 30%, #ffd166 65%, #00f0ff 100%);
+      --glass: rgba(255,255,255,0.04); --glass-2: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.08); --border-hi: rgba(255,46,147,0.4);
+      --radius: 18px; --radius-sm: 12px;
+      --shadow-neon-pink: 0 0 40px rgba(255,46,147,0.4), 0 0 80px rgba(255,46,147,0.15);
+      --shadow-neon-cyan: 0 0 40px rgba(0,240,255,0.4), 0 0 80px rgba(0,240,255,0.15);
+      --ease: cubic-bezier(0.22,1,0.36,1); --ease-bounce: cubic-bezier(0.34,1.56,0.64,1);
+    }
+    *, *::before, *::after { -webkit-tap-highlight-color: transparent; box-sizing: border-box; margin: 0; padding: 0; }
+    ::selection { background: var(--pink); color: #fff; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Outfit', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; overflow-x: hidden; cursor: none; font-weight: 400; min-height: 100vh; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; background: none; border: 0; color: inherit; cursor: none; }
+    .container { width: min(1280px, 92vw); margin: 0 auto; }
+    .gradient { background: var(--grad-sunset); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+
+    /* GRAIN */
+    .grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.06; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    /* CURSOR */
+    .cursor, .cursor-follower { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-50%,-50%); mix-blend-mode: difference; }
+    .cursor { width: 6px; height: 6px; background: #fff; transition: transform .05s linear, opacity .2s; }
+    .cursor-follower { width: 36px; height: 36px; border: 1.5px solid #fff; transition: transform .25s var(--ease), width .25s, height .25s, opacity .2s, background .2s; }
+    .cursor-follower.is-link { width: 60px; height: 60px; background: var(--pink); border-color: var(--pink); }
+    .cursor-follower.is-view { width: 80px; height: 80px; background: var(--cyan); border-color: var(--cyan); }
+    @media (hover: none) { .cursor, .cursor-follower { display: none; } body { cursor: auto; } button { cursor: pointer; } }
+
+    /* ===================== LOADER COMPLETO (igual que carta.html) ===================== */
+    .loader {
+      position: fixed; inset: 0; z-index: 10001; background: var(--bg);
+      display: grid; place-items: center;
+      transition: opacity .8s var(--ease), visibility .8s;
+    }
+    .loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,46,147,.25) 0%, transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(0,240,255,.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139,92,246,.2) 0%, transparent 50%);
+    }
+    .loader-content { position: relative; z-index: 2; text-align: center; width: min(90vw, 500px); }
+    .loader-sun {
+      width: 220px; height: 110px;
+      background: var(--grad-sunset);
+      border-radius: 220px 220px 0 0;
+      margin: 0 auto 30px;
+      box-shadow: 0 0 80px rgba(183,148,246,.5);
+      position: relative; overflow: hidden;
+      animation: sunRise 1.2s var(--ease) both;
+    }
+    .loader-sun::before, .loader-sun::after {
+      content: ''; position: absolute; left: 0; right: 0; height: 2px;
+      background: var(--bg);
+      box-shadow: 0 18px 0 var(--bg), 0 36px 0 var(--bg), 0 54px 0 var(--bg);
+    }
+    .loader-sun::after { display: none; }
+    @keyframes sunRise { from { transform: translateY(60px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .loader-palms {
+      position: absolute; inset: 0;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      padding: 0 4vw 0; color: var(--ink); opacity: .8;
+    }
+    .palm { width: 120px; height: 200px; animation: palmSway 3s ease-in-out infinite; }
+    .palm-right { animation-delay: .5s; }
+    @keyframes palmSway { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+    .loader-text { position: relative; }
+    .loader-welcome {
+      display: block; font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(18px, 3vw, 24px); color: var(--cyan); letter-spacing: .2em;
+      text-transform: lowercase; margin-bottom: 10px;
+      opacity: 0; animation: fadeIn .6s .3s var(--ease) both;
+    }
+    .loader-title {
+      font-family: 'Monoton', sans-serif;
+      font-size: clamp(36px, 10vw, 90px);
+      line-height: .95; letter-spacing: .04em; color: #fff;
+      text-shadow: 0 0 20px var(--pink), 0 0 40px var(--pink);
+      display: flex; justify-content: center; gap: 4px;
+    }
+    .loader-title span {
+      display: inline-block; opacity: 0; transform: translateY(40px) rotate(15deg);
+      animation: letterIn .6s var(--ease-bounce) forwards;
+    }
+    .loader-title span:nth-child(1) { animation-delay: .4s; }
+    .loader-title span:nth-child(2) { animation-delay: .5s; }
+    .loader-title span:nth-child(3) { animation-delay: .6s; }
+    .loader-title span:nth-child(4) { animation-delay: .7s; }
+    .loader-title span:nth-child(5) { animation-delay: .8s; }
+    .loader-title span:nth-child(6) { animation-delay: .9s; }
+    .loader-title span:nth-child(7) { animation-delay: 1.0s; }
+    @keyframes letterIn { to { opacity: 1; transform: translateY(0) rotate(0); } }
+    .loader-sub {
+      font-family: 'Bebas Neue', sans-serif; letter-spacing: .3em; color: var(--cyan);
+      margin-top: 10px; opacity: 0; animation: fadeIn .6s 1.2s var(--ease) both;
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+    .loader-bar { margin: 40px auto 0; width: 220px; height: 2px; background: rgba(255,255,255,.1); border-radius: 2px; overflow: hidden; }
+    .loader-bar-fill { height: 100%; width: 0; background: var(--grad-sunset); animation: barFill 1.8s .3s var(--ease) forwards; }
+    @keyframes barFill { to { width: 100%; } }
+    /* ================================================================================ */
+
+    /* NAV copia exacta del index */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 103; padding: 22px 4vw; display: flex; align-items: center; justify-content: space-between; gap: 30px; transition: background .4s, padding .4s, backdrop-filter .4s; }
+    .nav.is-scrolled { padding: 14px 4vw; background: rgba(10,1,24,.7); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .nav-logo-mark { width: 38px; height: 38px; background: var(--grad-sunset); border-radius: 10px; display: grid; place-items: center; font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; box-shadow: 0 0 20px rgba(255,46,147,.5); transition: transform .4s var(--ease-bounce); }
+    .nav-logo:hover .nav-logo-mark { transform: rotate(-10deg) scale(1.1); }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .nav-logo-text strong { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: .12em; color: #fff; }
+    .nav-logo-text em { font-style: normal; font-size: 10px; color: var(--cyan); letter-spacing: .3em; text-transform: uppercase; margin-top: 2px; }
+    .nav-links { display: flex; gap: 36px; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--ink-soft); position: relative; transition: color .3s; letter-spacing: .02em; }
+    .nav-links a::before { content: ''; position: absolute; bottom: -6px; left: 50%; width: 0; height: 1px; background: var(--grad-sunset); transition: width .3s var(--ease), left .3s var(--ease); }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::before, .nav-links a.is-active::before { width: 100%; left: 0; }
+    .nav-links a.is-active { color: var(--pink); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; background: var(--grad-sunset); border-radius: 50px; font-size: 13px; font-weight: 600; color: #fff; letter-spacing: .04em; transition: transform .3s var(--ease), box-shadow .3s; box-shadow: 0 0 0 rgba(255,46,147,0); }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,46,147,.5); }
+    .nav-burger { display: none; width: 32px; height: 32px; flex-direction: column; gap: 5px; align-items: center; justify-content: center; position: relative; z-index: 102; }
+    .nav-burger span { width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: transform .4s var(--ease), opacity .3s; }
+    .nav-burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.is-open span:nth-child(2) { opacity: 0; }
+    .nav-burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* MOBILE MENU copia exacta del index */
+    .mobile-menu { position: fixed; inset: 0; z-index: 101; background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; opacity: 0; visibility: hidden; transform: translateY(-20px); transition: opacity .5s var(--ease), transform .5s var(--ease), visibility .5s; }
+    .mobile-menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .mobile-menu a { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: .08em; color: #fff; transition: color .3s; }
+    .mobile-menu a:hover { color: var(--cyan); }
+    .mobile-cta { margin-top: 20px; padding: 14px 30px; background: var(--grad-sunset); border-radius: 50px; font-family: 'Outfit', sans-serif; font-size: 16px !important; font-weight: 600; }
+
+    /* REVEAL */
+    [data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity .7s var(--ease) var(--delay, 0ms), transform .7s var(--ease) var(--delay, 0ms); }
+    [data-reveal].is-visible { opacity: 1; transform: none; }
+
+    /* PAGE HERO */
+    .page-hero { padding: clamp(120px, 18vw, 200px) 0 clamp(60px, 8vw, 100px); text-align: center; position: relative; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,46,147,.18) 0%, transparent 70%), radial-gradient(ellipse 60% 40% at 20% 100%, rgba(0,240,255,.12) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 80% 80%, rgba(139,92,246,.12) 0%, transparent 60%); }
+    .page-hero-content { position: relative; z-index: 1; }
+    .page-hero-eyebrow { font-size: .78rem; letter-spacing: .3em; text-transform: uppercase; color: var(--pink); font-weight: 600; margin-bottom: 14px; display: block; }
+    .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 12vw, 8rem); line-height: .95; letter-spacing: .06em; }
+    .page-hero-sub { max-width: 500px; margin: 18px auto 0; font-size: clamp(.95rem, 2vw, 1.1rem); color: var(--ink-soft); font-weight: 300; }
+
+    /* GALLERY */
+    .gallery-section { padding: clamp(40px, 6vw, 80px) 0 clamp(60px, 10vw, 120px); }
+    .gallery-stats { text-align: center; margin-bottom: clamp(24px, 4vw, 40px); color: var(--ink-dim); font-size: .85rem; letter-spacing: .08em; }
+    .gallery-stats strong { color: var(--pink); font-weight: 700; }
+    .gallery-masonry { columns: 4 280px; column-gap: 16px; }
+    .g-item { display: block; margin-bottom: 16px; break-inside: avoid; border-radius: var(--radius-sm); overflow: hidden; position: relative; background: var(--bg-3); border: 1px solid var(--border); transition: transform .35s var(--ease), box-shadow .35s; cursor: pointer; }
+    .g-item:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 12px 40px rgba(0,0,0,.5), 0 0 30px rgba(255,46,147,.2); border-color: var(--border-hi); z-index: 2; }
+    .g-item img { width: 100%; height: auto; display: block; transition: transform .5s var(--ease), filter .3s; filter: brightness(.92) saturate(1.1); }
+    .g-item:hover img { transform: scale(1.04); filter: brightness(1) saturate(1.25); }
+    .g-item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,1,24,.7) 0%, transparent 50%); opacity: 0; transition: opacity .3s; display: flex; align-items: flex-end; padding: 14px; }
+    .g-item:hover .g-item-overlay { opacity: 1; }
+    .g-item-zoom { margin-left: auto; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.15); backdrop-filter: blur(8px); display: grid; place-items: center; font-size: 1rem; transition: background .2s, transform .2s var(--ease-bounce); }
+    .g-item:hover .g-item-zoom { background: var(--pink); transform: scale(1.1); }
+    .g-item::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg-3) 25%, var(--bg-2) 50%, var(--bg-3) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; z-index: 1; border-radius: var(--radius-sm); }
+    .g-item.loaded::before { display: none; }
+    @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+    .back-link { display: inline-flex; align-items: center; gap: 8px; padding: 9px 22px; border-radius: 50px; border: 1px solid var(--border); background: var(--glass); color: var(--ink-soft); font-size: .82rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; transition: all .25s var(--ease); }
+    .back-link:hover { border-color: var(--pink); color: var(--pink); gap: 12px; }
+
+    /* LIGHTBOX */
+    .lightbox { position: fixed; inset: 0; z-index: 10002; background: rgba(10,1,24,.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity .3s var(--ease), visibility .3s; }
+    .lightbox.is-open { opacity: 1; visibility: visible; }
+    .lightbox-inner { position: relative; width: min(90vw, 1100px); max-height: 90vh; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .lightbox-img-wrap { max-height: 80vh; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--radius); border: 1px solid var(--border-hi); box-shadow: var(--shadow-neon-pink); background: var(--bg-2); }
+    #lbImg { max-width: 100%; max-height: 80vh; width: auto; height: auto; object-fit: contain; display: block; transition: opacity .2s; }
+    .lightbox-close { position: fixed; top: 24px; right: 28px; width: 44px; height: 44px; border-radius: 50%; background: var(--glass-2); border: 1px solid var(--border); display: grid; place-items: center; font-size: 1.4rem; line-height: 1; color: var(--ink); transition: background .2s, transform .2s; z-index: 10003; }
+    .lightbox-close:hover { background: var(--pink); transform: scale(1.1) rotate(90deg); }
+    .lightbox-nav { position: fixed; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; background: var(--glass-2); border: 1px solid var(--border); display: grid; place-items: center; font-size: 1.2rem; color: var(--ink); transition: background .2s, transform .2s; z-index: 10003; }
+    .lightbox-nav:hover { background: var(--cyan); transform: translateY(-50%) scale(1.1); }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+    .lightbox-counter { font-size: .82rem; color: var(--ink-dim); letter-spacing: .1em; font-variant-numeric: tabular-nums; }
+    .lightbox-thumbs { display: flex; gap: 6px; overflow-x: auto; max-width: 100%; scrollbar-width: thin; scrollbar-color: var(--pink) transparent; padding: 4px 2px; scroll-snap-type: x mandatory; }
+    .lightbox-thumbs::-webkit-scrollbar { height: 3px; }
+    .lightbox-thumbs::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 2px; }
+    .lb-thumb { flex-shrink: 0; width: 52px; height: 52px; border-radius: 8px; overflow: hidden; border: 2px solid transparent; transition: border-color .2s, opacity .2s; scroll-snap-align: center; opacity: .5; cursor: pointer; }
+    .lb-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .lb-thumb.is-active { border-color: var(--pink); opacity: 1; }
+
+    /* FOOTER */
+    .footer { border-top: 1px solid var(--border); padding: clamp(30px, 5vw, 60px) 0; text-align: center; }
+    .footer-logo { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .footer-logo-mark { width: 36px; height: 36px; border-radius: 9px; background: var(--grad-sunset); display: grid; place-items: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: #fff; box-shadow: 0 0 16px rgba(255,46,147,.4); }
+    .footer-logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .footer-logo-text strong { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: .12em; color: #fff; }
+    .footer-logo-text em { font-style: normal; font-size: 10px; color: var(--cyan); letter-spacing: .3em; text-transform: uppercase; margin-top: 2px; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 28px; margin-bottom: 20px; }
+    .footer-links a { font-size: .82rem; color: var(--ink-dim); letter-spacing: .08em; text-transform: uppercase; transition: color .2s; }
+    .footer-links a:hover { color: var(--pink); }
+    .footer-copy { font-size: .78rem; color: var(--ink-dim); }
+    .footer-copy a { color: var(--cyan-2); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) { .gallery-masonry { columns: 3 200px; } }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-burger { display: flex; }
+      .gallery-masonry { columns: 2 160px; column-gap: 10px; }
+      .g-item { margin-bottom: 10px; }
+      .lightbox-nav { width: 38px; height: 38px; font-size: 1rem; }
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+    }
+    @media (max-width: 480px) {
+      .gallery-masonry { columns: 2 130px; column-gap: 8px; }
+      .g-item { margin-bottom: 8px; }
+      .lb-thumb { width: 40px; height: 40px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      [data-reveal] { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
+
+  <!-- LOADER completo igual que carta.html -->
+  <div class="loader" id="loader" role="status" aria-label="Cargando">
+    <div class="loader-bg"></div>
+    <div class="loader-palms" aria-hidden="true">
+      <svg class="palm" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M100 200 C 95 160, 92 130, 100 100 C 108 70, 110 50, 105 30"/>
+        <path d="M105 30 C 80 20, 60 25, 45 40 C 70 38, 90 35, 100 45"/>
+        <path d="M105 30 C 130 22, 150 30, 165 50 C 140 45, 120 42, 108 55"/>
+        <path d="M105 30 C 85 8, 60 5, 35 15 C 60 25, 80 35, 100 50"/>
+        <path d="M105 30 C 125 5, 155 0, 180 12 C 155 25, 130 40, 108 55"/>
+        <path d="M100 100 C 75 95, 55 100, 40 115 C 65 110, 85 105, 102 110"/>
+        <path d="M100 100 C 125 95, 145 100, 160 115 C 135 110, 115 105, 102 110"/>
+      </svg>
+      <svg class="palm palm-right" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1)">
+        <path d="M100 200 C 95 160, 92 130, 100 100 C 108 70, 110 50, 105 30"/>
+        <path d="M105 30 C 80 20, 60 25, 45 40 C 70 38, 90 35, 100 45"/>
+        <path d="M105 30 C 130 22, 150 30, 165 50 C 140 45, 120 42, 108 55"/>
+        <path d="M105 30 C 85 8, 60 5, 35 15 C 60 25, 80 35, 100 50"/>
+        <path d="M105 30 C 125 5, 155 0, 180 12 C 155 25, 130 40, 108 55"/>
+        <path d="M100 100 C 75 95, 55 100, 40 115 C 65 110, 85 105, 102 110"/>
+        <path d="M100 100 C 125 95, 145 100, 160 115 C 135 110, 115 105, 102 110"/>
+      </svg>
+    </div>
+    <div class="loader-content">
+      <div class="loader-sun" aria-hidden="true"></div>
+      <div class="loader-text">
+        <span class="loader-welcome">bienvenido a</span>
+        <div class="loader-title" aria-label="Galería">
+          <span>G</span><span>A</span><span>L</span><span>E</span><span>R</span><span>Í</span><span>A</span>
+        </div>
+        <div class="loader-sub">Miami Lounge Bar · Miami Platja</div>
+      </div>
+      <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- SVG DEFS -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="palm-svg" viewBox="0 0 200 200">
+        <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M100 200 C 95 160, 92 130, 100 100 C 108 70, 110 50, 105 30"/>
+          <path d="M105 30 C 80 20, 60 25, 45 40 C 70 38, 90 35, 100 45"/>
+          <path d="M105 30 C 130 22, 150 30, 165 50 C 140 45, 120 42, 108 55"/>
+          <path d="M105 30 C 85 8, 60 5, 35 15 C 60 25, 80 35, 100 50"/>
+          <path d="M105 30 C 125 5, 155 0, 180 12 C 155 25, 130 40, 108 55"/>
+          <path d="M100 100 C 75 95, 55 100, 40 115 C 65 110, 85 105, 102 110"/>
+          <path d="M100 100 C 125 95, 145 100, 160 115 C 135 110, 115 105, 102 110"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="index.html" class="nav-logo" data-cursor="link">
+      <span class="nav-logo-mark">M</span>
+      <span class="nav-logo-text"><strong>MIAMI</strong><em>lounge bar</em></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#about" data-cursor="link">Nosotros</a>
+      <a href="galeria.html" class="is-active" data-cursor="link">Galería</a>
+      <a href="index.html#cocktails" data-cursor="link">Cócteles</a>
+      <a href="carta.html" data-cursor="link">Carta</a>
+      <a href="index.html#contact" data-cursor="link">Contacto</a>
+    </nav>
+    <a href="tel:+34691691086" class="nav-cta" data-cursor="link">
+      <span>Reservar</span>
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about">Nosotros</a>
+    <a href="galeria.html">Galería</a>
+    <a href="index.html#cocktails">Cócteles</a>
+    <a href="carta.html">Carta</a>
+    <a href="index.html#contact">Contacto</a>
+    <a href="tel:+34691691086" class="mobile-cta">Reservar mesa</a>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotos">
+    <button class="lightbox-close" id="lbClose" aria-label="Cerrar" data-cursor="link">&#x2715;</button>
+    <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Anterior" data-cursor="link">&#8592;</button>
+    <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Siguiente" data-cursor="link">&#8594;</button>
+    <div class="lightbox-inner">
+      <div class="lightbox-img-wrap">
+        <img id="lbImg" src="" alt="Foto Miami Lounge Bar">
+      </div>
+      <div style="display:flex;align-items:center;gap:16px">
+        <span class="lightbox-counter" id="lbCounter">1 / 28</span>
+      </div>
+      <div class="lightbox-thumbs" id="lbThumbs"></div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="container page-hero-content">
+        <span class="page-hero-eyebrow" data-reveal>Miami Lounge Bar</span>
+        <h1 data-reveal data-delay="80"><span class="gradient">Galería</span></h1>
+        <p class="page-hero-sub" data-reveal data-delay="160">
+          Momentos únicos en nuestra terraza. Cócteles, música y las mejores noches de la Costa Dorada.
+        </p>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="galeria">
+      <div class="container">
+        <p class="gallery-stats" data-reveal data-delay="80">
+          <strong>28</strong> fotos &middot; Miami Platja, Costa Dorada
+        </p>
+        <div class="gallery-masonry" id="galleryGrid" data-reveal data-delay="120">
+          <a href="galeria/galeria1.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 1"><img src="galeria/galeria1.jpg" alt="Miami Lounge Bar foto 1" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria2.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 2"><img src="galeria/galeria2.jpg" alt="Miami Lounge Bar foto 2" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria3.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 3"><img src="galeria/galeria3.jpg" alt="Miami Lounge Bar foto 3" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria4.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 4"><img src="galeria/galeria4.jpg" alt="Miami Lounge Bar foto 4" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria5.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 5"><img src="galeria/galeria5.jpg" alt="Miami Lounge Bar foto 5" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria6.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 6"><img src="galeria/galeria6.jpg" alt="Miami Lounge Bar foto 6" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria7.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 7"><img src="galeria/galeria7.jpg" alt="Miami Lounge Bar foto 7" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria8.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 8"><img src="galeria/galeria8.jpg" alt="Miami Lounge Bar foto 8" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria9.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 9"><img src="galeria/galeria9.jpg" alt="Miami Lounge Bar foto 9" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria10.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 10"><img src="galeria/galeria10.jpg" alt="Miami Lounge Bar foto 10" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria11.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 11"><img src="galeria/galeria11.jpg" alt="Miami Lounge Bar foto 11" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria12.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 12"><img src="galeria/galeria12.jpg" alt="Miami Lounge Bar foto 12" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria13.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 13"><img src="galeria/galeria13.jpg" alt="Miami Lounge Bar foto 13" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria14.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 14"><img src="galeria/galeria14.jpg" alt="Miami Lounge Bar foto 14" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria15.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 15"><img src="galeria/galeria15.jpg" alt="Miami Lounge Bar foto 15" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria16.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 16"><img src="galeria/galeria16.jpg" alt="Miami Lounge Bar foto 16" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria17.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 17"><img src="galeria/galeria17.jpg" alt="Miami Lounge Bar foto 17" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria18.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 18"><img src="galeria/galeria18.jpg" alt="Miami Lounge Bar foto 18" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria19.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 19"><img src="galeria/galeria19.jpg" alt="Miami Lounge Bar foto 19" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria20.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 20"><img src="galeria/galeria20.jpg" alt="Miami Lounge Bar foto 20" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria21.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 21"><img src="galeria/galeria21.jpg" alt="Miami Lounge Bar foto 21" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria22.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 22"><img src="galeria/galeria22.jpg" alt="Miami Lounge Bar foto 22" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria23.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 23"><img src="galeria/galeria23.jpg" alt="Miami Lounge Bar foto 23" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria24.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 24"><img src="galeria/galeria24.jpg" alt="Miami Lounge Bar foto 24" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria25.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 25"><img src="galeria/galeria25.jpg" alt="Miami Lounge Bar foto 25" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria26.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 26"><img src="galeria/galeria26.jpg" alt="Miami Lounge Bar foto 26" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria27.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 27"><img src="galeria/galeria27.jpg" alt="Miami Lounge Bar foto 27" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+          <a href="galeria/galeria28.jpg" class="g-item" data-cursor="view" aria-label="Ver foto 28"><img src="galeria/galeria28.jpg" alt="Miami Lounge Bar foto 28" loading="lazy" decoding="async"><div class="g-item-overlay"><span class="g-item-zoom">&#128269;</span></div></a>
+        </div>
+        <div style="text-align:center;margin-top:clamp(40px,6vw,72px)" data-reveal>
+          <a href="index.html" class="back-link" data-cursor="link">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Volver al inicio
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <span class="footer-logo-mark">M</span>
+        <span class="footer-logo-text"><strong>MIAMI</strong><em>lounge bar</em></span>
+      </div>
+      <nav class="footer-links">
+        <a href="index.html#about" data-cursor="link">Nosotros</a>
+        <a href="galeria.html" data-cursor="link">Galería</a>
+        <a href="index.html#cocktails" data-cursor="link">Cócteles</a>
+        <a href="carta.html" data-cursor="link">Carta</a>
+        <a href="index.html#contact" data-cursor="link">Contacto</a>
+      </nav>
+      <p class="footer-copy">&copy; <span id="year"></span> Miami Lounge Bar &middot; Miami Platja, Costa Dorada &middot; <a href="https://www.instagram.com/miamiloungebar" target="_blank" rel="noopener" data-cursor="link">@miamiloungebar</a></p>
+    </div>
+  </footer>
+
+  <script>
+  'use strict';
+
+  /* LOADER */
+  const loader = document.getElementById('loader');
+  const loaderKey = 'miamilounge_loader_galeria';
+  const today = new Date().toISOString().slice(0, 10);
+  const lastShown = localStorage.getItem(loaderKey);
+  if (lastShown === today) {
+    loader.classList.add('is-hidden');
+  } else {
+    localStorage.setItem(loaderKey, today);
+    window.addEventListener('load', () => {
+      setTimeout(() => loader.classList.add('is-hidden'), 1800);
+    });
+    setTimeout(() => loader.classList.add('is-hidden'), 4000);
+  }
+
+  /* YEAR */
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* CURSOR */
+  const cursor = document.getElementById('cursor');
+  const follower = document.getElementById('cursorFollower');
+  let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+  if (cursor && follower && window.matchMedia('(hover: hover)').matches) {
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      cursor.style.transform = `translate(${mouseX}px,${mouseY}px) translate(-50%,-50%)`;
+    });
+    const af = () => {
+      followerX += (mouseX - followerX) * 0.15;
+      followerY += (mouseY - followerY) * 0.15;
+      follower.style.transform = `translate(${followerX}px,${followerY}px) translate(-50%,-50%)`;
+      requestAnimationFrame(af);
+    };
+    af();
+    document.addEventListener('mouseleave', () => { cursor.style.opacity = 0; follower.style.opacity = 0; });
+    document.addEventListener('mouseenter', () => { cursor.style.opacity = 1; follower.style.opacity = 1; });
+    document.querySelectorAll('[data-cursor]').forEach(el => {
+      el.addEventListener('mouseenter', () => follower.classList.add('is-' + el.getAttribute('data-cursor')));
+      el.addEventListener('mouseleave', () => follower.classList.remove('is-link', 'is-view'));
+    });
+  }
+
+  /* NAV SCROLL */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('is-scrolled', window.scrollY > 40), { passive: true });
+  nav.classList.toggle('is-scrolled', window.scrollY > 40);
+
+  /* MOBILE MENU */
+  const burger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (burger && mobileMenu) {
+    const toggle = () => {
+      burger.classList.toggle('is-open');
+      mobileMenu.classList.toggle('is-open');
+      const open = mobileMenu.classList.contains('is-open');
+      document.body.style.overflow = open ? 'hidden' : '';
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    burger.addEventListener('click', toggle);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', toggle));
+  }
+
+  /* REVEAL */
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.setProperty('--delay', (e.target.dataset.delay || 0) + 'ms');
+          e.target.classList.add('is-visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-visible'));
+  }
+
+  /* SHIMMER */
+  document.querySelectorAll('.g-item img').forEach(img => {
+    const item = img.closest('.g-item');
+    if (img.complete) item.classList.add('loaded');
+    else {
+      img.addEventListener('load', () => item.classList.add('loaded'));
+      img.addEventListener('error', () => item.classList.add('loaded'));
+    }
+  });
+
+  /* LIGHTBOX */
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbClose = document.getElementById('lbClose');
+  const lbPrev = document.getElementById('lbPrev');
+  const lbNext = document.getElementById('lbNext');
+  const lbCounter = document.getElementById('lbCounter');
+  const lbThumbs = document.getElementById('lbThumbs');
+  const allItems = Array.from(document.querySelectorAll('.g-item'));
+  let cur = 0;
+  const buildThumbs = () => {
+    lbThumbs.innerHTML = '';
+    allItems.forEach((item, i) => {
+      const t = document.createElement('div');
+      t.className = 'lb-thumb';
+      t.innerHTML = `<img src="${item.getAttribute('href')}" alt="miniatura ${i+1}" loading="lazy">`;
+      t.addEventListener('click', () => goTo(i));
+      lbThumbs.appendChild(t);
+    });
+  };
+  const syncThumbs = () => {
+    lbThumbs.querySelectorAll('.lb-thumb').forEach((t, i) => t.classList.toggle('is-active', i === cur));
+    lbThumbs.querySelectorAll('.lb-thumb')[cur]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  };
+  const openLb = i => {
+    buildThumbs(); cur = i;
+    lbImg.src = allItems[cur].getAttribute('href');
+    lbCounter.textContent = `${cur + 1} / ${allItems.length}`;
+    syncThumbs();
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeLb = () => {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  };
+  const goTo = i => {
+    cur = ((i % allItems.length) + allItems.length) % allItems.length;
+    lbImg.style.opacity = 0;
+    setTimeout(() => {
+      lbImg.src = allItems[cur].getAttribute('href');
+      lbCounter.textContent = `${cur + 1} / ${allItems.length}`;
+      lbImg.style.opacity = 1;
+      syncThumbs();
+    }, 150);
+  };
+  allItems.forEach((item, i) => item.addEventListener('click', e => { e.preventDefault(); openLb(i); }));
+  lbClose?.addEventListener('click', closeLb);
+  lbPrev?.addEventListener('click', () => goTo(cur - 1));
+  lbNext?.addEventListener('click', () => goTo(cur + 1));
+  lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox?.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') goTo(cur - 1);
+    if (e.key === 'ArrowRight') goTo(cur + 1);
+  });
+  let tx = 0;
+  lightbox?.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  lightbox?.addEventListener('touchend', e => {
+    const d = tx - e.changedTouches[0].clientX;
+    if (Math.abs(d) > 50) goTo(cur + (d > 0 ? 1 : -1));
+  }, { passive: true });
+  </script>
+</body>
+</html>
