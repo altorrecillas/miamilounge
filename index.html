@@ -1468,6 +1468,199 @@ blockquote footer {
         section { page-break-inside: avoid; }
     }
 
+
+/* ==================================================
+   INSTAGRAM BANNER — Hero
+   ================================================== */
+.ig-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 38px;
+    padding: 12px 20px 12px 12px;
+    background: linear-gradient(135deg, rgba(255,46,147,0.08) 0%, rgba(139,92,246,0.10) 50%, rgba(255,107,53,0.08) 100%);
+    border: 1px solid transparent;
+    border-radius: 70px;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden;
+    transition: transform 0.35s var(--ease), box-shadow 0.35s;
+    animation: igPulseIn 0.8s 1.4s var(--ease-bounce) both;
+}
+/* Animated neon border */
+.ig-banner::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 70px;
+    background: conic-gradient(from var(--angle, 0deg), #ff2e93, #b794f6, #00f0ff, #ffd700, #ff6b35, #ff2e93);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    padding: 1.5px;
+    animation: igRotateBorder 3s linear infinite;
+}
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes igRotateBorder {
+    to { --angle: 360deg; }
+}
+/* Shimmer sweep */
+.ig-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.09) 50%, transparent 70%);
+    background-size: 250% 100%;
+    animation: igShimmer 2.4s ease-in-out infinite;
+    z-index: 0;
+}
+@keyframes igShimmer {
+    0%   { background-position: -250% 0; }
+    100% { background-position: 250% 0; }
+}
+@keyframes igPulseIn {
+    from { opacity: 0; transform: translateY(24px) scale(0.93); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.ig-banner:hover {
+    transform: translateY(-4px) scale(1.025);
+    box-shadow:
+        0 0 0 1px rgba(255,46,147,0.3),
+        0 20px 60px rgba(255,46,147,0.4),
+        0 0 80px rgba(139,92,246,0.2),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* SIGUENOS badge pill */
+.ig-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #ff2e93, #b794f6);
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    white-space: nowrap;
+    flex-shrink: 0;
+    position: relative; z-index: 1;
+    box-shadow: 0 4px 20px rgba(255,46,147,0.5);
+    animation: igBadgePop 2.5s ease-in-out infinite;
+}
+@keyframes igBadgePop {
+    0%, 100% { box-shadow: 0 4px 20px rgba(255,46,147,0.5); }
+    50%       { box-shadow: 0 4px 30px rgba(255,46,147,0.85), 0 0 20px rgba(183,148,246,0.6); }
+}
+
+/* Live dot */
+.ig-live-dot {
+    position: relative;
+    width: 8px; height: 8px;
+    flex-shrink: 0;
+}
+.ig-live-dot::before, .ig-live-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #2dff8e;
+}
+.ig-live-dot::after {
+    background: transparent;
+    border: 1.5px solid #2dff8e;
+    inset: -4px;
+    animation: igDotPulse 1.6s ease-out infinite;
+}
+@keyframes igDotPulse {
+    0%   { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* Divider */
+.ig-divider {
+    width: 1px;
+    height: 28px;
+    background: rgba(255,255,255,0.12);
+    flex-shrink: 0;
+    position: relative; z-index: 1;
+}
+
+/* Instagram icon */
+.ig-icon {
+    width: 38px; height: 38px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    display: grid; place-items: center;
+    box-shadow: 0 4px 18px rgba(220,39,67,0.45);
+    transition: transform 0.3s var(--ease-bounce), box-shadow 0.3s;
+    position: relative; z-index: 1;
+}
+.ig-banner:hover .ig-icon {
+    transform: rotate(-10deg) scale(1.12);
+    box-shadow: 0 6px 28px rgba(220,39,67,0.65);
+}
+.ig-icon svg { width: 19px; height: 19px; fill: #fff; }
+
+/* Text */
+.ig-banner-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    position: relative; z-index: 1;
+}
+.ig-banner-text strong {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+}
+.ig-banner-text span {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em;
+}
+
+/* Arrow */
+.ig-arrow {
+    margin-left: 2px;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,46,147,0.15);
+    border: 1px solid rgba(255,46,147,0.3);
+    display: grid; place-items: center;
+    font-size: 13px;
+    color: var(--pink);
+    position: relative; z-index: 1;
+    transition: transform 0.3s var(--ease), background 0.3s, border-color 0.3s;
+    flex-shrink: 0;
+}
+.ig-banner:hover .ig-arrow {
+    transform: translateX(4px);
+    background: var(--pink);
+    border-color: var(--pink);
+    color: #fff;
+}
+
+@media (max-width: 640px) {
+    .ig-banner { margin-bottom: 28px; padding: 10px 14px 10px 10px; gap: 10px; }
+    .ig-banner-text strong { font-size: 12px; }
+    .ig-divider { display: none; }
+}
+@media (max-width: 380px) {
+    .ig-badge { display: none; }
+}
+
     </style>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌴%3C/text%3E%3C/svg%3E" />
 </head>
@@ -1585,6 +1778,37 @@ blockquote footer {
             <p class="hero-sub" data-reveal data-delay="200">
                 Cócteles artesanales elaborados al momento, una terraza chill-out con sofás, hamacas y columpios para desconectar junto al mar, y un ambiente cuidado que invita a relajarse y disfrutar sin prisas. Un rincón imprescindible en la <strong>Costa Dorada</strong> donde cada detalle está pensado para que vivas una experiencia única.
             </p>
+
+
+            <!-- INSTAGRAM BANNER -->
+            <a href="https://www.instagram.com/miamiloungebar/" target="_blank" rel="noopener" class="ig-banner" data-reveal data-delay="250" aria-label="Síguenos en Instagram — Últimas novedades">
+
+                <!-- SÍGUENOS badge -->
+                <div class="ig-badge">
+                    <span class="ig-live-dot" aria-hidden="true"></span>
+                    Síguenos
+                </div>
+
+                <div class="ig-divider" aria-hidden="true"></div>
+
+                <!-- Instagram icon -->
+                <div class="ig-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </div>
+
+                <!-- Text -->
+                <div class="ig-banner-text">
+                    <strong>🔥 Últimas novedades — ¡no te lo pierdas!</strong>
+                    <span>@miamiloungebar · Instagram</span>
+                </div>
+
+                <!-- Arrow circle -->
+                <span class="ig-arrow" aria-hidden="true">→</span>
+            </a>
+
+
             <div class="hero-ctas" data-reveal data-delay="300">
                 <a href="#contact" class="btn btn-primary" data-cursor="link">
                     Reservar mesa
