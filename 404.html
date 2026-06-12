@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0118">
+  <title>404 · Página no encontrada · Miami Lounge Bar</title>
+  <meta name="robots" content="noindex">
+  <!-- Rutas absolutas: GitHub Pages sirve esta página desde cualquier ruta inexistente -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    :root {
+      --bg: #0a0118; --pink: #ff2e93; --cyan: #00f0ff; --lilac: #b794f6;
+      --ink-soft: rgba(255,255,255,0.72);
+      --grad-sunset: linear-gradient(135deg, #ff2e93 0%, #b794f6 50%, #ffd700 100%);
+      --ease: cubic-bezier(0.22,1,0.36,1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--bg); color: #fff;
+      min-height: 100vh; min-height: 100dvh;
+      display: grid; place-items: center;
+      text-align: center; padding: 24px;
+      overflow: hidden; position: relative;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(255,46,147,.22) 0%, transparent 55%),
+        radial-gradient(circle at 20% 85%, rgba(0,240,255,.15) 0%, transparent 50%),
+        radial-gradient(circle at 85% 75%, rgba(139,92,246,.18) 0%, transparent 50%);
+    }
+    .grid-floor {
+      position: fixed; left: -50%; right: -50%; bottom: -10vh; height: 45vh;
+      background-image:
+        linear-gradient(rgba(255,46,147,0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,240,255,0.18) 1px, transparent 1px);
+      background-size: 60px 60px;
+      transform: perspective(300px) rotateX(60deg);
+      mask-image: linear-gradient(to top, #000 30%, transparent);
+      -webkit-mask-image: linear-gradient(to top, #000 30%, transparent);
+      pointer-events: none;
+    }
+    .wrap { position: relative; z-index: 1; }
+    .sun {
+      width: 180px; height: 90px; margin: 0 auto 8px;
+      background: var(--grad-sunset);
+      border-radius: 180px 180px 0 0;
+      box-shadow: 0 0 70px rgba(183,148,246,.5);
+      position: relative; overflow: hidden;
+    }
+    .sun::before {
+      content: ''; position: absolute; left: 0; right: 0; height: 2px; background: var(--bg);
+      box-shadow: 0 16px 0 var(--bg), 0 32px 0 var(--bg), 0 48px 0 var(--bg);
+    }
+    h1 {
+      font-size: clamp(90px, 22vw, 200px); line-height: 1;
+      font-weight: 800; letter-spacing: 0.02em;
+      background: var(--grad-sunset);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 30px rgba(255,46,147,.35));
+    }
+    h2 { font-size: clamp(18px, 3vw, 26px); font-weight: 600; margin: 6px 0 10px; }
+    p { color: var(--ink-soft); max-width: 440px; margin: 0 auto 30px; font-size: 15px; line-height: 1.6; }
+    .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    a.btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 30px; border-radius: 50px;
+      font-size: 15px; font-weight: 600; text-decoration: none; color: #fff;
+      transition: transform .3s var(--ease), box-shadow .3s;
+    }
+    .btn-primary { background: var(--grad-sunset); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,46,147,.5); }
+    .btn-ghost { border: 1px solid rgba(255,255,255,.15); }
+    .btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+    a:focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; }
+    .palm { font-size: 40px; margin-bottom: 10px; display: inline-block; animation: sway 3s ease-in-out infinite; }
+    @keyframes sway { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+    @media (prefers-reduced-motion: reduce) { .palm { animation: none; } }
+  </style>
+</head>
+<body>
+  <div class="grid-floor" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sun" aria-hidden="true"></div>
+    <h1>404</h1>
+    <span class="palm" aria-hidden="true">🌴</span>
+    <h2>Esta página se fue de fiesta</h2>
+    <p>La dirección que buscas no existe o ha cambiado de sitio. Pero tranquilo: los cócteles siguen donde siempre.</p>
+    <div class="btns">
+      <a href="/" class="btn btn-primary">← Volver al inicio</a>
+      <a href="/carta.html" class="btn btn-ghost">Ver la carta 🍹</a>
+    </div>
+  </div>
+</body>
+</html>

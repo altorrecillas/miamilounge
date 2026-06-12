@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#0a0118">
+  <link rel="canonical" href="https://www.miamilounge.es/legal.html" />
+  <title>Aviso Legal, Privacidad y Cookies · Miami Lounge Bar</title>
+  <meta name="description" content="Aviso legal, política de privacidad y política de cookies de Miami Lounge Bar, Miami Platja (Tarragona).">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/outfit.woff2" crossorigin>
+  <style>
+    /* SELF-HOSTED FONTS */
+    @font-face { font-family: 'Bebas Neue'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/bebas-neue.woff2') format('woff2'); }
+    @font-face { font-family: 'Outfit'; font-style: normal; font-weight: 300 900; font-display: swap; src: url('fonts/outfit.woff2') format('woff2'); }
+
+    :root {
+      --bg: #0a0118; --bg-2: #14032a;
+      --ink: #ffffff; --ink-soft: rgba(255,255,255,0.72); --ink-dim: rgba(255,255,255,0.45);
+      --pink: #ff2e93; --cyan: #00f0ff; --lilac: #b794f6;
+      --grad-sunset: linear-gradient(135deg, #ff2e93 0%, #b794f6 50%, #ffd700 100%);
+      --glass: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08); --border-hi: rgba(255,46,147,0.4);
+      --radius: 18px;
+      --ease: cubic-bezier(0.22,1,0.36,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    ::selection { background: var(--pink); color: #fff; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Outfit', system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; min-height: 100vh; }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; border-radius: 4px; }
+    .container { width: min(860px, 92vw); margin: 0 auto; }
+
+    /* NAV simple */
+    .nav { position: sticky; top: 0; z-index: 10; padding: 16px 4vw; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: rgba(10,1,24,.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; color: inherit; }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-logo img { width: 38px; height: 38px; object-fit: contain; display: block; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .nav-logo-text strong { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: .12em; }
+    .nav-logo-text em { font-style: normal; font-size: 10px; color: var(--cyan); letter-spacing: .3em; text-transform: uppercase; margin-top: 2px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; padding: 9px 20px; border-radius: 50px; border: 1px solid var(--border); background: var(--glass); color: var(--ink-soft); font-size: 13px; font-weight: 500; letter-spacing: .06em; transition: border-color .25s, color .25s; }
+    .back-link:hover { border-color: var(--pink); color: var(--pink); text-decoration: none; }
+
+    /* HERO */
+    .page-hero { padding: clamp(60px, 10vw, 110px) 0 clamp(30px, 5vw, 50px); text-align: center; }
+    .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.6rem, 8vw, 5rem); line-height: .95; letter-spacing: .05em; }
+    .page-hero h1 span { background: var(--grad-sunset); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .page-hero p { color: var(--ink-dim); margin-top: 14px; font-size: .95rem; }
+
+    /* TOC */
+    .toc { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 24px 0 0; }
+    .toc a { padding: 8px 18px; border-radius: 50px; border: 1px solid var(--border); background: var(--glass); color: var(--ink-soft); font-size: 13px; font-weight: 500; transition: border-color .25s, color .25s; }
+    .toc a:hover { border-color: var(--border-hi); color: #fff; text-decoration: none; }
+
+    /* CONTENT */
+    main { padding: clamp(30px, 6vw, 60px) 0 clamp(60px, 8vw, 100px); }
+    section[id] { scroll-margin-top: 90px; }
+    .legal-block { background: var(--glass); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(24px, 4vw, 44px); margin-bottom: 28px; }
+    .legal-block h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: .04em; margin-bottom: 18px; }
+    .legal-block h2 em { font-style: normal; color: var(--pink); }
+    .legal-block h3 { font-size: 1.05rem; font-weight: 600; color: var(--cyan); margin: 24px 0 8px; }
+    .legal-block p, .legal-block li { color: var(--ink-soft); font-size: .95rem; margin-bottom: 12px; }
+    .legal-block ul { padding-left: 22px; margin-bottom: 12px; }
+    .legal-block li { margin-bottom: 6px; }
+    .legal-block strong { color: #fff; }
+    .legal-block table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 12px 0 16px; }
+    .legal-block th, .legal-block td { text-align: left; padding: 10px 12px; border: 1px solid var(--border); color: var(--ink-soft); vertical-align: top; }
+    .legal-block th { color: #fff; background: rgba(255,255,255,0.04); font-weight: 600; }
+    .updated { font-size: .8rem; color: var(--ink-dim); font-style: italic; }
+
+    /* FOOTER */
+    .footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; font-size: .8rem; color: var(--ink-dim); }
+    .footer a { color: var(--cyan); }
+
+    @media (max-width: 640px) {
+      .legal-block table { display: block; overflow-x: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    /* VIEW TRANSITIONS (cross-document, SPA-like fades) */
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.25s; }
+    @media (prefers-reduced-motion: reduce) {
+      @view-transition { navigation: none; }
+    }
+    @media print {
+      body { background: #fff; color: #000; }
+      .nav, .toc, .footer { display: none !important; }
+      .legal-block { border-color: #ccc; }
+      .legal-block p, .legal-block li, .legal-block td, .legal-block th { color: #222; }
+      .legal-block h2, .legal-block h3, .legal-block strong { color: #000; }
+      a { color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="img/miamiicono.png" alt="Miami Lounge">
+      <span class="nav-logo-text"><strong>MIAMI</strong><em>lounge bar</em></span>
+    </a>
+    <a href="index.html" class="back-link">← Volver al inicio</a>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Información <span>legal</span></h1>
+      <p>Miami Lounge Bar · Av. de Barcelona, 40 · 43892 Miami Platja, Tarragona</p>
+      <nav class="toc" aria-label="Índice">
+        <a href="#aviso-legal">Aviso legal</a>
+        <a href="#privacidad">Privacidad</a>
+        <a href="#cookies">Cookies</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- =============== AVISO LEGAL =============== -->
+    <section class="legal-block" id="aviso-legal">
+      <h2>Aviso <em>legal</em></h2>
+
+      <h3>1. Datos identificativos del titular</h3>
+      <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos del titular de este sitio web:</p>
+      <ul>
+        <li><strong>Titular:</strong> [Nombre y apellidos o razón social del titular]</li>
+        <li><strong>NIF/CIF:</strong> [NIF o CIF del titular]</li>
+        <li><strong>Nombre comercial:</strong> Miami Lounge Bar</li>
+        <li><strong>Domicilio:</strong> Avinguda de Barcelona, 40 · 43892 Miami Platja (Mont-roig del Camp), Tarragona, España</li>
+        <li><strong>Teléfono:</strong> <a href="tel:+34691691080">+34 691 69 10 80</a></li>
+        <li><strong>Email:</strong> <a href="mailto:nanievies@gmail.com">nanievies@gmail.com</a></li>
+        <li><strong>Sitio web:</strong> <a href="https://www.miamilounge.es/">www.miamilounge.es</a></li>
+      </ul>
+
+      <h3>2. Objeto</h3>
+      <p>Este sitio web tiene carácter informativo: presenta el establecimiento, su carta de productos, galería de imágenes, horarios y datos de contacto. Los precios mostrados en la carta son orientativos y pueden variar sin previo aviso; la carta vigente es la disponible en el establecimiento.</p>
+
+      <h3>3. Condiciones de uso</h3>
+      <p>El acceso a este sitio web es gratuito y atribuye la condición de usuario, que implica la aceptación de las presentes condiciones. El usuario se compromete a hacer un uso adecuado de los contenidos y a no emplearlos para actividades ilícitas o contrarias a la buena fe y al orden público.</p>
+
+      <h3>4. Propiedad intelectual e industrial</h3>
+      <p>Todos los contenidos de este sitio web (textos, fotografías, logotipos, diseño gráfico) son titularidad del titular del sitio o de terceros que han autorizado su uso, y están protegidos por la normativa de propiedad intelectual e industrial. Queda prohibida su reproducción, distribución o comunicación pública con fines comerciales sin autorización previa.</p>
+
+      <h3>5. Responsabilidad</h3>
+      <p>El titular no se hace responsable de los daños derivados del uso de la información de este sitio web ni de los contenidos de sitios de terceros enlazados (Instagram, Facebook, Google Maps, TripAdvisor, etc.).</p>
+
+      <h3>6. Consumo responsable</h3>
+      <p><strong>La venta y el consumo de bebidas alcohólicas están prohibidos a menores de 18 años.</strong> Bebe con responsabilidad.</p>
+
+      <h3>7. Legislación aplicable</h3>
+      <p>Las presentes condiciones se rigen por la legislación española. Para cualquier controversia serán competentes los juzgados y tribunales que correspondan conforme a la normativa aplicable.</p>
+    </section>
+
+    <!-- =============== PRIVACIDAD =============== -->
+    <section class="legal-block" id="privacidad">
+      <h2>Política de <em>privacidad</em></h2>
+
+      <p>De conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), se informa al usuario sobre el tratamiento de sus datos personales.</p>
+
+      <h3>1. Responsable del tratamiento</h3>
+      <p>[Nombre y apellidos o razón social del titular] · NIF/CIF: [NIF o CIF] · Av. de Barcelona, 40, 43892 Miami Platja (Tarragona) · <a href="mailto:nanievies@gmail.com">nanievies@gmail.com</a></p>
+
+      <h3>2. Datos que se tratan</h3>
+      <p>Este sitio web <strong>no contiene formularios ni recopila datos personales</strong> de forma directa. Únicamente se tratan datos personales cuando el usuario contacta voluntariamente por teléfono, correo electrónico o redes sociales (nombre, teléfono, email y el contenido de la comunicación).</p>
+
+      <h3>3. Finalidad y legitimación</h3>
+      <p>Atender las consultas y reservas solicitadas por el usuario. La base de legitimación es el consentimiento del interesado y, en su caso, la aplicación de medidas precontractuales (gestión de la reserva).</p>
+
+      <h3>4. Conservación</h3>
+      <p>Los datos se conservarán únicamente durante el tiempo necesario para atender la solicitud y, posteriormente, durante los plazos legales aplicables.</p>
+
+      <h3>5. Destinatarios</h3>
+      <p>No se ceden datos a terceros, salvo obligación legal. Este sitio incorpora el mapa de Google Maps, que puede tratar datos técnicos como la dirección IP al interactuar con él; consulta la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">política de privacidad de Google</a>. Las fuentes tipográficas se sirven desde nuestro propio servidor, sin conexiones a terceros.</p>
+
+      <h3>6. Derechos</h3>
+      <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <a href="mailto:nanievies@gmail.com">nanievies@gmail.com</a>, adjuntando un documento que acredite tu identidad. También puedes presentar una reclamación ante la <a href="https://www.aepd.es/" target="_blank" rel="noopener noreferrer">Agencia Española de Protección de Datos</a>.</p>
+    </section>
+
+    <!-- =============== COOKIES =============== -->
+    <section class="legal-block" id="cookies">
+      <h2>Política de <em>cookies</em></h2>
+
+      <p>Este sitio web <strong>no utiliza cookies propias de seguimiento, publicidad ni analítica</strong>.</p>
+
+      <h3>1. Almacenamiento técnico (exento de consentimiento)</h3>
+      <p>Se utiliza el almacenamiento local del navegador (<em>localStorage</em>) exclusivamente para funciones técnicas solicitadas por el usuario, conforme al artículo 22.2 de la LSSI-CE:</p>
+      <table>
+        <thead>
+          <tr><th>Clave</th><th>Finalidad</th><th>Duración</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>miamilounge_lang</td><td>Recordar el idioma elegido (ES/FR/EN)</td><td>Hasta que el usuario borre los datos del navegador</td></tr>
+          <tr><td>miamilounge_loader_*</td><td>Mostrar la animación de bienvenida solo una vez al día</td><td>Hasta que el usuario borre los datos del navegador</td></tr>
+        </tbody>
+      </table>
+      <p>Estos datos no se transmiten a ningún servidor y no permiten identificar al usuario.</p>
+
+      <h3>2. Cookies de terceros</h3>
+      <p>El mapa de localización está incrustado mediante <strong>Google Maps</strong>, que puede instalar sus propias cookies al interactuar con él. Más información en la <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer">política de cookies de Google</a>.</p>
+
+      <h3>3. Cómo gestionar el almacenamiento</h3>
+      <p>Puedes eliminar el almacenamiento local y las cookies desde la configuración de tu navegador (Chrome, Firefox, Safari, Edge), en el apartado de privacidad o datos de sitios web.</p>
+
+      <p class="updated">Última actualización: junio de 2026</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> Miami Lounge Bar · Miami Platja, Tarragona · <a href="index.html">miamilounge.es</a> · Drink responsibly. +18
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

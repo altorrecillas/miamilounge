@@ -4,21 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="theme-color" content="#0a0118" />
+  <link rel="canonical" href="https://www.miamilounge.es/carta.html" />
     <title>Carta · Miami Lounge Bar · Cócteles & Tapas · Miami Platja</title>
     <meta name="description" content="Carta completa de Miami Lounge Bar en Miami Platja. Cócteles clásicos, mojitos XL, combinados, gin tonics, cervezas, vinos, champagne, caprichos y club gourmet. Temporada 2026." />
     <meta property="og:title" content="Carta · Miami Lounge Bar" />
     <meta property="og:description" content="Cócteles artesanales, cócteles XL, combinados y platitos para compartir en Miami Platja." />
     <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.miamilounge.es/carta.html" />
+    <meta property="og:site_name" content="Miami Lounge Bar" />
+    <meta property="og:locale" content="es_ES" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Carta · Miami Lounge Bar" />
     <meta name="twitter:description" content="Cócteles artesanales, cócteles XL, combinados y platitos para compartir en Miami Platja." />
-    <meta name="twitter:image" content="img/miami-hero.jpg" />
-    <meta property="og:image" content="img/miami-hero.jpg" />
+    <meta name="twitter:image" content="https://www.miamilounge.es/img/miami-hero.jpg" />
+    <meta name="twitter:image:alt" content="Terraza del Miami Lounge Bar en Miami Platja" />
+    <meta property="og:image" content="https://www.miamilounge.es/img/miami-hero.jpg" />
+    <meta property="og:image:width" content="1440" />
+    <meta property="og:image:height" content="1080" />
+    <meta property="og:image:alt" content="Terraza del Miami Lounge Bar en Miami Platja" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Monoton&family=Outfit:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/outfit.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="fonts/bebas-neue.woff2" crossorigin />
     <style>
+/* === SELF-HOSTED FONTS (antes Google Fonts CDN) === */
+@font-face { font-family: 'Bebas Neue'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/bebas-neue.woff2') format('woff2'); }
+@font-face { font-family: 'Monoton'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/monoton.woff2') format('woff2'); }
+@font-face { font-family: 'Outfit'; font-style: normal; font-weight: 300 900; font-display: swap; src: url('fonts/outfit.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400 600; font-display: swap; src: url('fonts/cormorant-garamond.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400; font-display: swap; src: url('fonts/cormorant-garamond-italic.woff2') format('woff2'); }
+
 /* ==================================================
    STYLES.CSS (original Miami Lounge styles)
    ================================================== */
@@ -149,7 +163,7 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: non
     display: grid; place-items: center;
     transition: opacity 0.8s var(--ease), visibility 0.8s;
 }
-.loader.is-hidden { opacity: 0; visibility: hidden; }
+.loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .loader-bg {
     position: absolute; inset: 0;
     background:
@@ -277,15 +291,16 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: non
     display: flex; align-items: center; gap: 12px;
     flex-shrink: 0;
 }
+.nav-logo-mark img{width:100%;height:100%;object-fit:contain;display:block;}
 .nav-logo-mark {
     width: 38px; height: 38px;
-    background: var(--grad-sunset);
-    border-radius: 10px;
+    background: transparent;
+    border-radius: 0;
     display: grid; place-items: center;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 22px;
     color: #fff;
-    box-shadow: 0 0 20px rgba(255, 46, 147, 0.5);
+    box-shadow: none;
     transition: transform 0.4s var(--ease-bounce);
 }
 .nav-logo:hover .nav-logo-mark { transform: rotate(-10deg) scale(1.1); }
@@ -329,18 +344,33 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: non
     display: inline-flex; align-items: center; gap: 8px;
     padding: 11px 20px;
     background: var(--grad-sunset);
+    background-size: 170% 170%;
+    background-position: 0% 50%;
     border-radius: 50px;
     font-size: 13px;
     font-weight: 600;
     color: #fff;
     letter-spacing: 0.04em;
-    transition: transform 0.3s var(--ease), box-shadow 0.3s;
-    box-shadow: 0 0 0 rgba(255, 46, 147, 0);
+    position: relative; overflow: hidden;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s, background-position 0.5s var(--ease);
+    box-shadow: 0 3px 14px rgba(255, 46, 147, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
+.nav-cta::after {
+    content: '';
+    position: absolute; top: -2px; bottom: -2px; left: -75%;
+    width: 50%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: skewX(-20deg);
+    pointer-events: none;
+    transition: left 0.55s var(--ease);
+}
+.nav-cta:hover::after { left: 130%; }
 .nav-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255, 46, 147, 0.5);
+    background-position: 100% 50%;
+    box-shadow: 0 10px 30px rgba(255, 46, 147, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
+.nav-cta:active { transform: translateY(0) scale(0.96); }
 
 .nav-burger {
     display: none;
@@ -387,7 +417,10 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: non
     font-family: 'Outfit', sans-serif;
     font-size: 16px !important;
     font-weight: 600;
+    box-shadow: 0 8px 28px rgba(255, 46, 147, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s;
 }
+.mobile-cta:active { transform: scale(0.96); }
 
 /* ==================================================
    HERO
@@ -547,37 +580,78 @@ button { font: inherit; background: none; border: 0; color: inherit; cursor: non
 }
 
 .btn {
-    display: inline-flex; align-items: center; gap: 10px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
     padding: 16px 32px;
     border-radius: 50px;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.02em;
-    transition: transform 0.3s var(--ease), box-shadow 0.3s, background 0.3s;
+    transition: transform 0.35s var(--ease-bounce), box-shadow 0.35s var(--ease),
+                border-color 0.3s, color 0.3s, background 0.3s;
     position: relative;
     overflow: hidden;
     isolation: isolate;
 }
+/* Capa de degradado (solo visible en .btn-primary) */
 .btn::before {
     content: '';
     position: absolute; inset: 0;
     background: var(--grad-sunset);
-    z-index: -1;
-    transition: opacity 0.3s;
+    background-size: 170% 170%;
+    background-position: 0% 50%;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.3s, background-position 0.6s var(--ease);
 }
-.btn-primary { color: #fff; }
+/* Brillo barrido al pasar el ratón */
+.btn::after {
+    content: '';
+    position: absolute; top: -2px; bottom: -2px; left: -75%;
+    width: 50%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,0.32), transparent);
+    transform: skewX(-20deg);
+    z-index: -1;
+    pointer-events: none;
+    transition: left 0.65s var(--ease);
+}
+.btn:hover::after { left: 125%; }
+.btn:active { transform: translateY(-1px) scale(0.97); transition-duration: 0.12s; }
+
+.btn-primary {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(10, 1, 24, 0.25);
+    box-shadow: 0 4px 18px rgba(255, 46, 147, 0.28),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(10, 1, 24, 0.2);
+}
 .btn-primary::before { opacity: 1; }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255, 46, 147, 0.5); }
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 44px rgba(255, 46, 147, 0.45),
+                0 6px 18px rgba(183, 148, 246, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(10, 1, 24, 0.2);
+}
+.btn-primary:hover::before { background-position: 100% 50%; }
 .btn-primary svg { transition: transform 0.3s var(--ease); }
 .btn-primary:hover svg { transform: translateX(4px); }
 
 .btn-ghost {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.03);
     color: #fff;
     border: 1px solid var(--border);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
-.btn-ghost:hover { background: rgba(255, 255, 255, 0.05); border-color: var(--cyan); color: var(--cyan); }
+.btn-ghost:hover {
+    background: rgba(0, 240, 255, 0.06);
+    border-color: rgba(0, 240, 255, 0.55);
+    color: var(--cyan);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 240, 255, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
 
 .hero-stats {
     display: flex; gap: clamp(20px, 4vw, 60px);
@@ -1286,7 +1360,7 @@ blockquote footer {
     display: flex; align-items: center; gap: 14px;
     margin-bottom: 20px;
 }
-.footer-logo .nav-logo-mark { width: 50px; height: 50px; font-size: 28px; border-radius: 14px; }
+.footer-logo .nav-logo-mark { width: 50px; height: 50px; font-size: 28px; border-radius: 0; }
 .footer-logo strong {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 24px;
@@ -1382,25 +1456,6 @@ blockquote footer {
 /* ==================================================
    FLOATING CTA
    ================================================== */
-.floating-cta {
-    position: fixed;
-    bottom: 30px; right: 30px;
-    z-index: 99;
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 24px;
-    background: var(--grad-sunset);
-    border-radius: 50px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    box-shadow: 0 10px 40px rgba(255, 46, 147, 0.5);
-    transition: transform 0.3s var(--ease), box-shadow 0.3s;
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
-}
-.floating-cta.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
-.floating-cta:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 50px rgba(255, 46, 147, 0.7); }
 
 /* ==================================================
    SCROLL TO TOP BUTTON
@@ -1500,7 +1555,6 @@ blockquote footer {
 @media (max-width: 640px) {
     .scroll-to-top { left: 16px; bottom: 80px; width: 46px; height: 46px; }
     .scroll-to-top::after { display: none; }
-    .floating-cta { bottom: 16px; right: 16px; }
 }
 
 /* ==================================================
@@ -1564,8 +1618,6 @@ blockquote footer {
     .schedule-wrap { padding: 28px; }
     .footer-cols { grid-template-columns: 1fr; gap: 30px; }
     .footer-bottom { flex-direction: column; text-align: center; }
-    .floating-cta span { display: none; }
-    .floating-cta { padding: 16px; }
     .lb-prev, .lb-next { width: 40px; height: 40px; font-size: 18px; }
     .lb-close { top: 15px; right: 15px; }
 }
@@ -1604,11 +1656,7 @@ blockquote footer {
     position: absolute; inset: 0;
     z-index: 0;
 }
-.carta-hero-img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: saturate(0.85) contrast(1.05);
-}
+
 .carta-hero-overlay {
     position: absolute; inset: 0;
     background:
@@ -1695,9 +1743,11 @@ blockquote footer {
     content: '';
     position: absolute;
     inset: -3px;
+    width: auto;
+    transform: none;
     border-radius: inherit;
     background: linear-gradient(135deg, var(--pink), var(--cyan), var(--lilac));
-    z-index: -1;
+    z-index: -3;
     opacity: 0;
     filter: blur(12px);
     transition: opacity 0.3s;
@@ -1896,13 +1946,18 @@ blockquote footer {
     text-shadow: 0 0 20px rgba(255,46,147,0.3);
 }
 .mi-desc {
-    font-size: 15px;
-    color: var(--ink-dim);
-    font-style: italic;
-    margin-top: 4px;
-    line-height: 1.4;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    margin-top: 5px;
+    line-height: 1.5;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+}
+@media (max-width: 768px) {
+    .mi-desc { font-size: 16px; color: rgba(255, 255, 255, 0.85); }
+    .mi-head h3 { font-size: 19px; }
+    .cap-en, .g-en { font-size: 13px; color: var(--ink-soft); }
 }
 .menu-item.mi-glow { background: rgba(255, 215, 0, 0.04); border-left: 2px solid var(--yellow); }
 .mi-tag {
@@ -2640,15 +2695,333 @@ blockquote footer {
 /* ============== DARK SECTION OVERRIDES ============== */
 .menu-section.dark .mi-head h3 { color: #fff; }
 .menu-section.dark .mi-price { color: var(--pink); }
-.menu-section.dark .mi-desc { color: rgba(255,255,255,0.6); }
+.menu-section.dark .mi-desc { color: rgba(255,255,255,0.78); }
 .menu-section.dark .menu-item { border-color: rgba(255,255,255,0.1); }
 .menu-section.dark .menu-item:hover { background: rgba(255,46,147,0.08); }
 .menu-section.dark .drinks-list li { color: #fff; border-color: rgba(255,255,255,0.1); }
 .menu-section.dark .drinks-list li span:first-child { color: #fff; }
 .menu-section.dark .drinks-col-title { color: #fff; border-color: var(--pink); }
 
-/* ============== SCROLL ANCHOR OFFSET ============== */
-.menu-section { scroll-margin-top: 140px; }
+/* ============== CARTA PAGE - PROFESSIONAL UPGRADES ============== */
+
+/* --- Circular price badge (inspired by PDF) --- */
+.price-badge-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 24px 0 10px;
+}
+.price-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #0a0118;
+    border: 2px solid var(--pink);
+    box-shadow: 0 0 30px rgba(255,46,147,0.35), inset 0 0 30px rgba(255,46,147,0.05);
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    position: relative;
+    flex-shrink: 0;
+    animation: badge-pulse 2.8s ease-in-out infinite;
+}
+.price-badge.badge-cyan {
+    border-color: var(--cyan);
+    box-shadow: 0 0 30px rgba(0,240,255,0.35), inset 0 0 30px rgba(0,240,255,0.05);
+    animation: badge-pulse-cyan 2.8s ease-in-out infinite;
+}
+.price-badge.badge-gold {
+    border-color: var(--gold);
+    box-shadow: 0 0 30px rgba(255,215,0,0.35), inset 0 0 30px rgba(255,215,0,0.05);
+}
+.price-badge.badge-lilac {
+    border-color: var(--lilac);
+    box-shadow: 0 0 30px rgba(183,148,246,0.35), inset 0 0 30px rgba(183,148,246,0.05);
+}
+@keyframes badge-pulse-cyan {
+    0%,100% { box-shadow: 0 0 30px rgba(0,240,255,0.35), inset 0 0 30px rgba(0,240,255,0.05); }
+    50%      { box-shadow: 0 0 50px rgba(0,240,255,0.55), inset 0 0 30px rgba(0,240,255,0.1); }
+}
+.price-badge-amount {
+    font-size: 30px;
+    line-height: 1;
+    color: #fff;
+}
+.price-badge-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    margin-top: 4px;
+    text-align: center;
+    max-width: 80px;
+    line-height: 1.3;
+}
+
+/* --- Section divider (neon line) --- */
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--pink) 30%, var(--cyan) 70%, transparent 100%);
+    opacity: 0.4;
+    margin: 0;
+    pointer-events: none;
+}
+
+/* --- Ambient glow per section --- */
+.menu-section.s-clasicos { background: radial-gradient(ellipse at 80% 20%, rgba(255,46,147,0.06) 0%, transparent 60%), var(--bg); }
+.menu-section.s-mojitos  { background: radial-gradient(ellipse at 20% 80%, rgba(45,255,142,0.06) 0%, transparent 60%), var(--bg-2); }
+.menu-section.s-xl       { background: radial-gradient(ellipse at 60% 50%, rgba(0,240,255,0.06) 0%, transparent 60%), var(--bg); }
+.menu-section.s-especial { background: radial-gradient(ellipse at 40% 30%, rgba(139,92,246,0.06) 0%, transparent 60%), var(--bg-2); }
+.menu-section.s-gin      { background: radial-gradient(ellipse at 70% 70%, rgba(0,240,255,0.07) 0%, transparent 60%), var(--bg); }
+.menu-section.s-vinos    { background: radial-gradient(ellipse at 30% 60%, rgba(255,107,53,0.06) 0%, transparent 60%), var(--bg-2); }
+.menu-section.s-capric   { background: radial-gradient(ellipse at 50% 50%, rgba(183,148,246,0.07) 0%, transparent 60%), var(--bg); }
+.menu-section.s-gourmet  { background: radial-gradient(ellipse at 60% 40%, rgba(255,215,0,0.06) 0%, transparent 60%), var(--bg-2); }
+
+/* --- Improved section head decoration --- */
+.menu-section-head::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--grad-sunset);
+    border-radius: 2px;
+    margin: 20px auto 0;
+    box-shadow: 0 0 12px rgba(255,46,147,0.5);
+}
+
+/* --- Better subsection visuals --- */
+.menu-subsection {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    position: relative;
+}
+.menu-subsection::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--pink), var(--cyan), transparent);
+    opacity: 0.5;
+}
+
+/* --- Highlighted signature item --- */
+.menu-item.mi-inspiration {
+    background: linear-gradient(135deg, rgba(255,46,147,0.08), rgba(139,92,246,0.08));
+    border: 1px solid rgba(255,46,147,0.3);
+    border-radius: var(--radius-sm);
+    margin-top: 8px;
+}
+.menu-item.mi-inspiration:hover {
+    background: linear-gradient(135deg, rgba(255,46,147,0.14), rgba(139,92,246,0.12));
+    border-color: var(--pink);
+}
+
+/* --- Drinks 3-column layout --- */
+.drinks-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+@media (max-width: 900px) {
+    .drinks-grid-3 { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+}
+@media (max-width: 600px) {
+    .drinks-grid-3 { grid-template-columns: 1fr; gap: 30px; }
+}
+
+/* --- Refrescos compact list --- */
+.refrescos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+}
+.refrescos-grid .drinks-list li { padding: 7px 0; font-size: 14px; }
+.refrescos-grid .drinks-list li span:last-child { font-size: 16px; }
+
+/* --- Gin tonic tier chips --- */
+.gin-tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 8px;
+}
+.gin-tier {
+    padding: 20px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: rgba(255,255,255,0.02);
+    transition: all 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+.gin-tier::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.gin-tier:hover { border-color: var(--cyan); background: rgba(0,240,255,0.03); transform: translateY(-3px); }
+.gin-tier:hover::before { opacity: 1; }
+.gin-tier-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+}
+.gin-tier-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--cyan);
+    text-shadow: 0 0 15px rgba(0,240,255,0.3);
+    letter-spacing: 0.5px;
+}
+.gin-tier.gin-premium {
+    border-color: rgba(255,215,0,0.3);
+    background: rgba(255,215,0,0.03);
+}
+.gin-tier.gin-premium .gin-tier-price { color: var(--gold); text-shadow: 0 0 15px rgba(255,215,0,0.3); }
+.gin-tier.gin-premium:hover { border-color: var(--gold); }
+.gin-note {
+    margin-top: 20px;
+    padding: 12px 18px;
+    background: rgba(0,240,255,0.05);
+    border: 1px solid rgba(0,240,255,0.2);
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--ink-dim);
+}
+.gin-note strong { color: var(--cyan-2); }
+
+/* --- Carta hero background image --- */
+
+
+/* --- CTA section upgrade --- */
+.carta-cta {
+    padding: clamp(60px, 8vw, 120px) 0;
+    position: relative;
+    overflow: hidden;
+}
+.carta-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(255,46,147,0.12), rgba(0,240,255,0.06), transparent 70%);
+}
+.cta-wrap {
+    position: relative; z-index: 1;
+    padding: 60px 50px;
+    background: var(--glass);
+    border: 1px solid var(--border-hi);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.cta-wrap::before {
+    content: '';
+    position: absolute; inset: -1px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(255,46,147,0.3), transparent, rgba(0,240,255,0.3));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+.cta-wrap:hover::before { opacity: 1; }
+.cta-emoji {
+    font-size: 44px;
+    margin-bottom: 20px;
+    display: block;
+}
+.cta-wrap h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 60px);
+    color: #fff;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+}
+.cta-wrap p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+.cta-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* --- Vinos & Champagne upgrade --- */
+.wine-header-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 50px;
+}
+.wine-header-card {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.02);
+    transition: all 0.3s;
+}
+.wine-header-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--pink);
+    background: rgba(255,46,147,0.04);
+}
+.wine-header-card .wine-type {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: var(--ink);
+}
+.wine-header-card .wine-type-icon { font-size: 1.4em; margin-right: 6px; }
+.wine-header-card ul { list-style: none; padding: 0; margin: 0; }
+.wine-header-card ul li {
+    display: flex; justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.06);
+    font-size: 14px;
+    color: var(--ink-soft);
+}
+.wine-header-card ul li:last-child { border-bottom: none; }
+.wine-header-card ul li .wp {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    color: var(--pink);
+    white-space: nowrap;
+}
+.wine-card-champagne { border-color: rgba(255,215,0,0.3); }
+.wine-card-champagne:hover { border-color: var(--gold); background: rgba(255,215,0,0.04); }
+.wine-card-champagne .wine-type { color: var(--gold); }
+.wine-card-cava { border-color: rgba(0,240,255,0.25); }
+.wine-card-cava:hover { border-color: var(--cyan); background: rgba(0,240,255,0.04); }
+.wine-card-cava .wine-type { color: var(--cyan); }
+.wine-card-cava .wp { color: var(--cyan); }
+.wine-card-champagne .wp { color: var(--gold); }
+@media (max-width: 900px) {
+    .wine-header-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+    .wine-header-grid { grid-template-columns: 1fr; }
+}
+
 
 /* ============== RESPONSIVE FIXES ============== */
 @media (max-width: 768px) {
@@ -2756,7 +3129,7 @@ img { max-width: 100%; height: auto; }
     /* ============== PRINT ============== */
     @media print {
         .cursor, .cursor-follower, .grain, .loader,
-        .carta-nav, .scroll-to-top, .floating-cta,
+        .carta-nav, .scroll-to-top,
         .nav-cta, .nav-burger { display: none !important; }
         body { background: #fff; color: #000; cursor: auto; }
         .menu-item { border-color: #ccc; }
@@ -2766,10 +3139,136 @@ img { max-width: 100%; height: auto; }
         .menu-section { padding: 20px 0; page-break-inside: avoid; }
     }
 
+
+/* ==================================================
+   LANGUAGE SWITCHER
+   ================================================== */
+.lang-switcher { position: relative; display: flex; align-items: center; flex-shrink: 0; }
+.lang-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50px;
+    font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.72);
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s, background 0.3s;
+    white-space: nowrap; letter-spacing: 0.03em;
+}
+.lang-btn:hover { color: #fff; border-color: var(--pink); background: rgba(255,46,147,0.08); }
+.lang-btn .lang-flag { font-size: 17px; line-height: 1; }
+.lang-btn .lang-code { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; }
+.lang-btn .lang-arrow { font-size: 9px; opacity: 0.6; transition: transform 0.3s var(--ease); }
+.lang-switcher.is-open .lang-arrow { transform: rotate(180deg); }
+.lang-dropdown {
+    position: absolute; top: calc(100% + 10px); right: 0;
+    min-width: 140px;
+    background: rgba(20,3,42,0.98);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    overflow: hidden; opacity: 0; visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
+    z-index: 200;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 30px rgba(255,46,147,0.08);
+}
+.lang-switcher.is-open .lang-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+.lang-option {
+    display: flex; align-items: center; gap: 10px;
+    width: 100%; padding: 10px 16px;
+    font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7);
+    cursor: pointer; transition: background 0.2s, color 0.2s;
+    border: none; background: none; text-align: left; letter-spacing: 0.02em;
+}
+.lang-option:hover { background: rgba(255,46,147,0.1); color: #fff; }
+.lang-option.is-active { color: var(--pink); background: rgba(255,46,147,0.08); }
+.lang-option .lang-option-flag { font-size: 18px; line-height: 1; }
+@media (max-width: 1024px) { .lang-switcher { margin-right: 6px; } }
+@media (max-width: 640px) { .lang-btn .lang-code { display: none; } }
+
+
+  /* SKIP LINK (accesibilidad teclado) */
+  .skip-link {
+    position: fixed; top: -70px; left: 16px; z-index: 10010;
+    padding: 12px 22px; border-radius: 0 0 12px 12px;
+    background: var(--pink); color: #fff;
+    font-weight: 600; font-size: 14px;
+    transition: top 0.3s;
+  }
+  .skip-link:focus { top: 0; outline: none; }
+
+/* ==================================================
+   BUSCADOR DE LA CARTA
+   ================================================== */
+.carta-search { padding: 28px 4vw 0; }
+.carta-search-box { position: relative; max-width: 560px; margin: 0 auto; }
+.cs-icon {
+    position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
+    width: 18px; height: 18px; color: var(--ink-dim); pointer-events: none;
+}
+#cartaSearch {
+    width: 100%;
+    padding: 14px 52px 14px 48px;
+    border-radius: 50px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+#cartaSearch::placeholder { color: var(--ink-dim); }
+#cartaSearch:focus {
+    outline: none;
+    border-color: var(--pink);
+    box-shadow: 0 0 0 4px rgba(255,46,147,0.15), 0 0 24px rgba(255,46,147,0.15);
+    background: rgba(255,255,255,0.06);
+}
+#cartaSearch::-webkit-search-cancel-button { -webkit-appearance: none; display: none; }
+.cs-clear {
+    position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--glass-2); color: #fff; font-size: 13px;
+    display: grid; place-items: center; cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+.cs-clear:hover { background: var(--pink); transform: translateY(-50%) scale(1.1); }
+.carta-search-count {
+    text-align: center; margin: 12px 0 0;
+    font-size: 13px; color: var(--ink-dim);
+    letter-spacing: 0.04em; min-height: 1.2em;
+}
+.search-hidden { display: none !important; }
+
+/* ==================================================
+   VIEW TRANSITIONS (cross-document, SPA-like fades)
+   ================================================== */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.25s; }
+@media (prefers-reduced-motion: reduce) {
+    @view-transition { navigation: none; }
+}
+
     </style>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌴%3C/text%3E%3C/svg%3E" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="manifest" href="manifest.json" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.miamilounge.es/" },
+    { "@type": "ListItem", "position": 2, "name": "Carta", "item": "https://www.miamilounge.es/carta.html" }
+  ]
+}
+</script>
 </head>
 <body class="carta-page">
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
     <!-- =============== LOADER =============== -->
     <div class="loader" id="loader">
@@ -2782,9 +3281,9 @@ img { max-width: 100%; height: auto; }
             </div>
             <div class="loader-text">
                 <span class="loader-welcome">Loading</span>
-                <h1 class="loader-title">
+                <div class="loader-title" aria-label="Carta">
                     <span>C</span><span>A</span><span>R</span><span>T</span><span>A</span>
-                </h1>
+                </div>
                 <p class="loader-sub">Miami Lounge Bar</p>
             </div>
             <div class="loader-bar"><div class="loader-bar-fill"></div></div>
@@ -2828,34 +3327,46 @@ img { max-width: 100%; height: auto; }
     <!-- =============== NAV =============== -->
     <header class="nav" id="nav">
         <a href="index.html" class="nav-logo" data-cursor="link">
-            <span class="nav-logo-mark">M</span>
+            <span class="nav-logo-mark"><img src="img/miamiicono.png" alt="Miami Lounge" /></span>
             <span class="nav-logo-text">
                 <strong>MIAMI</strong>
                 <em>lounge bar</em>
             </span>
         </a>
         <nav class="nav-links">
-            <a href="index.html#about" data-cursor="link">Nosotros</a>
-            <a href="galeria.html" data-cursor="link">Galería</a>
-            <a href="carta.html" class="is-active" data-cursor="link">Carta</a>
-            <a href="index.html#contact" data-cursor="link">Contacto</a>
+            <a href="index.html#about" data-cursor="link" data-i18n="nav.about">Nosotros</a>
+            <a href="galeria.html" data-cursor="link" data-i18n="nav.gallery">Galería</a>
+            <a href="carta.html" class="is-active" data-cursor="link" data-i18n="nav.menu">Carta</a>
+            <a href="index.html#contact" data-cursor="link" data-i18n="nav.contact">Contacto</a>
         </nav>
         <a href="tel:+34691691080" class="nav-cta" data-cursor="link">
-            <span>Reservar</span>
+            <span data-i18n="nav.book">Reservar</span>
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-        <button class="nav-burger" id="navBurger" aria-label="Menú">
+        <div class="lang-switcher" id="langSwitcher">
+            <button class="lang-btn" id="langBtn" aria-label="Language / Idioma" aria-expanded="false" aria-haspopup="listbox">
+                <span class="lang-flag" id="langCurrentFlag">🇪🇸</span>
+                <span class="lang-code" id="langCurrentCode">ES</span>
+                <span class="lang-arrow">▾</span>
+            </button>
+            <div class="lang-dropdown" role="listbox" id="langDropdown">
+                <button class="lang-option is-active" role="option" data-lang="es"><span class="lang-option-flag">🇪🇸</span> Español</button>
+                <button class="lang-option" role="option" data-lang="fr"><span class="lang-option-flag">🇫🇷</span> Français</button>
+                <button class="lang-option" role="option" data-lang="en"><span class="lang-option-flag">🇬🇧</span> English</button>
+            </div>
+        </div>
+        <button class="nav-burger" id="navBurger" aria-label="Menú" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
     </header>
 
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html#about">Nosotros</a>
-        <a href="galeria.html">Galería</a>
-        <a href="carta.html">Carta</a>
-        <a href="index.html#contact">Contacto</a>
-        <a href="tel:+34691691080" class="mobile-cta">Reservar mesa</a>
+        <a href="index.html#about" data-i18n="nav.about">Nosotros</a>
+        <a href="galeria.html" data-i18n="nav.gallery">Galería</a>
+        <a href="carta.html" data-i18n="nav.menu">Carta</a>
+        <a href="index.html#contact" data-i18n="nav.contact">Contacto</a>
+        <a href="tel:+34691691080" class="mobile-cta" data-i18n="nav.bookTable">Reservar mesa</a>
     </div>
 
     <!-- =============== CARTA HERO =============== -->
@@ -2868,16 +3379,15 @@ img { max-width: 100%; height: auto; }
             
             <div class="hero-tag" data-reveal>
                 <span class="dot"></span>
-                Temporada 2026 · Actualizada
+                <span data-i18n="hero.tag">Temporada 2026 · Actualizada</span>
             </div>
             <h1 class="carta-hero-title" data-reveal data-delay="100">
-                <span class="hero-line">Nuestra</span>
-                <span class="hero-line italic">Carta</span>
-                <span class="hero-line gradient">de Cócteles</span>
+                <span class="hero-line" data-i18n="hero.line1">Nuestra</span>
+                <span class="hero-line italic" data-i18n="hero.line2">Carta</span>
+                <span class="hero-line gradient" data-i18n="hero.line3">de Cócteles</span>
             </h1>
             <p class="carta-hero-sub" data-reveal data-delay="200">
-                Cócteles artesanales, combinados premium, vinos selectos
-                y platitos para compartir. <strong>Drink, eat, relax and repeat.</strong>
+                <span data-i18n="hero.sub">Cócteles artesanales, combinados premium, vinos selectos y platitos para compartir. <strong>Drink, eat, relax and repeat.</strong></span>
             </p>
             <div class="carta-hero-actions" data-reveal data-delay="300">
                 <a href="carta.pdf" download="Miami-Lounge-Carta-2026.pdf" class="btn btn-primary btn-pdf" data-cursor="link">
@@ -2887,7 +3397,7 @@ img { max-width: 100%; height: auto; }
                         <line x1="12" y1="18" x2="12" y2="12"/>
                         <polyline points="9 15 12 18 15 15"/>
                     </svg>
-                    Descargar carta en PDF
+                    <span data-i18n="hero.pdf">Descargar carta en PDF</span>
                     <span class="btn-sub">carta.pdf · 4,8 MB</span>
                 </a>
             </div>
@@ -2898,321 +3408,340 @@ img { max-width: 100%; height: auto; }
     <nav class="carta-nav" id="cartaNav">
         <div class="carta-nav-inner">
             <a href="#clasicos" class="carta-nav-link is-active" aria-label="Ir a Cócteles Clásicos" data-cat="clasicos">
-                <span class="cn-icon" aria-hidden="true">🍸</span> Cócteles
+                <span class="cn-icon" aria-hidden="true">🍸</span> <span data-i18n="nav.cat.cocktails">Cócteles</span>
             </a>
-            <a href="#mojitos" class="carta-nav-link" aria-label="Ir a Mojitos"" data-cat="mojitos">
-                <span class="cn-icon" aria-hidden="true">🌿</span> Mojitos
+            <a href="#mojitos" class="carta-nav-link" aria-label="Ir a Mojitos" data-cat="mojitos">
+                <span class="cn-icon" aria-hidden="true">🌿</span> <span data-i18n="nav.cat.mojitos">Mojitos</span>
             </a>
-            <a href="#xl" class="carta-nav-link" aria-label="Ir a Cócteles XL"" data-cat="xl">
-                <span class="cn-icon" aria-hidden="true">💎</span> XL
+            <a href="#xl" class="carta-nav-link" aria-label="Ir a Cócteles XL" data-cat="xl">
+                <span class="cn-icon" aria-hidden="true">💎</span> <span data-i18n="nav.cat.xl">XL</span>
             </a>
-            <a href="#especialidad" class="carta-nav-link" aria-label="Ir a Especialidad"" data-cat="especialidad">
-                <span class="cn-icon" aria-hidden="true">⭐</span> Especialidad
+            <a href="#especialidad" class="carta-nav-link" aria-label="Ir a Especialidad" data-cat="especialidad">
+                <span class="cn-icon" aria-hidden="true">⭐</span> <span data-i18n="nav.cat.especialidad">Especialidad</span>
             </a>
-            <a href="#sin-alcohol" class="carta-nav-link" aria-label="Ir a Sin Alcohol"" data-cat="sin-alcohol">
-                <span class="cn-icon" aria-hidden="true">🍹</span> Sin Alcohol
+            <a href="#sin-alcohol" class="carta-nav-link" aria-label="Ir a Sin Alcohol" data-cat="sin-alcohol">
+                <span class="cn-icon" aria-hidden="true">🍹</span> <span data-i18n="nav.cat.sin_alcohol">Sin Alcohol</span>
             </a>
-            <a href="#gin-tonic" class="carta-nav-link" aria-label="Ir a Gin Tonic"" data-cat="gin-tonic">
-                <span class="cn-icon" aria-hidden="true">🫧</span> Gin Tonic
+            <a href="#gin-tonic" class="carta-nav-link" aria-label="Ir a Gin Tonic" data-cat="gin-tonic">
+                <span class="cn-icon" aria-hidden="true">🫧</span> <span data-i18n="nav.cat.gin">Gin Tonic</span>
             </a>
-            <a href="#combinados" class="carta-nav-link" aria-label="Ir a Combinados"" data-cat="combinados">
-                <span class="cn-icon" aria-hidden="true">🥃</span> Combinados
+            <a href="#combinados" class="carta-nav-link" aria-label="Ir a Combinados" data-cat="combinados">
+                <span class="cn-icon" aria-hidden="true">🥃</span> <span data-i18n="nav.cat.combinados">Combinados</span>
             </a>
-            <a href="#cervezas" class="carta-nav-link" aria-label="Ir a Cervezas"" data-cat="cervezas">
-                <span class="cn-icon" aria-hidden="true">🍺</span> Cervezas
+            <a href="#cervezas" class="carta-nav-link" aria-label="Ir a Cervezas" data-cat="cervezas">
+                <span class="cn-icon" aria-hidden="true">🍺</span> <span data-i18n="nav.cat.cervezas">Cervezas</span>
             </a>
-            <a href="#vinos" class="carta-nav-link" aria-label="Ir a Vinos"" data-cat="vinos">
-                <span class="cn-icon" aria-hidden="true">🍷</span> Vinos
+            <a href="#vinos" class="carta-nav-link" aria-label="Ir a Vinos" data-cat="vinos">
+                <span class="cn-icon" aria-hidden="true">🍷</span> <span data-i18n="nav.cat.vinos">Vinos</span>
             </a>
-            <a href="#caprichos" class="carta-nav-link" aria-label="Ir a Caprichos"" data-cat="caprichos">
-                <span class="cn-icon" aria-hidden="true">😋</span> Caprichos
+            <a href="#caprichos" class="carta-nav-link" aria-label="Ir a Caprichos" data-cat="caprichos">
+                <span class="cn-icon" aria-hidden="true">😋</span> <span data-i18n="nav.cat.caprichos">Caprichos</span>
             </a>
-            <a href="#gourmet" class="carta-nav-link" aria-label="Ir a Gourmet"" data-cat="gourmet">
-                <span class="cn-icon" aria-hidden="true">🥩</span> Gourmet
+            <a href="#gourmet" class="carta-nav-link" aria-label="Ir a Gourmet" data-cat="gourmet">
+                <span class="cn-icon" aria-hidden="true">🥩</span> <span data-i18n="nav.cat.gourmet">Gourmet</span>
             </a>
         </div>
     </nav>
 
+    <!-- =============== BUSCADOR =============== -->
+    <div class="carta-search">
+        <div class="carta-search-box">
+            <svg class="cs-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="search" id="cartaSearch" placeholder="Busca tu cóctel, bebida o capricho…" data-i18n-placeholder="search.placeholder" autocomplete="off" aria-label="Buscar en la carta">
+            <button class="cs-clear" id="cartaSearchClear" aria-label="Borrar búsqueda" hidden>✕</button>
+        </div>
+        <p class="carta-search-count" id="cartaSearchCount" role="status" aria-live="polite"></p>
+    </div>
+
     <!-- =============== CARTA CONTENT =============== -->
-    <main class="carta-main">
+    <main class="carta-main" id="contenido">
 
         <!-- ===== CLÁSICOS ===== -->
-        <section class="menu-section" id="clasicos" data-cat="clasicos">
+        <section class="menu-section s-clasicos" id="clasicos" data-cat="clasicos">
             <div class="container">
                 <div class="menu-section-head" data-reveal>
-                    <span class="eyebrow">— La esencia</span>
-                    <h2 class="section-title">Cócteles <em>Clásicos</em></h2>
-                    <div class="price-tag"><span>7,90€</span></div>
-                    <p class="section-sub">Las recetas que nos han hecho famosos. Cada uno preparado al momento con ingredientes frescos.</p>
+                    <span class="eyebrow" data-i18n="eye.clasicos">— La esencia</span>
+                    <h2 class="section-title" data-i18n="h2.clasicos">Cócteles <em>Clásicos</em></h2>
+                    <div class="price-badge-wrap">
+                        <div class="price-badge">
+                            <span class="price-badge-amount">7,90€</span>
+                            <span class="price-badge-label">precio único</span>
+                        </div>
+                        <div class="price-badge badge-cyan">
+                            <span class="price-badge-amount">8,90€</span>
+                            <span class="price-badge-label">con RedBull o Champagne</span>
+                        </div>
+                    </div>
+                    <p class="section-sub" data-i18n="sub.mojitos">Las recetas que nos han hecho famosos. Cada uno preparado al momento con ingredientes frescos.</p>
                 </div>
 
                 <div class="menu-grid menu-grid-2">
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Miami Lounge</h3>
+                            <h3 data-i18n="n.miami_lounge">Miami Lounge</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Naranja, soho, granadina</p>
-                        <span class="mi-tag mi-tag-signature">★ Signature</span>
+                        <p class="mi-desc" data-i18n="d.0">Naranja, soho, granadina</p>
+                        <span class="mi-tag mi-tag-signature"><span data-i18n="tag.signature">★ Signature</span></span>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Sunrise</h3>
+                            <h3 data-i18n="n.sunrise">Sunrise</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Naranja, ron, granadina</p>
+                        <p class="mi-desc" data-i18n="d.1">Naranja, ron, granadina</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Tequila Sunrise</h3>
+                            <h3 data-i18n="n.tequila_sunrise">Tequila Sunrise</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Naranja, tequila, granadina</p>
+                        <p class="mi-desc" data-i18n="d.2">Naranja, tequila, granadina</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Piña Colada</h3>
+                            <h3 data-i18n="n.pina_colada">Piña Colada</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Piña, leche de coco, malibú</p>
+                        <p class="mi-desc" data-i18n="d.3">Piña, leche de coco, malibú</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Piña de la Isla</h3>
+                            <h3 data-i18n="n.pina_de_la_isla">Piña de la Isla</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Piña, plátano, cointreau, ron</p>
+                        <p class="mi-desc" data-i18n="d.4">Piña, plátano, cointreau, ron</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Daiquiri</h3>
+                            <h3 data-i18n="n.daiquiri">Daiquiri</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Limón, ron de caña, azúcar</p>
+                        <p class="mi-desc" data-i18n="d.5">Limón, ron de caña, azúcar</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Caipirinha</h3>
+                            <h3 data-i18n="n.caipirinha">Caipirinha</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Lima, cachaça, azúcar</p>
+                        <p class="mi-desc" data-i18n="d.6">Lima, cachaça, azúcar</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Caipiroska</h3>
+                            <h3 data-i18n="n.caipiroska">Caipiroska</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Limón, lima, vodka, azúcar</p>
+                        <p class="mi-desc" data-i18n="d.7">Limón, lima, vodka, azúcar</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Caipiroska de Fresa</h3>
+                            <h3 data-i18n="n.caipiroska_de_fresa">Caipiroska de Fresa</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Limón, lima, fresa, vodka, azúcar</p>
+                        <p class="mi-desc" data-i18n="d.8">Limón, lima, fresa, vodka, azúcar</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Sarita</h3>
+                            <h3 data-i18n="n.sarita">Sarita</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Triple sec, licor manzana, naranja, limón</p>
+                        <p class="mi-desc" data-i18n="d.9">Triple sec, licor manzana, naranja, limón</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Pepemolino</h3>
+                            <h3 data-i18n="n.pepemolino">Pepemolino</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Gin, triple sec, naranja, melocotón, leche, granadina</p>
+                        <p class="mi-desc" data-i18n="d.10">Gin, triple sec, naranja, melocotón, leche, granadina</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Blue Lagoon</h3>
+                            <h3 data-i18n="n.blue_lagoon">Blue Lagoon</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Vodka, curaçao azul, limón, soda</p>
+                        <p class="mi-desc" data-i18n="d.11">Vodka, curaçao azul, limón, soda</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Bora Bora</h3>
+                            <h3 data-i18n="n.bora_bora">Bora Bora</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Piña, passoa, limón, granadina</p>
+                        <p class="mi-desc" data-i18n="d.12">Piña, passoa, limón, granadina</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Marcoco</h3>
+                            <h3 data-i18n="n.marcoco">Marcoco</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Leche de coco, ron, malibú, licor de coco, azúcar</p>
-                        <span class="mi-tag mi-tag-signature">★ Signature</span>
+                        <p class="mi-desc" data-i18n="d.13">Leche de coco, ron, malibú, licor de coco, azúcar</p>
+                        <span class="mi-tag mi-tag-signature"><span data-i18n="tag.signature">★ Signature</span></span>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Patou</h3>
+                            <h3 data-i18n="n.patou">Patou</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Licor de coco, malibú, piña, granadina</p>
+                        <p class="mi-desc" data-i18n="d.14">Licor de coco, malibú, piña, granadina</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Vivirosa</h3>
+                            <h3 data-i18n="n.vivirosa">Vivirosa</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Plátano, piña, licor de coco, granadina</p>
+                        <p class="mi-desc" data-i18n="d.15">Plátano, piña, licor de coco, granadina</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Fuerza 4</h3>
+                            <h3 data-i18n="n.fuerza_4">Fuerza 4</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Tequila, vodka, gin, ron, zumo multifrutas</p>
+                        <p class="mi-desc" data-i18n="d.16">Tequila, vodka, gin, ron, zumo multifrutas</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Miami Club</h3>
+                            <h3 data-i18n="n.miami_club">Miami Club</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Plátano, piña, bailey's, ron de caña, licor de coco, granadina</p>
+                        <p class="mi-desc" data-i18n="d.17">Plátano, piña, bailey's, ron de caña, licor de coco, granadina</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Piña Vanicolada</h3>
+                            <h3 data-i18n="n.pina_vanicolada">Piña Vanicolada</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">8,90€</span>
                         </div>
-                        <p class="mi-desc">Piña colada con una bola de helado de vainilla</p>
-                        <span class="mi-tag">🍦 Incluye bola de helado</span>
+                        <p class="mi-desc" data-i18n="d.18">Piña colada con una bola de helado de vainilla</p>
+                        <span class="mi-tag"><span data-i18n="tag.ice">🍦 Incluye bola de helado</span></span>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Sex on the Miami Beach</h3>
+                            <h3 data-i18n="n.sex_on_the_miami_beach">Sex on the Miami Beach</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Naranja, licor de melocotón, vodka, amaretto, granadina</p>
+                        <p class="mi-desc" data-i18n="d.19">Naranja, licor de melocotón, vodka, amaretto, granadina</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Inspiración de la Jefa</h3>
+                            <h3 data-i18n="n.inspiracion_de_la_jefa">Inspiración de la Jefa</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">¡La receta secreta de la casa! Inspiration du chef</p>
-                        <span class="mi-tag mi-tag-secret">🤫 Receta secreta</span>
+                        <p class="mi-desc" data-i18n="d.20">¡La receta secreta de la casa! Inspiración de la Jefa</p>
+                        <span class="mi-tag mi-tag-secret"><span data-i18n="tag.secret">🤫 Receta secreta</span></span>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Margarita</h3>
+                            <h3 data-i18n="n.margarita">Margarita</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Tequila, triple sec, limón</p>
+                        <p class="mi-desc" data-i18n="d.21">Tequila, triple sec, limón</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Bloody Mary</h3>
+                            <h3 data-i18n="n.bloody_mary">Bloody Mary</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Tomate, vodka, limón, salsa perrins, tabasco, sal y pimienta</p>
+                        <p class="mi-desc" data-i18n="d.22">Tomate, vodka, limón, salsa Perrins, tabasco, sal y pimienta</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Mojito</h3>
+                            <h3 data-i18n="n.mojito">Mojito</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">7,90€</span>
                         </div>
-                        <p class="mi-desc">Azúcar, menta, lima, ron blanco y soda</p>
+                        <p class="mi-desc" data-i18n="d.23">Azúcar, menta, lima, ron blanco y soda</p>
                     </article>
                 </div>
 
                 <!-- Champagne variants -->
                 <div class="menu-subsection" data-reveal>
                     <h3 class="subsection-title">
-                        <span class="sub-icon">🥂</span> Con Champagne <span class="sub-price">8,90€</span>
+                        <span data-i18n="h3.champagne"><span class="sub-icon">🥂</span> Con Champagne</span> <span class="sub-price">8,90€</span>
                     </h3>
                     <div class="menu-grid menu-grid-2">
                         <article class="menu-item mi-small">
                             <div class="mi-head">
-                                <h3>Mi Amor</h3>
+                                <h3 data-i18n="n.mi_amor">Mi Amor</h3>
                                 <span class="mi-dots"></span>
                                 <span class="mi-price">8,90€</span>
                             </div>
-                            <p class="mi-desc">Champagne, vodka, fresa</p>
+                            <p class="mi-desc" data-i18n="d.24">Champagne, vodka, fresa</p>
                         </article>
                         <article class="menu-item mi-small">
                             <div class="mi-head">
-                                <h3>Goldfinger</h3>
+                                <h3 data-i18n="n.goldfinger">Goldfinger</h3>
                                 <span class="mi-dots"></span>
                                 <span class="mi-price">8,90€</span>
                             </div>
-                            <p class="mi-desc">Champagne, cointreau, limón, azúcar</p>
+                            <p class="mi-desc" data-i18n="d.25">Champagne, cointreau, limón, azúcar</p>
                         </article>
                         <article class="menu-item mi-small">
                             <div class="mi-head">
-                                <h3>Amandina</h3>
+                                <h3 data-i18n="n.amandina">Amandina</h3>
                                 <span class="mi-dots"></span>
                                 <span class="mi-price">8,90€</span>
                             </div>
-                            <p class="mi-desc">Champagne, naranja, limón, granadina</p>
+                            <p class="mi-desc" data-i18n="d.26">Champagne, naranja, limón, granadina</p>
                         </article>
                         <article class="menu-item mi-small">
                             <div class="mi-head">
-                                <h3>Pájaro Azul</h3>
+                                <h3 data-i18n="n.pajaro_azul">Pájaro Azul</h3>
                                 <span class="mi-dots"></span>
                                 <span class="mi-price">8,90€</span>
                             </div>
-                            <p class="mi-desc">Champagne, cointreau, curaçao azul</p>
+                            <p class="mi-desc" data-i18n="d.27">Champagne, cointreau, curaçao azul</p>
                         </article>
                         <article class="menu-item mi-small">
                             <div class="mi-head">
-                                <h3>Dynamite</h3>
+                                <h3 data-i18n="n.dynamite">Dynamite</h3>
                                 <span class="mi-dots"></span>
                                 <span class="mi-price">8,90€</span>
                             </div>
-                            <p class="mi-desc">Champagne, gin, get 27</p>
+                            <p class="mi-desc" data-i18n="d.28">Champagne, gin, get 27</p>
                         </article>
                     </div>
                 </div>
@@ -3220,382 +3749,359 @@ img { max-width: 100%; height: auto; }
                 <!-- Redbull variants -->
                 <div class="menu-subsection" data-reveal>
                     <h3 class="subsection-title">
-                        <span class="sub-icon">⚡</span> Con RedBull <span class="sub-price">8,90€</span>
+                        <span data-i18n="h3.redbull"><span class="sub-icon">⚡</span> Con RedBull</span> <span class="sub-price">8,90€</span>
                     </h3>
                     <div class="menu-grid menu-grid-2">
                         <article class="menu-item mi-small">
                             <div class="mi-head">
-                                <h3>Checco's Bull</h3>
+                                <h3 data-i18n="n.checco_s_bull">Checco's Bull</h3>
                                 <span class="mi-dots"></span>
                                 <span class="mi-price">8,90€</span>
                             </div>
-                            <p class="mi-desc">Passoa, vodka, naranja, redbull, granadina</p>
+                            <p class="mi-desc" data-i18n="d.29">Passoa, vodka, naranja, RedBull, granadina</p>
                         </article>
                         <article class="menu-item mi-small">
                             <div class="mi-head">
-                                <h3>Green Bull</h3>
+                                <h3 data-i18n="n.green_bull">Green Bull</h3>
                                 <span class="mi-dots"></span>
                                 <span class="mi-price">8,90€</span>
                             </div>
-                            <p class="mi-desc">Vodka, curaçao azul, naranja, redbull</p>
+                            <p class="mi-desc" data-i18n="d.30">Vodka, curaçao azul, naranja, RedBull</p>
                         </article>
                         <article class="menu-item mi-small">
                             <div class="mi-head">
-                                <h3>Mojito Marina</h3>
+                                <h3 data-i18n="n.mojito_marina">Mojito Marina</h3>
                                 <span class="mi-dots"></span>
                                 <span class="mi-price">8,90€</span>
                             </div>
-                            <p class="mi-desc">Con havana 3 y redbull</p>
+                            <p class="mi-desc" data-i18n="d.31">Con Havana 3 y RedBull</p>
                         </article>
                     </div>
                 </div>
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
         <!-- ===== MOJITOS XL ===== -->
-        <section class="menu-section alt" id="mojitos" data-cat="mojitos">
+        <section class="menu-section s-mojitos alt" id="mojitos" data-cat="mojitos">
             <div class="container">
                 <div class="menu-section-head" data-reveal>
-                    <span class="eyebrow">— Para refrescarte</span>
-                    <h2 class="section-title">Mojitos <em>XL</em></h2>
-                    <div class="price-tag"><span>8,50€</span> <small>con Champagne +1€</small></div>
-                    <p class="section-sub">Elige tu sabor favorito. Opcional con un toque de champagne (+1€).</p>
+                    <span class="eyebrow" data-i18n="eye.mojitos">— Para refrescarte</span>
+                    <h2 class="section-title" data-i18n="h2.mojitos">Mojitos <em>XL</em></h2>
+                    <div class="price-badge-wrap">
+                        <div class="price-badge badge-cyan">
+                            <span class="price-badge-amount">8,50€</span>
+                            <span class="price-badge-label">precio único</span>
+                        </div>
+                        <div class="price-badge badge-gold">
+                            <span class="price-badge-amount">9,50€</span>
+                            <span class="price-badge-label">con Champagne</span>
+                        </div>
+                    </div>
+                    <p class="section-sub" data-i18n="sub.especialidad">Elige tu sabor favorito. Opcional con un toque de champagne (+1€).</p>
                 </div>
 
                 <div class="mojito-grid">
-                    <div class="mojito-pill" data-reveal>Mojito clásico</div>
-                    <div class="mojito-pill" data-reveal>Fresa</div>
-                    <div class="mojito-pill" data-reveal>Cereza</div>
-                    <div class="mojito-pill" data-reveal>Manzana</div>
-                    <div class="mojito-pill" data-reveal>Melocotón</div>
-                    <div class="mojito-pill" data-reveal>Sandía</div>
-                    <div class="mojito-pill" data-reveal>Melón</div>
-                    <div class="mojito-pill mojito-special" data-reveal>
-                        <span class="pill-icon">⭐</span> Azúl
+                    <div class="mojito-pill" data-reveal data-i18n="pill.mojito_clasico">🌿 Mojito clásico</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.fresa">🍓 Fresa</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.cereza">🍒 Cereza</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.manzana">🍏 Manzana</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.melocoton">🍑 Melocotón</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.sandia">🍉 Sandía</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.melon">🍈 Melón</div>
+                    <div class="mojito-pill mojito-special" data-reveal data-i18n="pill.azul">
+                        <span class="pill-icon">💙</span> Azul
                     </div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.champagne">🍾 Champagne</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.malibu">🥥 Malibú</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.malibu_fresa">🍓 Malibú y fresa</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.champ_fresa">🍓 Champagne y fresa</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.jagger">🥃 Jäger</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.platano">🍌 Plátano</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.amaretto">🌰 Amaretto</div>
                 </div>
 
                 <div class="mojito-extras" data-reveal>
-                    <h3>También con:</h3>
+                    <h3 data-i18n="n.tambien_con">✨ Opciones de personalización</h3>
                     <div class="extras-row">
-                        <span class="extra-chip">🍾 Champagne <em>+1€</em></span>
-                        <span class="extra-chip">🥥 Malibú</span>
-                        <span class="extra-chip">🍓 Malibú y fresa</span>
-                        <span class="extra-chip">🍓 Champagne y fresa</span>
-                        <span class="extra-chip">🥃 Jagger</span>
-                        <span class="extra-chip">🍌 Plátano</span>
-                        <span class="extra-chip">🌰 Amaretto</span>
+                        <span class="extra-chip" data-i18n="chip.champagne">🍾 Con Champagne <em>+1€</em></span>
+                        <span class="extra-chip" data-i18n="chip.sin_alcohol">🌿 Sin alcohol <em>6,50€</em></span>
                     </div>
                 </div>
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
         <!-- ===== XL GIGANTE ===== -->
-        <section class="menu-section xl-section" id="xl" data-cat="xl">
+        <section class="menu-section s-xl xl-section" id="xl" data-cat="xl">
             <div class="container">
                 <div class="menu-section-head" data-reveal>
-                    <span class="eyebrow">— Para compartir</span>
-                    <h2 class="section-title">Cocktails <em>XL</em></h2>
-                    <p class="section-sub">Elige los sabores de nuestra carta o crea los tuyos. Formato gigante para 2 a 10 personas.</p>
+                    <span class="eyebrow" data-i18n="eye.xl">— Para compartir</span>
+                    <h2 class="section-title" data-i18n="h2.xl">Cocktails <em>XL</em></h2>
+                    <p class="section-sub" data-i18n="sub.xl">Elige los sabores de nuestra carta o crea los tuyos. Formato gigante para 2 a 10 personas.</p>
                 </div>
 
                 <div class="xl-grid">
                     <div class="xl-card" data-reveal>
                         <div class="xl-vol">1L</div>
-                        <div class="xl-ppl">👥 2 personas</div>
+                        <div class="xl-ppl" data-i18n="xl.ppl2">👥 2 personas</div>
                         <div class="xl-price">19,90€</div>
                     </div>
                     <div class="xl-card" data-reveal>
                         <div class="xl-vol">1,5L</div>
-                        <div class="xl-ppl">👥 3 personas</div>
+                        <div class="xl-ppl" data-i18n="xl.ppl3">👥 3 personas</div>
                         <div class="xl-price">24,90€</div>
                     </div>
                     <div class="xl-card xl-featured" data-reveal>
-                        <div class="xl-badge">⭐ Popular</div>
+                        <div class="xl-badge" data-i18n="xl.badge_popular">⭐ Popular</div>
                         <div class="xl-vol">2L</div>
-                        <div class="xl-ppl">👥👥 4 personas</div>
+                        <div class="xl-ppl" data-i18n="xl.ppl4">👥👥 4 personas</div>
                         <div class="xl-price">29,90€</div>
                     </div>
                     <div class="xl-card" data-reveal>
                         <div class="xl-vol">3L</div>
-                        <div class="xl-ppl">👥👥👥 6 personas</div>
+                        <div class="xl-ppl" data-i18n="xl.ppl6">👥👥👥 6 personas</div>
                         <div class="xl-price">39,90€</div>
                     </div>
                     <div class="xl-card xl-biggest" data-reveal>
-                        <div class="xl-badge xl-badge-cyan">🔥 Fiesta</div>
+                        <div class="xl-badge xl-badge-cyan" data-i18n="xl.badge_fiesta">🔥 Fiesta</div>
                         <div class="xl-vol">5L</div>
-                        <div class="xl-ppl">👥👥👥👥 10 personas</div>
+                        <div class="xl-ppl" data-i18n="xl.ppl10">👥👥👥👥 10 personas</div>
                         <div class="xl-price">59,90€</div>
                     </div>
                 </div>
 
                 <div class="xl-note" data-reveal>
                     <span class="dot"></span>
-                    Ahora también puedes hacer tus cócteles <strong>sin alcohol</strong> en formato gigante con un descuento de <strong>5€</strong>.
+                    <span data-i18n="xl.note">Ahora también puedes hacer tus cócteles <strong>sin alcohol</strong> en formato gigante con un descuento de <strong>5€</strong>.</span>
                 </div>
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
         <!-- ===== ESPECIALIDAD (4 columnas) ===== -->
-        <section class="menu-section" id="especialidad" data-cat="especialidad">
+        <section class="menu-section s-especial" id="especialidad" data-cat="especialidad">
             <div class="container">
                 <div class="menu-section-head" data-reveal>
-                    <span class="eyebrow">— Para cada gusto</span>
-                    <h2 class="section-title">Daiquiris · Margaritas · Caipirinhas · Piñas Coladas</h2>
-                    <div class="price-tag"><span>7,90€</span></div>
-                    <p class="section-sub">Elige tu fruta favorita y nosotros lo preparamos al momento.</p>
+                    <span class="eyebrow" data-i18n="eye.especialidad">— Para cada gusto</span>
+                    <h2 class="section-title" data-i18n="h2.especialidad">Daiquiris · Margaritas · Caipirinhas · Piñas Coladas</h2>
+                    <div class="price-badge-wrap">
+                        <div class="price-badge">
+                            <span class="price-badge-amount">7,90€</span>
+                            <span class="price-badge-label">precio único</span>
+                        </div>
+                    </div>
+                    <p class="section-sub" data-i18n="sub.frutas">Elige tu fruta favorita y nosotros te lo preparamos al momento.</p>
                 </div>
 
                 <div class="flavor-grid">
                     <div class="flavor-col" data-reveal>
-                        <h3 class="flavor-title"><span class="flavor-icon">🥃</span> Daiquiris</h3>
+                        <h3 class="flavor-title"><span data-i18n="h3.daiquiris"><span class="flavor-icon">🥃</span> Daiquiris</span></h3>
                         <ul class="flavor-list">
-                            <li>Limón</li>
-                            <li>Fresa</li>
-                            <li>Plátano</li>
-                            <li>Piña</li>
+                            <li data-i18n="f.limon">Limón</li>
+                            <li data-i18n="f.fresa">Fresa</li>
+                            <li data-i18n="f.platano">Plátano</li>
+                            <li data-i18n="f.pina">Piña</li>
                         </ul>
                     </div>
                     <div class="flavor-col" data-reveal>
-                        <h3 class="flavor-title"><span class="flavor-icon">🍋</span> Margaritas</h3>
+                        <h3 class="flavor-title"><span data-i18n="h3.margaritas"><span class="flavor-icon">🍋</span> Margaritas</span></h3>
                         <ul class="flavor-list">
-                            <li>Limón</li>
-                            <li>Fresa</li>
-                            <li>Cereza</li>
-                            <li>Melocotón</li>
-                            <li>Plátano</li>
+                            <li data-i18n="f.limon">Limón</li>
+                            <li data-i18n="f.fresa">Fresa</li>
+                            <li data-i18n="f.cereza">Cereza</li>
+                            <li data-i18n="f.melocoton">Melocotón</li>
+                            <li data-i18n="f.platano">Plátano</li>
                         </ul>
                     </div>
                     <div class="flavor-col" data-reveal>
-                        <h3 class="flavor-title"><span class="flavor-icon">🍹</span> Caipirinhas</h3>
+                        <h3 class="flavor-title"><span data-i18n="h3.caipirinhas"><span class="flavor-icon">🍹</span> Caipirinhas</span></h3>
                         <ul class="flavor-list">
-                            <li>Limón</li>
-                            <li>Fresa</li>
-                            <li>Plátano</li>
-                            <li>Piña</li>
+                            <li data-i18n="f.limon">Limón</li>
+                            <li data-i18n="f.fresa">Fresa</li>
+                            <li data-i18n="f.platano">Plátano</li>
+                            <li data-i18n="f.pina">Piña</li>
                         </ul>
                     </div>
                     <div class="flavor-col" data-reveal>
-                        <h3 class="flavor-title"><span class="flavor-icon">🍍</span> Piñas Coladas</h3>
+                        <h3 class="flavor-title"><span data-i18n="h3.pinas"><span class="flavor-icon">🍍</span> Piñas Coladas</span></h3>
                         <ul class="flavor-list">
-                            <li>Fresa</li>
-                            <li>Frambuesa</li>
-                            <li>Azul</li>
-                            <li>Plátano</li>
+                            <li data-i18n="f.fresa">Fresa</li>
+                            <li data-i18n="f.frambuesa">Frambuesa</li>
+                            <li data-i18n="f.azul">Azul</li>
+                            <li data-i18n="f.platano">Plátano</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
         <!-- ===== SIN ALCOHOL ===== -->
-        <section class="menu-section alt" id="sin-alcohol" data-cat="sin-alcohol">
+        <section class="menu-section s-capric alt" id="sin-alcohol" data-cat="sin-alcohol">
             <div class="container">
                 <div class="menu-section-head" data-reveal>
-                    <span class="eyebrow">— 0,0% alcohol · 100% sabor</span>
-                    <h2 class="section-title">Cócteles <em>Sin Alcohol</em></h2>
-                    <div class="price-tag"><span>6,50€</span></div>
-                    <p class="section-sub">Para los que quieren disfrutar sin alcohol. Misma experiencia, mismo placer.</p>
+                    <span class="eyebrow" data-i18n="eye.sin_alcohol">— 0,0% alcohol · 100% sabor</span>
+                    <h2 class="section-title" data-i18n="h2.sin_alcohol">Cócteles <em>Sin Alcohol</em></h2>
+                    <div class="price-badge-wrap">
+                        <div class="price-badge badge-cyan">
+                            <span class="price-badge-amount">6,50€</span>
+                            <span class="price-badge-label">precio único</span>
+                        </div>
+                    </div>
+                    <p class="section-sub" data-i18n="sub.sin_alcohol">Para los que quieren disfrutar sin alcohol. Misma experiencia, mismo placer.</p>
                 </div>
 
                 <div class="menu-grid menu-grid-2">
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Sunset</h3>
+                            <h3 data-i18n="n.sunset">Sunset</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">6,50€</span>
                         </div>
-                        <p class="mi-desc">Naranja, fresa, plátano</p>
+                        <p class="mi-desc" data-i18n="d.32">Naranja, fresa, plátano</p>
                     </article>
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Pink Panther</h3>
+                            <h3 data-i18n="n.pink_panther">Pink Panther</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">6,50€</span>
                         </div>
-                        <p class="mi-desc">Fresa, plátano, leche</p>
+                        <p class="mi-desc" data-i18n="d.33">Fresa, plátano, leche</p>
                     </article>
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Piña Descolada</h3>
+                            <h3 data-i18n="n.pina_descolada">Piña Descolada</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">6,50€</span>
                         </div>
-                        <p class="mi-desc">Piña, leche de coco</p>
+                        <p class="mi-desc" data-i18n="d.34">Piña, leche de coco</p>
                     </article>
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>San Francisco</h3>
+                            <h3 data-i18n="n.san_francisco">San Francisco</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">6,50€</span>
                         </div>
-                        <p class="mi-desc">Naranja, melocotón, granadina</p>
+                        <p class="mi-desc" data-i18n="d.35">Naranja, melocotón, granadina</p>
                     </article>
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Rosa Banana</h3>
+                            <h3 data-i18n="n.rosa_banana">Rosa Banana</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">6,50€</span>
                         </div>
-                        <p class="mi-desc">Plátano, leche, granadina</p>
+                        <p class="mi-desc" data-i18n="d.36">Plátano, leche, granadina</p>
                     </article>
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Cinderella</h3>
+                            <h3 data-i18n="n.cinderella">Cinderella</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">6,50€</span>
                         </div>
-                        <p class="mi-desc">Naranja, piña, limón</p>
+                        <p class="mi-desc" data-i18n="d.37">Naranja, piña, limón</p>
                     </article>
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Cocolicious</h3>
+                            <h3 data-i18n="n.cocolicious">Cocolicious</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">6,50€</span>
                         </div>
-                        <p class="mi-desc">Leche de coco, plátano, piña</p>
+                        <p class="mi-desc" data-i18n="d.38">Leche de coco, plátano, piña</p>
                     </article>
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Mojito 0%</h3>
+                            <h3 data-i18n="n.mojito_0">Mojito 0%</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">6,50€</span>
                         </div>
-                        <p class="mi-desc">Menta, azúcar, lima y soda</p>
+                        <p class="mi-desc" data-i18n="d.39">Menta, azúcar, lima y soda</p>
                     </article>
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Mojito de Sandía 0%</h3>
+                            <h3 data-i18n="n.mojito_de_sandia_0">Mojito de Sandía 0%</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">6,50€</span>
                         </div>
-                        <p class="mi-desc">Menta, azúcar, lima, soda y sandía</p>
+                        <p class="mi-desc" data-i18n="d.40">Menta, azúcar, lima, soda y sandía</p>
                     </article>
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
-                            <h3>Mojito de Fresa 0%</h3>
+                            <h3 data-i18n="n.mojito_de_fresa_0">Mojito de Fresa 0%</h3>
                             <span class="mi-dots"></span>
                             <span class="mi-price">6,50€</span>
                         </div>
-                        <p class="mi-desc">Menta, azúcar, lima, soda y fresas</p>
+                        <p class="mi-desc" data-i18n="d.41">Menta, azúcar, lima, soda y fresas</p>
                     </article>
                 </div>
 
                 <!-- Nuevos -->
                 <div class="menu-subsection" data-reveal>
                     <h3 class="subsection-title">
-                        <span class="sub-icon">✨</span> Nuevos Cócteles Sin Alcohol
+                        <span data-i18n="h3.nuevos_sin_alc"><span class="sub-icon">✨</span> Nuevos Cócteles Sin Alcohol</span>
                     </h3>
                     <div class="new-pills">
-                        <div class="np">🍌 Mojito de Plátano</div>
-                        <div class="np">💙 Mojito Azul</div>
-                        <div class="np">🫐 Mojito Frambuesa</div>
+                        <div class="np" data-i18n="np.platano">🍌 Mojito de Plátano</div>
+                        <div class="np" data-i18n="np.azul">💙 Mojito Azul</div>
+                        <div class="np" data-i18n="np.frambuesa">🫐 Mojito Frambuesa</div>
                     </div>
                     <p class="new-highlight">
-                        🌟 <strong>Prueba el Mojito Especial "Inspiración de la Jefa" 0%</strong> · 6,50€
+                        <span data-i18n="sub.sin_alcohol_highlight">🌟 <strong>Prueba el Mojito Especial "Inspiración de la Jefa" 0%</strong> · 6,50€</span>
                     </p>
                 </div>
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
         <!-- ===== GIN TONIC ===== -->
-        <section class="menu-section" id="gin-tonic" data-cat="gin-tonic">
+        <section class="menu-section s-gin" id="gin-tonic" data-cat="gin-tonic">
             <div class="container">
                 <div class="menu-section-head" data-reveal>
-                    <span class="eyebrow">— Premium</span>
-                    <h2 class="section-title">Gin <em>Tonic</em></h2>
-                    <p class="section-sub">Cargado: +1€ · Muy Cargado: +2€</p>
+                    <span class="eyebrow" data-i18n="eye.gin">— Premium</span>
+                    <h2 class="section-title" data-i18n="h2.gin">Gin <em>Tonic</em></h2>
+                    <p class="section-sub" data-i18n="sub.gin">Selección de gins de primer nivel.</p>
                 </div>
 
-                <div class="menu-grid menu-grid-3">
-                    <article class="menu-item" data-reveal>
-                        <div class="mi-head">
-                            <h3>Beefeater + tónica</h3>
-                            <span class="mi-dots"></span>
-                            <span class="mi-price">7,50€</span>
-                        </div>
-                    </article>
-                    <article class="menu-item" data-reveal>
-                        <div class="mi-head">
-                            <h3>Seagram's + tónica</h3>
-                            <span class="mi-dots"></span>
-                            <span class="mi-price">7,50€</span>
-                        </div>
-                    </article>
-                    <article class="menu-item" data-reveal>
-                        <div class="mi-head">
-                            <h3>Gin de Fresa + tónica</h3>
-                            <span class="mi-dots"></span>
-                            <span class="mi-price">7,50€</span>
-                        </div>
-                    </article>
-                    <article class="menu-item" data-reveal>
-                        <div class="mi-head">
-                            <h3>Bombay Sapphire + tónica</h3>
-                            <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
-                        </div>
-                    </article>
-                    <article class="menu-item" data-reveal>
-                        <div class="mi-head">
-                            <h3>Martin Millers + tónica</h3>
-                            <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
-                        </div>
-                    </article>
-                    <article class="menu-item" data-reveal>
-                        <div class="mi-head">
-                            <h3>Hendrick's + tónica</h3>
-                            <span class="mi-dots"></span>
-                            <span class="mi-price">8,90€</span>
-                        </div>
-                    </article>
-                    <article class="menu-item" data-reveal>
-                        <div class="mi-head">
-                            <h3>Citadelle + tónica</h3>
-                            <span class="mi-dots"></span>
-                            <span class="mi-price">8,90€</span>
-                        </div>
-                    </article>
-                    <article class="menu-item" data-reveal>
-                        <div class="mi-head">
-                            <h3>Mare + tónica</h3>
-                            <span class="mi-dots"></span>
-                            <span class="mi-price">9,90€</span>
-                        </div>
-                    </article>
-                    <article class="menu-item mi-glow" data-reveal>
-                        <div class="mi-head">
-                            <h3>G-Vine + tónica</h3>
-                            <span class="mi-dots"></span>
-                            <span class="mi-price">10,90€</span>
-                        </div>
-                        <span class="mi-tag mi-tag-premium">👑 Premium</span>
-                    </article>
+                <div class="gin-tiers" data-reveal>
+                    <div class="gin-tier"><div class="gin-tier-name">Beefeater · Seagram's · Gin de Fresa</div><div class="gin-tier-price">7,50€</div></div>
+                    <div class="gin-tier"><div class="gin-tier-name">Bombay Sapphire · Martin Millers</div><div class="gin-tier-price">7,90€</div></div>
+                    <div class="gin-tier"><div class="gin-tier-name">Hendrick's · Citadelle</div><div class="gin-tier-price">8,90€</div></div>
+                    <div class="gin-tier"><div class="gin-tier-name">Mare + tónica</div><div class="gin-tier-price">9,90€</div></div>
+                    <div class="gin-tier gin-premium"><div class="gin-tier-name">G-Vine + tónica <span class="mi-tag mi-tag-premium" style="font-size:10px;padding:2px 8px;vertical-align:middle;">👑 Premium</span></div><div class="gin-tier-price">10,90€</div></div>
+                </div>
+                <div class="gin-note" data-reveal>
+                    <strong>Cargado:</strong> +1€ &nbsp;·&nbsp; <strong>Muy Cargado:</strong> +2€
                 </div>
             </div>
         </section>
+
+        <div class="section-divider"></div>
 
         <!-- ===== COMBINADOS ===== -->
         <section class="menu-section dark" id="combinados" data-cat="combinados">
             <div class="container">
                 <div class="menu-section-head" data-reveal>
-                    <span class="eyebrow">— Clásico atemporal</span>
-                    <h2 class="section-title light">Combinados & <em>Licores</em></h2>
-                    <p class="section-sub light">Cargado: +1€ · Muy Cargado: +2€</p>
+                    <span class="eyebrow" data-i18n="eye.combinados">— Clásico atemporal</span>
+                    <h2 class="section-title light" data-i18n="h2.combinados_full">Combinados & <em>Licores</em></h2>
+                    <p class="section-sub light" data-i18n="sub.gin">Cargado: +1€ · Muy Cargado: +2€</p>
                 </div>
 
                 <div class="drinks-grid">
                     <div class="drinks-col" data-reveal>
-                        <h3 class="drinks-col-title">Combinados</h3>
+                        <h3 class="drinks-col-title"><span data-i18n="h3.combinados_sub">Combinados</span></h3>
                         <ul class="drinks-list">
                             <li><span>Gin + soda</span><span>7,50€</span></li>
                             <li><span>Whisky + soda</span><span>7,50€</span></li>
-                            <li><span>Ron + soda</span><span>7,50€</span></li>
+                            <li><span data-i18n="li.ron_soda">Ron + soda</span><span>7,50€</span></li>
                             <li><span>Vodka + soda</span><span>7,50€</span></li>
                             <li><span>Whisky + RedBull</span><span>7,90€</span></li>
                             <li><span>Vodka + RedBull</span><span>7,90€</span></li>
-                            <li class="hl"><span>Julio Ibiza <em>(vodka negro + RedBull)</em></span><span>7,50€</span></li>
+                            <li class="hl"><span data-i18n="li.julio_ibiza">Julio Ibiza <em>(vodka negro + RedBull)</em></span><span>7,50€</span></li>
                             <li><span>Malibú + soda</span><span>6,90€</span></li>
                             <li><span>Martini + soda</span><span>6,90€</span></li>
                             <li><span>Brandy + soda</span><span>6,90€</span></li>
@@ -3606,7 +4112,7 @@ img { max-width: 100%; height: auto; }
                     </div>
 
                     <div class="drinks-col" data-reveal>
-                        <h3 class="drinks-col-title">Licores</h3>
+                        <h3 class="drinks-col-title"><span data-i18n="h3.licores">Licores</span></h3>
                         <ul class="drinks-list">
                             <li><span>Whisky</span><span>5,50€</span></li>
                             <li><span>Jack Daniel's</span><span>6,90€</span></li>
@@ -3616,38 +4122,40 @@ img { max-width: 100%; height: auto; }
                             <li><span>Marie Bizard</span><span>5,50€</span></li>
                             <li><span>Ricard</span><span>4,50€</span></li>
                             <li><span>Martini</span><span>4,90€</span></li>
-                            <li><span>Chupito</span><span>2,50€</span></li>
-                            <li><span>Chupito tequila</span><span>2,50€</span></li>
+                            <li><span data-i18n="li.chupito">Chupito</span><span>2,50€</span></li>
+                            <li><span data-i18n="li.chupito_tequila">Chupito tequila</span><span>2,50€</span></li>
                         </ul>
                     </div>
                 </div>
 
                 <p class="drinks-note" data-reveal>
                     <span class="dot"></span>
-                    Marcas: <strong>gin Beefeater</strong> · <strong>whisky</strong> JB, Ballantine's, Johnnie Walker, White Label, Cutty Shark · <strong>ron</strong> Cacique, Barceló, Bacardí, Brugal, Havana 3 · <strong>vodka</strong> Absolut, Smirnoff, Eristoff Black
+                    Marcas: <strong>gin Beefeater</strong> · <strong>whisky</strong> JB, Ballantine's, Johnnie Walker, White Label, Cutty Sark · <strong>ron</strong> Cacique, Barceló, Bacardí, Brugal, Havana 3 · <strong>vodka</strong> Absolut, Smirnoff, Eristoff Black
                 </p>
             </div>
         </section>
+
+        <div class="section-divider"></div>
 
         <!-- ===== CERVEZAS ===== -->
         <section class="menu-section" id="cervezas" data-cat="cervezas">
             <div class="container">
                 <div class="menu-section-head" data-reveal>
-                    <span class="eyebrow">— Bien fría</span>
-                    <h2 class="section-title">Cervezas & <em>Refrescos</em></h2>
+                    <span class="eyebrow" data-i18n="eye.cervezas">— Bien fría</span>
+                    <h2 class="section-title" data-i18n="h2.cervezas">Cervezas & <em>Refrescos</em></h2>
                 </div>
 
                 <div class="drinks-grid">
                     <div class="drinks-col" data-reveal>
-                        <h3 class="drinks-col-title">🍺 Cervezas</h3>
+                        <h3 class="drinks-col-title"><span data-i18n="h3.cervezas_sub">🍺 Cervezas</span></h3>
                         <ul class="drinks-list">
-                            <li><span>Champú</span><span>2,90€</span></li>
+                            <li><span data-i18n="li.champu">Champú</span><span>2,90€</span></li>
                             <li><span>Estrella</span><span>3,20€</span></li>
                             <li><span>Voll Damm</span><span>3,50€</span></li>
                             <li><span>Estrella Galicia</span><span>3,20€</span></li>
                             <li><span>Coronita</span><span>3,70€</span></li>
                             <li><span>Heineken</span><span>3,50€</span></li>
-                            <li><span>Leffe Rubia o Tostada</span><span>4,50€</span></li>
+                            <li><span data-i18n="li.leffe">Leffe Rubia o Tostada</span><span>4,50€</span></li>
                             <li><span>Desperados</span><span>4,50€</span></li>
                             <li><span>La Chouffe</span><span>4,90€</span></li>
                             <li><span>Kwak</span><span>4,50€</span></li>
@@ -3655,7 +4163,7 @@ img { max-width: 100%; height: auto; }
                     </div>
 
                     <div class="drinks-col" data-reveal>
-                        <h3 class="drinks-col-title">🥤 Refrescos</h3>
+                        <h3 class="drinks-col-title"><span data-i18n="h3.refrescos">🥤 Refrescos</span></h3>
                         <ul class="drinks-list">
                             <li><span>Coca Cola</span><span>2,70€</span></li>
                             <li><span>Coca Cola Zero</span><span>2,70€</span></li>
@@ -3663,51 +4171,53 @@ img { max-width: 100%; height: auto; }
                             <li><span>Aquarius</span><span>2,70€</span></li>
                             <li><span>Schweppes</span><span>2,70€</span></li>
                             <li><span>7up</span><span>2,70€</span></li>
-                            <li><span>Fanta naranja / limón</span><span>2,70€</span></li>
-                            <li><span>Agua con gas</span><span>2,70€</span></li>
-                            <li><span>Agua</span><span>2,70€</span></li>
+                            <li><span data-i18n="li.fanta">Fanta naranja / limón</span><span>2,70€</span></li>
+                            <li><span data-i18n="li.agua_gas">Agua con gas</span><span>2,70€</span></li>
+                            <li><span data-i18n="li.agua">Agua</span><span>2,70€</span></li>
                             <li><span>Bitter Kas</span><span>2,70€</span></li>
-                            <li><span>Batido de chocolate casero</span><span>2,90€</span></li>
+                            <li><span data-i18n="li.batido">Batido de chocolate casero</span><span>2,90€</span></li>
                             <li><span>RedBull</span><span>3,70€</span></li>
-                            <li><span>Zumos de frutas</span><span>2,70€</span></li>
+                            <li><span data-i18n="li.zumos">Zumos de frutas</span><span>2,70€</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
         <!-- ===== VINOS ===== -->
-        <section class="menu-section alt" id="vinos" data-cat="vinos">
+        <section class="menu-section s-vinos alt" id="vinos" data-cat="vinos">
             <div class="container">
                 <div class="menu-section-head" data-reveal>
-                    <span class="eyebrow">— Selección de la casa</span>
-                    <h2 class="section-title">Vinos & <em>Champagne</em></h2>
+                    <span class="eyebrow" data-i18n="eye.vinos">— Selección de la casa</span>
+                    <h2 class="section-title" data-i18n="h2.vinos">Vinos & <em>Champagne</em></h2>
                 </div>
 
                 <div class="wines-hero" data-reveal>
                     <div class="wine-card">
-                        <h3 class="wine-cat">Sangría & Cava</h3>
+                        <h3 class="wine-cat"><span data-i18n="h3.sangria">Sangría & Cava</span></h3>
                         <ul class="wine-list">
-                            <li><span>Sangría 1L</span><span class="wp">14,00€</span></li>
-                            <li><span>Sangría de cava 1L</span><span class="wp">16,00€</span></li>
-                            <li><span>Copa de Sangría</span><span class="wp">5,90€</span></li>
-                            <li><span>Copa de Sangría de cava</span><span class="wp">6,90€</span></li>
+                            <li><span data-i18n="li.sangria_1l">Sangría 1L</span><span class="wp">14,00€</span></li>
+                            <li><span data-i18n="li.sangria_cava_1l">Sangría de cava 1L</span><span class="wp">16,00€</span></li>
+                            <li><span data-i18n="li.copa_sangria">Copa de Sangría</span><span class="wp">5,90€</span></li>
+                            <li><span data-i18n="li.copa_sangria_cava">Copa de Sangría de cava</span><span class="wp">6,90€</span></li>
                         </ul>
                     </div>
                     <div class="wine-card">
-                        <h3 class="wine-cat">Copa de Vino <small>(* de la casa)</small></h3>
+                        <h3 class="wine-cat"><span data-i18n="h3.copa_vino">Copa de Vino <small>(* de la casa)</small></span></h3>
                         <ul class="wine-list">
-                            <li><span>Rosado *</span><span class="wp">2,90€</span></li>
-                            <li><span>Blanco *</span><span class="wp">2,90€</span></li>
-                            <li><span>Tinto *</span><span class="wp">2,50€</span></li>
+                            <li><span data-i18n="li.vino_rosado">Rosado *</span><span class="wp">2,90€</span></li>
+                            <li><span data-i18n="li.vino_blanco">Blanco *</span><span class="wp">2,90€</span></li>
+                            <li><span data-i18n="li.vino_tinto">Tinto *</span><span class="wp">2,50€</span></li>
                         </ul>
                     </div>
                 </div>
 
-                <h3 class="wine-bottle-title" data-reveal>🍾 Vino en Botella</h3>
+                <h3 class="wine-bottle-title" data-reveal><span data-i18n="h3.vino_botella">🍾 Vino en Botella</span></h3>
                 <div class="wines-bottles">
                     <div class="wine-bottle" data-reveal>
-                        <h4>🔴 Tinto</h4>
+                        <h4 data-i18n="wine.tinto">🔴 Tinto</h4>
                         <ul>
                             <li><span>Viña Mayor · Ribera del Duero</span><span class="wp">14,90€ <em>(3,90€ copa)</em></span></li>
                             <li><span>Sembro · Ribera del Duero</span><span class="wp">19,90€</span></li>
@@ -3716,28 +4226,28 @@ img { max-width: 100%; height: auto; }
                         </ul>
                     </div>
                     <div class="wine-bottle" data-reveal>
-                        <h4>⚪ Blanco</h4>
+                        <h4 data-i18n="wine.blanco">⚪ Blanco</h4>
                         <ul>
                             <li><span>Ramón Bilbao Verdejo · D.O. Rueda</span><span class="wp">17,90€ <em>(3,90€ copa)</em></span></li>
                             <li><span>Marqués de Vizhoja</span><span class="wp">17,90€</span></li>
                         </ul>
                     </div>
                     <div class="wine-bottle" data-reveal>
-                        <h4>🌸 Rosado</h4>
+                        <h4 data-i18n="wine.rosado">🌸 Rosado</h4>
                         <ul>
                             <li><span>Cote de Provence</span><span class="wp">21,90€</span></li>
                         </ul>
                     </div>
                     <div class="wine-bottle wine-champagne" data-reveal>
-                        <h4>🥂 Champagne</h4>
+                        <h4 data-i18n="wine.champagne">🥂 Champagne</h4>
                         <ul>
-                            <li><span>Consúltanos</span><span class="wp">—</span></li>
+                            <li><span data-i18n="li.consultanos">Consúltanos</span><span class="wp">—</span></li>
                         </ul>
                     </div>
                     <div class="wine-bottle wine-cava" data-reveal>
-                        <h4>🍾 Cava</h4>
+                        <h4 data-i18n="wine.cava">🍾 Cava</h4>
                         <ul>
-                            <li><span>Cava de la casa</span><span class="wp">14,90€</span></li>
+                            <li><span data-i18n="li.cava_casa">Cava de la casa</span><span class="wp">14,90€</span></li>
                             <li><span>Gramona Brut Imperial</span><span class="wp">31,90€</span></li>
                         </ul>
                     </div>
@@ -3746,19 +4256,22 @@ img { max-width: 100%; height: auto; }
         </section>
 
         <!-- ===== CAPRICHOS ===== -->
-        <section class="menu-section capric" id="caprichos" data-cat="caprichos">
+        <div class="section-divider"></div>
+
+        <!-- ===== CAPRICHOS ===== -->
+        <section class="menu-section s-capric capric" id="caprichos" data-cat="caprichos">
             <div class="container">
                 <div class="menu-section-head" data-reveal>
-                    <span class="eyebrow">— Para picar</span>
-                    <h2 class="section-title">Caprichos <em>😋</em></h2>
-                    <p class="section-sub">Para compartir · à partager · sharing food</p>
+                    <span class="eyebrow" data-i18n="eye.caprichos">— Para picar</span>
+                    <h2 class="section-title" data-i18n="h2.caprichos">Caprichos <em>😋</em></h2>
+                    <p class="section-sub" data-i18n="sub.sharing">Para compartir · à partager · sharing food</p>
                 </div>
 
                 <div class="caprichos-grid">
                     <article class="capricho-card" data-reveal>
                         <div class="cap-emoji">🍬</div>
                         <div class="cap-info">
-                            <h3>Cuenco de chuches especialmente deliciosas</h3>
+                            <h3 data-i18n="n.cuenco_de_chuches_especialment">Cuenco de chuches especialmente deliciosas</h3>
                             <p class="cap-en">Bol de bonbons spécialement délicieux · special sweets</p>
                         </div>
                         <div class="cap-price">5,90€</div>
@@ -3766,7 +4279,7 @@ img { max-width: 100%; height: auto; }
                     <article class="capricho-card" data-reveal>
                         <div class="cap-emoji">🍟</div>
                         <div class="cap-info">
-                            <h3>Plato XXL de patatas fritas</h3>
+                            <h3 data-i18n="n.plato_xxl_de_patatas_fritas">Plato XXL de patatas fritas</h3>
                             <p class="cap-en">Saladier XXL de chips · plate XXL of crisps</p>
                         </div>
                         <div class="cap-price">3,90€</div>
@@ -3774,8 +4287,8 @@ img { max-width: 100%; height: auto; }
                     <article class="capricho-card" data-reveal>
                         <div class="cap-emoji">🍿</div>
                         <div class="cap-info">
-                            <h3>Plato XL de palomitas dulces o saladas</h3>
-                            <p class="cap-en">Bol XL de pop-corn sucrés ou salés · plate XL of popcorn</p>
+                            <h3 data-i18n="n.plato_xl_de_palomitas_dulces_o">Plato XL de palomitas dulces o saladas</h3>
+                            <p class="cap-en">Bol XL de pop-corn sucré ou salé · plate XL of popcorn</p>
                         </div>
                         <div class="cap-price">3,90€</div>
                     </article>
@@ -3783,77 +4296,79 @@ img { max-width: 100%; height: auto; }
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
         <!-- ===== CLUB GOURMET ===== -->
-        <section class="menu-section gourmet" id="gourmet" data-cat="gourmet">
+        <section class="menu-section s-gourmet gourmet" id="gourmet" data-cat="gourmet">
             <div class="container">
                 <div class="menu-section-head" data-reveal>
-                    <span class="eyebrow">— Para compartir con clase</span>
-                    <h2 class="section-title">Club <em>Gourmet</em></h2>
-                    <p class="section-sub">Para compartir · à partager · sharing food</p>
+                    <span class="eyebrow" data-i18n="eye.gourmet">— Para compartir con clase</span>
+                    <h2 class="section-title" data-i18n="h2.gourmet">Club <em>Gourmet</em></h2>
+                    <p class="section-sub" data-i18n="sub.sharing">Para compartir · à partager · sharing food</p>
                 </div>
 
                 <div class="gourmet-grid">
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
-                            <h3>Plato de salchichón ibérico</h3>
+                            <h3 data-i18n="n.plato_de_salchichon_iberico">Plato de salchichón ibérico</h3>
                             <p class="g-en">Assiette de saucisson ibérique · plate of spanish saucisson</p>
                         </div>
                         <div class="g-price">7,90€</div>
                     </article>
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
-                            <h3>Delicioso guacamole con nachos</h3>
+                            <h3 data-i18n="n.delicioso_guacamole_con_nachos">Delicioso guacamole con nachos</h3>
                             <p class="g-en">Assiette de délicieux guacamole avec nachos · guacamole and nachos</p>
                         </div>
                         <div class="g-price">8,90€</div>
                     </article>
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
-                            <h3>Duo de Humus <small>(tradicional y de olivas)</small></h3>
+                            <h3 data-i18n="n.duo_de_humus_tradicional_y_de_">Dúo de Hummus <small>(tradicional y de olivas)</small></h3>
                         </div>
                         <div class="g-price">10,90€</div>
                     </article>
                     <article class="gourmet-card gourmet-small" data-reveal>
                         <div class="g-info">
-                            <h3>Porción de houmous individual <small>(tradicional o de olivas)</small></h3>
+                            <h3 data-i18n="n.porcion_de_houmous_individual_">Porción de hummus individual <small>(tradicional o de olivas)</small></h3>
                         </div>
                         <div class="g-price">5,90€</div>
                     </article>
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
-                            <h3>Plato de quesos ibéricos</h3>
+                            <h3 data-i18n="n.plato_de_quesos_ibericos">Plato de quesos ibéricos</h3>
                             <p class="g-en">Assiette de fromages espagnols · plate of spanish cheeses</p>
                         </div>
                         <div class="g-price">9,90€</div>
                     </article>
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
-                            <h3>Plato de salmón delicadamente ahumado y sus delicias</h3>
+                            <h3 data-i18n="n.plato_de_salmon_delicadamente_">Plato de salmón delicadamente ahumado y sus delicias</h3>
                             <p class="g-en">Assiette de saumon fumé et ses délices · plate of smoked salmon</p>
                         </div>
                         <div class="g-price">12,90€</div>
                     </article>
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
-                            <h3>Plato de jamón ibérico</h3>
+                            <h3 data-i18n="n.plato_de_jamon_iberico">Plato de jamón ibérico</h3>
                             <p class="g-en">Assiette de jambon espagnol · plate of spanish ham</p>
                         </div>
                         <div class="g-price">14,90€</div>
                     </article>
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
-                            <h3>Plato de embutidos ibéricos</h3>
+                            <h3 data-i18n="n.plato_de_embutidos_ibericos">Plato de embutidos ibéricos</h3>
                             <p class="g-en">Assiette de charcuterie espagnole · plate of spanish cold meats</p>
                         </div>
                         <div class="g-price">14,90€</div>
                     </article>
                     <article class="gourmet-card gourmet-featured" data-reveal>
                         <div class="g-info">
-                            <h3>Mix de quesos y jamón o embutidos ibéricos</h3>
+                            <h3 data-i18n="n.mix_de_quesos_y_jamon_o_embuti">Mix de quesos y jamón o embutidos ibéricos</h3>
                             <p class="g-en">Mix de fromages et jambon ou charcuterie espagnole · mix of cheeses and spanish ham or cold meats</p>
                         </div>
                         <div class="g-price">19,90€</div>
-                        <span class="mi-tag mi-tag-premium">👑 Top</span>
+                        <span class="mi-tag mi-tag-premium"><span data-i18n="tag.top">👑 Top</span></span>
                     </article>
                 </div>
             </div>
@@ -3864,18 +4379,18 @@ img { max-width: 100%; height: auto; }
             <div class="container">
                 <div class="cta-wrap" data-reveal>
                     <div class="cta-emoji">🌴🍹🎶</div>
-                    <h2>¿Listo para venir?</h2>
-                    <p>Reserva tu mesa y disfruta de la mejor noche en Miami Platja.</p>
+                    <h2 data-i18n="cta.title">¿Listo para venir?</h2>
+                    <p data-i18n="cta.sub">Reserva tu mesa y disfruta de la mejor noche en Miami Platja.</p>
                     <div class="cta-buttons">
                         <a href="tel:+34691691080" class="btn btn-primary" data-cursor="link">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            Llamar: +34 691 691 080
+                            <span data-i18n="cta.call">Llamar: +34 691 691 080</span>
                         </a>
-                        <a href="https://www.instagram.com/miamiloungebar" target="_blank" rel="noopener" class="btn btn-ghost" data-cursor="link">
+                        <a href="https://www.instagram.com/miamiloungebar" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" data-cursor="link">
                             📷 @miamiloungebar
                         </a>
                         <a href="index.html" class="btn btn-ghost" data-cursor="link">
-                            ← Volver a inicio
+                            <span data-i18n="cta.back">← Volver a inicio</span>
                         </a>
                     </div>
                 </div>
@@ -3891,27 +4406,27 @@ img { max-width: 100%; height: auto; }
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <span class="nav-logo-mark">M</span>
+                        <span class="nav-logo-mark"><img src="img/miamiicono.png" alt="Miami Lounge" /></span>
                         <strong>MIAMI LOUNGE BAR</strong>
                     </div>
-                    <p>Lounge-bar de referencia en Miami Platja, Costa Dorada. Cócteles, música y atardeceres mediterráneos.</p>
+                    <p data-i18n="footer.brand">Lounge-bar de referencia en Miami Platja, Costa Dorada. Cócteles, música y atardeceres mediterráneos.</p>
                 </div>
                 <div class="footer-cols">
                     <div>
-                        <h4>Contacto</h4>
+                        <h4 data-i18n="footer.col1.title">Contacto</h4>
                         <p>Av. de Barcelona, 40<br/>43892 Miami Platja, Tarragona</p>
                         <p><a href="tel:+34691691080">+34 691 69 10 80</a></p>
                         <p><a href="mailto:nanievies@gmail.com">nanievies@gmail.com</a></p>
-                        <p><a href="https://www.miamilounge.es" target="_blank" rel="noopener" class="web-soon">www.miamilounge.es</a></p>
+                        <p><a href="https://www.miamilounge.es" target="_blank" rel="noopener noreferrer" class="web-soon">www.miamilounge.es</a></p>
                     </div>
                     <div>
-                        <h4>Síguenos</h4>
-                        <p><a href="https://www.instagram.com/miamiloungebar" target="_blank" rel="noopener">Instagram</a></p>
-                        <p><a href="https://www.facebook.com/miamiloungecocteles" target="_blank" rel="noopener">Facebook</a></p>
-                        <p><a href="https://mont-roigmiami.cat/es/contactos/miami-lounge/" target="_blank" rel="noopener">Web oficial turismo</a></p>
+                        <h4 data-i18n="footer.col2.title">Síguenos</h4>
+                        <p><a href="https://www.instagram.com/miamiloungebar" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+                        <p><a href="https://www.facebook.com/miamiloungecocteles" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+                        <p><a href="https://mont-roigmiami.cat/es/contactos/miami-lounge/" target="_blank" rel="noopener noreferrer" data-i18n="footer.col2.tourism">Web oficial turismo</a></p>
                     </div>
                     <div>
-                        <h4>Información</h4>
+                        <h4 data-i18n="footer.col3.title">Información</h4>
                         <p><a href="index.html#about">Sobre nosotros</a></p>
                         <p><a href="galeria.html">Galería</a></p>
                         <p><a href="index.html#contact">Contacto</a></p>
@@ -3920,7 +4435,7 @@ img { max-width: 100%; height: auto; }
             </div>
             <div class="footer-bottom">
                 <span>© <span id="year"></span> Miami Lounge Bar · Miami Platja, Tarragona.</span>
-                <span>Drink responsibly · Bebe con responsabilidad. +18</span>
+                <span data-i18n="footer.responsible">Drink responsibly · Bebe con responsabilidad. +18</span>
             </div>
         </div>
         <div class="footer-marquee">
@@ -3936,18 +4451,23 @@ img { max-width: 100%; height: auto; }
     'use strict';
 
     /* ---------- LOADER ---------- */
-    const loader = document.getElementById('loader');
-    const _loaderKey = 'miamilounge_loader_carta';
-    const _today = new Date().toISOString().slice(0, 10);
-    const _lastShown = localStorage.getItem(_loaderKey);
-    if (_lastShown === _today) {
+        const loader = document.getElementById('loader');
+    const loaderKey = 'miamilounge_loader_carta';
+    const today = new Date().toISOString().slice(0, 10);
+    const lastShown = localStorage.getItem(loaderKey);
+    if (loader) {
+      if (lastShown === today) {
         loader.classList.add('is-hidden');
-    } else {
-        localStorage.setItem(_loaderKey, _today);
-        window.addEventListener('load', () => {
-            setTimeout(() => loader.classList.add('is-hidden'), 1900);
-        });
-        setTimeout(() => loader && loader.classList.add('is-hidden'), 4000);
+      } else {
+        localStorage.setItem(loaderKey, today);
+        const hideLoader = () => setTimeout(() => loader.classList.add('is-hidden'), 1900);
+        if (document.readyState === 'complete') {
+          hideLoader();
+        } else {
+          window.addEventListener('load', hideLoader, { once: true });
+        }
+        setTimeout(() => loader.classList.add('is-hidden'), 4100);
+      }
     }
 
     /* ---------- YEAR ---------- */
@@ -3999,6 +4519,7 @@ img { max-width: 100%; height: auto; }
     /* ---------- NAV SCROLL ---------- */
     const nav = document.getElementById('nav');
     const handleScroll = () => {
+        if (!nav) return;
         if (window.scrollY > 40) nav.classList.add('is-scrolled');
         else nav.classList.remove('is-scrolled');
     };
@@ -4012,10 +4533,31 @@ img { max-width: 100%; height: auto; }
         const toggle = () => {
             burger.classList.toggle('is-open');
             mobileMenu.classList.toggle('is-open');
-            document.body.style.overflow = mobileMenu.classList.contains('is-open') ? 'hidden' : '';
+            const isOpen = mobileMenu.classList.contains('is-open');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         };
-        burger.addEventListener('click', toggle);
-        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', toggle));
+        burger.addEventListener('click', () => {
+            toggle();
+            if (mobileMenu.classList.contains('is-open')) {
+                const firstLink = mobileMenu.querySelector('a');
+                if (firstLink) firstLink.focus();
+            } else {
+                burger.focus();
+            }
+        });
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      burger.classList.remove('is-open');
+      mobileMenu.classList.remove('is-open');
+      document.body.style.overflow = '';
+      burger.setAttribute('aria-expanded', 'false');
+    }));
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+                toggle();
+                burger.focus();
+            }
+        });
     }
 
     /* ---------- REVEAL ON SCROLL ---------- */
@@ -4037,117 +4579,8 @@ img { max-width: 100%; height: auto; }
         revealEls.forEach(el => el.classList.add('is-visible'));
     }
 
-    /* ---------- FLOATING CTA ---------- */
-    const floatingCta = document.getElementById('floatingCta');
-    if (floatingCta) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    floatingCta.classList.remove('is-visible');
-                } else {
-                    floatingCta.classList.add('is-visible');
-                }
-            });
-        }, { threshold: 0.3 });
-        const heroCta = document.querySelector('.hero-ctas');
-        if (heroCta) observer.observe(heroCta);
-    }
-
-    /* ---------- LIGHTBOX ---------- */
-    const lightbox = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lbImg');
-    const lbClose = document.getElementById('lbClose');
-    const lbPrev = document.getElementById('lbPrev');
-    const lbNext = document.getElementById('lbNext');
-    const lbCounter = document.getElementById('lbCounter');
-    const gItems = document.querySelectorAll('.g-item');
-    const images = Array.from(gItems).map(a => a.getAttribute('href'));
-    let currentIndex = 0;
-
-    const openLightbox = (index) => {
-        currentIndex = index;
-        lbImg.src = images[currentIndex];
-        lbCounter.textContent = `${currentIndex + 1} / ${images.length}`;
-        lightbox.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-    };
-
-    const closeLightbox = () => {
-        lightbox.classList.remove('is-open');
-        document.body.style.overflow = '';
-    };
-
-    const navigate = (dir) => {
-        currentIndex = (currentIndex + dir + images.length) % images.length;
-        lbImg.style.opacity = '0';
-        setTimeout(() => {
-            lbImg.src = images[currentIndex];
-            lbCounter.textContent = `${currentIndex + 1} / ${images.length}`;
-            lbImg.style.opacity = '1';
-        }, 150);
-    };
-
-    gItems.forEach((item, i) => {
-        item.addEventListener('click', e => {
-            e.preventDefault();
-            openLightbox(i);
-        });
-    });
-
-    if (lbClose) lbClose.addEventListener('click', closeLightbox);
-    if (lbPrev) lbPrev.addEventListener('click', () => navigate(-1));
-    if (lbNext) lbNext.addEventListener('click', () => navigate(1));
-
-    if (lightbox) {
-        lightbox.addEventListener('click', e => {
-            if (e.target === lightbox) closeLightbox();
-        });
-    }
-
-    document.addEventListener('keydown', e => {
-        if (!lightbox || !lightbox.classList.contains('is-open')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') navigate(-1);
-        if (e.key === 'ArrowRight') navigate(1);
-    });
-
-    /* ---------- SMOOTH ANCHOR OFFSET ---------- */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href === '#' || href.length < 2) return;
-            const target = document.querySelector(href);
-            if (target) {
-                e.preventDefault();
-                const offset = 80;
-                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top, behavior: 'smooth' });
-            }
-        });
-    });
-
-    /* ---------- PARALLAX FOR HERO IMG (subtle) ---------- */
-    const heroImg = document.querySelector('.hero-img');
-    if (heroImg) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            if (scrolled < window.innerHeight) {
-                heroImg.style.transform = `scale(1.05) translateY(${scrolled * 0.15}px)`;
-            }
-        }, { passive: true });
-    }
-
-    /* ---------- HERO PALMS PARALLAX ---------- */
-    const palms = document.querySelectorAll('.hero-floating');
-    if (palms.length) {
-        window.addEventListener('scroll', () => {
-            const y = window.scrollY;
-            palms.forEach((p, i) => {
-                const speed = (i + 1) * 0.08;
-                p.style.transform = `translateY(${y * speed}px)`;
-            });
-        }, { passive: true });
-    }
+    /* El scroll suave con offset lo resuelve CSS (scroll-behavior: smooth)
+       junto con el scroll-margin-top que fija updateNavH en cada .menu-section */
 
     /* ---------- EASTER EGG: Konami code → sunset mode ---------- */
     let konami = [];
@@ -4218,11 +4651,832 @@ img { max-width: 100%; height: auto; }
                 });
             }
             updateNavH();
-            window.addEventListener('scroll', updateNavH, { passive: true });
-            window.addEventListener('resize', updateNavH, { passive: true });
+            // ResizeObserver evita recalcular en cada scroll: solo dispara cuando
+            // la altura del nav o del carta-nav cambia de verdad (p. ej. .is-scrolled)
+            if ('ResizeObserver' in window) {
+                const ro = new ResizeObserver(updateNavH);
+                if (nav) ro.observe(nav);
+                if (cartaNav) ro.observe(cartaNav);
+            } else {
+                window.addEventListener('resize', updateNavH, { passive: true });
+            }
         })();
     </script>
     <script>
+
+
+
+
+
+
+
+
+/* ==================================================
+   i18n — reads shared localStorage key from index.html
+   ================================================== */
+const i18nData = {
+    es: {
+        "nav.about":"Nosotros",
+        "nav.gallery":"Galería",
+        "nav.menu":"Carta",
+        "nav.contact":"Contacto",
+        "nav.book":"Reservar",
+        "nav.bookTable":"Reservar mesa",
+        "hero.tag":"Temporada 2026 · Actualizada",
+        "hero.line1":"Nuestra",
+        "hero.line2":"Carta",
+        "hero.line3":"de Cócteles",
+        "hero.sub":"Cócteles artesanales, combinados premium, vinos selectos y platitos para compartir. <strong>Drink, eat, relax and repeat.</strong>",
+        "hero.pdf":"Descargar carta en PDF",
+        "search.placeholder":"Busca tu cóctel, bebida o capricho…",
+        "search.results":"{n} resultados en la carta",
+        "search.none":"Sin resultados — prueba con otro nombre 🍹",
+        "nav.cat.cocktails":"Cócteles",
+        "nav.cat.mojitos":"Mojitos",
+        "nav.cat.xl":"XL",
+        "nav.cat.especialidad":"Especialidad",
+        "nav.cat.sin_alcohol":"Sin Alcohol",
+        "nav.cat.gin":"Gin Tonic",
+        "nav.cat.combinados":"Combinados",
+        "nav.cat.cervezas":"Cervezas",
+        "nav.cat.vinos":"Vinos",
+        "nav.cat.caprichos":"Caprichos",
+        "nav.cat.gourmet":"Gourmet",
+        "eye.clasicos":"— La esencia",
+        "eye.mojitos":"— Para refrescarte",
+        "eye.xl":"— Para compartir",
+        "eye.especialidad":"— Para cada gusto",
+        "eye.sin_alcohol":"— 0,0% alcohol · 100% sabor",
+        "eye.gin":"— Premium",
+        "eye.combinados":"— Clásico atemporal",
+        "eye.cervezas":"— Bien fría",
+        "eye.vinos":"— Selección de la casa",
+        "eye.caprichos":"— Para picar",
+        "eye.gourmet":"— Para compartir con clase",
+        "h2.clasicos":"Cócteles <em>Clásicos</em>",
+        "h2.mojitos":"Mojitos <em>XL</em>",
+        "h2.xl":"Cocktails <em>XL</em>",
+        "h2.especialidad":"Daiquiris · Margaritas · Caipirinhas · Piñas Coladas",
+        "h2.sin_alcohol":"Cócteles <em>Sin Alcohol</em>",
+        "h2.gin":"Gin <em>Tonic</em>",
+        "h2.cervezas":"Cervezas & <em>Refrescos</em>",
+        "h2.vinos":"Vinos & <em>Champagne</em>",
+        "h2.caprichos":"Caprichos <em>😋</em>",
+        "h2.gourmet":"Club <em>Gourmet</em>",
+        "h3.champagne":"<span class=\"sub-icon\">🥂</span> Con Champagne",
+        "h3.redbull":"<span class=\"sub-icon\">⚡</span> Con RedBull",
+        "h3.daiquiris":"<span class=\"flavor-icon\">🥃</span> Daiquiris",
+        "h3.margaritas":"<span class=\"flavor-icon\">🍋</span> Margaritas",
+        "h3.caipirinhas":"<span class=\"flavor-icon\">🍹</span> Caipirinhas",
+        "h3.pinas":"<span class=\"flavor-icon\">🍍</span> Piñas Coladas",
+        "h3.nuevos_sin_alc":"<span class=\"sub-icon\">✨</span> Nuevos Cócteles Sin Alcohol",
+        "h3.combinados_sub":"Combinados",
+        "h3.licores":"Licores",
+        "h3.cervezas_sub":"🍺 Cervezas",
+        "h3.refrescos":"🥤 Refrescos",
+        "h3.sangria":"Sangría & Cava",
+        "h3.copa_vino":"Copa de Vino <small>(* de la casa)</small>",
+        "h3.vino_botella":"🍾 Vino en Botella",
+        "footer.brand":"Lounge-bar de referencia en Miami Platja, Costa Dorada. Cócteles, música y atardeceres mediterráneos.",
+        "footer.col1.title":"Contacto",
+        "footer.col2.title":"Síguenos",
+        "footer.col2.tourism":"Web oficial turismo",
+        "footer.col3.title":"Información",
+        "footer.responsible":"Drink responsibly · Bebe con responsabilidad. +18",
+        "n.miami_lounge":"Miami Lounge",
+        "n.sunrise":"Sunrise",
+        "n.tequila_sunrise":"Tequila Sunrise",
+        "n.pina_colada":"Piña Colada",
+        "n.pina_de_la_isla":"Piña de la Isla",
+        "n.daiquiri":"Daiquiri",
+        "n.caipirinha":"Caipirinha",
+        "n.caipiroska":"Caipiroska",
+        "n.caipiroska_de_fresa":"Caipiroska de Fresa",
+        "n.sarita":"Sarita",
+        "n.pepemolino":"Pepemolino",
+        "n.blue_lagoon":"Blue Lagoon",
+        "n.bora_bora":"Bora Bora",
+        "n.marcoco":"Marcoco",
+        "n.patou":"Patou",
+        "n.vivirosa":"Vivirosa",
+        "n.fuerza_4":"Fuerza 4",
+        "n.miami_club":"Miami Club",
+        "n.pina_vanicolada":"Piña Vanicolada",
+        "n.sex_on_the_miami_beach":"Sex on the Miami Beach",
+        "n.inspiracion_de_la_jefa":"Inspiración de la Jefa",
+        "n.margarita":"Margarita",
+        "n.bloody_mary":"Bloody Mary",
+        "n.mojito":"Mojito",
+        "n.mi_amor":"Mi Amor",
+        "n.goldfinger":"Goldfinger",
+        "n.amandina":"Amandina",
+        "n.pajaro_azul":"Pájaro Azul",
+        "n.dynamite":"Dynamite",
+        "n.checco_s_bull":"Checco's Bull",
+        "n.green_bull":"Green Bull",
+        "n.mojito_marina":"Mojito Marina",
+        "n.sunset":"Sunset",
+        "n.pink_panther":"Pink Panther",
+        "n.pina_descolada":"Piña Descolada",
+        "n.san_francisco":"San Francisco",
+        "n.rosa_banana":"Rosa Banana",
+        "n.cinderella":"Cinderella",
+        "n.cocolicious":"Cocolicious",
+        "n.mojito_0":"Mojito 0%",
+        "n.mojito_de_sandia_0":"Mojito de Sandía 0%",
+        "n.mojito_de_fresa_0":"Mojito de Fresa 0%",
+        "n.cuenco_de_chuches_especialment":"Cuenco de chuches especialmente deliciosas",
+        "n.plato_xxl_de_patatas_fritas":"Plato XXL de patatas fritas",
+        "n.plato_xl_de_palomitas_dulces_o":"Plato XL de palomitas dulces o saladas",
+        "n.plato_de_salchichon_iberico":"Plato de salchichón ibérico",
+        "n.delicioso_guacamole_con_nachos":"Delicioso guacamole con nachos",
+        "n.duo_de_humus_tradicional_y_de_":"Dúo de Hummus <small>(tradicional y de olivas)</small>",
+        "n.porcion_de_houmous_individual_":"Porción de hummus individual <small>(tradicional o de olivas)</small>",
+        "n.plato_de_quesos_ibericos":"Plato de quesos ibéricos",
+        "n.plato_de_salmon_delicadamente_":"Plato de salmón delicadamente ahumado y sus delicias",
+        "n.plato_de_jamon_iberico":"Plato de jamón ibérico",
+        "n.plato_de_embutidos_ibericos":"Plato de embutidos ibéricos",
+        "n.mix_de_quesos_y_jamon_o_embuti":"Mix de quesos y jamón o embutidos ibéricos",
+        "n.tambien_con":"También con:",
+        "d.0":"Naranja, soho, granadina",
+        "d.1":"Naranja, ron, granadina",
+        "d.2":"Naranja, tequila, granadina",
+        "d.3":"Piña, leche de coco, malibú",
+        "d.4":"Piña, plátano, cointreau, ron",
+        "d.5":"Limón, ron de caña, azúcar",
+        "d.6":"Lima, cachaça, azúcar",
+        "d.7":"Limón, lima, vodka, azúcar",
+        "d.8":"Limón, lima, fresa, vodka, azúcar",
+        "d.9":"Triple sec, licor manzana, naranja, limón",
+        "d.10":"Gin, triple sec, naranja, melocotón, leche, granadina",
+        "d.11":"Vodka, curaçao azul, limón, soda",
+        "d.12":"Piña, passoa, limón, granadina",
+        "d.13":"Leche de coco, ron, malibú, licor de coco, azúcar",
+        "d.14":"Licor de coco, malibú, piña, granadina",
+        "d.15":"Plátano, piña, licor de coco, granadina",
+        "d.16":"Tequila, vodka, gin, ron, zumo multifrutas",
+        "d.17":"Plátano, piña, bailey's, ron de caña, licor de coco, granadina",
+        "d.18":"Piña colada con una bola de helado de vainilla",
+        "d.19":"Naranja, licor de melocotón, vodka, amaretto, granadina",
+        "d.20":"¡La receta secreta de la casa! Inspiración de la Jefa",
+        "d.21":"Tequila, triple sec, limón",
+        "d.22":"Tomate, vodka, limón, salsa Perrins, tabasco, sal y pimienta",
+        "d.23":"Azúcar, menta, lima, ron blanco y soda",
+        "d.24":"Champagne, vodka, fresa",
+        "d.25":"Champagne, cointreau, limón, azúcar",
+        "d.26":"Champagne, naranja, limón, granadina",
+        "d.27":"Champagne, cointreau, curaçao azul",
+        "d.28":"Champagne, gin, get 27",
+        "d.29":"Passoa, vodka, naranja, RedBull, granadina",
+        "d.30":"Vodka, curaçao azul, naranja, RedBull",
+        "d.31":"Con Havana 3 y RedBull",
+        "d.32":"Naranja, fresa, plátano",
+        "d.33":"Fresa, plátano, leche",
+        "d.34":"Piña, leche de coco",
+        "d.35":"Naranja, melocotón, granadina",
+        "d.36":"Plátano, leche, granadina",
+        "d.37":"Naranja, piña, limón",
+        "d.38":"Leche de coco, plátano, piña",
+        "d.39":"Menta, azúcar, lima y soda",
+        "d.40":"Menta, azúcar, lima, soda y sandía",
+        "d.41":"Menta, azúcar, lima, soda y fresas",
+        "tag.signature":"★ Signature",
+        "tag.ice":"🍦 Incluye bola de helado",
+        "tag.secret":"🤫 Receta secreta",
+        "tag.top":"👑 Top",
+        "wine.tinto":"🔴 Tinto",
+        "wine.blanco":"⚪ Blanco",
+        "wine.rosado":"🌸 Rosado",
+        "wine.champagne":"🥂 Champagne",
+        "wine.cava":"🍾 Cava",
+        "cta.title":"¿Listo para venir?",
+        "cta.sub":"Reserva tu mesa y disfruta de la mejor noche en Miami Platja.",
+        "cta.call":"Llamar: +34 691 691 080",
+        "cta.back":"← Volver a inicio",
+        "sub.mojitos":"Las recetas que nos han hecho famosos. Cada uno preparado al momento con ingredientes frescos.",
+        "sub.especialidad":"Elige tu sabor favorito. Opcional con un toque de champagne (+1€).",
+        "sub.xl":"Elige los sabores de nuestra carta o crea los tuyos. Formato gigante para 2 a 10 personas.",
+        "sub.frutas":"Elige tu fruta favorita y nosotros te lo preparamos al momento.",
+        "sub.sin_alcohol":"Para los que quieren disfrutar sin alcohol. Misma experiencia, mismo placer.",
+        "sub.sin_alcohol_highlight":"🌟 <strong>Prueba el Mojito Especial \"Inspiración de la Jefa\" 0%</strong> · 6,50€",
+        "sub.gin":"Cargado: +1€ · Muy Cargado: +2€",
+        "sub.sharing":"Para compartir · à partager · sharing food",
+        "pill.mojito_clasico":"🌿 Mojito clásico",
+        "pill.fresa":"🍓 Fresa",
+        "pill.cereza":"🍒 Cereza",
+        "pill.manzana":"🍏 Manzana",
+        "pill.melocoton":"🍑 Melocotón",
+        "pill.sandia":"🍉 Sandía",
+        "pill.melon":"🍈 Melón",
+        "pill.azul":"<span class=\"pill-icon\">💙</span> Azul",
+        "pill.champagne":"🍾 Champagne",
+        "pill.malibu":"🥥 Malibú",
+        "pill.malibu_fresa":"🍓 Malibú y fresa",
+        "pill.champ_fresa":"🍓 Champagne y fresa",
+        "pill.jagger":"🥃 Jäger",
+        "pill.platano":"🍌 Plátano",
+        "pill.amaretto":"🌰 Amaretto",
+        "chip.sin_alcohol":"🌿 Sin alcohol <em>6,50€</em>",
+        "xl.ppl2":"👥 2 personas",
+        "xl.ppl3":"👥 3 personas",
+        "xl.ppl4":"👥👥 4 personas",
+        "xl.ppl6":"👥👥👥 6 personas",
+        "xl.ppl10":"👥👥👥👥 10 personas",
+        "xl.note":"Ahora también puedes hacer tus cócteles <strong>sin alcohol</strong> en formato gigante con un descuento de <strong>5€</strong>.",
+        "f.limon":"Limón",
+        "f.fresa":"Fresa",
+        "f.platano":"Plátano",
+        "f.pina":"Piña",
+        "f.cereza":"Cereza",
+        "f.melocoton":"Melocotón",
+        "f.frambuesa":"Frambuesa",
+        "f.azul":"Azul",
+        "li.chupito":"Chupito",
+        "li.chupito_tequila":"Chupito tequila",
+        "li.leffe":"Leffe Rubia o Tostada",
+        "li.fanta":"Fanta naranja / limón",
+        "li.agua_gas":"Agua con gas",
+        "li.agua":"Agua",
+        "li.batido":"Batido de chocolate casero",
+        "li.zumos":"Zumos de frutas",
+        "li.sangria_1l":"Sangría 1L",
+        "li.sangria_cava_1l":"Sangría de cava 1L",
+        "li.copa_sangria":"Copa de Sangría",
+        "li.copa_sangria_cava":"Copa de Sangría de cava",
+        "li.vino_rosado":"Rosado *",
+        "li.vino_blanco":"Blanco *",
+        "li.vino_tinto":"Tinto *",
+        "li.consultanos":"Consúltanos",
+        "li.cava_casa":"Cava de la casa",
+        "xl.badge_popular":"⭐ Popular",
+        "xl.badge_fiesta":"🔥 Fiesta",
+        "h2.combinados_full":"Combinados & <em>Licores</em>",
+        "li.ron_soda":"Ron + soda",
+        "li.julio_ibiza":"Julio Ibiza <em>(vodka negro + RedBull)</em>",
+        "li.champu":"Champú",
+        "chip.champagne":"🍾 Champagne <em>+1€</em>",
+        "np.platano":"🍌 Mojito de Plátano",
+        "np.azul":"💙 Mojito Azul",
+        "np.frambuesa":"🫐 Mojito Frambuesa"
+    },
+    fr: {
+        "nav.about":"À propos",
+        "nav.gallery":"Galerie",
+        "nav.menu":"Carte",
+        "nav.contact":"Contact",
+        "nav.book":"Réserver",
+        "nav.bookTable":"Réserver une table",
+        "hero.tag":"Saison 2026 · Mise à jour",
+        "hero.line1":"Notre",
+        "hero.line2":"Carte",
+        "hero.line3":"de Cocktails",
+        "hero.sub":"Cocktails artisanaux, long drinks premium, vins sélectionnés et petites assiettes à partager. <strong>Drink, eat, relax and repeat.</strong>",
+        "hero.pdf":"Télécharger la carte en PDF",
+        "search.placeholder":"Cherchez votre cocktail, boisson ou caprice…",
+        "search.results":"{n} résultats sur la carte",
+        "search.none":"Aucun résultat — essayez un autre nom 🍹",
+        "nav.cat.cocktails":"Cocktails",
+        "nav.cat.mojitos":"Mojitos",
+        "nav.cat.xl":"XL",
+        "nav.cat.especialidad":"Spécialité",
+        "nav.cat.sin_alcohol":"Sans Alcool",
+        "nav.cat.gin":"Gin Tonic",
+        "nav.cat.combinados":"Long Drinks",
+        "nav.cat.cervezas":"Bières",
+        "nav.cat.vinos":"Vins",
+        "nav.cat.caprichos":"Caprices",
+        "nav.cat.gourmet":"Gourmet",
+        "eye.clasicos":"— L'essentiel",
+        "eye.mojitos":"— Pour se rafraîchir",
+        "eye.xl":"— À partager",
+        "eye.especialidad":"— Pour chaque goût",
+        "eye.sin_alcohol":"— 0,0% alcool · 100% saveur",
+        "eye.gin":"— Premium",
+        "eye.combinados":"— Classique intemporel",
+        "eye.cervezas":"— Bien fraîche",
+        "eye.vinos":"— Sélection maison",
+        "eye.caprichos":"— Pour grignoter",
+        "eye.gourmet":"— À partager avec classe",
+        "h2.clasicos":"Cocktails <em>Classiques</em>",
+        "h2.mojitos":"Mojitos <em>XL</em>",
+        "h2.xl":"Cocktails <em>XL</em>",
+        "h2.especialidad":"Daïquiris · Margaritas · Caïpirinhas · Piñas Coladas",
+        "h2.sin_alcohol":"Cocktails <em>Sans Alcool</em>",
+        "h2.gin":"Gin <em>Tonic</em>",
+        "h2.cervezas":"Bières & <em>Boissons</em>",
+        "h2.vinos":"Vins & <em>Champagne</em>",
+        "h2.caprichos":"Caprices <em>😋</em>",
+        "h2.gourmet":"Club <em>Gourmet</em>",
+        "h3.champagne":"<span class=\"sub-icon\">🥂</span> Au Champagne",
+        "h3.redbull":"<span class=\"sub-icon\">⚡</span> Au RedBull",
+        "h3.daiquiris":"<span class=\"flavor-icon\">🥃</span> Daïquiris",
+        "h3.margaritas":"<span class=\"flavor-icon\">🍋</span> Margaritas",
+        "h3.caipirinhas":"<span class=\"flavor-icon\">🍹</span> Caïpirinhas",
+        "h3.pinas":"<span class=\"flavor-icon\">🍍</span> Piñas Coladas",
+        "h3.nuevos_sin_alc":"<span class=\"sub-icon\">✨</span> Nouveaux Cocktails Sans Alcool",
+        "h3.combinados_sub":"Long Drinks",
+        "h3.licores":"Liqueurs",
+        "h3.cervezas_sub":"🍺 Bières",
+        "h3.refrescos":"🥤 Boissons",
+        "h3.sangria":"Sangria & Cava",
+        "h3.copa_vino":"Verre de Vin <small>(* maison)</small>",
+        "h3.vino_botella":"🍾 Vin en Bouteille",
+        "footer.brand":"Bar lounge de référence à Miami Platja, Costa Dorada. Cocktails, musique et couchers de soleil méditerranéens.",
+        "footer.col1.title":"Contact",
+        "footer.col2.title":"Suivez-nous",
+        "footer.col2.tourism":"Site officiel tourisme",
+        "footer.col3.title":"Informations",
+        "footer.responsible":"Consommez avec modération. +18",
+        "n.miami_lounge":"Miami Lounge",
+        "n.sunrise":"Sunrise",
+        "n.tequila_sunrise":"Tequila Sunrise",
+        "n.pina_colada":"Piña Colada",
+        "n.pina_de_la_isla":"Piña de la Isla",
+        "n.daiquiri":"Daïquiri",
+        "n.caipirinha":"Caïpirinha",
+        "n.caipiroska":"Caïpiroska",
+        "n.caipiroska_de_fresa":"Caïpiroska Fraise",
+        "n.sarita":"Sarita",
+        "n.pepemolino":"Pepemolino",
+        "n.blue_lagoon":"Blue Lagoon",
+        "n.bora_bora":"Bora Bora",
+        "n.marcoco":"Marcoco",
+        "n.patou":"Patou",
+        "n.vivirosa":"Vivirosa",
+        "n.fuerza_4":"Fuerza 4",
+        "n.miami_club":"Miami Club",
+        "n.pina_vanicolada":"Piña Vanicolada",
+        "n.sex_on_the_miami_beach":"Sex on the Miami Beach",
+        "n.inspiracion_de_la_jefa":"Inspiration du Chef",
+        "n.margarita":"Margarita",
+        "n.bloody_mary":"Bloody Mary",
+        "n.mojito":"Mojito",
+        "n.mi_amor":"Mi Amor",
+        "n.goldfinger":"Goldfinger",
+        "n.amandina":"Amandina",
+        "n.pajaro_azul":"Oiseau Bleu",
+        "n.dynamite":"Dynamite",
+        "n.checco_s_bull":"Checco's Bull",
+        "n.green_bull":"Green Bull",
+        "n.mojito_marina":"Mojito Marina",
+        "n.sunset":"Sunset",
+        "n.pink_panther":"Panthère Rose",
+        "n.pina_descolada":"Piña Descolada",
+        "n.san_francisco":"San Francisco",
+        "n.rosa_banana":"Rosa Banana",
+        "n.cinderella":"Cendrillon",
+        "n.cocolicious":"Cocolicious",
+        "n.mojito_0":"Mojito 0%",
+        "n.mojito_de_sandia_0":"Mojito Pastèque 0%",
+        "n.mojito_de_fresa_0":"Mojito Fraise 0%",
+        "n.cuenco_de_chuches_especialment":"Bol de bonbons délicieux",
+        "n.plato_xxl_de_patatas_fritas":"Assiette XXL de frites",
+        "n.plato_xl_de_palomitas_dulces_o":"Assiette XL de pop-corn sucré ou salé",
+        "n.plato_de_salchichon_iberico":"Assiette de saucisson ibérique",
+        "n.delicioso_guacamole_con_nachos":"Délicieux guacamole avec nachos",
+        "n.duo_de_humus_tradicional_y_de_":"Duo de Houmous <small>(traditionnel et olives)</small>",
+        "n.porcion_de_houmous_individual_":"Portion de houmous individuelle <small>(traditionnel ou olives)</small>",
+        "n.plato_de_quesos_ibericos":"Assiette de fromages ibériques",
+        "n.plato_de_salmon_delicadamente_":"Assiette de saumon délicatement fumé et ses délices",
+        "n.plato_de_jamon_iberico":"Assiette de jambon ibérique",
+        "n.plato_de_embutidos_ibericos":"Assiette de charcuterie ibérique",
+        "n.mix_de_quesos_y_jamon_o_embuti":"Mix fromages et jambon ou charcuterie ibérique",
+        "n.tambien_con":"Aussi avec :",
+        "d.0":"Orange, soho, grenadine",
+        "d.1":"Orange, rhum, grenadine",
+        "d.2":"Orange, tequila, grenadine",
+        "d.3":"Ananas, lait de coco, malibu",
+        "d.4":"Ananas, banane, cointreau, rhum",
+        "d.5":"Citron, rhum de canne, sucre",
+        "d.6":"Citron vert, cachaça, sucre",
+        "d.7":"Citron, citron vert, vodka, sucre",
+        "d.8":"Citron, citron vert, fraise, vodka, sucre",
+        "d.9":"Triple sec, liqueur pomme, orange, citron",
+        "d.10":"Gin, triple sec, orange, pêche, lait, grenadine",
+        "d.11":"Vodka, curaçao bleu, citron, soda",
+        "d.12":"Ananas, passoa, citron, grenadine",
+        "d.13":"Lait de coco, rhum, malibu, liqueur de coco, sucre",
+        "d.14":"Liqueur de coco, malibu, ananas, grenadine",
+        "d.15":"Banane, ananas, liqueur de coco, grenadine",
+        "d.16":"Tequila, vodka, gin, rhum, jus multifruits",
+        "d.17":"Banane, ananas, bailey's, rhum de canne, liqueur de coco, grenadine",
+        "d.18":"Piña colada avec une boule de glace vanille",
+        "d.19":"Orange, liqueur de pêche, vodka, amaretto, grenadine",
+        "d.20":"La recette secrète de la maison ! Inspiration du chef",
+        "d.21":"Tequila, triple sec, citron",
+        "d.22":"Tomate, vodka, citron, sauce Perrins, tabasco, sel et poivre",
+        "d.23":"Sucre, menthe, citron vert, rhum blanc et soda",
+        "d.24":"Champagne, vodka, fraise",
+        "d.25":"Champagne, cointreau, citron, sucre",
+        "d.26":"Champagne, orange, citron, grenadine",
+        "d.27":"Champagne, cointreau, curaçao bleu",
+        "d.28":"Champagne, gin, get 27",
+        "d.29":"Passoa, vodka, orange, RedBull, grenadine",
+        "d.30":"Vodka, curaçao bleu, orange, RedBull",
+        "d.31":"Avec Havana 3 et RedBull",
+        "d.32":"Orange, fraise, banane",
+        "d.33":"Fraise, banane, lait",
+        "d.34":"Ananas, lait de coco",
+        "d.35":"Orange, pêche, grenadine",
+        "d.36":"Banane, lait, grenadine",
+        "d.37":"Orange, ananas, citron",
+        "d.38":"Lait de coco, banane, ananas",
+        "d.39":"Menthe, sucre, citron vert et soda",
+        "d.40":"Menthe, sucre, citron vert, soda et pastèque",
+        "d.41":"Menthe, sucre, citron vert, soda et fraises",
+        "tag.signature":"★ Signature",
+        "tag.ice":"🍦 Avec boule de glace",
+        "tag.secret":"🤫 Recette secrète",
+        "tag.top":"👑 Top",
+        "wine.tinto":"🔴 Rouge",
+        "wine.blanco":"⚪ Blanc",
+        "wine.rosado":"🌸 Rosé",
+        "wine.champagne":"🥂 Champagne",
+        "wine.cava":"🍾 Cava",
+        "cta.title":"Prêt à venir ?",
+        "cta.sub":"Réservez votre table et profitez de la meilleure soirée à Miami Platja.",
+        "cta.call":"Appeler : +34 691 691 080",
+        "cta.back":"← Retour à l'accueil",
+        "sub.mojitos":"Les recettes qui nous ont rendus célèbres. Chacun préparé sur le moment avec des ingrédients frais.",
+        "sub.especialidad":"Choisissez votre saveur préférée. En option avec une touche de champagne (+1€).",
+        "sub.xl":"Choisissez les saveurs de notre carte ou créez les vôtres. Format géant pour 2 à 10 personnes.",
+        "sub.frutas":"Choisissez votre fruit préféré et nous le préparons sur le moment.",
+        "sub.sin_alcohol":"Pour ceux qui veulent profiter sans alcool. Même expérience, même plaisir.",
+        "sub.sin_alcohol_highlight":"🌟 <strong>Essayez le Mojito Spécial \"Inspiration du Chef\" 0%</strong> · 6,50€",
+        "sub.gin":"Bien tassé : +1€ · Très tassé : +2€",
+        "sub.sharing":"Para compartir · à partager · sharing food",
+        "pill.mojito_clasico":"🌿 Mojito classique",
+        "pill.fresa":"🍓 Fraise",
+        "pill.cereza":"🍒 Cerise",
+        "pill.manzana":"🍏 Pomme",
+        "pill.melocoton":"🍑 Pêche",
+        "pill.sandia":"🍉 Pastèque",
+        "pill.melon":"🍈 Melon",
+        "pill.azul":"<span class=\"pill-icon\">💙</span> Bleu",
+        "pill.champagne":"🍾 Champagne",
+        "pill.malibu":"🥥 Malibu",
+        "pill.malibu_fresa":"🍓 Malibu et fraise",
+        "pill.champ_fresa":"🍓 Champagne et fraise",
+        "pill.jagger":"🥃 Jäger",
+        "pill.platano":"🍌 Banane",
+        "pill.amaretto":"🌰 Amaretto",
+        "chip.sin_alcohol":"🌿 Sans alcool <em>6,50€</em>",
+        "xl.ppl2":"👥 2 personnes",
+        "xl.ppl3":"👥 3 personnes",
+        "xl.ppl4":"👥👥 4 personnes",
+        "xl.ppl6":"👥👥👥 6 personnes",
+        "xl.ppl10":"👥👥👥👥 10 personnes",
+        "xl.note":"Vous pouvez désormais préparer vos cocktails <strong>sans alcool</strong> en format géant avec une réduction de <strong>5€</strong>.",
+        "f.limon":"Citron",
+        "f.fresa":"Fraise",
+        "f.platano":"Banane",
+        "f.pina":"Ananas",
+        "f.cereza":"Cerise",
+        "f.melocoton":"Pêche",
+        "f.frambuesa":"Framboise",
+        "f.azul":"Bleu",
+        "li.chupito":"Shot",
+        "li.chupito_tequila":"Shot tequila",
+        "li.leffe":"Leffe Blonde ou Brune",
+        "li.fanta":"Fanta orange / citron",
+        "li.agua_gas":"Eau gazeuse",
+        "li.agua":"Eau",
+        "li.batido":"Milkshake maison au chocolat",
+        "li.zumos":"Jus de fruits",
+        "li.sangria_1l":"Sangria 1L",
+        "li.sangria_cava_1l":"Sangria au cava 1L",
+        "li.copa_sangria":"Verre de Sangria",
+        "li.copa_sangria_cava":"Verre de Sangria au cava",
+        "li.vino_rosado":"Rosé *",
+        "li.vino_blanco":"Blanc *",
+        "li.vino_tinto":"Rouge *",
+        "li.consultanos":"Consultez-nous",
+        "li.cava_casa":"Cava maison",
+        "xl.badge_popular":"⭐ Populaire",
+        "xl.badge_fiesta":"🔥 Fiesta",
+        "h2.combinados_full":"Long Drinks & <em>Liqueurs</em>",
+        "li.ron_soda":"Rhum + soda",
+        "li.julio_ibiza":"Julio Ibiza <em>(vodka noir + RedBull)</em>",
+        "li.champu":"Champú",
+        "chip.champagne":"🍾 Champagne <em>+1€</em>",
+        "np.platano":"🍌 Mojito Banane",
+        "np.azul":"💙 Mojito Bleu",
+        "np.frambuesa":"🫐 Mojito Framboise"
+    },
+    en: {
+        "nav.about":"About",
+        "nav.gallery":"Gallery",
+        "nav.menu":"Menu",
+        "nav.contact":"Contact",
+        "nav.book":"Book now",
+        "nav.bookTable":"Book a table",
+        "hero.tag":"Season 2026 · Updated",
+        "hero.line1":"Our",
+        "hero.line2":"Menu",
+        "hero.line3":"of Cocktails",
+        "hero.sub":"Handcrafted cocktails, premium long drinks, selected wines and sharing plates. <strong>Drink, eat, relax and repeat.</strong>",
+        "hero.pdf":"Download menu as PDF",
+        "search.placeholder":"Search your cocktail, drink or treat…",
+        "search.results":"{n} results on the menu",
+        "search.none":"No results — try another name 🍹",
+        "nav.cat.cocktails":"Cocktails",
+        "nav.cat.mojitos":"Mojitos",
+        "nav.cat.xl":"XL",
+        "nav.cat.especialidad":"Speciality",
+        "nav.cat.sin_alcohol":"Non-Alcoholic",
+        "nav.cat.gin":"Gin & Tonic",
+        "nav.cat.combinados":"Long Drinks",
+        "nav.cat.cervezas":"Beers",
+        "nav.cat.vinos":"Wines",
+        "nav.cat.caprichos":"Treats",
+        "nav.cat.gourmet":"Gourmet",
+        "eye.clasicos":"— The essence",
+        "eye.mojitos":"— To refresh you",
+        "eye.xl":"— To share",
+        "eye.especialidad":"— For every taste",
+        "eye.sin_alcohol":"— 0.0% alcohol · 100% flavour",
+        "eye.gin":"— Premium",
+        "eye.combinados":"— Timeless classic",
+        "eye.cervezas":"— Ice cold",
+        "eye.vinos":"— House selection",
+        "eye.caprichos":"— For snacking",
+        "eye.gourmet":"— To share in style",
+        "h2.clasicos":"Classic <em>Cocktails</em>",
+        "h2.mojitos":"Mojitos <em>XL</em>",
+        "h2.xl":"Cocktails <em>XL</em>",
+        "h2.especialidad":"Daiquiris · Margaritas · Caipirinhas · Piñas Coladas",
+        "h2.sin_alcohol":"<em>Non-Alcoholic</em> Cocktails",
+        "h2.gin":"Gin <em>Tonic</em>",
+        "h2.cervezas":"Beers & <em>Soft Drinks</em>",
+        "h2.vinos":"Wines & <em>Champagne</em>",
+        "h2.caprichos":"Treats <em>😋</em>",
+        "h2.gourmet":"Gourmet <em>Club</em>",
+        "h3.champagne":"<span class=\"sub-icon\">🥂</span> With Champagne",
+        "h3.redbull":"<span class=\"sub-icon\">⚡</span> With RedBull",
+        "h3.daiquiris":"<span class=\"flavor-icon\">🥃</span> Daiquiris",
+        "h3.margaritas":"<span class=\"flavor-icon\">🍋</span> Margaritas",
+        "h3.caipirinhas":"<span class=\"flavor-icon\">🍹</span> Caipirinhas",
+        "h3.pinas":"<span class=\"flavor-icon\">🍍</span> Piñas Coladas",
+        "h3.nuevos_sin_alc":"<span class=\"sub-icon\">✨</span> New Non-Alcoholic Cocktails",
+        "h3.combinados_sub":"Long Drinks",
+        "h3.licores":"Spirits",
+        "h3.cervezas_sub":"🍺 Beers",
+        "h3.refrescos":"🥤 Soft Drinks",
+        "h3.sangria":"Sangria & Cava",
+        "h3.copa_vino":"Glass of Wine <small>(* house wine)</small>",
+        "h3.vino_botella":"🍾 Wine by the Bottle",
+        "footer.brand":"Reference lounge bar in Miami Platja, Costa Dorada. Cocktails, music and Mediterranean sunsets.",
+        "footer.col1.title":"Contact",
+        "footer.col2.title":"Follow us",
+        "footer.col2.tourism":"Official tourism website",
+        "footer.col3.title":"Information",
+        "footer.responsible":"Drink responsibly. +18",
+        "n.miami_lounge":"Miami Lounge",
+        "n.sunrise":"Sunrise",
+        "n.tequila_sunrise":"Tequila Sunrise",
+        "n.pina_colada":"Piña Colada",
+        "n.pina_de_la_isla":"Piña de la Isla",
+        "n.daiquiri":"Daiquiri",
+        "n.caipirinha":"Caipirinha",
+        "n.caipiroska":"Caipiroska",
+        "n.caipiroska_de_fresa":"Strawberry Caipiroska",
+        "n.sarita":"Sarita",
+        "n.pepemolino":"Pepemolino",
+        "n.blue_lagoon":"Blue Lagoon",
+        "n.bora_bora":"Bora Bora",
+        "n.marcoco":"Marcoco",
+        "n.patou":"Patou",
+        "n.vivirosa":"Vivirosa",
+        "n.fuerza_4":"Fuerza 4",
+        "n.miami_club":"Miami Club",
+        "n.pina_vanicolada":"Piña Vanicolada",
+        "n.sex_on_the_miami_beach":"Sex on the Miami Beach",
+        "n.inspiracion_de_la_jefa":"Chef's Inspiration",
+        "n.margarita":"Margarita",
+        "n.bloody_mary":"Bloody Mary",
+        "n.mojito":"Mojito",
+        "n.mi_amor":"Mi Amor",
+        "n.goldfinger":"Goldfinger",
+        "n.amandina":"Amandina",
+        "n.pajaro_azul":"Blue Bird",
+        "n.dynamite":"Dynamite",
+        "n.checco_s_bull":"Checco's Bull",
+        "n.green_bull":"Green Bull",
+        "n.mojito_marina":"Mojito Marina",
+        "n.sunset":"Sunset",
+        "n.pink_panther":"Pink Panther",
+        "n.pina_descolada":"Piña Descolada",
+        "n.san_francisco":"San Francisco",
+        "n.rosa_banana":"Rosa Banana",
+        "n.cinderella":"Cinderella",
+        "n.cocolicious":"Cocolicious",
+        "n.mojito_0":"Mojito 0%",
+        "n.mojito_de_sandia_0":"Watermelon Mojito 0%",
+        "n.mojito_de_fresa_0":"Strawberry Mojito 0%",
+        "n.cuenco_de_chuches_especialment":"Bowl of delicious sweets",
+        "n.plato_xxl_de_patatas_fritas":"XXL plate of fries",
+        "n.plato_xl_de_palomitas_dulces_o":"XL plate of sweet or savoury popcorn",
+        "n.plato_de_salchichon_iberico":"Iberian salami plate",
+        "n.delicioso_guacamole_con_nachos":"Delicious guacamole with nachos",
+        "n.duo_de_humus_tradicional_y_de_":"Houmous duo <small>(traditional and olive)</small>",
+        "n.porcion_de_houmous_individual_":"Individual houmous portion <small>(traditional or olive)</small>",
+        "n.plato_de_quesos_ibericos":"Iberian cheese plate",
+        "n.plato_de_salmon_delicadamente_":"Plate of delicately smoked salmon and delicacies",
+        "n.plato_de_jamon_iberico":"Iberian ham plate",
+        "n.plato_de_embutidos_ibericos":"Iberian cold cuts plate",
+        "n.mix_de_quesos_y_jamon_o_embuti":"Mix of cheeses and Iberian ham or cold cuts",
+        "n.tambien_con":"Also with:",
+        "d.0":"Orange, soho, grenadine",
+        "d.1":"Orange, rum, grenadine",
+        "d.2":"Orange, tequila, grenadine",
+        "d.3":"Pineapple, coconut milk, malibu",
+        "d.4":"Pineapple, banana, cointreau, rum",
+        "d.5":"Lemon, sugarcane rum, sugar",
+        "d.6":"Lime, cachaça, sugar",
+        "d.7":"Lemon, lime, vodka, sugar",
+        "d.8":"Lemon, lime, strawberry, vodka, sugar",
+        "d.9":"Triple sec, apple liqueur, orange, lemon",
+        "d.10":"Gin, triple sec, orange, peach, milk, grenadine",
+        "d.11":"Vodka, blue curaçao, lemon, soda",
+        "d.12":"Pineapple, passoa, lemon, grenadine",
+        "d.13":"Coconut milk, rum, malibu, coconut liqueur, sugar",
+        "d.14":"Coconut liqueur, malibu, pineapple, grenadine",
+        "d.15":"Banana, pineapple, coconut liqueur, grenadine",
+        "d.16":"Tequila, vodka, gin, rum, mixed fruit juice",
+        "d.17":"Banana, pineapple, bailey's, sugarcane rum, coconut liqueur, grenadine",
+        "d.18":"Piña colada with a scoop of vanilla ice cream",
+        "d.19":"Orange, peach liqueur, vodka, amaretto, grenadine",
+        "d.20":"The house's secret recipe! Chef's inspiration",
+        "d.21":"Tequila, triple sec, lemon",
+        "d.22":"Tomato, vodka, lemon, Worcestershire sauce, tabasco, salt and pepper",
+        "d.23":"Sugar, mint, lime, white rum and soda",
+        "d.24":"Champagne, vodka, strawberry",
+        "d.25":"Champagne, cointreau, lemon, sugar",
+        "d.26":"Champagne, orange, lemon, grenadine",
+        "d.27":"Champagne, cointreau, blue curaçao",
+        "d.28":"Champagne, gin, get 27",
+        "d.29":"Passoa, vodka, orange, RedBull, grenadine",
+        "d.30":"Vodka, blue curaçao, orange, RedBull",
+        "d.31":"With Havana 3 and RedBull",
+        "d.32":"Orange, strawberry, banana",
+        "d.33":"Strawberry, banana, milk",
+        "d.34":"Pineapple, coconut milk",
+        "d.35":"Orange, peach, grenadine",
+        "d.36":"Banana, milk, grenadine",
+        "d.37":"Orange, pineapple, lemon",
+        "d.38":"Coconut milk, banana, pineapple",
+        "d.39":"Mint, sugar, lime and soda",
+        "d.40":"Mint, sugar, lime, soda and watermelon",
+        "d.41":"Mint, sugar, lime, soda and strawberries",
+        "tag.signature":"★ Signature",
+        "tag.ice":"🍦 Includes ice cream scoop",
+        "tag.secret":"🤫 Secret recipe",
+        "tag.top":"👑 Top",
+        "wine.tinto":"🔴 Red",
+        "wine.blanco":"⚪ White",
+        "wine.rosado":"🌸 Rosé",
+        "wine.champagne":"🥂 Champagne",
+        "wine.cava":"🍾 Cava",
+        "cta.title":"Ready to come?",
+        "cta.sub":"Book your table and enjoy the best night in Miami Platja.",
+        "cta.call":"Call: +34 691 691 080",
+        "cta.back":"← Back to home",
+        "sub.mojitos":"The recipes that made us famous. Each one prepared fresh to order with fresh ingredients.",
+        "sub.especialidad":"Choose your favourite flavour. Optionally with a touch of champagne (+1€).",
+        "sub.xl":"Choose flavours from our menu or create your own. Giant format for 2 to 10 people.",
+        "sub.frutas":"Choose your favourite fruit and we prepare it fresh for you.",
+        "sub.sin_alcohol":"For those who want to enjoy without alcohol. Same experience, same pleasure.",
+        "sub.sin_alcohol_highlight":"🌟 <strong>Try the Special Mojito \"Chef's Inspiration\" 0%</strong> · 6,50€",
+        "sub.gin":"Strong: +1€ · Extra Strong: +2€",
+        "sub.sharing":"Para compartir · à partager · sharing food",
+        "pill.mojito_clasico":"🌿 Classic Mojito",
+        "pill.fresa":"🍓 Strawberry",
+        "pill.cereza":"🍒 Cherry",
+        "pill.manzana":"🍏 Apple",
+        "pill.melocoton":"🍑 Peach",
+        "pill.sandia":"🍉 Watermelon",
+        "pill.melon":"🍈 Melon",
+        "pill.azul":"<span class=\"pill-icon\">💙</span> Blue",
+        "pill.champagne":"🍾 Champagne",
+        "pill.malibu":"🥥 Malibu",
+        "pill.malibu_fresa":"🍓 Malibu and strawberry",
+        "pill.champ_fresa":"🍓 Champagne and strawberry",
+        "pill.jagger":"🥃 Jäger",
+        "pill.platano":"🍌 Banana",
+        "pill.amaretto":"🌰 Amaretto",
+        "chip.sin_alcohol":"🌿 Non-alcoholic <em>6.50€</em>",
+        "xl.ppl2":"👥 2 people",
+        "xl.ppl3":"👥 3 people",
+        "xl.ppl4":"👥👥 4 people",
+        "xl.ppl6":"👥👥👥 6 people",
+        "xl.ppl10":"👥👥👥👥 10 people",
+        "xl.note":"You can now make your cocktails <strong>non-alcoholic</strong> in giant format with a <strong>5€</strong> discount.",
+        "f.limon":"Lemon",
+        "f.fresa":"Strawberry",
+        "f.platano":"Banana",
+        "f.pina":"Pineapple",
+        "f.cereza":"Cherry",
+        "f.melocoton":"Peach",
+        "f.frambuesa":"Raspberry",
+        "f.azul":"Blue",
+        "li.chupito":"Shot",
+        "li.chupito_tequila":"Tequila shot",
+        "li.leffe":"Leffe Blonde or Brown",
+        "li.fanta":"Fanta orange / lemon",
+        "li.agua_gas":"Sparkling water",
+        "li.agua":"Water",
+        "li.batido":"Homemade chocolate milkshake",
+        "li.zumos":"Fruit juices",
+        "li.sangria_1l":"Sangria 1L",
+        "li.sangria_cava_1l":"Cava sangria 1L",
+        "li.copa_sangria":"Glass of Sangria",
+        "li.copa_sangria_cava":"Glass of cava sangria",
+        "li.vino_rosado":"Rosé *",
+        "li.vino_blanco":"White *",
+        "li.vino_tinto":"Red *",
+        "li.consultanos":"Ask us",
+        "li.cava_casa":"House cava",
+        "xl.badge_popular":"⭐ Popular",
+        "xl.badge_fiesta":"🔥 Party",
+        "h2.combinados_full":"Long Drinks & <em>Spirits</em>",
+        "li.ron_soda":"Rum + soda",
+        "li.julio_ibiza":"Julio Ibiza <em>(black vodka + RedBull)</em>",
+        "li.champu":"Champú",
+        "chip.champagne":"🍾 Champagne <em>+1€</em>",
+        "np.platano":"🍌 Banana Mojito",
+        "np.azul":"💙 Blue Mojito",
+        "np.frambuesa":"🫐 Raspberry Mojito"
+    }
+};
+const langMeta = {
+    es: { flag: '🇪🇸', code: 'ES', htmlLang: 'es' },
+    fr: { flag: '🇫🇷', code: 'FR', htmlLang: 'fr' },
+    en: { flag: '🇬🇧', code: 'EN', htmlLang: 'en' }
+};
+let currentLang = localStorage.getItem('miamilounge_lang') || 'es';
+let domLang = 'es'; // idioma del marcado servido; evita reescribir el DOM si ya coincide
+function t(key) {
+    return (i18nData[currentLang] && i18nData[currentLang][key] !== undefined)
+        ? i18nData[currentLang][key]
+        : (i18nData['es'][key] !== undefined ? i18nData['es'][key] : key);
+}
+function applyTranslations() {
+    if (domLang !== currentLang) {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const val = t(el.getAttribute('data-i18n'));
+            if (val !== undefined) el.innerHTML = val;
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
+        });
+        domLang = currentLang;
+    }
+    document.documentElement.lang = langMeta[currentLang].htmlLang;
+    document.querySelectorAll('.lang-option').forEach(btn => {
+        btn.classList.toggle('is-active', btn.getAttribute('data-lang') === currentLang);
+    });
+    const meta = langMeta[currentLang];
+    const flagEl = document.getElementById('langCurrentFlag');
+    const codeEl = document.getElementById('langCurrentCode');
+    if (flagEl) flagEl.textContent = meta.flag;
+    if (codeEl) codeEl.textContent = meta.code;
+}
+function setLang(lang) {
+    if (!i18nData[lang]) return;
+    currentLang = lang;
+    localStorage.setItem('miamilounge_lang', lang);
+    applyTranslations();
+    const sw = document.getElementById('langSwitcher');
+    if (sw) { sw.classList.remove('is-open'); document.getElementById('langBtn').setAttribute('aria-expanded','false'); }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const switcher = document.getElementById('langSwitcher');
+    const langBtn  = document.getElementById('langBtn');
+    if (switcher && langBtn) {
+        langBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            const open = switcher.classList.toggle('is-open');
+            langBtn.setAttribute('aria-expanded', String(open));
+        });
+        switcher.querySelectorAll('.lang-option').forEach(opt => {
+            opt.addEventListener('click', () => setLang(opt.getAttribute('data-lang')));
+        });
+        document.addEventListener('click', e => {
+            if (!switcher.contains(e.target)) {
+                switcher.classList.remove('is-open');
+                langBtn.setAttribute('aria-expanded','false');
+            }
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                switcher.classList.remove('is-open');
+                langBtn.setAttribute('aria-expanded','false');
+            }
+        });
+    }
+    applyTranslations();
+});
+
         // Set active nav link on scroll
         const sections = document.querySelectorAll('.menu-section');
         const navLinks = document.querySelectorAll('.carta-nav-link');
@@ -4241,5 +5495,74 @@ img { max-width: 100%; height: auto; }
             if (navLinks.length) navLinks[0].classList.add('is-active');
         }
     </script>
+    <script>
+        /* ── BUSCADOR EN VIVO DE LA CARTA ── */
+        (() => {
+            const input = document.getElementById('cartaSearch');
+            if (!input) return;
+            const clearBtn = document.getElementById('cartaSearchClear');
+            const countEl = document.getElementById('cartaSearchCount');
+            const ITEMS = '.menu-item, .mojito-pill, .np, .gin-tier, .drinks-list li, .wine-list li, .wine-bottle li, .flavor-list li, .capricho-card, .gourmet-card, .xl-card';
+            const GROUPS = '.menu-subsection, .drinks-col, .flavor-col, .wine-card, .wine-bottle';
+            const norm = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            const sections = Array.from(document.querySelectorAll('.menu-section'));
+            const dividers = Array.from(document.querySelectorAll('.section-divider'));
+            const allItems = Array.from(document.querySelectorAll(ITEMS));
+            const allGroups = Array.from(document.querySelectorAll(GROUPS));
+
+            const apply = () => {
+                const q = norm(input.value.trim());
+                clearBtn.hidden = !q;
+                if (!q) {
+                    allItems.forEach(el => el.classList.remove('search-hidden'));
+                    allGroups.forEach(el => el.classList.remove('search-hidden'));
+                    sections.forEach(s => s.classList.remove('search-hidden'));
+                    dividers.forEach(d => d.classList.remove('search-hidden'));
+                    countEl.textContent = '';
+                    return;
+                }
+                // Mostrar todo lo pendiente de reveal para que los resultados sean visibles
+                document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-visible'));
+                let n = 0;
+                allItems.forEach(el => {
+                    const hit = norm(el.textContent).includes(q);
+                    el.classList.toggle('search-hidden', !hit);
+                    if (hit) n++;
+                });
+                allGroups.forEach(g => {
+                    const any = Array.from(g.querySelectorAll(ITEMS)).some(el => !el.classList.contains('search-hidden'));
+                    g.classList.toggle('search-hidden', !any);
+                });
+                sections.forEach(s => {
+                    const any = Array.from(s.querySelectorAll(ITEMS)).some(el => !el.classList.contains('search-hidden'));
+                    s.classList.toggle('search-hidden', !any);
+                });
+                dividers.forEach(d => d.classList.add('search-hidden'));
+                countEl.textContent = n === 0
+                    ? t('search.none')
+                    : t('search.results').replace('{n}', n);
+            };
+
+            input.addEventListener('input', apply);
+            clearBtn.addEventListener('click', () => { input.value = ''; apply(); input.focus(); });
+            input.addEventListener('keydown', e => { if (e.key === 'Escape') { input.value = ''; apply(); } });
+            // Atajo "/" para enfocar el buscador
+            document.addEventListener('keydown', e => {
+                if (e.key === '/' && document.activeElement !== input &&
+                    !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) {
+                    e.preventDefault();
+                    input.focus();
+                }
+            });
+        })();
+    </script>
+
+<!-- ═══ ANALÍTICA SIN COOKIES (GoatCounter, gratis, sin banner RGPD) ═══
+     Para activarla:
+     1. Crea una cuenta gratuita en https://www.goatcounter.com y elige un código (p. ej. "miamilounge")
+     2. Sustituye MIAMILOUNGE abajo por tu código y descomenta la línea:
+
+<script data-goatcounter="https://MIAMILOUNGE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+-->
 </body>
 </html>
