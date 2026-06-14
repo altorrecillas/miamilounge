@@ -1699,6 +1699,8 @@ blockquote footer {
     margin: 20px 0 30px;
     text-shadow: 0 0 30px rgba(255, 46, 147, 0.3);
 }
+/* Hero: "Nuestra" y "de Cócteles" en mayúsculas, con el espaciado original de Bebas Neue (la línea en cursiva "Carta" se mantiene) */
+.carta-hero-title .hero-line:not(.italic) { text-transform: uppercase; }
 .carta-hero-sub {
     font-size: clamp(16px, 1.5vw, 20px);
     color: var(--ink-soft);
@@ -3398,7 +3400,7 @@ img { max-width: 100%; height: auto; }
                         <polyline points="9 15 12 18 15 15"/>
                     </svg>
                     <span data-i18n="hero.pdf">Descargar carta en PDF</span>
-                    <span class="btn-sub">carta.pdf · 4,8 MB</span>
+                    <span class="btn-sub">carta.pdf · 6,3 MB</span>
                 </a>
             </div>
         </div>
@@ -3464,12 +3466,16 @@ img { max-width: 100%; height: auto; }
                     <h2 class="section-title" data-i18n="h2.clasicos">Cócteles <em>Clásicos</em></h2>
                     <div class="price-badge-wrap">
                         <div class="price-badge">
-                            <span class="price-badge-amount">7,90€</span>
-                            <span class="price-badge-label">precio único</span>
+                            <span class="price-badge-amount">8,90€</span>
+                            <span class="price-badge-label" data-i18n="badge.unico">precio único</span>
                         </div>
                         <div class="price-badge badge-cyan">
-                            <span class="price-badge-amount">8,90€</span>
-                            <span class="price-badge-label">con RedBull o Champagne</span>
+                            <span class="price-badge-amount">9,50€</span>
+                            <span class="price-badge-label" data-i18n="badge.champagne">con Champagne</span>
+                        </div>
+                        <div class="price-badge badge-gold">
+                            <span class="price-badge-amount">9,90€</span>
+                            <span class="price-badge-label" data-i18n="badge.redbull">con RedBull</span>
                         </div>
                     </div>
                     <p class="section-sub" data-i18n="sub.mojitos">Las recetas que nos han hecho famosos. Cada uno preparado al momento con ingredientes frescos.</p>
@@ -3480,7 +3486,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.miami_lounge">Miami Lounge</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.0">Naranja, soho, granadina</p>
                         <span class="mi-tag mi-tag-signature"><span data-i18n="tag.signature">★ Signature</span></span>
@@ -3490,7 +3496,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.sunrise">Sunrise</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.1">Naranja, ron, granadina</p>
                     </article>
@@ -3499,7 +3505,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.tequila_sunrise">Tequila Sunrise</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.2">Naranja, tequila, granadina</p>
                     </article>
@@ -3508,7 +3514,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.pina_colada">Piña Colada</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.3">Piña, leche de coco, malibú</p>
                     </article>
@@ -3517,7 +3523,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.pina_de_la_isla">Piña de la Isla</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.4">Piña, plátano, cointreau, ron</p>
                     </article>
@@ -3526,7 +3532,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.daiquiri">Daiquiri</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.5">Limón, ron de caña, azúcar</p>
                     </article>
@@ -3535,7 +3541,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.caipirinha">Caipirinha</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.6">Lima, cachaça, azúcar</p>
                     </article>
@@ -3544,7 +3550,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.caipiroska">Caipiroska</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.7">Limón, lima, vodka, azúcar</p>
                     </article>
@@ -3553,7 +3559,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.caipiroska_de_fresa">Caipiroska de Fresa</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.8">Limón, lima, fresa, vodka, azúcar</p>
                     </article>
@@ -3562,7 +3568,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.sarita">Sarita</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.9">Triple sec, licor manzana, naranja, limón</p>
                     </article>
@@ -3571,7 +3577,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.pepemolino">Pepemolino</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.10">Gin, triple sec, naranja, melocotón, leche, granadina</p>
                     </article>
@@ -3580,7 +3586,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.blue_lagoon">Blue Lagoon</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.11">Vodka, curaçao azul, limón, soda</p>
                     </article>
@@ -3589,7 +3595,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.bora_bora">Bora Bora</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.12">Piña, passoa, limón, granadina</p>
                     </article>
@@ -3598,7 +3604,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.marcoco">Marcoco</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.13">Leche de coco, ron, malibú, licor de coco, azúcar</p>
                         <span class="mi-tag mi-tag-signature"><span data-i18n="tag.signature">★ Signature</span></span>
@@ -3608,7 +3614,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.patou">Patou</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.14">Licor de coco, malibú, piña, granadina</p>
                     </article>
@@ -3617,16 +3623,25 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.vivirosa">Vivirosa</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.15">Plátano, piña, licor de coco, granadina</p>
                     </article>
 
                     <article class="menu-item" data-reveal>
                         <div class="mi-head">
+                            <h3 data-i18n="n.fresimiami">Fresimiami</h3>
+                            <span class="mi-dots"></span>
+                            <span class="mi-price">8,90€</span>
+                        </div>
+                        <p class="mi-desc" data-i18n="d.fresimiami">Licor de coco, fresa, cointreau</p>
+                    </article>
+
+                    <article class="menu-item" data-reveal>
+                        <div class="mi-head">
                             <h3 data-i18n="n.fuerza_4">Fuerza 4</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.16">Tequila, vodka, gin, ron, zumo multifrutas</p>
                     </article>
@@ -3635,7 +3650,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.miami_club">Miami Club</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.17">Plátano, piña, bailey's, ron de caña, licor de coco, granadina</p>
                     </article>
@@ -3644,7 +3659,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.pina_vanicolada">Piña Vanicolada</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">8,90€</span>
+                            <span class="mi-price">9,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.18">Piña colada con una bola de helado de vainilla</p>
                         <span class="mi-tag"><span data-i18n="tag.ice">🍦 Incluye bola de helado</span></span>
@@ -3654,7 +3669,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.sex_on_the_miami_beach">Sex on the Miami Beach</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.19">Naranja, licor de melocotón, vodka, amaretto, granadina</p>
                     </article>
@@ -3663,7 +3678,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.inspiracion_de_la_jefa">Inspiración de la Jefa</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.20">¡La receta secreta de la casa! Inspiración de la Jefa</p>
                         <span class="mi-tag mi-tag-secret"><span data-i18n="tag.secret">🤫 Receta secreta</span></span>
@@ -3673,7 +3688,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.margarita">Margarita</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.21">Tequila, triple sec, limón</p>
                     </article>
@@ -3682,7 +3697,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.bloody_mary">Bloody Mary</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.22">Tomate, vodka, limón, salsa Perrins, tabasco, sal y pimienta</p>
                     </article>
@@ -3691,7 +3706,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.mojito">Mojito</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">7,90€</span>
+                            <span class="mi-price">8,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.23">Azúcar, menta, lima, ron blanco y soda</p>
                     </article>
@@ -3700,14 +3715,14 @@ img { max-width: 100%; height: auto; }
                 <!-- Champagne variants -->
                 <div class="menu-subsection" data-reveal>
                     <h3 class="subsection-title">
-                        <span data-i18n="h3.champagne"><span class="sub-icon">🥂</span> Con Champagne</span> <span class="sub-price">8,90€</span>
+                        <span data-i18n="h3.champagne"><span class="sub-icon">🥂</span> Con Champagne</span> <span class="sub-price">9,50€</span>
                     </h3>
                     <div class="menu-grid menu-grid-2">
                         <article class="menu-item mi-small">
                             <div class="mi-head">
                                 <h3 data-i18n="n.mi_amor">Mi Amor</h3>
                                 <span class="mi-dots"></span>
-                                <span class="mi-price">8,90€</span>
+                                <span class="mi-price">9,50€</span>
                             </div>
                             <p class="mi-desc" data-i18n="d.24">Champagne, vodka, fresa</p>
                         </article>
@@ -3715,7 +3730,7 @@ img { max-width: 100%; height: auto; }
                             <div class="mi-head">
                                 <h3 data-i18n="n.goldfinger">Goldfinger</h3>
                                 <span class="mi-dots"></span>
-                                <span class="mi-price">8,90€</span>
+                                <span class="mi-price">9,50€</span>
                             </div>
                             <p class="mi-desc" data-i18n="d.25">Champagne, cointreau, limón, azúcar</p>
                         </article>
@@ -3723,7 +3738,7 @@ img { max-width: 100%; height: auto; }
                             <div class="mi-head">
                                 <h3 data-i18n="n.amandina">Amandina</h3>
                                 <span class="mi-dots"></span>
-                                <span class="mi-price">8,90€</span>
+                                <span class="mi-price">9,50€</span>
                             </div>
                             <p class="mi-desc" data-i18n="d.26">Champagne, naranja, limón, granadina</p>
                         </article>
@@ -3731,7 +3746,7 @@ img { max-width: 100%; height: auto; }
                             <div class="mi-head">
                                 <h3 data-i18n="n.pajaro_azul">Pájaro Azul</h3>
                                 <span class="mi-dots"></span>
-                                <span class="mi-price">8,90€</span>
+                                <span class="mi-price">9,50€</span>
                             </div>
                             <p class="mi-desc" data-i18n="d.27">Champagne, cointreau, curaçao azul</p>
                         </article>
@@ -3739,7 +3754,7 @@ img { max-width: 100%; height: auto; }
                             <div class="mi-head">
                                 <h3 data-i18n="n.dynamite">Dynamite</h3>
                                 <span class="mi-dots"></span>
-                                <span class="mi-price">8,90€</span>
+                                <span class="mi-price">9,50€</span>
                             </div>
                             <p class="mi-desc" data-i18n="d.28">Champagne, gin, get 27</p>
                         </article>
@@ -3749,14 +3764,14 @@ img { max-width: 100%; height: auto; }
                 <!-- Redbull variants -->
                 <div class="menu-subsection" data-reveal>
                     <h3 class="subsection-title">
-                        <span data-i18n="h3.redbull"><span class="sub-icon">⚡</span> Con RedBull</span> <span class="sub-price">8,90€</span>
+                        <span data-i18n="h3.redbull"><span class="sub-icon">⚡</span> Con RedBull</span> <span class="sub-price">9,90€</span>
                     </h3>
                     <div class="menu-grid menu-grid-2">
                         <article class="menu-item mi-small">
                             <div class="mi-head">
                                 <h3 data-i18n="n.checco_s_bull">Checco's Bull</h3>
                                 <span class="mi-dots"></span>
-                                <span class="mi-price">8,90€</span>
+                                <span class="mi-price">9,90€</span>
                             </div>
                             <p class="mi-desc" data-i18n="d.29">Passoa, vodka, naranja, RedBull, granadina</p>
                         </article>
@@ -3764,7 +3779,7 @@ img { max-width: 100%; height: auto; }
                             <div class="mi-head">
                                 <h3 data-i18n="n.green_bull">Green Bull</h3>
                                 <span class="mi-dots"></span>
-                                <span class="mi-price">8,90€</span>
+                                <span class="mi-price">9,90€</span>
                             </div>
                             <p class="mi-desc" data-i18n="d.30">Vodka, curaçao azul, naranja, RedBull</p>
                         </article>
@@ -3772,9 +3787,74 @@ img { max-width: 100%; height: auto; }
                             <div class="mi-head">
                                 <h3 data-i18n="n.mojito_marina">Mojito Marina</h3>
                                 <span class="mi-dots"></span>
-                                <span class="mi-price">8,90€</span>
+                                <span class="mi-price">9,90€</span>
                             </div>
                             <p class="mi-desc" data-i18n="d.31">Con Havana 3 y RedBull</p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Aperol variants -->
+                <div class="menu-subsection" data-reveal>
+                    <h3 class="subsection-title">
+                        <span data-i18n="h3.aperol"><span class="sub-icon">🍊</span> Con Aperol</span> <span class="sub-price">8,90€</span>
+                    </h3>
+                    <div class="menu-grid menu-grid-2">
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3 data-i18n="n.aperol_tonic">Aperol Tonic</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc" data-i18n="d.aperol_tonic">Aperol, tónica</p>
+                        </article>
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3 data-i18n="n.aperol_spritz">Aperol Spritz</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc" data-i18n="d.aperol_spritz">Aperol, cava, gaseosa</p>
+                        </article>
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3 data-i18n="n.fresh_aperol">Fresh Aperol</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc" data-i18n="d.fresh_aperol">Vodka, aperol, melón, limón</p>
+                        </article>
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3 data-i18n="n.red_aperol">Red Aperol</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc" data-i18n="d.red_aperol">Aperol, fruta del bosque, limón</p>
+                        </article>
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3 data-i18n="n.sour_aperol">Sour Aperol</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc" data-i18n="d.sour_aperol">Aperol, naranja, gaseosa</p>
+                        </article>
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3 data-i18n="n.pink_aperol">Pink Aperol</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc" data-i18n="d.pink_aperol">Aperol, vino rosado, jarabe de fresa</p>
+                        </article>
+                        <article class="menu-item mi-small">
+                            <div class="mi-head">
+                                <h3 data-i18n="n.pomaperol">Pomaperol</h3>
+                                <span class="mi-dots"></span>
+                                <span class="mi-price">8,90€</span>
+                            </div>
+                            <p class="mi-desc" data-i18n="d.pomaperol">Aperol, zumo de pomelo</p>
                         </article>
                     </div>
                 </div>
@@ -3791,12 +3871,12 @@ img { max-width: 100%; height: auto; }
                     <h2 class="section-title" data-i18n="h2.mojitos">Mojitos <em>XL</em></h2>
                     <div class="price-badge-wrap">
                         <div class="price-badge badge-cyan">
-                            <span class="price-badge-amount">8,50€</span>
-                            <span class="price-badge-label">precio único</span>
+                            <span class="price-badge-amount">8,90€</span>
+                            <span class="price-badge-label" data-i18n="badge.unico">precio único</span>
                         </div>
                         <div class="price-badge badge-gold">
-                            <span class="price-badge-amount">9,50€</span>
-                            <span class="price-badge-label">con Champagne</span>
+                            <span class="price-badge-amount">9,90€</span>
+                            <span class="price-badge-label" data-i18n="badge.champagne">con Champagne</span>
                         </div>
                     </div>
                     <p class="section-sub" data-i18n="sub.especialidad">Elige tu sabor favorito. Opcional con un toque de champagne (+1€).</p>
@@ -3820,13 +3900,14 @@ img { max-width: 100%; height: auto; }
                     <div class="mojito-pill" data-reveal data-i18n="pill.jagger">🥃 Jäger</div>
                     <div class="mojito-pill" data-reveal data-i18n="pill.platano">🍌 Plátano</div>
                     <div class="mojito-pill" data-reveal data-i18n="pill.amaretto">🌰 Amaretto</div>
+                    <div class="mojito-pill" data-reveal data-i18n="pill.frangelico">🌰 Frangelico</div>
                 </div>
 
                 <div class="mojito-extras" data-reveal>
                     <h3 data-i18n="n.tambien_con">✨ Opciones de personalización</h3>
                     <div class="extras-row">
                         <span class="extra-chip" data-i18n="chip.champagne">🍾 Con Champagne <em>+1€</em></span>
-                        <span class="extra-chip" data-i18n="chip.sin_alcohol">🌿 Sin alcohol <em>6,50€</em></span>
+                        <span class="extra-chip" data-i18n="chip.sin_alcohol">🌿 Sin alcohol <em>6,90€</em></span>
                     </div>
                 </div>
             </div>
@@ -3847,29 +3928,29 @@ img { max-width: 100%; height: auto; }
                     <div class="xl-card" data-reveal>
                         <div class="xl-vol">1L</div>
                         <div class="xl-ppl" data-i18n="xl.ppl2">👥 2 personas</div>
-                        <div class="xl-price">19,90€</div>
+                        <div class="xl-price">20,90€</div>
                     </div>
                     <div class="xl-card" data-reveal>
                         <div class="xl-vol">1,5L</div>
                         <div class="xl-ppl" data-i18n="xl.ppl3">👥 3 personas</div>
-                        <div class="xl-price">24,90€</div>
+                        <div class="xl-price">25,90€</div>
                     </div>
                     <div class="xl-card xl-featured" data-reveal>
                         <div class="xl-badge" data-i18n="xl.badge_popular">⭐ Popular</div>
                         <div class="xl-vol">2L</div>
                         <div class="xl-ppl" data-i18n="xl.ppl4">👥👥 4 personas</div>
-                        <div class="xl-price">29,90€</div>
+                        <div class="xl-price">30,90€</div>
                     </div>
                     <div class="xl-card" data-reveal>
                         <div class="xl-vol">3L</div>
                         <div class="xl-ppl" data-i18n="xl.ppl6">👥👥👥 6 personas</div>
-                        <div class="xl-price">39,90€</div>
+                        <div class="xl-price">40,90€</div>
                     </div>
                     <div class="xl-card xl-biggest" data-reveal>
                         <div class="xl-badge xl-badge-cyan" data-i18n="xl.badge_fiesta">🔥 Fiesta</div>
                         <div class="xl-vol">5L</div>
                         <div class="xl-ppl" data-i18n="xl.ppl10">👥👥👥👥 10 personas</div>
-                        <div class="xl-price">59,90€</div>
+                        <div class="xl-price">64,90€</div>
                     </div>
                 </div>
 
@@ -3890,8 +3971,8 @@ img { max-width: 100%; height: auto; }
                     <h2 class="section-title" data-i18n="h2.especialidad">Daiquiris · Margaritas · Caipirinhas · Piñas Coladas</h2>
                     <div class="price-badge-wrap">
                         <div class="price-badge">
-                            <span class="price-badge-amount">7,90€</span>
-                            <span class="price-badge-label">precio único</span>
+                            <span class="price-badge-amount">8,90€</span>
+                            <span class="price-badge-label" data-i18n="badge.unico">precio único</span>
                         </div>
                     </div>
                     <p class="section-sub" data-i18n="sub.frutas">Elige tu fruta favorita y nosotros te lo preparamos al momento.</p>
@@ -3903,8 +3984,11 @@ img { max-width: 100%; height: auto; }
                         <ul class="flavor-list">
                             <li data-i18n="f.limon">Limón</li>
                             <li data-i18n="f.fresa">Fresa</li>
+                            <li data-i18n="f.cereza">Cereza</li>
                             <li data-i18n="f.platano">Plátano</li>
                             <li data-i18n="f.pina">Piña</li>
+                            <li data-i18n="f.melocoton">Melocotón</li>
+                            <li data-i18n="f.sandia">Sandía</li>
                         </ul>
                     </div>
                     <div class="flavor-col" data-reveal>
@@ -3913,26 +3997,30 @@ img { max-width: 100%; height: auto; }
                             <li data-i18n="f.limon">Limón</li>
                             <li data-i18n="f.fresa">Fresa</li>
                             <li data-i18n="f.cereza">Cereza</li>
-                            <li data-i18n="f.melocoton">Melocotón</li>
                             <li data-i18n="f.platano">Plátano</li>
+                            <li data-i18n="f.pina">Piña</li>
+                            <li data-i18n="f.melocoton">Melocotón</li>
+                            <li data-i18n="f.sandia">Sandía</li>
                         </ul>
                     </div>
                     <div class="flavor-col" data-reveal>
-                        <h3 class="flavor-title"><span data-i18n="h3.caipirinhas"><span class="flavor-icon">🍹</span> Caipirinhas</span></h3>
+                        <h3 class="flavor-title"><span data-i18n="h3.caipirinhas"><span class="flavor-icon">🍹</span> Caipirinhas · Caipiroskas</span></h3>
                         <ul class="flavor-list">
                             <li data-i18n="f.limon">Limón</li>
                             <li data-i18n="f.fresa">Fresa</li>
+                            <li data-i18n="f.cereza">Cereza</li>
                             <li data-i18n="f.platano">Plátano</li>
                             <li data-i18n="f.pina">Piña</li>
+                            <li data-i18n="f.melocoton">Melocotón</li>
+                            <li data-i18n="f.sandia">Sandía</li>
                         </ul>
                     </div>
                     <div class="flavor-col" data-reveal>
                         <h3 class="flavor-title"><span data-i18n="h3.pinas"><span class="flavor-icon">🍍</span> Piñas Coladas</span></h3>
                         <ul class="flavor-list">
                             <li data-i18n="f.fresa">Fresa</li>
-                            <li data-i18n="f.frambuesa">Frambuesa</li>
-                            <li data-i18n="f.azul">Azul</li>
                             <li data-i18n="f.platano">Plátano</li>
+                            <li data-i18n="f.azul">Azul</li>
                         </ul>
                     </div>
                 </div>
@@ -3949,8 +4037,8 @@ img { max-width: 100%; height: auto; }
                     <h2 class="section-title" data-i18n="h2.sin_alcohol">Cócteles <em>Sin Alcohol</em></h2>
                     <div class="price-badge-wrap">
                         <div class="price-badge badge-cyan">
-                            <span class="price-badge-amount">6,50€</span>
-                            <span class="price-badge-label">precio único</span>
+                            <span class="price-badge-amount">6,90€</span>
+                            <span class="price-badge-label" data-i18n="badge.unico">precio único</span>
                         </div>
                     </div>
                     <p class="section-sub" data-i18n="sub.sin_alcohol">Para los que quieren disfrutar sin alcohol. Misma experiencia, mismo placer.</p>
@@ -3961,7 +4049,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.sunset">Sunset</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">6,50€</span>
+                            <span class="mi-price">6,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.32">Naranja, fresa, plátano</p>
                     </article>
@@ -3969,7 +4057,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.pink_panther">Pink Panther</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">6,50€</span>
+                            <span class="mi-price">6,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.33">Fresa, plátano, leche</p>
                     </article>
@@ -3977,7 +4065,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.pina_descolada">Piña Descolada</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">6,50€</span>
+                            <span class="mi-price">6,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.34">Piña, leche de coco</p>
                     </article>
@@ -3985,7 +4073,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.san_francisco">San Francisco</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">6,50€</span>
+                            <span class="mi-price">6,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.35">Naranja, melocotón, granadina</p>
                     </article>
@@ -3993,7 +4081,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.rosa_banana">Rosa Banana</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">6,50€</span>
+                            <span class="mi-price">6,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.36">Plátano, leche, granadina</p>
                     </article>
@@ -4001,7 +4089,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.cinderella">Cinderella</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">6,50€</span>
+                            <span class="mi-price">6,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.37">Naranja, piña, limón</p>
                     </article>
@@ -4009,7 +4097,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.cocolicious">Cocolicious</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">6,50€</span>
+                            <span class="mi-price">6,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.38">Leche de coco, plátano, piña</p>
                     </article>
@@ -4017,7 +4105,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.mojito_0">Mojito 0%</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">6,50€</span>
+                            <span class="mi-price">6,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.39">Menta, azúcar, lima y soda</p>
                     </article>
@@ -4025,7 +4113,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.mojito_de_sandia_0">Mojito de Sandía 0%</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">6,50€</span>
+                            <span class="mi-price">6,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.40">Menta, azúcar, lima, soda y sandía</p>
                     </article>
@@ -4033,7 +4121,7 @@ img { max-width: 100%; height: auto; }
                         <div class="mi-head">
                             <h3 data-i18n="n.mojito_de_fresa_0">Mojito de Fresa 0%</h3>
                             <span class="mi-dots"></span>
-                            <span class="mi-price">6,50€</span>
+                            <span class="mi-price">6,90€</span>
                         </div>
                         <p class="mi-desc" data-i18n="d.41">Menta, azúcar, lima, soda y fresas</p>
                     </article>
@@ -4047,10 +4135,10 @@ img { max-width: 100%; height: auto; }
                     <div class="new-pills">
                         <div class="np" data-i18n="np.platano">🍌 Mojito de Plátano</div>
                         <div class="np" data-i18n="np.azul">💙 Mojito Azul</div>
-                        <div class="np" data-i18n="np.frambuesa">🫐 Mojito Frambuesa</div>
+                        <div class="np" data-i18n="np.cereza">🍒 Mojito de Cereza</div>
                     </div>
                     <p class="new-highlight">
-                        <span data-i18n="sub.sin_alcohol_highlight">🌟 <strong>Prueba el Mojito Especial "Inspiración de la Jefa" 0%</strong> · 6,50€</span>
+                        <span data-i18n="sub.sin_alcohol_highlight">🌟 <strong>Prueba el Mojito Especial "Inspiración de la Jefa" 0%</strong> · 6,90€</span>
                     </p>
                 </div>
             </div>
@@ -4068,15 +4156,13 @@ img { max-width: 100%; height: auto; }
                 </div>
 
                 <div class="gin-tiers" data-reveal>
-                    <div class="gin-tier"><div class="gin-tier-name">Beefeater · Seagram's · Gin de Fresa</div><div class="gin-tier-price">7,50€</div></div>
-                    <div class="gin-tier"><div class="gin-tier-name">Bombay Sapphire · Martin Millers</div><div class="gin-tier-price">7,90€</div></div>
-                    <div class="gin-tier"><div class="gin-tier-name">Hendrick's · Citadelle</div><div class="gin-tier-price">8,90€</div></div>
-                    <div class="gin-tier"><div class="gin-tier-name">Mare + tónica</div><div class="gin-tier-price">9,90€</div></div>
+                    <div class="gin-tier"><div class="gin-tier-name">Beefeater · Seagram's · Gin de Fresa</div><div class="gin-tier-price">7,90€</div></div>
+                    <div class="gin-tier"><div class="gin-tier-name">Bombay Sapphire · Martin Millers</div><div class="gin-tier-price">8,90€</div></div>
+                    <div class="gin-tier"><div class="gin-tier-name">Hendrick's · Citadelle</div><div class="gin-tier-price">9,90€</div></div>
+                    <div class="gin-tier"><div class="gin-tier-name">Mare + tónica</div><div class="gin-tier-price">10,90€</div></div>
                     <div class="gin-tier gin-premium"><div class="gin-tier-name">G-Vine + tónica <span class="mi-tag mi-tag-premium" style="font-size:10px;padding:2px 8px;vertical-align:middle;">👑 Premium</span></div><div class="gin-tier-price">10,90€</div></div>
                 </div>
-                <div class="gin-note" data-reveal>
-                    <strong>Cargado:</strong> +1€ &nbsp;·&nbsp; <strong>Muy Cargado:</strong> +2€
-                </div>
+                <div class="gin-note" data-reveal data-i18n="gin.note"><strong>Cargado:</strong> +1€ &nbsp;·&nbsp; <strong>Muy Cargado:</strong> +2€</div>
             </div>
         </section>
 
@@ -4095,42 +4181,40 @@ img { max-width: 100%; height: auto; }
                     <div class="drinks-col" data-reveal>
                         <h3 class="drinks-col-title"><span data-i18n="h3.combinados_sub">Combinados</span></h3>
                         <ul class="drinks-list">
-                            <li><span>Gin + soda</span><span>7,50€</span></li>
-                            <li><span>Whisky + soda</span><span>7,50€</span></li>
-                            <li><span data-i18n="li.ron_soda">Ron + soda</span><span>7,50€</span></li>
-                            <li><span>Vodka + soda</span><span>7,50€</span></li>
-                            <li><span>Whisky + RedBull</span><span>7,90€</span></li>
-                            <li><span>Vodka + RedBull</span><span>7,90€</span></li>
-                            <li class="hl"><span data-i18n="li.julio_ibiza">Julio Ibiza <em>(vodka negro + RedBull)</em></span><span>7,50€</span></li>
-                            <li><span>Malibú + soda</span><span>6,90€</span></li>
-                            <li><span>Martini + soda</span><span>6,90€</span></li>
-                            <li><span>Brandy + soda</span><span>6,90€</span></li>
-                            <li><span>Havana 7 + soda</span><span>7,90€</span></li>
-                            <li><span>Jack Daniel's + soda</span><span>7,90€</span></li>
-                            <li><span>Chivas/ Cardhú + soda</span><span>10,90€</span></li>
+                            <li><span data-i18n="combi.gin">Gin + refresco</span><span>7,90€</span></li>
+                            <li><span data-i18n="combi.whisky">Whisky + refresco</span><span>7,90€</span></li>
+                            <li><span data-i18n="combi.ron">Ron + refresco</span><span>7,90€</span></li>
+                            <li><span data-i18n="combi.vodka">Vodka + refresco</span><span>7,90€</span></li>
+                            <li><span>Whisky + RedBull</span><span>8,90€</span></li>
+                            <li><span>Vodka + RedBull</span><span>8,90€</span></li>
+                            <li class="hl"><span>Vodka negro + RedBull</span><span>8,90€</span></li>
+                            <li><span data-i18n="combi.malibu">Malibú + refresco</span><span>7,90€</span></li>
+                            <li><span data-i18n="combi.martini">Martini + refresco</span><span>7,90€</span></li>
+                            <li><span data-i18n="combi.brandy">Brandy + refresco</span><span>7,90€</span></li>
+                            <li><span data-i18n="combi.havana">Havana 7 + refresco</span><span>8,90€</span></li>
+                            <li><span data-i18n="combi.jd">Jack Daniel's + refresco</span><span>8,90€</span></li>
                         </ul>
                     </div>
 
                     <div class="drinks-col" data-reveal>
                         <h3 class="drinks-col-title"><span data-i18n="h3.licores">Licores</span></h3>
                         <ul class="drinks-list">
-                            <li><span>Whisky</span><span>5,50€</span></li>
-                            <li><span>Jack Daniel's</span><span>6,90€</span></li>
-                            <li><span>Cardhú / Chivas</span><span>8,90€</span></li>
-                            <li><span>Bailey's</span><span>5,50€</span></li>
-                            <li><span>Brandy</span><span>5,50€</span></li>
-                            <li><span>Marie Bizard</span><span>5,50€</span></li>
-                            <li><span>Ricard</span><span>4,50€</span></li>
-                            <li><span>Martini</span><span>4,90€</span></li>
-                            <li><span data-i18n="li.chupito">Chupito</span><span>2,50€</span></li>
-                            <li><span data-i18n="li.chupito_tequila">Chupito tequila</span><span>2,50€</span></li>
+                            <li><span>Whisky</span><span>5,90€</span></li>
+                            <li><span>Jack Daniel's</span><span>7,90€</span></li>
+                            <li><span>Chivas / Cardhú</span><span>9,90€</span></li>
+                            <li><span>Bailey's</span><span>5,90€</span></li>
+                            <li><span>Brandy</span><span>5,90€</span></li>
+                            <li><span>Marie Brizard</span><span>5,90€</span></li>
+                            <li><span>Ricard</span><span>4,90€</span></li>
+                            <li><span>Martini</span><span>5,50€</span></li>
+                            <li><span data-i18n="li.chupito">Chupito</span><span>3,00€</span></li>
                         </ul>
                     </div>
                 </div>
 
                 <p class="drinks-note" data-reveal>
                     <span class="dot"></span>
-                    Marcas: <strong>gin Beefeater</strong> · <strong>whisky</strong> JB, Ballantine's, Johnnie Walker, White Label, Cutty Sark · <strong>ron</strong> Cacique, Barceló, Bacardí, Brugal, Havana 3 · <strong>vodka</strong> Absolut, Smirnoff, Eristoff Black
+                    Marcas: <strong>gin Beefeater</strong> · <strong>whisky</strong> JB, Ballantine's, Johnnie Walker, White Label, Cutty Sark · <strong>ron</strong> Cacique, Barceló, Bacardí, Brugal, Havana 3 · <strong>vodka</strong> Absolut, Smirnoff, Moskovskaya, Eristoff Black
                 </p>
             </div>
         </section>
@@ -4149,35 +4233,34 @@ img { max-width: 100%; height: auto; }
                     <div class="drinks-col" data-reveal>
                         <h3 class="drinks-col-title"><span data-i18n="h3.cervezas_sub">🍺 Cervezas</span></h3>
                         <ul class="drinks-list">
-                            <li><span data-i18n="li.champu">Champú</span><span>2,90€</span></li>
+                            <li><span data-i18n="li.champu">Champú</span><span>3,20€</span></li>
                             <li><span>Estrella</span><span>3,20€</span></li>
-                            <li><span>Voll Damm</span><span>3,50€</span></li>
                             <li><span>Estrella Galicia</span><span>3,20€</span></li>
-                            <li><span>Coronita</span><span>3,70€</span></li>
                             <li><span>Heineken</span><span>3,50€</span></li>
-                            <li><span data-i18n="li.leffe">Leffe Rubia o Tostada</span><span>4,50€</span></li>
-                            <li><span>Desperados</span><span>4,50€</span></li>
-                            <li><span>La Chouffe</span><span>4,90€</span></li>
-                            <li><span>Kwak</span><span>4,50€</span></li>
+                            <li><span>Voll Damm</span><span>3,50€</span></li>
+                            <li><span>Coronita</span><span>3,90€</span></li>
+                            <li><span>Desperados</span><span>4,90€</span></li>
+                            <li><span data-i18n="li.leffe">Leffe Rubia o Tostada</span><span>4,90€</span></li>
+                            <li><span>La Chouffe</span><span>5,90€</span></li>
+                            <li><span>Kwak</span><span>4,90€</span></li>
                         </ul>
                     </div>
 
                     <div class="drinks-col" data-reveal>
                         <h3 class="drinks-col-title"><span data-i18n="h3.refrescos">🥤 Refrescos</span></h3>
                         <ul class="drinks-list">
-                            <li><span>Coca Cola</span><span>2,70€</span></li>
-                            <li><span>Coca Cola Zero</span><span>2,70€</span></li>
-                            <li><span>Nestea</span><span>2,70€</span></li>
-                            <li><span>Aquarius</span><span>2,70€</span></li>
-                            <li><span>Schweppes</span><span>2,70€</span></li>
-                            <li><span>7up</span><span>2,70€</span></li>
-                            <li><span data-i18n="li.fanta">Fanta naranja / limón</span><span>2,70€</span></li>
-                            <li><span data-i18n="li.agua_gas">Agua con gas</span><span>2,70€</span></li>
-                            <li><span data-i18n="li.agua">Agua</span><span>2,70€</span></li>
-                            <li><span>Bitter Kas</span><span>2,70€</span></li>
-                            <li><span data-i18n="li.batido">Batido de chocolate casero</span><span>2,90€</span></li>
-                            <li><span>RedBull</span><span>3,70€</span></li>
-                            <li><span data-i18n="li.zumos">Zumos de frutas</span><span>2,70€</span></li>
+                            <li><span>Coca Cola</span><span>2,90€</span></li>
+                            <li><span>Coca Cola Zero</span><span>2,90€</span></li>
+                            <li><span>Nestea</span><span>2,90€</span></li>
+                            <li><span>Aquarius</span><span>2,90€</span></li>
+                            <li><span>Schweppes</span><span>2,90€</span></li>
+                            <li><span>7up</span><span>2,90€</span></li>
+                            <li><span data-i18n="li.fanta">Fanta naranja / limón</span><span>2,90€</span></li>
+                            <li><span data-i18n="li.agua_gas">Agua con gas</span><span>2,90€</span></li>
+                            <li><span data-i18n="li.agua">Agua</span><span>2,90€</span></li>
+                            <li><span data-i18n="li.batido">Batido de chocolate casero</span><span>3,50€</span></li>
+                            <li><span>RedBull</span><span>3,90€</span></li>
+                            <li><span data-i18n="li.zumos">Zumos de frutas</span><span>2,90€</span></li>
                         </ul>
                     </div>
                 </div>
@@ -4198,18 +4281,19 @@ img { max-width: 100%; height: auto; }
                     <div class="wine-card">
                         <h3 class="wine-cat"><span data-i18n="h3.sangria">Sangría & Cava</span></h3>
                         <ul class="wine-list">
-                            <li><span data-i18n="li.sangria_1l">Sangría 1L</span><span class="wp">14,00€</span></li>
-                            <li><span data-i18n="li.sangria_cava_1l">Sangría de cava 1L</span><span class="wp">16,00€</span></li>
-                            <li><span data-i18n="li.copa_sangria">Copa de Sangría</span><span class="wp">5,90€</span></li>
-                            <li><span data-i18n="li.copa_sangria_cava">Copa de Sangría de cava</span><span class="wp">6,90€</span></li>
+                            <li><span data-i18n="li.sangria_1l">Sangría 1L</span><span class="wp">14,90€</span></li>
+                            <li><span data-i18n="li.sangria_cava_1l">Sangría de cava 1L</span><span class="wp">16,90€</span></li>
+                            <li><span data-i18n="li.copa_sangria">Copa de Sangría</span><span class="wp">6,90€</span></li>
+                            <li><span data-i18n="li.copa_sangria_cava">Copa de Sangría de cava</span><span class="wp">7,90€</span></li>
+                            <li><span data-i18n="li.copa_cava">Copa de Cava</span><span class="wp">3,90€</span></li>
                         </ul>
                     </div>
                     <div class="wine-card">
-                        <h3 class="wine-cat"><span data-i18n="h3.copa_vino">Copa de Vino <small>(* de la casa)</small></span></h3>
+                        <h3 class="wine-cat"><span data-i18n="h3.copa_vino">Copa de Vino</span></h3>
                         <ul class="wine-list">
-                            <li><span data-i18n="li.vino_rosado">Rosado *</span><span class="wp">2,90€</span></li>
-                            <li><span data-i18n="li.vino_blanco">Blanco *</span><span class="wp">2,90€</span></li>
-                            <li><span data-i18n="li.vino_tinto">Tinto *</span><span class="wp">2,50€</span></li>
+                            <li><span>Viña Mayor · Ribera del Duero</span><span class="wp">4,50€</span></li>
+                            <li><span>Ramón Bilbao Verdejo · Rueda</span><span class="wp">4,50€</span></li>
+                            <li><span>Côte de Provence</span><span class="wp">3,90€</span></li>
                         </ul>
                     </div>
                 </div>
@@ -4219,23 +4303,22 @@ img { max-width: 100%; height: auto; }
                     <div class="wine-bottle" data-reveal>
                         <h4 data-i18n="wine.tinto">🔴 Tinto</h4>
                         <ul>
-                            <li><span>Viña Mayor · Ribera del Duero</span><span class="wp">14,90€ <em>(3,90€ copa)</em></span></li>
-                            <li><span>Sembro · Ribera del Duero</span><span class="wp">19,90€</span></li>
-                            <li><span>Beronia Crianza · Rioja</span><span class="wp">19,90€</span></li>
+                            <li><span>Viña Mayor · Ribera del Duero</span><span class="wp">16,90€</span></li>
+                            <li><span>Beronia Crianza · Rioja</span><span class="wp">20,90€</span></li>
                             <li><span>Ramón Bilbao Crianza · Rioja</span><span class="wp">22,90€</span></li>
                         </ul>
                     </div>
                     <div class="wine-bottle" data-reveal>
                         <h4 data-i18n="wine.blanco">⚪ Blanco</h4>
                         <ul>
-                            <li><span>Ramón Bilbao Verdejo · D.O. Rueda</span><span class="wp">17,90€ <em>(3,90€ copa)</em></span></li>
-                            <li><span>Marqués de Vizhoja</span><span class="wp">17,90€</span></li>
+                            <li><span>Ramón Bilbao Verdejo · D.O. Rueda</span><span class="wp">18,90€</span></li>
+                            <li><span>Marqués de Vizhoja</span><span class="wp">18,90€</span></li>
                         </ul>
                     </div>
                     <div class="wine-bottle" data-reveal>
                         <h4 data-i18n="wine.rosado">🌸 Rosado</h4>
                         <ul>
-                            <li><span>Cote de Provence</span><span class="wp">21,90€</span></li>
+                            <li><span>Côte de Provence</span><span class="wp">22,90€</span></li>
                         </ul>
                     </div>
                     <div class="wine-bottle wine-champagne" data-reveal>
@@ -4247,8 +4330,8 @@ img { max-width: 100%; height: auto; }
                     <div class="wine-bottle wine-cava" data-reveal>
                         <h4 data-i18n="wine.cava">🍾 Cava</h4>
                         <ul>
-                            <li><span data-i18n="li.cava_casa">Cava de la casa</span><span class="wp">14,90€</span></li>
-                            <li><span>Gramona Brut Imperial</span><span class="wp">31,90€</span></li>
+                            <li><span data-i18n="li.cava_casa">Cava de la casa</span><span class="wp">17,90€</span></li>
+                            <li><span>Gramona Brut Imperial</span><span class="wp">32,90€</span></li>
                         </ul>
                     </div>
                 </div>
@@ -4274,7 +4357,7 @@ img { max-width: 100%; height: auto; }
                             <h3 data-i18n="n.cuenco_de_chuches_especialment">Cuenco de chuches especialmente deliciosas</h3>
                             <p class="cap-en">Bol de bonbons spécialement délicieux · special sweets</p>
                         </div>
-                        <div class="cap-price">5,90€</div>
+                        <div class="cap-price">6,90€</div>
                     </article>
                     <article class="capricho-card" data-reveal>
                         <div class="cap-emoji">🍟</div>
@@ -4282,7 +4365,7 @@ img { max-width: 100%; height: auto; }
                             <h3 data-i18n="n.plato_xxl_de_patatas_fritas">Plato XXL de patatas fritas</h3>
                             <p class="cap-en">Saladier XXL de chips · plate XXL of crisps</p>
                         </div>
-                        <div class="cap-price">3,90€</div>
+                        <div class="cap-price">4,50€</div>
                     </article>
                     <article class="capricho-card" data-reveal>
                         <div class="cap-emoji">🍿</div>
@@ -4290,7 +4373,15 @@ img { max-width: 100%; height: auto; }
                             <h3 data-i18n="n.plato_xl_de_palomitas_dulces_o">Plato XL de palomitas dulces o saladas</h3>
                             <p class="cap-en">Bol XL de pop-corn sucré ou salé · plate XL of popcorn</p>
                         </div>
-                        <div class="cap-price">3,90€</div>
+                        <div class="cap-price">4,50€</div>
+                    </article>
+                    <article class="capricho-card" data-reveal>
+                        <div class="cap-emoji">🫒</div>
+                        <div class="cap-info">
+                            <h3 data-i18n="n.olivas_caseras">Olivas caseras</h3>
+                            <p class="cap-en">Olives marinées maison · homemade olives</p>
+                        </div>
+                        <div class="cap-price">4,00€</div>
                     </article>
                 </div>
             </div>
@@ -4313,61 +4404,78 @@ img { max-width: 100%; height: auto; }
                             <h3 data-i18n="n.plato_de_salchichon_iberico">Plato de salchichón ibérico</h3>
                             <p class="g-en">Assiette de saucisson ibérique · plate of spanish saucisson</p>
                         </div>
-                        <div class="g-price">7,90€</div>
+                        <div class="g-price">8,90€</div>
                     </article>
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
                             <h3 data-i18n="n.delicioso_guacamole_con_nachos">Delicioso guacamole con nachos</h3>
                             <p class="g-en">Assiette de délicieux guacamole avec nachos · guacamole and nachos</p>
                         </div>
-                        <div class="g-price">8,90€</div>
+                        <div class="g-price">9,50€</div>
                     </article>
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
-                            <h3 data-i18n="n.duo_de_humus_tradicional_y_de_">Dúo de Hummus <small>(tradicional y de olivas)</small></h3>
+                            <h3 data-i18n="n.duo_de_humus_tradicional_y_de_">Humus tradicional o de olivas</h3>
+                            <p class="g-en">Houmous traditionnel ou aux olives · traditional or olive houmous</p>
                         </div>
-                        <div class="g-price">10,90€</div>
-                    </article>
-                    <article class="gourmet-card gourmet-small" data-reveal>
-                        <div class="g-info">
-                            <h3 data-i18n="n.porcion_de_houmous_individual_">Porción de hummus individual <small>(tradicional o de olivas)</small></h3>
-                        </div>
-                        <div class="g-price">5,90€</div>
+                        <div class="g-price">8,90€</div>
                     </article>
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
                             <h3 data-i18n="n.plato_de_quesos_ibericos">Plato de quesos ibéricos</h3>
                             <p class="g-en">Assiette de fromages espagnols · plate of spanish cheeses</p>
                         </div>
-                        <div class="g-price">9,90€</div>
+                        <div class="g-price">11,90€</div>
                     </article>
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
                             <h3 data-i18n="n.plato_de_salmon_delicadamente_">Plato de salmón delicadamente ahumado y sus delicias</h3>
                             <p class="g-en">Assiette de saumon fumé et ses délices · plate of smoked salmon</p>
                         </div>
-                        <div class="g-price">12,90€</div>
+                        <div class="g-price">15,90€</div>
+                    </article>
+                    <article class="gourmet-card" data-reveal>
+                        <div class="g-info">
+                            <h3 data-i18n="n.plato_de_jamon_de_pato">Plato de jamón de pato y sus delicias</h3>
+                            <p class="g-en">Assiette de jambon de canard et ses délices · plate of duck ham</p>
+                        </div>
+                        <div class="g-price">15,90€</div>
+                    </article>
+                    <article class="gourmet-card" data-reveal>
+                        <div class="g-info">
+                            <h3 data-i18n="n.plato_de_foie_gras_pato">Plato de bloc de foie gras de pato y sus dulces</h3>
+                            <p class="g-en">Assiette de bloc de foie gras de canard et ses délices · plate of duck foie gras</p>
+                        </div>
+                        <div class="g-price">16,90€</div>
                     </article>
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
                             <h3 data-i18n="n.plato_de_jamon_iberico">Plato de jamón ibérico</h3>
                             <p class="g-en">Assiette de jambon espagnol · plate of spanish ham</p>
                         </div>
-                        <div class="g-price">14,90€</div>
+                        <div class="g-price">15,90€</div>
                     </article>
                     <article class="gourmet-card" data-reveal>
                         <div class="g-info">
                             <h3 data-i18n="n.plato_de_embutidos_ibericos">Plato de embutidos ibéricos</h3>
                             <p class="g-en">Assiette de charcuterie espagnole · plate of spanish cold meats</p>
                         </div>
-                        <div class="g-price">14,90€</div>
+                        <div class="g-price">15,90€</div>
                     </article>
                     <article class="gourmet-card gourmet-featured" data-reveal>
                         <div class="g-info">
                             <h3 data-i18n="n.mix_de_quesos_y_jamon_o_embuti">Mix de quesos y jamón o embutidos ibéricos</h3>
                             <p class="g-en">Mix de fromages et jambon ou charcuterie espagnole · mix of cheeses and spanish ham or cold meats</p>
                         </div>
-                        <div class="g-price">19,90€</div>
+                        <div class="g-price">22,90€</div>
+                        <span class="mi-tag mi-tag-premium"><span data-i18n="tag.top">👑 Top</span></span>
+                    </article>
+                    <article class="gourmet-card gourmet-featured" data-reveal>
+                        <div class="g-info">
+                            <h3 data-i18n="n.duo_pato_foie">Dúo de jamón de pato y bloc de foie gras de pato</h3>
+                            <p class="g-en">Duo de jambon de canard et bloc de foie gras de canard · duo of duck ham and duck foie gras</p>
+                        </div>
+                        <div class="g-price">27,90€</div>
                         <span class="mi-tag mi-tag-premium"><span data-i18n="tag.top">👑 Top</span></span>
                     </article>
                 </div>
@@ -4727,7 +4835,7 @@ const i18nData = {
         "h3.redbull":"<span class=\"sub-icon\">⚡</span> Con RedBull",
         "h3.daiquiris":"<span class=\"flavor-icon\">🥃</span> Daiquiris",
         "h3.margaritas":"<span class=\"flavor-icon\">🍋</span> Margaritas",
-        "h3.caipirinhas":"<span class=\"flavor-icon\">🍹</span> Caipirinhas",
+        "h3.caipirinhas":"<span class=\"flavor-icon\">🍹</span> Caipirinhas · Caipiroskas",
         "h3.pinas":"<span class=\"flavor-icon\">🍍</span> Piñas Coladas",
         "h3.nuevos_sin_alc":"<span class=\"sub-icon\">✨</span> Nuevos Cócteles Sin Alcohol",
         "h3.combinados_sub":"Combinados",
@@ -4735,7 +4843,7 @@ const i18nData = {
         "h3.cervezas_sub":"🍺 Cervezas",
         "h3.refrescos":"🥤 Refrescos",
         "h3.sangria":"Sangría & Cava",
-        "h3.copa_vino":"Copa de Vino <small>(* de la casa)</small>",
+        "h3.copa_vino":"Copa de Vino",
         "h3.vino_botella":"🍾 Vino en Botella",
         "footer.brand":"Lounge-bar de referencia en Miami Platja, Costa Dorada. Cócteles, música y atardeceres mediterráneos.",
         "footer.col1.title":"Contacto",
@@ -4790,8 +4898,7 @@ const i18nData = {
         "n.plato_xl_de_palomitas_dulces_o":"Plato XL de palomitas dulces o saladas",
         "n.plato_de_salchichon_iberico":"Plato de salchichón ibérico",
         "n.delicioso_guacamole_con_nachos":"Delicioso guacamole con nachos",
-        "n.duo_de_humus_tradicional_y_de_":"Dúo de Hummus <small>(tradicional y de olivas)</small>",
-        "n.porcion_de_houmous_individual_":"Porción de hummus individual <small>(tradicional o de olivas)</small>",
+        "n.duo_de_humus_tradicional_y_de_":"Humus tradicional o de olivas",
         "n.plato_de_quesos_ibericos":"Plato de quesos ibéricos",
         "n.plato_de_salmon_delicadamente_":"Plato de salmón delicadamente ahumado y sus delicias",
         "n.plato_de_jamon_iberico":"Plato de jamón ibérico",
@@ -4858,7 +4965,7 @@ const i18nData = {
         "sub.xl":"Elige los sabores de nuestra carta o crea los tuyos. Formato gigante para 2 a 10 personas.",
         "sub.frutas":"Elige tu fruta favorita y nosotros te lo preparamos al momento.",
         "sub.sin_alcohol":"Para los que quieren disfrutar sin alcohol. Misma experiencia, mismo placer.",
-        "sub.sin_alcohol_highlight":"🌟 <strong>Prueba el Mojito Especial \"Inspiración de la Jefa\" 0%</strong> · 6,50€",
+        "sub.sin_alcohol_highlight":"🌟 <strong>Prueba el Mojito Especial \"Inspiración de la Jefa\" 0%</strong> · 6,90€",
         "sub.gin":"Cargado: +1€ · Muy Cargado: +2€",
         "sub.sharing":"Para compartir · à partager · sharing food",
         "pill.mojito_clasico":"🌿 Mojito clásico",
@@ -4876,7 +4983,7 @@ const i18nData = {
         "pill.jagger":"🥃 Jäger",
         "pill.platano":"🍌 Plátano",
         "pill.amaretto":"🌰 Amaretto",
-        "chip.sin_alcohol":"🌿 Sin alcohol <em>6,50€</em>",
+        "chip.sin_alcohol":"🌿 Sin alcohol <em>6,90€</em>",
         "xl.ppl2":"👥 2 personas",
         "xl.ppl3":"👥 3 personas",
         "xl.ppl4":"👥👥 4 personas",
@@ -4889,10 +4996,8 @@ const i18nData = {
         "f.pina":"Piña",
         "f.cereza":"Cereza",
         "f.melocoton":"Melocotón",
-        "f.frambuesa":"Frambuesa",
         "f.azul":"Azul",
         "li.chupito":"Chupito",
-        "li.chupito_tequila":"Chupito tequila",
         "li.leffe":"Leffe Rubia o Tostada",
         "li.fanta":"Fanta naranja / limón",
         "li.agua_gas":"Agua con gas",
@@ -4903,21 +5008,53 @@ const i18nData = {
         "li.sangria_cava_1l":"Sangría de cava 1L",
         "li.copa_sangria":"Copa de Sangría",
         "li.copa_sangria_cava":"Copa de Sangría de cava",
-        "li.vino_rosado":"Rosado *",
-        "li.vino_blanco":"Blanco *",
-        "li.vino_tinto":"Tinto *",
         "li.consultanos":"Consúltanos",
         "li.cava_casa":"Cava de la casa",
         "xl.badge_popular":"⭐ Popular",
         "xl.badge_fiesta":"🔥 Fiesta",
         "h2.combinados_full":"Combinados & <em>Licores</em>",
-        "li.ron_soda":"Ron + soda",
-        "li.julio_ibiza":"Julio Ibiza <em>(vodka negro + RedBull)</em>",
         "li.champu":"Champú",
         "chip.champagne":"🍾 Champagne <em>+1€</em>",
         "np.platano":"🍌 Mojito de Plátano",
         "np.azul":"💙 Mojito Azul",
-        "np.frambuesa":"🫐 Mojito Frambuesa"
+        "np.cereza":"🍒 Mojito de Cereza",
+        "n.fresimiami":"Fresimiami",
+        "d.fresimiami":"Licor de coco, fresa, cointreau",
+        "h3.aperol":"<span class=\"sub-icon\">🍊</span> Con Aperol",
+        "n.aperol_tonic":"Aperol Tonic",
+        "d.aperol_tonic":"Aperol, tónica",
+        "n.aperol_spritz":"Aperol Spritz",
+        "d.aperol_spritz":"Aperol, cava, gaseosa",
+        "n.fresh_aperol":"Fresh Aperol",
+        "d.fresh_aperol":"Vodka, aperol, melón, limón",
+        "n.red_aperol":"Red Aperol",
+        "d.red_aperol":"Aperol, fruta del bosque, limón",
+        "n.sour_aperol":"Sour Aperol",
+        "d.sour_aperol":"Aperol, naranja, gaseosa",
+        "n.pink_aperol":"Pink Aperol",
+        "d.pink_aperol":"Aperol, vino rosado, jarabe de fresa",
+        "n.pomaperol":"Pomaperol",
+        "d.pomaperol":"Aperol, zumo de pomelo",
+        "pill.frangelico":"🌰 Frangelico",
+        "f.sandia":"Sandía",
+        "n.plato_de_jamon_de_pato":"Plato de jamón de pato y sus delicias",
+        "n.plato_de_foie_gras_pato":"Plato de bloc de foie gras de pato y sus dulces",
+        "n.duo_pato_foie":"Dúo de jamón de pato y bloc de foie gras de pato",
+        "n.olivas_caseras":"Olivas caseras",
+        "li.copa_cava":"Copa de Cava",
+        "badge.unico":"precio único",
+        "badge.champagne":"con Champagne",
+        "badge.redbull":"con RedBull",
+        "gin.note":"<strong>Cargado:</strong> +1€ &nbsp;·&nbsp; <strong>Muy Cargado:</strong> +2€",
+        "combi.gin":"Gin + refresco",
+        "combi.whisky":"Whisky + refresco",
+        "combi.ron":"Ron + refresco",
+        "combi.vodka":"Vodka + refresco",
+        "combi.malibu":"Malibú + refresco",
+        "combi.martini":"Martini + refresco",
+        "combi.brandy":"Brandy + refresco",
+        "combi.havana":"Havana 7 + refresco",
+        "combi.jd":"Jack Daniel's + refresco"
     },
     fr: {
         "nav.about":"À propos",
@@ -4971,7 +5108,7 @@ const i18nData = {
         "h3.redbull":"<span class=\"sub-icon\">⚡</span> Au RedBull",
         "h3.daiquiris":"<span class=\"flavor-icon\">🥃</span> Daïquiris",
         "h3.margaritas":"<span class=\"flavor-icon\">🍋</span> Margaritas",
-        "h3.caipirinhas":"<span class=\"flavor-icon\">🍹</span> Caïpirinhas",
+        "h3.caipirinhas":"<span class=\"flavor-icon\">🍹</span> Caïpirinhas · Caïpiroskas",
         "h3.pinas":"<span class=\"flavor-icon\">🍍</span> Piñas Coladas",
         "h3.nuevos_sin_alc":"<span class=\"sub-icon\">✨</span> Nouveaux Cocktails Sans Alcool",
         "h3.combinados_sub":"Long Drinks",
@@ -4979,7 +5116,7 @@ const i18nData = {
         "h3.cervezas_sub":"🍺 Bières",
         "h3.refrescos":"🥤 Boissons",
         "h3.sangria":"Sangria & Cava",
-        "h3.copa_vino":"Verre de Vin <small>(* maison)</small>",
+        "h3.copa_vino":"Verre de Vin",
         "h3.vino_botella":"🍾 Vin en Bouteille",
         "footer.brand":"Bar lounge de référence à Miami Platja, Costa Dorada. Cocktails, musique et couchers de soleil méditerranéens.",
         "footer.col1.title":"Contact",
@@ -5034,8 +5171,7 @@ const i18nData = {
         "n.plato_xl_de_palomitas_dulces_o":"Assiette XL de pop-corn sucré ou salé",
         "n.plato_de_salchichon_iberico":"Assiette de saucisson ibérique",
         "n.delicioso_guacamole_con_nachos":"Délicieux guacamole avec nachos",
-        "n.duo_de_humus_tradicional_y_de_":"Duo de Houmous <small>(traditionnel et olives)</small>",
-        "n.porcion_de_houmous_individual_":"Portion de houmous individuelle <small>(traditionnel ou olives)</small>",
+        "n.duo_de_humus_tradicional_y_de_":"Houmous traditionnel ou aux olives",
         "n.plato_de_quesos_ibericos":"Assiette de fromages ibériques",
         "n.plato_de_salmon_delicadamente_":"Assiette de saumon délicatement fumé et ses délices",
         "n.plato_de_jamon_iberico":"Assiette de jambon ibérique",
@@ -5102,7 +5238,7 @@ const i18nData = {
         "sub.xl":"Choisissez les saveurs de notre carte ou créez les vôtres. Format géant pour 2 à 10 personnes.",
         "sub.frutas":"Choisissez votre fruit préféré et nous le préparons sur le moment.",
         "sub.sin_alcohol":"Pour ceux qui veulent profiter sans alcool. Même expérience, même plaisir.",
-        "sub.sin_alcohol_highlight":"🌟 <strong>Essayez le Mojito Spécial \"Inspiration du Chef\" 0%</strong> · 6,50€",
+        "sub.sin_alcohol_highlight":"🌟 <strong>Essayez le Mojito Spécial \"Inspiration du Chef\" 0%</strong> · 6,90€",
         "sub.gin":"Bien tassé : +1€ · Très tassé : +2€",
         "sub.sharing":"Para compartir · à partager · sharing food",
         "pill.mojito_clasico":"🌿 Mojito classique",
@@ -5120,7 +5256,7 @@ const i18nData = {
         "pill.jagger":"🥃 Jäger",
         "pill.platano":"🍌 Banane",
         "pill.amaretto":"🌰 Amaretto",
-        "chip.sin_alcohol":"🌿 Sans alcool <em>6,50€</em>",
+        "chip.sin_alcohol":"🌿 Sans alcool <em>6,90€</em>",
         "xl.ppl2":"👥 2 personnes",
         "xl.ppl3":"👥 3 personnes",
         "xl.ppl4":"👥👥 4 personnes",
@@ -5133,10 +5269,8 @@ const i18nData = {
         "f.pina":"Ananas",
         "f.cereza":"Cerise",
         "f.melocoton":"Pêche",
-        "f.frambuesa":"Framboise",
         "f.azul":"Bleu",
         "li.chupito":"Shot",
-        "li.chupito_tequila":"Shot tequila",
         "li.leffe":"Leffe Blonde ou Brune",
         "li.fanta":"Fanta orange / citron",
         "li.agua_gas":"Eau gazeuse",
@@ -5147,21 +5281,53 @@ const i18nData = {
         "li.sangria_cava_1l":"Sangria au cava 1L",
         "li.copa_sangria":"Verre de Sangria",
         "li.copa_sangria_cava":"Verre de Sangria au cava",
-        "li.vino_rosado":"Rosé *",
-        "li.vino_blanco":"Blanc *",
-        "li.vino_tinto":"Rouge *",
         "li.consultanos":"Consultez-nous",
         "li.cava_casa":"Cava maison",
         "xl.badge_popular":"⭐ Populaire",
         "xl.badge_fiesta":"🔥 Fiesta",
         "h2.combinados_full":"Long Drinks & <em>Liqueurs</em>",
-        "li.ron_soda":"Rhum + soda",
-        "li.julio_ibiza":"Julio Ibiza <em>(vodka noir + RedBull)</em>",
         "li.champu":"Champú",
         "chip.champagne":"🍾 Champagne <em>+1€</em>",
         "np.platano":"🍌 Mojito Banane",
         "np.azul":"💙 Mojito Bleu",
-        "np.frambuesa":"🫐 Mojito Framboise"
+        "np.cereza":"🍒 Mojito Cerise",
+        "n.fresimiami":"Fresimiami",
+        "d.fresimiami":"Liqueur de coco, fraise, cointreau",
+        "h3.aperol":"<span class=\"sub-icon\">🍊</span> À l'Aperol",
+        "n.aperol_tonic":"Aperol Tonic",
+        "d.aperol_tonic":"Aperol, tonic",
+        "n.aperol_spritz":"Aperol Spritz",
+        "d.aperol_spritz":"Aperol, cava, limonade",
+        "n.fresh_aperol":"Fresh Aperol",
+        "d.fresh_aperol":"Vodka, aperol, melon, citron",
+        "n.red_aperol":"Red Aperol",
+        "d.red_aperol":"Aperol, fruits des bois, citron",
+        "n.sour_aperol":"Sour Aperol",
+        "d.sour_aperol":"Aperol, orange, limonade",
+        "n.pink_aperol":"Pink Aperol",
+        "d.pink_aperol":"Aperol, vin rosé, sirop de fraise",
+        "n.pomaperol":"Pomaperol",
+        "d.pomaperol":"Aperol, jus de pamplemousse",
+        "pill.frangelico":"🌰 Frangelico",
+        "f.sandia":"Pastèque",
+        "n.plato_de_jamon_de_pato":"Assiette de jambon de canard et ses délices",
+        "n.plato_de_foie_gras_pato":"Assiette de bloc de foie gras de canard et ses délices",
+        "n.duo_pato_foie":"Duo de jambon de canard et bloc de foie gras de canard",
+        "n.olivas_caseras":"Olives marinées maison",
+        "li.copa_cava":"Verre de Cava",
+        "badge.unico":"prix unique",
+        "badge.champagne":"avec Champagne",
+        "badge.redbull":"avec RedBull",
+        "gin.note":"<strong>Bien tassé :</strong> +1€ &nbsp;·&nbsp; <strong>Très tassé :</strong> +2€",
+        "combi.gin":"Gin + soda",
+        "combi.whisky":"Whisky + soda",
+        "combi.ron":"Rhum + soda",
+        "combi.vodka":"Vodka + soda",
+        "combi.malibu":"Malibu + soda",
+        "combi.martini":"Martini + soda",
+        "combi.brandy":"Brandy + soda",
+        "combi.havana":"Havana 7 + soda",
+        "combi.jd":"Jack Daniel's + soda"
     },
     en: {
         "nav.about":"About",
@@ -5215,7 +5381,7 @@ const i18nData = {
         "h3.redbull":"<span class=\"sub-icon\">⚡</span> With RedBull",
         "h3.daiquiris":"<span class=\"flavor-icon\">🥃</span> Daiquiris",
         "h3.margaritas":"<span class=\"flavor-icon\">🍋</span> Margaritas",
-        "h3.caipirinhas":"<span class=\"flavor-icon\">🍹</span> Caipirinhas",
+        "h3.caipirinhas":"<span class=\"flavor-icon\">🍹</span> Caipirinhas · Caipiroskas",
         "h3.pinas":"<span class=\"flavor-icon\">🍍</span> Piñas Coladas",
         "h3.nuevos_sin_alc":"<span class=\"sub-icon\">✨</span> New Non-Alcoholic Cocktails",
         "h3.combinados_sub":"Long Drinks",
@@ -5223,7 +5389,7 @@ const i18nData = {
         "h3.cervezas_sub":"🍺 Beers",
         "h3.refrescos":"🥤 Soft Drinks",
         "h3.sangria":"Sangria & Cava",
-        "h3.copa_vino":"Glass of Wine <small>(* house wine)</small>",
+        "h3.copa_vino":"Glass of Wine",
         "h3.vino_botella":"🍾 Wine by the Bottle",
         "footer.brand":"Reference lounge bar in Miami Platja, Costa Dorada. Cocktails, music and Mediterranean sunsets.",
         "footer.col1.title":"Contact",
@@ -5278,8 +5444,7 @@ const i18nData = {
         "n.plato_xl_de_palomitas_dulces_o":"XL plate of sweet or savoury popcorn",
         "n.plato_de_salchichon_iberico":"Iberian salami plate",
         "n.delicioso_guacamole_con_nachos":"Delicious guacamole with nachos",
-        "n.duo_de_humus_tradicional_y_de_":"Houmous duo <small>(traditional and olive)</small>",
-        "n.porcion_de_houmous_individual_":"Individual houmous portion <small>(traditional or olive)</small>",
+        "n.duo_de_humus_tradicional_y_de_":"Traditional or olive houmous",
         "n.plato_de_quesos_ibericos":"Iberian cheese plate",
         "n.plato_de_salmon_delicadamente_":"Plate of delicately smoked salmon and delicacies",
         "n.plato_de_jamon_iberico":"Iberian ham plate",
@@ -5346,7 +5511,7 @@ const i18nData = {
         "sub.xl":"Choose flavours from our menu or create your own. Giant format for 2 to 10 people.",
         "sub.frutas":"Choose your favourite fruit and we prepare it fresh for you.",
         "sub.sin_alcohol":"For those who want to enjoy without alcohol. Same experience, same pleasure.",
-        "sub.sin_alcohol_highlight":"🌟 <strong>Try the Special Mojito \"Chef's Inspiration\" 0%</strong> · 6,50€",
+        "sub.sin_alcohol_highlight":"🌟 <strong>Try the Special Mojito \"Chef's Inspiration\" 0%</strong> · 6,90€",
         "sub.gin":"Strong: +1€ · Extra Strong: +2€",
         "sub.sharing":"Para compartir · à partager · sharing food",
         "pill.mojito_clasico":"🌿 Classic Mojito",
@@ -5364,7 +5529,7 @@ const i18nData = {
         "pill.jagger":"🥃 Jäger",
         "pill.platano":"🍌 Banana",
         "pill.amaretto":"🌰 Amaretto",
-        "chip.sin_alcohol":"🌿 Non-alcoholic <em>6.50€</em>",
+        "chip.sin_alcohol":"🌿 Non-alcoholic <em>6.90€</em>",
         "xl.ppl2":"👥 2 people",
         "xl.ppl3":"👥 3 people",
         "xl.ppl4":"👥👥 4 people",
@@ -5377,10 +5542,8 @@ const i18nData = {
         "f.pina":"Pineapple",
         "f.cereza":"Cherry",
         "f.melocoton":"Peach",
-        "f.frambuesa":"Raspberry",
         "f.azul":"Blue",
         "li.chupito":"Shot",
-        "li.chupito_tequila":"Tequila shot",
         "li.leffe":"Leffe Blonde or Brown",
         "li.fanta":"Fanta orange / lemon",
         "li.agua_gas":"Sparkling water",
@@ -5391,21 +5554,53 @@ const i18nData = {
         "li.sangria_cava_1l":"Cava sangria 1L",
         "li.copa_sangria":"Glass of Sangria",
         "li.copa_sangria_cava":"Glass of cava sangria",
-        "li.vino_rosado":"Rosé *",
-        "li.vino_blanco":"White *",
-        "li.vino_tinto":"Red *",
         "li.consultanos":"Ask us",
         "li.cava_casa":"House cava",
         "xl.badge_popular":"⭐ Popular",
         "xl.badge_fiesta":"🔥 Party",
         "h2.combinados_full":"Long Drinks & <em>Spirits</em>",
-        "li.ron_soda":"Rum + soda",
-        "li.julio_ibiza":"Julio Ibiza <em>(black vodka + RedBull)</em>",
         "li.champu":"Champú",
         "chip.champagne":"🍾 Champagne <em>+1€</em>",
         "np.platano":"🍌 Banana Mojito",
         "np.azul":"💙 Blue Mojito",
-        "np.frambuesa":"🫐 Raspberry Mojito"
+        "np.cereza":"🍒 Cherry Mojito",
+        "n.fresimiami":"Fresimiami",
+        "d.fresimiami":"Coconut liqueur, strawberry, cointreau",
+        "h3.aperol":"<span class=\"sub-icon\">🍊</span> With Aperol",
+        "n.aperol_tonic":"Aperol Tonic",
+        "d.aperol_tonic":"Aperol, tonic",
+        "n.aperol_spritz":"Aperol Spritz",
+        "d.aperol_spritz":"Aperol, cava, soda",
+        "n.fresh_aperol":"Fresh Aperol",
+        "d.fresh_aperol":"Vodka, aperol, melon, lemon",
+        "n.red_aperol":"Red Aperol",
+        "d.red_aperol":"Aperol, forest fruits, lemon",
+        "n.sour_aperol":"Sour Aperol",
+        "d.sour_aperol":"Aperol, orange, soda",
+        "n.pink_aperol":"Pink Aperol",
+        "d.pink_aperol":"Aperol, rosé wine, strawberry syrup",
+        "n.pomaperol":"Pomaperol",
+        "d.pomaperol":"Aperol, grapefruit juice",
+        "pill.frangelico":"🌰 Frangelico",
+        "f.sandia":"Watermelon",
+        "n.plato_de_jamon_de_pato":"Duck ham plate and delicacies",
+        "n.plato_de_foie_gras_pato":"Duck foie gras bloc plate and delicacies",
+        "n.duo_pato_foie":"Duo of duck ham and duck foie gras bloc",
+        "n.olivas_caseras":"Homemade olives",
+        "li.copa_cava":"Glass of Cava",
+        "badge.unico":"single price",
+        "badge.champagne":"with Champagne",
+        "badge.redbull":"with RedBull",
+        "gin.note":"<strong>Strong:</strong> +1€ &nbsp;·&nbsp; <strong>Extra strong:</strong> +2€",
+        "combi.gin":"Gin + soft drink",
+        "combi.whisky":"Whisky + soft drink",
+        "combi.ron":"Rum + soft drink",
+        "combi.vodka":"Vodka + soft drink",
+        "combi.malibu":"Malibu + soft drink",
+        "combi.martini":"Martini + soft drink",
+        "combi.brandy":"Brandy + soft drink",
+        "combi.havana":"Havana 7 + soft drink",
+        "combi.jd":"Jack Daniel's + soft drink"
     }
 };
 const langMeta = {
