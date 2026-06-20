@@ -2238,13 +2238,57 @@ blockquote footer {
 }
 .xl-note strong { color: #2dff8e; }
 
+.xl-glass-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 150px;
+    margin-bottom: 10px;
+}
+.xl-glass {
+    display: block;
+    animation: xlGlassFloat 4s ease-in-out infinite;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 10px 18px rgba(255, 46, 147, 0.35));
+}
+.xl-card:hover .xl-glass {
+    transform: translateY(-6px) scale(1.06);
+}
+.xl-glass--featured { filter: drop-shadow(0 12px 24px rgba(255, 46, 147, 0.55)); }
+.xl-glass--gold { filter: drop-shadow(0 12px 28px rgba(255, 215, 0, 0.5)); }
+.xl-card:nth-child(2) .xl-glass { animation-delay: 0.3s; }
+.xl-card:nth-child(3) .xl-glass { animation-delay: 0.6s; }
+.xl-card:nth-child(4) .xl-glass { animation-delay: 0.9s; }
+.xl-card:nth-child(5) .xl-glass { animation-delay: 1.2s; }
+@keyframes xlGlassFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+.xl-bubble { animation: xlBubbleRise 2.8s ease-in infinite; }
+@keyframes xlBubbleRise {
+    0% { transform: translateY(0) scale(0.5); opacity: 0; }
+    18% { opacity: 0.9; }
+    85% { opacity: 0.35; }
+    100% { transform: translateY(-44px) scale(1.15); opacity: 0; }
+}
+.xl-glass-highlight { animation: xlGlassShine 3s ease-in-out infinite; }
+@keyframes xlGlassShine {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.4; }
+}
 @media (max-width: 900px) {
     .xl-grid { grid-template-columns: repeat(3, 1fr); }
     .xl-card { padding: 20px 12px; }
     .xl-vol { font-size: 36px; }
+    .xl-glass-wrap { min-height: 125px; }
+    .xl-glass { transform: scale(0.82); }
+    .xl-card:hover .xl-glass { transform: scale(0.88) translateY(-4px); }
 }
 @media (max-width: 560px) {
     .xl-grid { grid-template-columns: repeat(2, 1fr); }
+    .xl-glass-wrap { min-height: 105px; }
+    .xl-glass { transform: scale(0.7); }
+    .xl-card:hover .xl-glass { transform: scale(0.76) translateY(-3px); }
 }
 
 /* ============== FLAVOR GRID (4 cols) ============== */
@@ -3926,28 +3970,228 @@ img { max-width: 100%; height: auto; }
 
                 <div class="xl-grid">
                     <div class="xl-card" data-reveal>
+                        <div class="xl-glass-wrap">
+                            <svg class="xl-glass" width="58" height="76" viewBox="0 0 100 132" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="xlLiquid1" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#ff2e93"/>
+                                        <stop offset="55%" stop-color="#b794f6"/>
+                                        <stop offset="100%" stop-color="#ffd700"/>
+                                    </linearGradient>
+                                    <radialGradient id="xlSheen1" cx="35%" cy="30%" r="65%">
+                                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+                                        <stop offset="40%" stop-color="#ffffff" stop-opacity="0.08"/>
+                                        <stop offset="100%" stop-color="#000000" stop-opacity="0.18"/>
+                                    </radialGradient>
+                                    <clipPath id="xlBowlClip1">
+                                        <path d="M30 14 C16 28 10 40 10 58 C10 80 26 95 44 98 L56 98 C74 95 90 80 90 58 C90 40 84 28 70 14 Z"/>
+                                    </clipPath>
+                                </defs>
+                                <ellipse cx="50" cy="119" rx="15" ry="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                                <path d="M30 14 C16 28 10 40 10 58 C10 80 26 95 44 98 L44 118 L56 118 L56 98 C74 95 90 80 90 58 C90 40 84 28 70 14 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                                <g clip-path="url(#xlBowlClip1)">
+                                    <rect x="0" y="48" width="100" height="60" fill="url(#xlLiquid1)"/>
+                                    <rect x="0" y="48" width="100" height="60" fill="url(#xlSheen1)"/>
+                                    <ellipse cx="50" cy="48" rx="40" ry="3" fill="rgba(255,255,255,0.35)"/>
+                                    <rect x="36" y="44" width="9" height="9" rx="2" fill="rgba(255,255,255,0.5)" stroke="rgba(255,255,255,0.7)" stroke-width="0.7" transform="rotate(18 40 48)"/>
+                                    <rect x="54" y="58" width="8" height="8" rx="2" fill="rgba(255,255,255,0.45)" stroke="rgba(255,255,255,0.65)" stroke-width="0.7" transform="rotate(-15 58 62)"/>
+                                    <circle class="xl-bubble" cx="44" cy="92" r="1.6" fill="#ffffff" style="animation-delay:0s"/>
+                                    <circle class="xl-bubble" cx="52" cy="88" r="1.3" fill="#ffffff" style="animation-delay:.6s"/>
+                                    <circle class="xl-bubble" cx="48" cy="95" r="1.8" fill="#ffffff" style="animation-delay:1.2s"/>
+                                    <circle class="xl-bubble" cx="58" cy="90" r="1.2" fill="#ffffff" style="animation-delay:1.8s"/>
+                                </g>
+                                <path class="xl-glass-highlight" d="M22 32 C16 46 16 66 25 80" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                <ellipse cx="50" cy="14" rx="20" ry="4" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+                                <g>
+                                    <circle cx="68" cy="13" r="8" fill="#cdeb6a" stroke="#8fae2e" stroke-width="1.4"/>
+                                    <circle cx="68" cy="13" r="8" fill="none" stroke="#f5f9e3" stroke-width="0.8" stroke-dasharray="2 2"/>
+                                    <line x1="68" y1="6" x2="68" y2="20" stroke="#8fae2e" stroke-width="0.8"/>
+                                    <line x1="61" y1="13" x2="75" y2="13" stroke="#8fae2e" stroke-width="0.8"/>
+                                </g>
+                            </svg>
+                        </div>
                         <div class="xl-vol">1L</div>
                         <div class="xl-ppl" data-i18n="xl.ppl2">👥 2 personas</div>
                         <div class="xl-price">20,90€</div>
                     </div>
                     <div class="xl-card" data-reveal>
+                        <div class="xl-glass-wrap">
+                            <svg class="xl-glass" width="70" height="92" viewBox="0 0 100 132" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="xlLiquid2" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#ff2e93"/>
+                                        <stop offset="55%" stop-color="#b794f6"/>
+                                        <stop offset="100%" stop-color="#ffd700"/>
+                                    </linearGradient>
+                                    <radialGradient id="xlSheen2" cx="35%" cy="30%" r="65%">
+                                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+                                        <stop offset="40%" stop-color="#ffffff" stop-opacity="0.08"/>
+                                        <stop offset="100%" stop-color="#000000" stop-opacity="0.18"/>
+                                    </radialGradient>
+                                    <clipPath id="xlBowlClip2">
+                                        <path d="M30 14 C16 28 10 40 10 58 C10 80 26 95 44 98 L56 98 C74 95 90 80 90 58 C90 40 84 28 70 14 Z"/>
+                                    </clipPath>
+                                </defs>
+                                <ellipse cx="50" cy="119" rx="15" ry="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                                <path d="M30 14 C16 28 10 40 10 58 C10 80 26 95 44 98 L44 118 L56 118 L56 98 C74 95 90 80 90 58 C90 40 84 28 70 14 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                                <g clip-path="url(#xlBowlClip2)">
+                                    <rect x="0" y="48" width="100" height="60" fill="url(#xlLiquid2)"/>
+                                    <rect x="0" y="48" width="100" height="60" fill="url(#xlSheen2)"/>
+                                    <ellipse cx="50" cy="48" rx="40" ry="3" fill="rgba(255,255,255,0.35)"/>
+                                    <rect x="36" y="44" width="9" height="9" rx="2" fill="rgba(255,255,255,0.5)" stroke="rgba(255,255,255,0.7)" stroke-width="0.7" transform="rotate(18 40 48)"/>
+                                    <rect x="54" y="58" width="8" height="8" rx="2" fill="rgba(255,255,255,0.45)" stroke="rgba(255,255,255,0.65)" stroke-width="0.7" transform="rotate(-15 58 62)"/>
+                                    <circle class="xl-bubble" cx="44" cy="92" r="1.6" fill="#ffffff" style="animation-delay:0s"/>
+                                    <circle class="xl-bubble" cx="52" cy="88" r="1.3" fill="#ffffff" style="animation-delay:.6s"/>
+                                    <circle class="xl-bubble" cx="48" cy="95" r="1.8" fill="#ffffff" style="animation-delay:1.2s"/>
+                                    <circle class="xl-bubble" cx="58" cy="90" r="1.2" fill="#ffffff" style="animation-delay:1.8s"/>
+                                </g>
+                                <path class="xl-glass-highlight" d="M22 32 C16 46 16 66 25 80" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                <ellipse cx="50" cy="14" rx="20" ry="4" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+                                <g>
+                                    <circle cx="68" cy="13" r="8" fill="#cdeb6a" stroke="#8fae2e" stroke-width="1.4"/>
+                                    <circle cx="68" cy="13" r="8" fill="none" stroke="#f5f9e3" stroke-width="0.8" stroke-dasharray="2 2"/>
+                                    <line x1="68" y1="6" x2="68" y2="20" stroke="#8fae2e" stroke-width="0.8"/>
+                                    <line x1="61" y1="13" x2="75" y2="13" stroke="#8fae2e" stroke-width="0.8"/>
+                                </g>
+                            </svg>
+                        </div>
                         <div class="xl-vol">1,5L</div>
                         <div class="xl-ppl" data-i18n="xl.ppl3">👥 3 personas</div>
                         <div class="xl-price">25,90€</div>
                     </div>
                     <div class="xl-card xl-featured" data-reveal>
                         <div class="xl-badge" data-i18n="xl.badge_popular">⭐ Popular</div>
+                        <div class="xl-glass-wrap">
+                            <svg class="xl-glass xl-glass--featured" width="83" height="110" viewBox="0 0 100 132" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="xlLiquid3" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#ff2e93"/>
+                                        <stop offset="55%" stop-color="#b794f6"/>
+                                        <stop offset="100%" stop-color="#ffd700"/>
+                                    </linearGradient>
+                                    <radialGradient id="xlSheen3" cx="35%" cy="30%" r="65%">
+                                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+                                        <stop offset="40%" stop-color="#ffffff" stop-opacity="0.08"/>
+                                        <stop offset="100%" stop-color="#000000" stop-opacity="0.18"/>
+                                    </radialGradient>
+                                    <clipPath id="xlBowlClip3">
+                                        <path d="M30 14 C16 28 10 40 10 58 C10 80 26 95 44 98 L56 98 C74 95 90 80 90 58 C90 40 84 28 70 14 Z"/>
+                                    </clipPath>
+                                </defs>
+                                <ellipse cx="50" cy="119" rx="15" ry="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                                <path d="M30 14 C16 28 10 40 10 58 C10 80 26 95 44 98 L44 118 L56 118 L56 98 C74 95 90 80 90 58 C90 40 84 28 70 14 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                                <g clip-path="url(#xlBowlClip3)">
+                                    <rect x="0" y="48" width="100" height="60" fill="url(#xlLiquid3)"/>
+                                    <rect x="0" y="48" width="100" height="60" fill="url(#xlSheen3)"/>
+                                    <ellipse cx="50" cy="48" rx="40" ry="3" fill="rgba(255,255,255,0.35)"/>
+                                    <rect x="36" y="44" width="9" height="9" rx="2" fill="rgba(255,255,255,0.5)" stroke="rgba(255,255,255,0.7)" stroke-width="0.7" transform="rotate(18 40 48)"/>
+                                    <rect x="54" y="58" width="8" height="8" rx="2" fill="rgba(255,255,255,0.45)" stroke="rgba(255,255,255,0.65)" stroke-width="0.7" transform="rotate(-15 58 62)"/>
+                                    <circle class="xl-bubble" cx="44" cy="92" r="1.6" fill="#ffffff" style="animation-delay:0s"/>
+                                    <circle class="xl-bubble" cx="52" cy="88" r="1.3" fill="#ffffff" style="animation-delay:.6s"/>
+                                    <circle class="xl-bubble" cx="48" cy="95" r="1.8" fill="#ffffff" style="animation-delay:1.2s"/>
+                                    <circle class="xl-bubble" cx="58" cy="90" r="1.2" fill="#ffffff" style="animation-delay:1.8s"/>
+                                </g>
+                                <path class="xl-glass-highlight" d="M22 32 C16 46 16 66 25 80" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                <ellipse cx="50" cy="14" rx="20" ry="4" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+                                <g>
+                                    <circle cx="68" cy="13" r="8" fill="#cdeb6a" stroke="#8fae2e" stroke-width="1.4"/>
+                                    <circle cx="68" cy="13" r="8" fill="none" stroke="#f5f9e3" stroke-width="0.8" stroke-dasharray="2 2"/>
+                                    <line x1="68" y1="6" x2="68" y2="20" stroke="#8fae2e" stroke-width="0.8"/>
+                                    <line x1="61" y1="13" x2="75" y2="13" stroke="#8fae2e" stroke-width="0.8"/>
+                                </g>
+                            </svg>
+                        </div>
                         <div class="xl-vol">2L</div>
                         <div class="xl-ppl" data-i18n="xl.ppl4">👥👥 4 personas</div>
                         <div class="xl-price">30,90€</div>
                     </div>
                     <div class="xl-card" data-reveal>
+                        <div class="xl-glass-wrap">
+                            <svg class="xl-glass" width="97" height="128" viewBox="0 0 100 132" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="xlLiquid4" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#ff2e93"/>
+                                        <stop offset="55%" stop-color="#b794f6"/>
+                                        <stop offset="100%" stop-color="#ffd700"/>
+                                    </linearGradient>
+                                    <radialGradient id="xlSheen4" cx="35%" cy="30%" r="65%">
+                                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+                                        <stop offset="40%" stop-color="#ffffff" stop-opacity="0.08"/>
+                                        <stop offset="100%" stop-color="#000000" stop-opacity="0.18"/>
+                                    </radialGradient>
+                                    <clipPath id="xlBowlClip4">
+                                        <path d="M30 14 C16 28 10 40 10 58 C10 80 26 95 44 98 L56 98 C74 95 90 80 90 58 C90 40 84 28 70 14 Z"/>
+                                    </clipPath>
+                                </defs>
+                                <ellipse cx="50" cy="119" rx="15" ry="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                                <path d="M30 14 C16 28 10 40 10 58 C10 80 26 95 44 98 L44 118 L56 118 L56 98 C74 95 90 80 90 58 C90 40 84 28 70 14 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                                <g clip-path="url(#xlBowlClip4)">
+                                    <rect x="0" y="48" width="100" height="60" fill="url(#xlLiquid4)"/>
+                                    <rect x="0" y="48" width="100" height="60" fill="url(#xlSheen4)"/>
+                                    <ellipse cx="50" cy="48" rx="40" ry="3" fill="rgba(255,255,255,0.35)"/>
+                                    <rect x="36" y="44" width="9" height="9" rx="2" fill="rgba(255,255,255,0.5)" stroke="rgba(255,255,255,0.7)" stroke-width="0.7" transform="rotate(18 40 48)"/>
+                                    <rect x="54" y="58" width="8" height="8" rx="2" fill="rgba(255,255,255,0.45)" stroke="rgba(255,255,255,0.65)" stroke-width="0.7" transform="rotate(-15 58 62)"/>
+                                    <circle class="xl-bubble" cx="44" cy="92" r="1.6" fill="#ffffff" style="animation-delay:0s"/>
+                                    <circle class="xl-bubble" cx="52" cy="88" r="1.3" fill="#ffffff" style="animation-delay:.6s"/>
+                                    <circle class="xl-bubble" cx="48" cy="95" r="1.8" fill="#ffffff" style="animation-delay:1.2s"/>
+                                    <circle class="xl-bubble" cx="58" cy="90" r="1.2" fill="#ffffff" style="animation-delay:1.8s"/>
+                                </g>
+                                <path class="xl-glass-highlight" d="M22 32 C16 46 16 66 25 80" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                <ellipse cx="50" cy="14" rx="20" ry="4" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+                                <g>
+                                    <circle cx="68" cy="13" r="8" fill="#cdeb6a" stroke="#8fae2e" stroke-width="1.4"/>
+                                    <circle cx="68" cy="13" r="8" fill="none" stroke="#f5f9e3" stroke-width="0.8" stroke-dasharray="2 2"/>
+                                    <line x1="68" y1="6" x2="68" y2="20" stroke="#8fae2e" stroke-width="0.8"/>
+                                    <line x1="61" y1="13" x2="75" y2="13" stroke="#8fae2e" stroke-width="0.8"/>
+                                </g>
+                            </svg>
+                        </div>
                         <div class="xl-vol">3L</div>
                         <div class="xl-ppl" data-i18n="xl.ppl6">👥👥👥 6 personas</div>
                         <div class="xl-price">40,90€</div>
                     </div>
                     <div class="xl-card xl-biggest" data-reveal>
                         <div class="xl-badge xl-badge-cyan" data-i18n="xl.badge_fiesta">🔥 Fiesta</div>
+                        <div class="xl-glass-wrap">
+                            <svg class="xl-glass xl-glass--gold" width="114" height="150" viewBox="0 0 100 132" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="xlLiquid5" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#ffd700"/>
+                                        <stop offset="55%" stop-color="#b794f6"/>
+                                        <stop offset="100%" stop-color="#00f0ff"/>
+                                    </linearGradient>
+                                    <radialGradient id="xlSheen5" cx="35%" cy="30%" r="65%">
+                                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+                                        <stop offset="40%" stop-color="#ffffff" stop-opacity="0.08"/>
+                                        <stop offset="100%" stop-color="#000000" stop-opacity="0.18"/>
+                                    </radialGradient>
+                                    <clipPath id="xlBowlClip5">
+                                        <path d="M30 14 C16 28 10 40 10 58 C10 80 26 95 44 98 L56 98 C74 95 90 80 90 58 C90 40 84 28 70 14 Z"/>
+                                    </clipPath>
+                                </defs>
+                                <ellipse cx="50" cy="119" rx="15" ry="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                                <path d="M30 14 C16 28 10 40 10 58 C10 80 26 95 44 98 L44 118 L56 118 L56 98 C74 95 90 80 90 58 C90 40 84 28 70 14 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                                <g clip-path="url(#xlBowlClip5)">
+                                    <rect x="0" y="48" width="100" height="60" fill="url(#xlLiquid5)"/>
+                                    <rect x="0" y="48" width="100" height="60" fill="url(#xlSheen5)"/>
+                                    <ellipse cx="50" cy="48" rx="40" ry="3" fill="rgba(255,255,255,0.35)"/>
+                                    <rect x="36" y="44" width="9" height="9" rx="2" fill="rgba(255,255,255,0.5)" stroke="rgba(255,255,255,0.7)" stroke-width="0.7" transform="rotate(18 40 48)"/>
+                                    <rect x="54" y="58" width="8" height="8" rx="2" fill="rgba(255,255,255,0.45)" stroke="rgba(255,255,255,0.65)" stroke-width="0.7" transform="rotate(-15 58 62)"/>
+                                    <circle class="xl-bubble" cx="44" cy="92" r="1.6" fill="#ffffff" style="animation-delay:0s"/>
+                                    <circle class="xl-bubble" cx="52" cy="88" r="1.3" fill="#ffffff" style="animation-delay:.6s"/>
+                                    <circle class="xl-bubble" cx="48" cy="95" r="1.8" fill="#ffffff" style="animation-delay:1.2s"/>
+                                    <circle class="xl-bubble" cx="58" cy="90" r="1.2" fill="#ffffff" style="animation-delay:1.8s"/>
+                                </g>
+                                <path class="xl-glass-highlight" d="M22 32 C16 46 16 66 25 80" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                <ellipse cx="50" cy="14" rx="20" ry="4" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+                                <g>
+                                    <circle cx="68" cy="13" r="8" fill="#cdeb6a" stroke="#8fae2e" stroke-width="1.4"/>
+                                    <circle cx="68" cy="13" r="8" fill="none" stroke="#f5f9e3" stroke-width="0.8" stroke-dasharray="2 2"/>
+                                    <line x1="68" y1="6" x2="68" y2="20" stroke="#8fae2e" stroke-width="0.8"/>
+                                    <line x1="61" y1="13" x2="75" y2="13" stroke="#8fae2e" stroke-width="0.8"/>
+                                </g>
+                            </svg>
+                        </div>
                         <div class="xl-vol">5L</div>
                         <div class="xl-ppl" data-i18n="xl.ppl10">👥👥👥👥 10 personas</div>
                         <div class="xl-price">64,90€</div>
