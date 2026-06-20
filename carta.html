@@ -2183,10 +2183,25 @@ blockquote footer {
     margin-bottom: 6px;
 }
 .xl-ppl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
     font-size: 14px;
     color: var(--ink-soft);
     margin-bottom: 16px;
 }
+.xl-ppl-icons {
+    display: inline-flex;
+    gap: 3px;
+}
+.xl-person {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
+.xl-person--on { color: #00d4ff; filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.5)); }
+.xl-person--off { color: rgba(255, 255, 255, 0.22); }
 .xl-price {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 26px;
@@ -3350,6 +3365,10 @@ img { max-width: 100%; height: auto; }
                     <path d="M100 100 C 125 95, 145 100, 160 115 C 135 110, 115 105, 102 110" />
                 </g>
             </symbol>
+            <symbol id="person-svg" viewBox="0 0 24 24">
+                <circle cx="12" cy="7.5" r="4" fill="currentColor"/>
+                <path d="M4 21c0-5.2 3.4-8 8-8s8 2.8 8 8" fill="currentColor"/>
+            </symbol>
         </defs>
     </svg>
 
@@ -4011,7 +4030,13 @@ img { max-width: 100%; height: auto; }
                             </svg>
                         </div>
                         <div class="xl-vol">1L</div>
-                        <div class="xl-ppl" data-i18n="xl.ppl2">👥 2 personas</div>
+                        <div class="xl-ppl">
+                            <span class="xl-ppl-icons" aria-hidden="true">
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                            </span>
+                            <span data-i18n="xl.ppl2">2 personas</span>
+                        </div>
                         <div class="xl-price">20,90€</div>
                     </div>
                     <div class="xl-card" data-reveal>
@@ -4056,7 +4081,14 @@ img { max-width: 100%; height: auto; }
                             </svg>
                         </div>
                         <div class="xl-vol">1,5L</div>
-                        <div class="xl-ppl" data-i18n="xl.ppl3">👥 3 personas</div>
+                        <div class="xl-ppl">
+                            <span class="xl-ppl-icons" aria-hidden="true">
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                            </span>
+                            <span data-i18n="xl.ppl3">3 personas</span>
+                        </div>
                         <div class="xl-price">25,90€</div>
                     </div>
                     <div class="xl-card xl-featured" data-reveal>
@@ -4102,7 +4134,16 @@ img { max-width: 100%; height: auto; }
                             </svg>
                         </div>
                         <div class="xl-vol">2L</div>
-                        <div class="xl-ppl" data-i18n="xl.ppl4">👥👥 3 a 5 personas</div>
+                        <div class="xl-ppl">
+                            <span class="xl-ppl-icons" aria-hidden="true">
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--off"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--off"><use href="#person-svg"/></svg>
+                            </span>
+                            <span data-i18n="xl.ppl4">3 a 5 personas</span>
+                        </div>
                         <div class="xl-price">30,90€</div>
                     </div>
                     <div class="xl-card" data-reveal>
@@ -4147,7 +4188,16 @@ img { max-width: 100%; height: auto; }
                             </svg>
                         </div>
                         <div class="xl-vol">3L</div>
-                        <div class="xl-ppl" data-i18n="xl.ppl6">👥👥 4 a 5 personas</div>
+                        <div class="xl-ppl">
+                            <span class="xl-ppl-icons" aria-hidden="true">
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--off"><use href="#person-svg"/></svg>
+                            </span>
+                            <span data-i18n="xl.ppl6">4 a 5 personas</span>
+                        </div>
                         <div class="xl-price">40,90€</div>
                     </div>
                     <div class="xl-card xl-biggest" data-reveal>
@@ -4193,7 +4243,16 @@ img { max-width: 100%; height: auto; }
                             </svg>
                         </div>
                         <div class="xl-vol">5L</div>
-                        <div class="xl-ppl" data-i18n="xl.ppl10">👥👥 5 personas</div>
+                        <div class="xl-ppl">
+                            <span class="xl-ppl-icons" aria-hidden="true">
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                                <svg class="xl-person xl-person--on"><use href="#person-svg"/></svg>
+                            </span>
+                            <span data-i18n="xl.ppl10">5 personas</span>
+                        </div>
                         <div class="xl-price">64,90€</div>
                     </div>
                 </div>
@@ -5228,11 +5287,11 @@ const i18nData = {
         "pill.platano":"🍌 Plátano",
         "pill.amaretto":"🌰 Amaretto",
         "chip.sin_alcohol":"🌿 Sin alcohol <em>6,90€</em>",
-        "xl.ppl2":"👥 2 personas",
-        "xl.ppl3":"👥 3 personas",
-        "xl.ppl4":"👥👥 3 a 5 personas",
-        "xl.ppl6":"👥👥 4 a 5 personas",
-        "xl.ppl10":"👥👥 5 personas",
+        "xl.ppl2":"2 personas",
+        "xl.ppl3":"3 personas",
+        "xl.ppl4":"3 a 5 personas",
+        "xl.ppl6":"4 a 5 personas",
+        "xl.ppl10":"5 personas",
         "xl.note":"Ahora también puedes hacer tus cócteles <strong>sin alcohol</strong> en formato gigante con un descuento de <strong>5€</strong>.",
         "f.limon":"Limón",
         "f.fresa":"Fresa",
@@ -5501,11 +5560,11 @@ const i18nData = {
         "pill.platano":"🍌 Banane",
         "pill.amaretto":"🌰 Amaretto",
         "chip.sin_alcohol":"🌿 Sans alcool <em>6,90€</em>",
-        "xl.ppl2":"👥 2 personnes",
-        "xl.ppl3":"👥 3 personnes",
-        "xl.ppl4":"👥👥 3 à 5 personnes",
-        "xl.ppl6":"👥👥 4 à 5 personnes",
-        "xl.ppl10":"👥👥 5 personnes",
+        "xl.ppl2":"2 personnes",
+        "xl.ppl3":"3 personnes",
+        "xl.ppl4":"3 à 5 personnes",
+        "xl.ppl6":"4 à 5 personnes",
+        "xl.ppl10":"5 personnes",
         "xl.note":"Vous pouvez désormais préparer vos cocktails <strong>sans alcool</strong> en format géant avec une réduction de <strong>5€</strong>.",
         "f.limon":"Citron",
         "f.fresa":"Fraise",
@@ -5774,11 +5833,11 @@ const i18nData = {
         "pill.platano":"🍌 Banana",
         "pill.amaretto":"🌰 Amaretto",
         "chip.sin_alcohol":"🌿 Non-alcoholic <em>6.90€</em>",
-        "xl.ppl2":"👥 2 people",
-        "xl.ppl3":"👥 3 people",
-        "xl.ppl4":"👥👥 3 to 5 people",
-        "xl.ppl6":"👥👥 4 to 5 people",
-        "xl.ppl10":"👥👥 5 people",
+        "xl.ppl2":"2 people",
+        "xl.ppl3":"3 people",
+        "xl.ppl4":"3 to 5 people",
+        "xl.ppl6":"4 to 5 people",
+        "xl.ppl10":"5 people",
         "xl.note":"You can now make your cocktails <strong>non-alcoholic</strong> in giant format with a <strong>5€</strong> discount.",
         "f.limon":"Lemon",
         "f.fresa":"Strawberry",
